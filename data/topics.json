@@ -160,6 +160,102 @@
       "category": "guides",
       "keyword": "debuter la musculation",
       "products": ["halteres-reglables", "banc-reglable", "elastiques", "whey"]
+    },
+    {
+      "slug": "muscler-les-pectoraux-maison",
+      "title": "Comment muscler ses pectoraux à la maison : exercices et matériel",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "muscler les pectoraux a la maison",
+      "products": ["halteres-reglables", "banc-reglable", "elastiques"]
+    },
+    {
+      "slug": "muscler-les-jambes-maison",
+      "title": "Muscler ses jambes à la maison : le guide complet",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "muscler les jambes a la maison",
+      "products": ["halteres-reglables", "kettlebell", "elastiques", "barre-olympique"]
+    },
+    {
+      "slug": "muscler-les-bras-maison",
+      "title": "Comment muscler ses bras à la maison : biceps et triceps",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "muscler les bras a la maison",
+      "products": ["halteres-reglables", "elastiques", "barre-traction"]
+    },
+    {
+      "slug": "meilleur-tapis-de-fitness",
+      "title": "Meilleur tapis de fitness : comparatif et guide d'achat",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleur tapis de fitness",
+      "products": ["tapis-sol", "roue-abdos", "elastiques"]
+    },
+    {
+      "slug": "meilleure-ceinture-de-force",
+      "title": "Meilleure ceinture de force pour la musculation : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure ceinture de musculation",
+      "products": ["ceinture-lombaire", "sangles-tractions", "barre-olympique"]
+    },
+    {
+      "slug": "meilleur-velo-appartement",
+      "title": "Meilleur vélo d'appartement : comparatif pour le cardio à la maison",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleur velo d'appartement",
+      "products": ["velo-appartement", "montre-cardio", "corde-sauter"]
+    },
+    {
+      "slug": "echauffement-avant-musculation",
+      "title": "Bien s'échauffer avant la musculation : routine et exercices",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "echauffement avant musculation",
+      "products": ["elastiques", "corde-sauter", "tapis-sol"]
+    },
+    {
+      "slug": "etirements-recuperation",
+      "title": "Étirements et mobilité : le guide pour mieux récupérer",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "etirements musculation mobilite",
+      "products": ["tapis-sol", "elastiques"]
+    },
+    {
+      "slug": "proteines-vegetales-musculation",
+      "title": "Protéines végétales et musculation : guide pour prendre du muscle",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "proteines vegetales musculation",
+      "products": ["whey", "creatine"]
+    },
+    {
+      "slug": "meilleurs-complements-musculation",
+      "title": "Meilleurs compléments alimentaires en musculation : le comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleurs complements musculation",
+      "products": ["whey", "creatine"]
+    },
+    {
+      "slug": "hiit-maison-bruler-graisse",
+      "title": "HIIT à la maison : programme pour brûler un maximum de graisse",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "hiit maison bruler graisse",
+      "products": ["corde-sauter", "kettlebell", "tapis-sol"]
+    },
+    {
+      "slug": "home-gym-petit-budget",
+      "title": "Se monter un home gym pas cher : le guide petit budget",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "home gym pas cher petit budget",
+      "products": ["elastiques", "halteres-reglables", "barre-traction", "tapis-sol", "corde-sauter"]
     }
   ]
 }

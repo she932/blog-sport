@@ -148,7 +148,7 @@ Le [[LINK:velo-appartement|vélo d'appartement]] offre un cardio à faible impac
 
 ### La montre connectée, pour suivre sa progression
 
-Une [[LINM:montre-cardio|montre connectée sport]] (à corriger)
+Une [[LINK:montre-cardio|montre connectée sport]] permet de suivre votre fréquence cardiaque, vos calories et votre progression au fil des séances. Ce n'est pas indispensable pour débuter, mais c'est un outil de motivation appréciable une fois vos bases posées.
 
 ### Un outil de suivi utile mais non indispensable
 
