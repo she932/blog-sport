@@ -42,7 +42,11 @@ function linkHtml(id, anchor) {
   return `<a class="aff-inline" href="${url}" target="_blank" rel="nofollow sponsored noopener">${escapeHtml(text)}</a>`;
 }
 
-const PLACEHOLDER = /\[\[(BOX|LINK):([a-z0-9-]+)(?:\|([^\]]+))?\]\]/gi;
+// Tolérant aux fautes de frappe du type de marqueur : seul « BOX » produit
+// un bloc CTA, tout autre mot-clé (LINK, mais aussi une variante mal
+// orthographiée comme « LINM ») est traité comme un lien inline. Ainsi, un
+// marqueur jamais transformé ne peut pas s'afficher en clair sur le site.
+const PLACEHOLDER = /\[\[([A-Za-z]+):([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g;
 
 /** Découpe un texte en nœuds mdast (text / html) selon les marqueurs. */
 function splitText(value) {
