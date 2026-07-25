@@ -149,6 +149,45 @@ Des bandes de qualité bien entretenues durent longtemps, mais remplacez sans h�
 
 Ce n'est pas l'un **ou** l'autre : les deux se complètent parfaitement. Les [[LINK:halteres-reglables|haltères réglables]] offrent une charge constante et mesurable, tandis que les bandes ajoutent de la résistance variable, de l'assistance et de la mobilité. Ensemble, ils forment un home gym redoutablement complet et compact.
 
+## Comment progresser avec des élastiques
+
+Une question revient souvent : peut-on réellement progresser avec des bandes, puisqu'on ne peut pas ajouter de « poids » comme avec des haltères ? La réponse est oui, à condition d'appliquer la **surcharge progressive** autrement :
+
+- **Changer de bande** : passez à une résistance supérieure quand l'exercice devient trop facile ;
+- **Combiner les bandes** : superposez deux bandes pour augmenter la résistance ;
+- **Raccourcir la bande** : en la tenant plus court ou en l'enroulant, vous augmentez la tension ;
+- **Ralentir le tempo** : une exécution lente (3-4 secondes en phase excentrique) intensifie le travail musculaire ;
+- **Augmenter les répétitions et les séries** : accroître le volume total stimule la progression.
+
+En jouant sur ces variables, on maintient un stimulus croissant qui pousse le muscle à s'adapter, exactement comme avec des charges libres.
+
+## Bandes élastiques et fessiers : un duo gagnant
+
+Les mini-bandes en boucle connaissent un immense succès pour le travail des **fessiers**, et à juste titre. Placées autour des cuisses ou des chevilles, elles activent efficacement les muscles fessiers, souvent « endormis » par la sédentarité et la position assise prolongée.
+
+Quelques exercices incontournables :
+
+- **Le hip thrust élastique** : bande autour des genoux, pour renforcer les fessiers ;
+- **Les marches latérales** (crab walk) : bande aux chevilles, déplacez-vous sur le côté ;
+- **Les kickbacks** : extension de la jambe vers l'arrière contre la résistance ;
+- **Les clamshells** : ouverture des genoux allongé sur le côté.
+
+Ces exercices, très populaires, renforcent et galbent les fessiers tout en améliorant la stabilité de la hanche — un bénéfice esthétique et fonctionnel.
+
+## Les erreurs à éviter avec les élastiques
+
+- **Choisir une seule résistance** : un set évolutif est bien plus utile pour progresser et adapter la charge à chaque muscle ;
+- **Négliger la phase de retour** : contrôlez toujours le retour de la bande, ne la laissez pas se rétracter brutalement ;
+- **Utiliser des bandes usées** : une bande fissurée peut rompre sous tension et provoquer une blessure ;
+- **Manquer d'amplitude** : profitez de la résistance sur toute l'amplitude du mouvement ;
+- **Sous-estimer l'échauffement** : même avec des élastiques, un échauffement reste utile.
+
+## Élastiques ou machines de salle : le match
+
+Les bandes élastiques reproduisent de nombreux mouvements réalisables sur les machines de salle (tirages, développés, pressions), pour une fraction du prix et de l'encombrement. Elles offrent une résistance variable qui sollicite intensément la contraction, là où les machines imposent une charge constante.
+
+Bien sûr, les machines permettent de charger très lourd et guident le mouvement, ce qui a ses avantages. Mais pour un usage à domicile, la polyvalence, le faible coût et la portabilité des élastiques en font une alternative remarquablement efficace, surtout combinées à quelques poids libres. Pour beaucoup de pratiquants, un set de bandes bien utilisé rend les machines de salle largement dispensables.
+
 ## En résumé
 
 Les **meilleures bandes élastiques** combinent un latex de qualité, plusieurs niveaux de résistance et des accessoires pratiques. Choisissez un set évolutif adapté à votre niveau, associez-le éventuellement à une barre de traction et à des haltères, et vous disposerez d'un équipement complet, compact et abordable pour progresser à la maison.

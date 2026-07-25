@@ -110,6 +110,43 @@ Au-delà du total quotidien, la façon dont vous répartissez vos protéines inf
 
 Concrètement, répartir son apport sur **3 à 4 repas** espacés est plus efficace que de tout concentrer sur un ou deux repas. Cela maintient un flux régulier d'acides aminés disponibles pour le muscle tout au long de la journée. Un pratiquant visant 150 g de protéines aura donc intérêt à viser environ 4 prises de 35-40 g, plutôt que 70 g au dîner et peu ailleurs.
 
+## Protéines et perte de poids : un allié de taille
+
+Les protéines ne servent pas qu'à construire du muscle : elles sont aussi précieuses pour **perdre du gras**. Deux mécanismes l'expliquent.
+
+D'abord, les protéines ont l'**effet de satiété** le plus élevé des trois macronutriments : elles calent efficacement et réduisent les fringales, ce qui aide à tenir un déficit calorique sans souffrir de la faim.
+
+Ensuite, leur **effet thermique** est important : le corps dépense environ 20 à 30 % des calories issues des protéines rien que pour les digérer et les assimiler, contre 5 à 10 % pour les glucides et à peine 3 % pour les lipides. Autrement dit, une partie des calories protéiques est « brûlée » lors de la digestion.
+
+Enfin, en période de déficit, un apport protéique élevé **préserve la masse musculaire**, garantissant que le poids perdu soit du gras et non du muscle. C'est pourquoi on recommande de monter jusqu'à 2 à 2,4 g/kg en sèche.
+
+## Le petit-déjeuner protéiné : une habitude payante
+
+Beaucoup de personnes concentrent leurs protéines sur le déjeuner et le dîner, en négligeant le petit-déjeuner, souvent riche en glucides (pain, céréales, viennoiseries). C'est une occasion manquée.
+
+Commencer la journée avec **20 à 40 g de protéines** (œufs, fromage blanc, skyr, yaourt grec) présente plusieurs avantages : une meilleure satiété toute la matinée, une répartition plus équilibrée sur la journée, et un coup de pouce à la construction musculaire dès le réveil. Si vous manquez de temps, un shaker de whey ou un yaourt riche en protéines dépanne efficacement.
+
+## Des sources de protéines économiques
+
+Manger suffisamment de protéines ne coûte pas forcément cher. Certaines sources offrent un excellent rapport protéines/prix :
+
+- **Les œufs** : peu coûteux, complets et polyvalents ;
+- **Le fromage blanc et le skyr** : riches en protéines, économiques au kilo ;
+- **Les légumineuses** (lentilles, pois chiches, haricots) : très abordables et rassasiantes ;
+- **Le thon en conserve** : pratique et bon marché ;
+- **Les cuisses et hauts de poulet** : moins chers que le blanc, tout aussi protéiques ;
+- **La whey en grand format** : souvent l'un des moyens les moins chers d'atteindre son total.
+
+Avec un peu d'organisation, atteindre 150 g de protéines par jour reste tout à fait accessible sans exploser son budget.
+
+## Quand les protéines en poudre deviennent utiles
+
+Les protéines en poudre ne sont pas indispensables, mais elles rendent service dans plusieurs situations concrètes : lorsque vos besoins sont élevés et difficiles à couvrir par les seuls repas, quand vous manquez de temps pour cuisiner, ou pour une collation rapide et digeste autour de l'entraînement. Une [[LINK:whey|whey protéine]] fournit environ 20 à 25 g de protéines de qualité par dose, en quelques secondes de préparation.
+
+[[BOX:whey]]
+
+Considérez-les comme un **complément pratique**, pas comme un substitut aux aliments entiers, qui apportent aussi micronutriments, fibres et satiété.
+
 ## Un exemple de journée à 150 g de protéines
 
 - **Petit-déjeuner** : 3 œufs + 200 g de fromage blanc → ~40 g

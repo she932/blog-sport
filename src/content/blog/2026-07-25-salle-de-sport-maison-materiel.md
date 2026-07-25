@@ -1,5 +1,5 @@
 ---
-title: "Matériel salle de sport maison : le guide complet 2024"
+title: "Matériel salle de sport maison : le guide complet 2026"
 description: "Découvrez le matériel salle de sport maison indispensable pour s'entraîner efficacement : structure, poids libres, accessoires et budget. Guide complet et honnête."
 pubDate: 2026-07-25
 category: guides

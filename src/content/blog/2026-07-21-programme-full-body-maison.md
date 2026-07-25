@@ -137,6 +137,45 @@ Avant chaque séance, consacrez **5 à 10 minutes** à :
 
 Une [[LINK:corde-sauter|corde à sauter]] est un excellent outil d'échauffement, compact et efficace.
 
+## Varier les exercices selon votre matériel
+
+L'un des atouts du full body est son adaptabilité au matériel disponible. Selon ce dont vous disposez, chaque mouvement peut se décliner :
+
+| Mouvement | Avec haltères | Avec élastiques | Au poids du corps |
+| --- | --- | --- | --- |
+| Jambes | Squat, fentes | Squat élastique | Squat, fentes, chaise |
+| Poitrine | Développé couché | Développé élastique | Pompes |
+| Dos | Rowing haltère | Tirage élastique | Tractions |
+| Épaules | Développé militaire | Développé élastique | Pike push-ups |
+| Bras | Curls, extensions | Curls élastiques | Dips sur chaise |
+
+Cette flexibilité permet de composer une séance complète quel que soit votre équipement. Une paire d'[[LINK:halteres-reglables|haltères réglables]] combinée à des [[LINK:elastiques|bandes élastiques]] couvre la quasi-totalité des besoins pour un home gym compact et polyvalent.
+
+## Combien de temps dure une séance full body ?
+
+Une séance full body bien menée dure généralement **45 minutes à 1 heure**, échauffement compris. Ce format compact est l'un de ses grands avantages : pas besoin d'y passer des heures. La clé est de rester **efficace** :
+
+- Limitez-vous à 5 ou 6 exercices bien choisis ;
+- Respectez des temps de repos adaptés (60 à 90 secondes) sans traîner ;
+- Restez concentré sur la qualité d'exécution plutôt que sur la durée.
+
+Si vous manquez de temps, une séance de 40 minutes centrée sur les mouvements polyarticulaires reste très efficace. Mieux vaut une séance courte et intense réalisée régulièrement qu'une séance interminable rarement tenue.
+
+## Tenir un journal d'entraînement
+
+C'est l'outil le plus sous-estimé de la progression. Noter ses séances — exercices, charges, répétitions — permet de **piloter la surcharge progressive** avec précision. Sans journal, on avance à l'aveugle et on stagne souvent sans s'en rendre compte.
+
+Un simple carnet ou une application suffit. À chaque séance, cherchez à battre, ne serait-ce que légèrement, votre performance précédente : une répétition de plus, un peu plus de charge. Sur plusieurs semaines, ces petites victoires s'accumulent et se traduisent par des résultats visibles. Le journal transforme un entraînement intuitif en démarche méthodique et mesurable.
+
+## Full body pour perdre du gras ou prendre du muscle ?
+
+Le format full body s'adapte aux deux objectifs, la différence se jouant surtout dans l'**alimentation** :
+
+- **Pour prendre du muscle** : associez le full body à un léger surplus calorique et un apport élevé en protéines. Concentrez-vous sur la progression des charges.
+- **Pour perdre du gras** : conservez le full body pour préserver le muscle, mais placez-vous en déficit calorique. Vous pouvez raccourcir légèrement les temps de repos pour intensifier la dépense.
+
+Dans les deux cas, le programme reste globalement le même : c'est votre bilan calorique qui oriente le résultat. Le full body constitue donc une base solide et polyvalente, quel que soit votre objectif du moment.
+
 ## Combien de temps pour voir des résultats ?
 
 Avec ce programme suivi assidûment 3 fois par semaine, comptez **4 à 6 semaines** pour ressentir plus de force, et **8 à 12 semaines** pour des changements visibles. La constance est, une fois encore, le facteur décisif.
