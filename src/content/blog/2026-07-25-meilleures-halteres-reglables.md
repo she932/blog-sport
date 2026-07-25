@@ -6,7 +6,7 @@ category: comparatifs
 keyword: "meilleures halteres reglables"
 author: "La rédaction MuscuGuide"
 readingTime: 10
-featured: false
+featured: true
 draft: false
 tags:
   - "halteres reglables"

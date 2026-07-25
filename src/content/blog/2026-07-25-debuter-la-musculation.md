@@ -6,7 +6,7 @@ category: guides
 keyword: "débuter la musculation"
 author: "La rédaction MuscuGuide"
 readingTime: 8
-featured: true
+featured: false
 draft: false
 tags:
   - "musculation"

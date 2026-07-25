@@ -10,8 +10,12 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const featured = posts.find((p) => p.data.featured) ?? posts[0];
-const rest = posts.filter((p) => p.id !== featured?.id).slice(0, 9);
+// Articles mis en avant (featured) affichés dans la sélection « à la une ».
+const featuredPosts = posts.filter((p) => p.data.featured).slice(0, 6);
+const heroPost = featuredPosts[0] ?? posts[0];
+// Derniers articles : les plus récents hors sélection à la une.
+const featuredIds = new Set(featuredPosts.map((p) => p.id));
+const recent = posts.filter((p) => !featuredIds.has(p.id)).slice(0, 9);
 
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -44,28 +48,33 @@ const websiteLd = {
     ))}
   </section>
 
-  {featured && (
+  {featuredPosts.length > 0 && (
     <section class="container section">
+      <span class="badge">Notre sélection</span>
       <h2 class="section-title">À la une</h2>
-      <div class="grid grid--feature">
-        <ArticleCard post={featured} featured />
-        <div class="side-list">
-          {rest.slice(0, 4).map((p) => (
-            <ArticleCard post={p} />
-          ))}
+      {featuredPosts.length > 1 ? (
+        <div class="grid grid--feature">
+          <ArticleCard post={heroPost} featured />
+          <div class="side-list">
+            {featuredPosts.slice(1, 5).map((p) => (
+              <ArticleCard post={p} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <ArticleCard post={heroPost} featured />
+      )}
     </section>
   )}
 
-  {rest.length > 4 && (
+  {recent.length > 0 && (
     <section class="container section">
       <div class="section-head">
         <h2 class="section-title">Derniers articles</h2>
         <a href={`${base}/blog`} class="see-all">Tout voir →</a>
       </div>
       <div class="grid grid--3">
-        {rest.slice(4).map((p) => (
+        {recent.map((p) => (
           <ArticleCard post={p} />
         ))}
       </div>
