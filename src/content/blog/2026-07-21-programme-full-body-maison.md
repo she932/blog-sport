@@ -87,6 +87,36 @@ Corps aligné, abdominaux et fessiers contractés. La base d'un tronc solide.
 | Soulevé de terre roumain | 3 × 10 | Ischios, fessiers |
 | Gainage | 3 × 30-45 s | Abdominaux |
 
+## Full body, half body ou split : quel format choisir ?
+
+Le full body n'est pas le seul format d'entraînement, mais c'est souvent le meilleur pour la maison et pour les débutants. Comparons les grandes approches :
+
+- **Le full body** : tout le corps à chaque séance, 2 à 3 fois par semaine. Fréquence de stimulation élevée, idéal quand on s'entraîne peu de fois par semaine. Le meilleur choix pour débuter à domicile.
+- **Le half body (haut/bas)** : une séance haut du corps, une séance bas du corps, en alternance. Adapté à 4 séances hebdomadaires, il permet plus de volume par groupe musculaire.
+- **Le split (par groupe)** : chaque séance cible un ou deux groupes (pectoraux/triceps, dos/biceps…). Réservé aux pratiquants avancés qui s'entraînent 5-6 fois par semaine.
+
+Pour la grande majorité des pratiquants à domicile, surtout débutants et intermédiaires, le full body 3 fois par semaine reste imbattable en termes de résultats par heure investie. On ne passe au half body ou au split que lorsque le volume nécessaire par muscle devient trop élevé pour tenir en une seule séance.
+
+## Adapter le programme à son niveau
+
+Ce programme évolue avec vous. Voici comment l'ajuster selon votre progression :
+
+- **Grand débutant** : commencez avec des charges légères, concentrez-vous sur la technique et n'allez pas à l'échec. Deux séances par semaine suffisent pour débuter.
+- **Intermédiaire** : passez à 3 séances, augmentez les charges, ajoutez une série sur les exercices principaux et rapprochez-vous de l'échec musculaire.
+- **Avancé** : intégrez des variations d'exercices, jouez sur le tempo, réduisez les temps de repos sur certains mouvements et augmentez le volume total.
+
+L'erreur classique du débutant est de vouloir en faire trop, trop vite. Mieux vaut progresser lentement mais régulièrement, en maîtrisant chaque mouvement, que de brûler les étapes au risque de se blesser ou de se décourager.
+
+## Nutrition et récupération autour du full body
+
+Un programme, aussi bon soit-il, ne donne des résultats que s'il est soutenu par une bonne nutrition et une récupération suffisante. Trois points essentiels :
+
+- **Les protéines** : visez 1,6 à 2 g par kilo de poids de corps pour construire et réparer le muscle. Une [[LINK:whey|whey protéine]] peut compléter facilement votre apport ;
+- **L'énergie** : mangez suffisamment pour alimenter vos séances, avec des glucides de qualité ;
+- **Le repos** : le format full body sollicite tout le corps, laissez donc au moins un jour de récupération entre deux séances. Le muscle se construit pendant le repos, pas pendant l'effort.
+
+Avec 3 séances hebdomadaires bien récupérées et une alimentation adaptée, ce programme full body offre une progression remarquable, surtout durant les premiers mois.
+
 ## Comment progresser avec ce programme
 
 La progression repose sur la **surcharge progressive**. À chaque séance, cherchez à faire un peu mieux :

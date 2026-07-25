@@ -89,6 +89,48 @@ Le muscle ne se construit pas pendant l'effort, mais **pendant le repos**. Trois
 
 La [[LINK:creatine|créatine monohydrate]] peut soutenir la performance et la récupération sur les efforts intenses. C'est un complément peu coûteux, sûr et bien documenté.
 
+## Prise de masse propre ou « dirty bulk » ?
+
+Face à la prise de masse, deux écoles s'opposent, et le choix influence fortement vos résultats.
+
+- **Le « dirty bulk »** consiste à manger sans compter, avec un large surplus calorique, pour prendre du poids rapidement. Résultat : on gagne du muscle, mais aussi **beaucoup de gras**, qu'il faudra ensuite éliminer lors d'une longue sèche.
+- **Le « lean bulk » (prise de masse propre)** privilégie un surplus modéré (200 à 400 kcal) et une alimentation de qualité. La prise de poids est plus lente, mais le ratio muscle/gras est bien meilleur.
+
+Pour un débutant, la prise de masse propre est presque toujours le meilleur choix : elle permet de construire du muscle tout en limitant le gras, ce qui évite les sèches interminables et démotivantes. La patience paie : mieux vaut gagner 4 kg de muscle propre en plusieurs mois que 8 kg dont la moitié en gras.
+
+## Suivre sa progression : au-delà de la balance
+
+La balance seule est un indicateur trompeur, car elle ne distingue pas le muscle du gras ni de l'eau. Pour piloter efficacement votre prise de masse, combinez plusieurs repères :
+
+- **Le poids** : pesez-vous plusieurs fois par semaine et suivez la moyenne, en visant 0,25 à 0,5 kg de gain hebdomadaire ;
+- **Les mensurations** : mesurez tour de bras, de cuisse, de poitrine et de taille toutes les 2-3 semaines. Une taille qui explose signale trop de gras ;
+- **Les photos** : prises dans les mêmes conditions toutes les 3-4 semaines, elles révèlent mieux les changements que le miroir quotidien ;
+- **Les performances** : le meilleur indicateur pour un débutant. Si vos charges progressent séance après séance, vous construisez du muscle.
+
+Ce suivi multiple permet d'ajuster votre alimentation : si le poids grimpe trop vite avec une taille qui s'épaissit, réduisez légèrement le surplus.
+
+## Faut-il faire du cardio en prise de masse ?
+
+Beaucoup de débutants suppriment tout cardio de peur de « brûler leurs gains ». C'est une erreur. Un peu de cardio présente plusieurs avantages en prise de masse :
+
+- Il **préserve la santé cardiovasculaire** et l'endurance ;
+- Il **limite la prise de gras** en augmentant légèrement la dépense ;
+- Il **améliore la récupération** et l'appétit.
+
+L'essentiel est de ne pas en abuser : 2 à 3 séances de cardio modéré par semaine (marche rapide, vélo, corde à sauter) sont un bon compromis. Elles n'entament pas la construction musculaire tant que votre surplus calorique et votre apport en protéines sont maintenus.
+
+## Combien de temps durer une prise de masse ?
+
+Une prise de masse n'est pas éternelle. En général, on la mène sur plusieurs mois (3 à 6 mois, voire davantage pour un débutant), tant que la progression en force et en muscle continue avec une prise de gras maîtrisée.
+
+Il est temps d'envisager une pause ou une mini-sèche quand :
+
+- Le **taux de graisse** devient trop élevé à votre goût ;
+- La prise de poids se fait surtout sous forme de **gras** et non de performance ;
+- Vous vous sentez moins à l'aise dans vos vêtements ou moins motivé.
+
+Pour un débutant, la bonne nouvelle est que la fenêtre de progression est longue : profitez-en pour construire un maximum de muscle propre avant de penser à sécher.
+
 ## Un exemple de semaine type
 
 Voici une organisation simple et efficace pour débuter :

@@ -89,6 +89,38 @@ La whey se marie bien avec la [[LINK:creatine|créatine monohydrate]], l'autre c
 
 [[BOX:creatine]]
 
+## Comment lire une étiquette de whey
+
+Savoir décrypter une étiquette permet d'éviter les pièges marketing. Voici les points à vérifier :
+
+- **La quantité de protéines par dose** : c'est l'information reine. Une bonne dose apporte 20 à 25 g de protéines. Méfiez-vous des doses gonflées artificiellement.
+- **Le pourcentage de protéines pour 100 g** : plus il est élevé, plus la whey est « pure ». Une concentrée titre 70-80 %, une isolate 85-90 %.
+- **La liste d'ingrédients** : plus elle est courte, mieux c'est. La protéine doit arriver en tête. Méfiez-vous des ajouts de sucres, de crème ou d'agents de charge bon marché.
+- **Les acides aminés** : certaines marques détaillent leur teneur en BCAA et en leucine, l'acide aminé clé de la synthèse musculaire.
+- **Le taux de sucres et de graisses** : intéressant surtout en sèche, où l'on privilégie une whey pauvre en sucres et lipides.
+
+Un bon réflexe est de comparer le **prix au kilo de protéines réelles**, et non le prix du paquet, pour évaluer objectivement le rapport qualité-prix.
+
+## Whey et objectifs : prise de masse ou sèche ?
+
+Le choix de la whey peut s'adapter à votre objectif :
+
+- **En prise de masse** : une whey concentrée, éventuellement mélangée au lait, apporte des protéines et quelques calories supplémentaires bienvenues. Elle se marie bien avec la [[LINK:creatine|créatine]] pour maximiser la progression.
+- **En sèche** : une isolate, plus pauvre en sucres et en graisses, aide à atteindre un apport protéique élevé (essentiel pour préserver le muscle) sans alourdir le bilan calorique. Mélangée à l'eau, elle constitue une collation rassasiante et peu calorique.
+
+Dans les deux cas, la whey reste un **outil au service de votre apport protéique total**, pas une solution miracle. C'est la cohérence globale de votre alimentation et de votre entraînement qui fait la différence.
+
+## Quand consommer sa whey ?
+
+Le moment de prise est moins crucial qu'on ne le croyait, mais certaines fenêtres sont pratiques :
+
+- **Autour de l'entraînement** : rapide à digérer, la whey est idéale en collation avant ou après la séance ;
+- **Au petit-déjeuner** : pour démarrer la journée avec un apport protéique, notamment si vous manquez de temps ;
+- **En collation** : entre deux repas, pour maintenir un apport régulier tout au long de la journée ;
+- **Le soir** : possible, même si une source à digestion plus lente (fromage blanc, caséine) peut être préférée avant le coucher.
+
+Retenez surtout que c'est l'**apport total sur la journée** qui compte le plus. La whey sert simplement à combler l'écart entre vos besoins et ce que votre alimentation solide apporte.
+
 ## Whey végétale : une alternative ?
 
 Pour les personnes véganes ou intolérantes au lait, les **protéines végétales** (pois, riz, ou mélanges) constituent une alternative valable. Le profil d'acides aminés est légèrement moins optimal, mais un mélange bien conçu (pois + riz) s'en approche. Le goût et la texture sont souvent différents, à tester selon vos préférences.

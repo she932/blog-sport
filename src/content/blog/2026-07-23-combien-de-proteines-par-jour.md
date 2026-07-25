@@ -81,6 +81,35 @@ Chez une personne en bonne santé, les apports élevés en protéines n'ont pas 
 
 > À retenir : viser plus de 2,5 g/kg n'apporte pas de bénéfice supplémentaire prouvé pour la construction musculaire. Inutile d'en faire trop.
 
+## Les besoins en protéines selon votre objectif
+
+Les besoins ne sont pas identiques pour tout le monde : ils varient selon votre objectif et votre niveau d'activité.
+
+| Situation | Apport recommandé |
+| --- | --- |
+| Sédentaire (santé de base) | 0,8 à 1,2 g/kg |
+| Pratiquant loisir | 1,4 à 1,6 g/kg |
+| Prise de masse | 1,6 à 2,2 g/kg |
+| Sèche (préserver le muscle) | 2 à 2,4 g/kg |
+| Senior actif | 1,2 à 1,6 g/kg |
+
+En **sèche**, on monte l'apport vers le haut de la fourchette : en déficit calorique, des protéines élevées protègent la masse musculaire et augmentent la satiété, deux atouts décisifs. En **prise de masse**, un apport suffisant soutient la construction, mais inutile de dépasser 2,2 g/kg : le surplus n'apporte pas de bénéfice prouvé.
+
+## Protéines animales ou végétales : quelle qualité ?
+
+Toutes les protéines ne se valent pas sur le plan de la **qualité**, c'est-à-dire leur profil en acides aminés essentiels et leur digestibilité.
+
+- **Les protéines animales** (viande, œufs, poisson, laitages) sont dites « complètes » : elles contiennent tous les acides aminés essentiels dans de bonnes proportions, avec une excellente teneur en leucine.
+- **Les protéines végétales** (légumineuses, céréales, tofu) sont souvent incomplètes prises isolément, mais leur **combinaison** (par exemple légumineuses + céréales) fournit un profil complet.
+
+Pour les végétariens et véganes, il suffit donc de **varier les sources** et de veiller à un apport total un peu plus élevé pour compenser une digestibilité parfois moindre. Une protéine végétale en poudre (pois, riz) peut compléter l'apport si nécessaire.
+
+## Le rôle de la répartition sur la journée
+
+Au-delà du total quotidien, la façon dont vous répartissez vos protéines influence la construction musculaire. La synthèse des protéines musculaires est stimulée de façon optimale par des apports d'environ **25 à 40 g** par prise, riches en leucine.
+
+Concrètement, répartir son apport sur **3 à 4 repas** espacés est plus efficace que de tout concentrer sur un ou deux repas. Cela maintient un flux régulier d'acides aminés disponibles pour le muscle tout au long de la journée. Un pratiquant visant 150 g de protéines aura donc intérêt à viser environ 4 prises de 35-40 g, plutôt que 70 g au dîner et peu ailleurs.
+
 ## Un exemple de journée à 150 g de protéines
 
 - **Petit-déjeuner** : 3 œufs + 200 g de fromage blanc → ~40 g
