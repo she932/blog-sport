@@ -5,7 +5,7 @@ pubDate: 2026-07-15
 category: guides
 keyword: "musculation perte de poids"
 author: "La rédaction MuscuGuide"
-readingTime: 10
+readingTime: 13
 featured: false
 draft: false
 tags:
@@ -68,6 +68,53 @@ Le cardio n'est pas obligatoire pour maigrir, mais il **accélère la dépense**
 | HIIT (haute intensité) | Efforts intenses/courts, fractionné | Gain de temps, dépense élevée |
 
 Une [[LINK:corde-sauter|corde à sauter]] ou un [[LINK:velo-appartement|vélo d'appartement]] sont parfaits pour intégrer du cardio à la maison. Commencez modérément et augmentez progressivement.
+
+## Calculer sa maintenance et son déficit
+
+Pour piloter une sèche, il faut connaître son point de départ : la **maintenance calorique**, c'est-à-dire le nombre de calories qui maintient votre poids stable. Une estimation simple consiste à multiplier votre poids de corps par un coefficient selon votre activité (environ 30 à 35 kcal/kg pour une personne modérément active).
+
+Une fois cette base estimée, retirez **300 à 500 kcal** pour créer un déficit efficace mais soutenable. La méthode la plus fiable reste toutefois **empirique** : notez votre alimentation et votre poids pendant deux semaines. Si le poids stagne, vous êtes à la maintenance ; réduisez alors légèrement. Ajustez au fil des semaines, car la maintenance diminue à mesure que vous perdez du poids.
+
+L'important n'est pas la précision au calorie près, mais la **tendance sur plusieurs semaines**. Pesez-vous régulièrement dans les mêmes conditions et fiez-vous à la moyenne hebdomadaire, pas aux variations quotidiennes dues à l'eau et à la digestion.
+
+## La recomposition corporelle : perdre du gras et gagner du muscle
+
+Peut-on vraiment maigrir et se muscler en même temps ? Oui, c'est la **recomposition corporelle**, particulièrement accessible dans certaines situations :
+
+- **Les débutants** : leur corps réagit fortement à l'entraînement, ce qui permet de construire du muscle même en léger déficit ;
+- **Les personnes en surpoids** : elles disposent de réserves de graisse importantes que le corps peut mobiliser pour alimenter la construction musculaire ;
+- **Les personnes qui reprennent** après une pause : la « mémoire musculaire » facilite le regain rapide.
+
+Pour un pratiquant avancé, c'est bien plus difficile et lent. Dans tous les cas, la recomposition exige un **entraînement en force sérieux** avec des [[LINK:halteres-reglables|charges progressives]] et un **apport élevé en protéines**. Le processus est plus lent qu'une prise de masse ou une sèche classiques, mais le résultat — un physique plus sec et plus musclé à poids parfois identique — en vaut la peine.
+
+## Le NEAT : l'arme secrète contre le gras
+
+Au-delà du sport, une grande partie de votre dépense énergétique provient du **NEAT** (Non-Exercise Activity Thermogenesis) : toutes les calories brûlées par l'activité quotidienne hors entraînement — marcher, monter les escaliers, bouger, rester debout.
+
+Le NEAT est souvent sous-estimé alors qu'il peut représenter des centaines de calories par jour. Pire : en déficit, le corps a tendance à réduire inconsciemment le NEAT (on bouge moins, on est plus fatigué), ce qui ralentit la perte. Pour le maintenir élevé :
+
+- Visez un objectif de **pas quotidiens** (8 000 à 10 000) ;
+- Privilégiez les escaliers, marchez pour les trajets courts ;
+- Levez-vous régulièrement si vous travaillez assis.
+
+Augmenter son NEAT est souvent plus durable et moins fatigant que d'ajouter toujours plus de cardio intense.
+
+## Gérer la faim et les plateaux
+
+La faim est le principal ennemi d'une sèche. Quelques stratégies pour la maîtriser :
+
+- **Privilégiez les aliments volumineux et rassasiants** : légumes, protéines maigres, aliments riches en fibres et en eau ;
+- **Maintenez un apport élevé en protéines**, qui coupent efficacement la faim ;
+- **Buvez suffisamment**, la soif étant parfois confondue avec la faim ;
+- **Dormez bien** : le manque de sommeil augmente l'appétit.
+
+Face à un **plateau** (le poids ne baisse plus pendant 2-3 semaines), ne paniquez pas. Vérifiez d'abord votre rigueur alimentaire, puis ajustez : réduisez légèrement les calories ou augmentez l'activité. Parfois, une courte pause à la maintenance (diet break) aide à relancer la perte et à souffler mentalement.
+
+## Sommeil et stress : les facteurs oubliés
+
+On l'ignore souvent, mais le **sommeil** et le **stress** pèsent lourd dans une sèche. Un manque de sommeil dérègle les hormones de la faim (leptine et ghréline), augmente les fringales et réduit la récupération. Un stress chronique élève le cortisol, ce qui peut favoriser le stockage abdominal et la rétention d'eau.
+
+Pour optimiser votre sèche, traitez ces leviers comme des priorités : visez 7 à 9 heures de sommeil, gérez votre stress (marche, respiration, détente) et évitez de cumuler un déficit agressif avec un mode de vie épuisant. Une sèche réussie est autant une question d'hygiène de vie que de calories.
 
 ## Un plan d'attaque type pour sécher
 
