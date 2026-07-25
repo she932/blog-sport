@@ -126,6 +126,33 @@ Pour optimiser votre sèche, traitez ces leviers comme des priorités : visez 7 
 
 > À retenir : la sèche se gagne à 70 % en cuisine. L'entraînement préserve le muscle et dessine la silhouette, mais c'est le déficit alimentaire qui fait fondre le gras.
 
+## Les aliments à privilégier et à limiter
+
+Réussir une sèche ne signifie pas se priver de tout, mais faire des choix intelligents. L'idée est de privilégier des aliments **rassasiants et riches en nutriments** pour un maximum de satiété avec un minimum de calories.
+
+**À privilégier :**
+
+- **Les protéines maigres** : poulet, dinde, poisson blanc, œufs, fromage blanc, skyr ;
+- **Les légumes** : volumineux, riches en fibres et très peu caloriques, ils calent l'estomac ;
+- **Les féculents complets** : riz, patate douce, flocons d'avoine, en quantités maîtrisées ;
+- **Les fruits** : source de vitamines et de fibres, avec modération ;
+- **Les bonnes graisses** : huile d'olive, avocat, oléagineux, en petites quantités.
+
+**À limiter :**
+
+- Les aliments ultra-transformés, riches en calories et peu rassasiants ;
+- Les boissons sucrées et l'alcool, sources de calories « vides » ;
+- Les excès de matières grasses, très denses en calories ;
+- Le grignotage non planifié, principal ennemi du déficit.
+
+Il ne s'agit pas d'interdire, mais de doser : un petit plaisir occasionnel intégré à votre budget calorique ne compromet pas une sèche. C'est la cohérence sur la durée qui compte.
+
+## Sèche et paliers : garder le cap
+
+Une sèche n'est presque jamais linéaire. Le poids descend par paliers, avec des phases de stagnation parfois frustrantes dues à la rétention d'eau, aux variations hormonales ou à une adaptation du métabolisme. Ne vous découragez pas face à une balance qui stagne quelques jours : fiez-vous à la **tendance sur plusieurs semaines**.
+
+Si un plateau persiste réellement au-delà de deux à trois semaines malgré une bonne rigueur, ajustez légèrement (réduisez un peu les calories ou augmentez l'activité), ou accordez-vous une courte pause à la maintenance pour souffler avant de repartir. La sèche est autant un marathon mental que physique : la constance et la patience font toute la différence.
+
 ## Les erreurs à éviter
 
 - **Réduire trop drastiquement** les calories : perte de muscle et reprise assurée ;
