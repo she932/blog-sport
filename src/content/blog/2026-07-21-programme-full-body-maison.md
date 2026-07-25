@@ -1,0 +1,116 @@
+---
+title: "Programme full body à la maison : séance complète pas à pas"
+description: "Un programme full body à la maison efficace : exercices, séries, répétitions et matériel pour muscler tout le corps chez soi, débutant comme confirmé."
+pubDate: 2026-07-21
+category: guides
+keyword: "programme full body maison"
+author: "La rédaction MuscuGuide"
+readingTime: 10
+featured: false
+draft: false
+tags:
+  - "full body"
+  - "programme"
+  - "maison"
+  - "musculation"
+  - "entraînement"
+faq:
+  - question: "Le full body est-il efficace pour prendre du muscle ?"
+    answer: "Oui, le full body est particulièrement efficace, surtout pour les débutants et intermédiaires. En sollicitant chaque groupe musculaire plusieurs fois par semaine, il maximise la fréquence de stimulation, un facteur clé de la construction musculaire. C'est aussi le format le plus adapté à un entraînement à domicile."
+  - question: "Combien de séances full body par semaine ?"
+    answer: "Trois séances par semaine constituent l'idéal pour la plupart des pratiquants, avec un jour de repos entre chaque. Cela laisse le temps de récupérer tout en sollicitant chaque muscle trois fois. Deux séances hebdomadaires restent efficaces pour un emploi du temps chargé."
+  - question: "Peut-on progresser en full body sans matériel lourd ?"
+    answer: "Oui. Avec des haltères réglables, des bandes élastiques et une barre de traction, on applique la surcharge progressive sur tous les groupes musculaires. Le poids du corps et les élastiques permettent aussi de complexifier les exercices. La clé est d'augmenter régulièrement la difficulté."
+  - question: "Faut-il s'échauffer avant une séance full body ?"
+    answer: "Absolument. Un échauffement de 5 à 10 minutes (cardio léger, mobilité articulaire, séries légères) réduit fortement le risque de blessure et améliore la performance. Ne le négligez jamais, surtout avant les mouvements lourds comme le squat ou le soulevé de terre."
+---
+
+Le **programme full body** est sans doute le format le plus adapté à l'entraînement à la maison : en une seule séance, vous sollicitez l'ensemble du corps, ce qui permet de progresser vite avec seulement deux à trois séances par semaine. Idéal pour les débutants comme pour ceux qui manquent de temps, il maximise la fréquence de stimulation musculaire tout en restant simple à organiser. Voici un **programme full body à la maison** complet, pas à pas, avec le matériel minimal pour le réaliser efficacement.
+
+## Pourquoi choisir le full body à la maison ?
+
+Le principe du full body est de **travailler tous les grands groupes musculaires à chaque séance**. Ses avantages sont nombreux :
+
+- **Fréquence élevée** : chaque muscle est stimulé 2 à 3 fois par semaine ;
+- **Gain de temps** : pas besoin de s'entraîner tous les jours ;
+- **Simplicité** : un seul type de séance à retenir ;
+- **Parfait à domicile** : peu de matériel nécessaire.
+
+Pour les débutants, c'est le format qui offre la meilleure progression, car la répétition fréquente des mouvements accélère l'apprentissage technique et la prise de force.
+
+## Le matériel minimal recommandé
+
+Pas besoin d'une salle complète. Trois équipements couvrent l'essentiel :
+
+- Une paire d'[[LINK:halteres-reglables|haltères réglables]] pour ajuster la charge selon les exercices ;
+- Des [[LINK:elastiques|bandes élastiques de résistance]] pour les tirages et l'assistance ;
+- Une [[LINK:barre-traction|barre de traction]] pour le dos et les bras.
+
+[[BOX:halteres-reglables]]
+
+Un [[LINK:tapis-sol|tapis de sol]] confortable complète le tout pour les exercices au sol et le gainage.
+
+## La séance full body pas à pas
+
+Voici une séance type à réaliser **3 fois par semaine** (par exemple lundi, mercredi, vendredi). Reposez-vous 60 à 90 secondes entre les séries.
+
+### 1. Squat (jambes, fessiers) — 4 × 10
+
+Le roi des exercices pour le bas du corps. Descendez cuisses parallèles au sol, dos gainé, talons ancrés. Ajoutez des haltères pour augmenter la charge.
+
+### 2. Développé couché ou pompes (pectoraux, épaules, triceps) — 4 × 8-10
+
+Avec un banc et des haltères, réalisez le développé couché. Sans banc, les pompes sont une excellente alternative, à complexifier (pieds surélevés, lestées).
+
+### 3. Rowing haltère (dos, biceps) — 4 × 10-12
+
+Penché en avant, dos droit, tirez l'haltère vers la hanche en serrant l'omoplate. Un mouvement fondamental pour un dos large et fort.
+
+### 4. Développé militaire (épaules) — 3 × 10
+
+Debout ou assis, poussez les haltères au-dessus de la tête. Gainez les abdominaux pour protéger le bas du dos.
+
+### 5. Soulevé de terre roumain (chaîne postérieure) — 3 × 10
+
+Ischio-jambiers et fessiers. Descendez les haltères le long des jambes en poussant les hanches vers l'arrière, dos plat.
+
+### 6. Gainage (planche) — 3 × 30 à 45 s
+
+Corps aligné, abdominaux et fessiers contractés. La base d'un tronc solide.
+
+| Exercice | Séries × Répétitions | Muscles ciblés |
+| --- | --- | --- |
+| Squat | 4 × 10 | Jambes, fessiers |
+| Développé couché / pompes | 4 × 8-10 | Pectoraux, triceps |
+| Rowing haltère | 4 × 10-12 | Dos, biceps |
+| Développé militaire | 3 × 10 | Épaules |
+| Soulevé de terre roumain | 3 × 10 | Ischios, fessiers |
+| Gainage | 3 × 30-45 s | Abdominaux |
+
+## Comment progresser avec ce programme
+
+La progression repose sur la **surcharge progressive**. À chaque séance, cherchez à faire un peu mieux :
+
+- Ajoutez une répétition quand vous atteignez le bas de la fourchette ;
+- Augmentez la charge dès que vous réussissez le haut de la fourchette ;
+- Notez vos performances pour suivre votre évolution.
+
+> Astuce : gardez toujours 1 à 2 répétitions « en réserve » sur la plupart des séries. Cela préserve votre technique et limite le risque de blessure.
+
+## L'échauffement, à ne jamais négliger
+
+Avant chaque séance, consacrez **5 à 10 minutes** à :
+
+1. Un peu de cardio léger (corde à sauter, montées de genoux) ;
+2. De la mobilité articulaire (épaules, hanches, chevilles) ;
+3. Une série légère de chaque exercice pour préparer le mouvement.
+
+Une [[LINK:corde-sauter|corde à sauter]] est un excellent outil d'échauffement, compact et efficace.
+
+## Combien de temps pour voir des résultats ?
+
+Avec ce programme suivi assidûment 3 fois par semaine, comptez **4 à 6 semaines** pour ressentir plus de force, et **8 à 12 semaines** pour des changements visibles. La constance est, une fois encore, le facteur décisif.
+
+## En résumé
+
+Un bon **programme full body à la maison** repose sur quelques mouvements polyarticulaires, un matériel minimal mais polyvalent, et une progression régulière. Trois séances par semaine suffisent à muscler l'ensemble du corps. Échauffez-vous sérieusement, notez vos progrès, et laissez la régularité faire le reste.
