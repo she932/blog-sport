@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { CATEGORIES } from '../../consts';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((c) => ({
+    params: { category: c.slug },
+    props: { category: c },
+  }));
+}
+
+const { category } = Astro.props;
+const posts = (
+  await getCollection(
+    'blog',
+    ({ data }) => !data.draft && data.category === category.slug
+  )
+).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout title={category.name} description={category.description}>
+  <div class="container page-head">
+    <span class="badge">Catégorie</span>
+    <h1>{category.name}</h1>
+    <p class="lead">{category.description}</p>
+  </div>
+
+  <div class="container">
+    {posts.length > 0 ? (
+      <div class="grid">
+        {posts.map((p) => <ArticleCard post={p} />)}
+      </div>
+    ) : (
+      <p class="empty">Aucun article dans cette catégorie pour le moment.</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    margin: 0.6rem 0 0.5rem;
+  }
+  .lead {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    max-width: 60ch;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+  .empty {
+    color: var(--color-muted);
+    padding: 3rem 0;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

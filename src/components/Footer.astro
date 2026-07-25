@@ -1,0 +1,92 @@
+---
+import { SITE, CATEGORIES } from '../consts';
+import { AFFILIATE_DISCLOSURE } from '../lib/affiliate';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand">💪 {SITE.title}</div>
+      <p class="muted">{SITE.description}</p>
+    </div>
+    <div>
+      <h4>Catégories</h4>
+      <ul>
+        {CATEGORIES.map((c) => (
+          <li><a href={`${base}/categorie/${c.slug}`}>{c.name}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h4>Le blog</h4>
+      <ul>
+        <li><a href={`${base}/blog`}>Tous les articles</a></li>
+        <li><a href={`${base}/a-propos`}>À propos</a></li>
+        <li><a href={`${base}/rss.xml`}>Flux RSS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container disclosure">
+    <p>{AFFILIATE_DISCLOSURE}</p>
+    <p class="muted">© {year} {SITE.title}. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 5rem;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 3rem 0 1.5rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-grid h4 {
+    margin: 0 0 0.8rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+  }
+  .footer-grid ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .footer-grid a {
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+  .brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+  .muted {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+  .disclosure {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.82rem;
+    color: var(--color-muted);
+  }
+  .disclosure p {
+    margin: 0 0 0.5rem;
+  }
+  @media (max-width: 700px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

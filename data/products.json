@@ -1,0 +1,133 @@
+{
+  "_comment": "Base de produits affiliés. Renseignez le champ 'asin' avec l'ASIN Amazon réel de chaque produit pour générer un lien direct (meilleure conversion). Si 'asin' est vide, un lien de recherche Amazon est généré automatiquement à partir de 'keyword'. Ajoutez/modifiez librement des produits : le générateur les proposera à Claude.",
+  "products": [
+    {
+      "id": "banc-reglable",
+      "name": "Banc de musculation réglable",
+      "keyword": "banc de musculation reglable inclinable",
+      "asin": "",
+      "category": "banc",
+      "blurb": "Banc inclinable/déclinable pour développé couché, curls et travail des épaules."
+    },
+    {
+      "id": "halteres-reglables",
+      "name": "Haltères réglables",
+      "keyword": "halteres reglables musculation",
+      "asin": "",
+      "category": "halteres",
+      "blurb": "Paire d'haltères à charge ajustable, idéale pour gagner de la place chez soi."
+    },
+    {
+      "id": "kettlebell",
+      "name": "Kettlebell",
+      "keyword": "kettlebell fonte musculation",
+      "asin": "",
+      "category": "halteres",
+      "blurb": "Poids polyvalent pour swings, goblet squats et renforcement complet."
+    },
+    {
+      "id": "barre-traction",
+      "name": "Barre de traction",
+      "keyword": "barre de traction porte murale",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Barre à fixer (porte ou mur) pour tractions et travail du dos au poids du corps."
+    },
+    {
+      "id": "elastiques",
+      "name": "Bandes élastiques de résistance",
+      "keyword": "bande elastique musculation resistance",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Set de résistances progressives pour l'échauffement, la muscu et le mobility work."
+    },
+    {
+      "id": "tapis-sol",
+      "name": "Tapis de sol / fitness",
+      "keyword": "tapis de sol fitness epais",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Tapis épais antidérapant pour les exercices au sol, le gainage et les étirements."
+    },
+    {
+      "id": "rack-squat",
+      "name": "Rack à squat / cage",
+      "keyword": "rack squat cage musculation",
+      "asin": "",
+      "category": "structure",
+      "blurb": "Support de barre pour squats et développés lourds en toute sécurité à la maison."
+    },
+    {
+      "id": "barre-olympique",
+      "name": "Barre olympique + disques",
+      "keyword": "barre olympique 20kg disques",
+      "asin": "",
+      "category": "structure",
+      "blurb": "Barre 20 kg et disques pour les mouvements de base : squat, soulevé de terre, développé."
+    },
+    {
+      "id": "corde-sauter",
+      "name": "Corde à sauter",
+      "keyword": "corde a sauter crossfit lestee",
+      "asin": "",
+      "category": "cardio",
+      "blurb": "Outil de cardio et d'endurance à haute intensité, parfait pour l'échauffement."
+    },
+    {
+      "id": "roue-abdos",
+      "name": "Roue à abdominaux (AB wheel)",
+      "keyword": "roue abdominaux ab wheel",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Accessoire redoutable pour renforcer les abdominaux et le gainage profond."
+    },
+    {
+      "id": "whey",
+      "name": "Whey protéine",
+      "keyword": "whey proteine musculation",
+      "asin": "",
+      "category": "nutrition",
+      "blurb": "Protéine en poudre pour soutenir la récupération et la prise de muscle."
+    },
+    {
+      "id": "creatine",
+      "name": "Créatine monohydrate",
+      "keyword": "creatine monohydrate",
+      "asin": "",
+      "category": "nutrition",
+      "blurb": "Complément parmi les plus étudiés pour la force et la performance."
+    },
+    {
+      "id": "sangles-tractions",
+      "name": "Sangles de tirage / straps",
+      "keyword": "straps sangles de tirage musculation",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Sangles pour améliorer la prise sur les tirages et soulevés de terre lourds."
+    },
+    {
+      "id": "ceinture-lombaire",
+      "name": "Ceinture de force lombaire",
+      "keyword": "ceinture de musculation force lombaire",
+      "asin": "",
+      "category": "accessoire",
+      "blurb": "Ceinture de soutien pour sécuriser le bas du dos sur les charges lourdes."
+    },
+    {
+      "id": "montre-cardio",
+      "name": "Montre connectée sport",
+      "keyword": "montre connectee sport cardio",
+      "asin": "",
+      "category": "cardio",
+      "blurb": "Suivi de la fréquence cardiaque, des calories et des séances d'entraînement."
+    },
+    {
+      "id": "velo-appartement",
+      "name": "Vélo d'appartement",
+      "keyword": "velo d'appartement fitness",
+      "asin": "",
+      "category": "cardio",
+      "blurb": "Cardio à faible impact pour la maison, idéal en complément de la muscu."
+    }
+  ]
+}

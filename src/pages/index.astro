@@ -1,0 +1,189 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { SITE, CATEGORIES } from '../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.id !== featured?.id).slice(0, 9);
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.title,
+  description: SITE.description,
+  url: new URL(`${base}/`, Astro.site).toString(),
+};
+---
+
+<BaseLayout title={SITE.title} description={SITE.description} jsonLd={[websiteLd]}>
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Nouveau guide chaque jour</span>
+      <h1>{SITE.tagline}</h1>
+      <p class="hero-sub">{SITE.description}</p>
+      <div class="hero-cta">
+        <a class="btn" href={`${base}/blog`}>Explorer les guides</a>
+        <a class="btn btn--ghost" href={`${base}/categorie/comparatifs`}>Voir les comparatifs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container cats">
+    {CATEGORIES.map((c) => (
+      <a href={`${base}/categorie/${c.slug}`} class="cat-chip">
+        <strong>{c.name}</strong>
+        <span>{c.description}</span>
+      </a>
+    ))}
+  </section>
+
+  {featured && (
+    <section class="container section">
+      <h2 class="section-title">À la une</h2>
+      <div class="grid grid--feature">
+        <ArticleCard post={featured} featured />
+        <div class="side-list">
+          {rest.slice(0, 4).map((p) => (
+            <ArticleCard post={p} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {rest.length > 4 && (
+    <section class="container section">
+      <div class="section-head">
+        <h2 class="section-title">Derniers articles</h2>
+        <a href={`${base}/blog`} class="see-all">Tout voir →</a>
+      </div>
+      <div class="grid grid--3">
+        {rest.slice(4).map((p) => (
+          <ArticleCard post={p} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {posts.length === 0 && (
+    <section class="container section empty">
+      <p>Les premiers guides arrivent très bientôt. Revenez demain !</p>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(
+      180deg,
+      var(--color-accent-soft),
+      transparent
+    );
+    text-align: center;
+  }
+  .hero h1 {
+    max-width: 14ch;
+    margin: 1rem auto 0.8rem;
+  }
+  .hero-sub {
+    max-width: 56ch;
+    margin: 0 auto 1.6rem;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .cat-chip {
+    display: block;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .cat-chip:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .cat-chip strong {
+    display: block;
+    color: var(--color-dark);
+    margin-bottom: 0.3rem;
+  }
+  .cat-chip span {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .section {
+    margin-top: 3.5rem;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .section-title {
+    margin: 0 0 1.3rem;
+  }
+  .see-all {
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    gap: 1.3rem;
+  }
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--feature {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: stretch;
+  }
+  .side-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .empty {
+    text-align: center;
+    color: var(--color-muted);
+    padding: 3rem 0;
+  }
+  @media (max-width: 900px) {
+    .cats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid--3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid--feature {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .cats,
+    .grid--3 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

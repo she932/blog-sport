@@ -1,0 +1,307 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import { SITE, CATEGORIES } from '../consts';
+import { AFFILIATE_DISCLOSURE } from '../lib/affiliate';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const cat = CATEGORIES.find((c) => c.slug === data.category);
+
+const canonical = new URL(`${base}/blog/${post.id}`, Astro.site).toString();
+const dateStr = data.pubDate.toLocaleDateString('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+// --- Données structurées ---------------------------------------
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: { '@type': 'Organization', name: data.author },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.title,
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL(`${base}/favicon.svg`, Astro.site).toString(),
+    },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  keywords: data.tags.join(', '),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL(`${base}/`, Astro.site).toString() },
+    cat && {
+      '@type': 'ListItem',
+      position: 2,
+      name: cat.name,
+      item: new URL(`${base}/categorie/${cat.slug}`, Astro.site).toString(),
+    },
+    { '@type': 'ListItem', position: 3, name: data.title, item: canonical },
+  ].filter(Boolean),
+};
+
+const faqLd =
+  data.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faq.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null;
+
+const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
+  string,
+  unknown
+>[];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  type="article"
+  image={data.heroImage}
+  publishedTime={data.pubDate}
+  modifiedTime={data.updatedDate ?? data.pubDate}
+  jsonLd={jsonLd}
+>
+  <article class="post">
+    <div class="container post-head">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href={`${base}/`}>Accueil</a>
+        {cat && (<><span>/</span><a href={`${base}/categorie/${cat.slug}`}>{cat.name}</a></>)}
+      </nav>
+      {cat && <span class="badge">{cat.name}</span>}
+      <h1>{data.title}</h1>
+      <p class="lead">{data.description}</p>
+      <div class="post-meta">
+        <span>Par {data.author}</span>
+        <span>·</span>
+        <time datetime={data.pubDate.toISOString()}>{dateStr}</time>
+        {data.readingTime && (<><span>·</span><span>{data.readingTime} min de lecture</span></>)}
+      </div>
+    </div>
+
+    <div class="container prose-wrap">
+      <div class="disclosure-inline">{AFFILIATE_DISCLOSURE}</div>
+      <div class="prose">
+        <slot />
+      </div>
+
+      {data.faq.length > 0 && (
+        <section class="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Questions fréquentes</h2>
+          {data.faq.map((f) => (
+            <details class="faq-item">
+              <summary>{f.question}</summary>
+              <p>{f.answer}</p>
+            </details>
+          ))}
+        </section>
+      )}
+
+      {data.tags.length > 0 && (
+        <div class="tags">
+          {data.tags.map((t) => <span class="tag">#{t}</span>)}
+        </div>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  /* ---------- Boîtes et boutons affiliés (injectés dans le markdown) ---------- */
+  .affiliate-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.4rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    margin: 1.8rem 0;
+  }
+  .affiliate-box .aff-info {
+    flex: 1 1 240px;
+  }
+  .affiliate-box .aff-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-dark);
+  }
+  .affiliate-box .aff-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0.2rem 0 0.3rem;
+    color: var(--color-dark);
+  }
+  .affiliate-box .aff-desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+  .affiliate-box .aff-cta {
+    flex: 0 0 auto;
+  }
+  .aff-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff !important;
+    padding: 0.7em 1.4em;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .aff-btn:hover {
+    background: var(--color-accent-dark);
+    text-decoration: none;
+  }
+  a.aff-inline {
+    font-weight: 600;
+    border-bottom: 1px dotted currentColor;
+  }
+</style>
+
+<style>
+  .post-head {
+    max-width: var(--content-w);
+    padding-top: 2.5rem;
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a {
+    color: var(--color-muted);
+  }
+  .post-head h1 {
+    margin: 0.7rem 0 0.6rem;
+  }
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.4rem;
+  }
+  .prose-wrap {
+    max-width: var(--content-w);
+  }
+  .disclosure-inline {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin: 1.6rem 0;
+  }
+  .prose :global(h2) {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.4rem;
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.3rem;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.4rem;
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    border: 1px solid var(--color-border);
+    padding: 0.6em 0.8em;
+    text-align: left;
+  }
+  .prose :global(th) {
+    background: var(--color-surface);
+    font-weight: 700;
+  }
+  .prose :global(blockquote) {
+    margin: 1.6rem 0;
+    padding: 0.6rem 1.2rem;
+    border-left: 4px solid var(--color-accent);
+    background: var(--color-accent-soft);
+    border-radius: 0 8px 8px 0;
+    color: var(--color-text);
+  }
+  .prose :global(img) {
+    border-radius: var(--radius);
+    margin: 1.6rem 0;
+  }
+
+  .faq {
+    margin-top: 3rem;
+  }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0.4rem 1.1rem;
+    margin-bottom: 0.7rem;
+    background: var(--color-bg);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0.6rem 0;
+    color: var(--color-dark);
+  }
+  .faq-item p {
+    margin: 0 0 0.8rem;
+    color: var(--color-text);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+  }
+  .tag {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    background: var(--color-surface);
+    padding: 0.3em 0.7em;
+    border-radius: 999px;
+  }
+</style>
