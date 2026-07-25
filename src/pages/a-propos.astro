@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+import { AFFILIATE_DISCLOSURE } from '../lib/affiliate';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="À propos"
+  description={`Découvrez ${SITE.title}, le blog qui vous aide à choisir le meilleur matériel de fitness et de musculation.`}
+>
+  <div class="container narrow">
+    <h1>À propos de {SITE.title}</h1>
+    <p class="lead">{SITE.description}</p>
+
+    <h2>Notre mission</h2>
+    <p>
+      Choisir le bon matériel de musculation n'est pas simple : les gammes sont
+      immenses, les prix très variables et les avis contradictoires. Chez
+      {SITE.title}, nous publions chaque jour des guides et comparatifs clairs,
+      documentés et actualisés pour vous aider à investir dans l'équipement qui
+      correspond vraiment à vos objectifs, votre niveau et votre budget.
+    </p>
+
+    <h2>Comment nous travaillons</h2>
+    <p>
+      Chaque guide est structuré autour d'une question concrète : quel banc
+      choisir, quelles haltères pour débuter, comment aménager une salle à la
+      maison… Nous croisons les caractéristiques techniques, les usages réels et
+      le rapport qualité-prix pour formuler des recommandations honnêtes.
+    </p>
+
+    <h2>Transparence & affiliation</h2>
+    <p>{AFFILIATE_DISCLOSURE}</p>
+    <p>
+      Concrètement : lorsque vous achetez un produit via l'un de nos liens, le
+      prix reste identique pour vous, et nous percevons une petite commission qui
+      finance le travail éditorial. Cela n'influence jamais nos recommandations —
+      nous ne mettons en avant que du matériel que nous jugeons pertinent.
+    </p>
+
+    <p class="cta">
+      <a class="btn" href={`${base}/blog`}>Parcourir les guides</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: var(--content-w);
+    padding-top: 2.5rem;
+  }
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-muted);
+  }
+  .cta {
+    margin-top: 2rem;
+  }
+</style>

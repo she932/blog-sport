@@ -1,0 +1,165 @@
+{
+  "_comment": "File d'attente des sujets. Le générateur pioche le premier sujet dont le 'slug' n'a pas encore d'article publié. Quand la file est épuisée, `npm run generate:topics` en crée de nouveaux via Claude. Chaque sujet : slug (URL), title (indicatif, Claude peut l'affiner), type (comparatif|guide|conseil), category, keyword (mot-clé SEO principal), products (ids liés à data/products.json).",
+  "topics": [
+    {
+      "slug": "meilleur-banc-de-musculation",
+      "title": "Meilleur banc de musculation : comparatif et guide d'achat",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleur banc de musculation",
+      "products": ["banc-reglable", "halteres-reglables", "barre-olympique"]
+    },
+    {
+      "slug": "meilleures-halteres-reglables",
+      "title": "Meilleures haltères réglables : comparatif complet",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleures halteres reglables",
+      "products": ["halteres-reglables", "banc-reglable", "kettlebell"]
+    },
+    {
+      "slug": "salle-de-sport-maison-materiel",
+      "title": "Home gym : le matériel indispensable pour une salle de sport à la maison",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "materiel salle de sport maison",
+      "products": ["rack-squat", "barre-olympique", "banc-reglable", "halteres-reglables", "tapis-sol"]
+    },
+    {
+      "slug": "prise-de-masse-debutant",
+      "title": "Prise de masse pour débutant : le guide complet pour prendre du muscle",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "prise de masse debutant",
+      "products": ["whey", "creatine", "halteres-reglables", "banc-reglable"]
+    },
+    {
+      "slug": "combien-de-proteines-par-jour",
+      "title": "Combien de protéines par jour pour prendre du muscle ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "combien de proteines par jour muscle",
+      "products": ["whey", "creatine"]
+    },
+    {
+      "slug": "meilleure-whey-proteine",
+      "title": "Meilleure whey protéine : comparatif pour bien choisir",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure whey proteine",
+      "products": ["whey", "creatine"]
+    },
+    {
+      "slug": "programme-full-body-maison",
+      "title": "Programme full body à la maison : séance complète pas à pas",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "programme full body maison",
+      "products": ["halteres-reglables", "elastiques", "tapis-sol", "barre-traction"]
+    },
+    {
+      "slug": "meilleures-bandes-elastiques",
+      "title": "Meilleures bandes élastiques de musculation : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleures bandes elastiques musculation",
+      "products": ["elastiques", "tapis-sol", "barre-traction"]
+    },
+    {
+      "slug": "creatine-guide-complet",
+      "title": "Créatine : bienfaits, dosage et comment bien la prendre",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "creatine musculation guide",
+      "products": ["creatine", "whey"]
+    },
+    {
+      "slug": "muscler-le-dos-maison",
+      "title": "Comment muscler son dos à la maison : exercices et matériel",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "muscler le dos a la maison",
+      "products": ["barre-traction", "elastiques", "halteres-reglables"]
+    },
+    {
+      "slug": "meilleure-barre-de-traction",
+      "title": "Meilleure barre de traction : comparatif et guide d'installation",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure barre de traction",
+      "products": ["barre-traction", "elastiques", "sangles-tractions"]
+    },
+    {
+      "slug": "meilleure-kettlebell",
+      "title": "Meilleure kettlebell : comparatif pour débuter et progresser",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure kettlebell",
+      "products": ["kettlebell", "tapis-sol", "corde-sauter"]
+    },
+    {
+      "slug": "perte-de-poids-musculation",
+      "title": "Musculation et perte de poids : le guide pour sécher efficacement",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "musculation perte de poids secher",
+      "products": ["corde-sauter", "kettlebell", "whey", "velo-appartement"]
+    },
+    {
+      "slug": "meilleure-corde-a-sauter",
+      "title": "Meilleure corde à sauter : comparatif fitness et crossfit",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure corde a sauter",
+      "products": ["corde-sauter", "tapis-sol"]
+    },
+    {
+      "slug": "gainer-les-abdos",
+      "title": "Gainage et abdos : le guide pour un ventre plat et fort",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "exercices gainage abdos",
+      "products": ["roue-abdos", "tapis-sol", "elastiques"]
+    },
+    {
+      "slug": "meilleur-rack-squat",
+      "title": "Meilleur rack à squat / cage de musculation : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleur rack squat cage",
+      "products": ["rack-squat", "barre-olympique", "banc-reglable"]
+    },
+    {
+      "slug": "meilleure-montre-sport",
+      "title": "Meilleure montre connectée pour le sport : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "meilleure montre connectee sport",
+      "products": ["montre-cardio"]
+    },
+    {
+      "slug": "programme-prise-de-force",
+      "title": "Programme prise de force : progresser sur les mouvements de base",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "programme prise de force",
+      "products": ["barre-olympique", "rack-squat", "ceinture-lombaire", "sangles-tractions"]
+    },
+    {
+      "slug": "recuperation-musculaire",
+      "title": "Récupération musculaire : sommeil, nutrition et bonnes pratiques",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "recuperation musculaire musculation",
+      "products": ["whey", "creatine", "tapis-sol"]
+    },
+    {
+      "slug": "debuter-la-musculation",
+      "title": "Débuter la musculation : le guide complet pour bien commencer",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "debuter la musculation",
+      "products": ["halteres-reglables", "banc-reglable", "elastiques", "whey"]
+    }
+  ]
+}

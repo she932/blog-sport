@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { CATEGORIES } from '../../consts';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout
+  title="Tous les articles"
+  description="Retrouvez tous nos guides, comparatifs et conseils fitness & musculation, classés du plus récent au plus ancien."
+>
+  <div class="container page-head">
+    <h1>Tous les articles</h1>
+    <p class="lead">{posts.length} guide{posts.length > 1 ? 's' : ''} publié{posts.length > 1 ? 's' : ''} pour vous aider à mieux vous équiper et à progresser.</p>
+    <nav class="cat-nav" aria-label="Filtrer par catégorie">
+      {CATEGORIES.map((c) => (
+        <a href={`${base}/categorie/${c.slug}`} class="cat-pill">{c.name}</a>
+      ))}
+    </nav>
+  </div>
+
+  <div class="container">
+    {posts.length > 0 ? (
+      <div class="grid">
+        {posts.map((p) => <ArticleCard post={p} />)}
+      </div>
+    ) : (
+      <p class="empty">Aucun article pour l'instant. Le premier guide arrive très bientôt !</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin: 0 0 1.4rem;
+  }
+  .cat-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .cat-pill {
+    padding: 0.4em 0.9em;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .cat-pill:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-dark);
+    text-decoration: none;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+  .empty {
+    color: var(--color-muted);
+    padding: 3rem 0;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

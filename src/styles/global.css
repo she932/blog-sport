@@ -1,0 +1,144 @@
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f9;
+  --color-text: #1a1d23;
+  --color-muted: #5b6472;
+  --color-border: #e5e8ec;
+  --color-accent: #e8571f;
+  --color-accent-dark: #c8460f;
+  --color-accent-soft: #fff1ea;
+  --color-dark: #14171c;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(20, 23, 28, 0.08), 0 6px 24px rgba(20, 23, 28, 0.06);
+  --maxw: 1120px;
+  --content-w: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  font-weight: 750;
+  color: var(--color-dark);
+  margin: 1.8em 0 0.6em;
+}
+h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-top: 0;
+}
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  padding-top: 0.4em;
+}
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0 0 1.15em;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.8em 1.6em;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: var(--color-accent-dark);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--color-accent-dark);
+  border: 2px solid var(--color-accent);
+}
+.btn--ghost:hover {
+  background: var(--color-accent-soft);
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-dark);
+  background: var(--color-accent-soft);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14171c;
+    --color-surface: #1c2128;
+    --color-text: #e6e9ee;
+    --color-muted: #9aa4b2;
+    --color-border: #2a303a;
+    --color-dark: #f2f4f7;
+    --color-accent-soft: #2a1a12;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 24px rgba(0, 0, 0, 0.3);
+  }
+}

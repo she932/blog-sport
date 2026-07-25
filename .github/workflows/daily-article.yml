@@ -1,0 +1,97 @@
+name: Article quotidien
+
+on:
+  schedule:
+    # Tous les jours à 06:15 UTC (~08:15 heure de Paris en été)
+    - cron: '15 6 * * *'
+  # Permet de générer un article à la demande
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Nombre d'articles à générer"
+        required: false
+        default: '1'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Générer le(s) article(s)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+          AMAZON_DOMAIN: ${{ vars.AMAZON_DOMAIN }}
+          COUNT: ${{ github.event.inputs.count || '1' }}
+        run: |
+          set +e
+          for i in $(seq 1 "${COUNT:-1}"); do
+            echo "::group::Article $i"
+            node scripts/generate-article.mjs
+            code=$?
+            if [ "$code" -eq 2 ]; then
+              echo "File de sujets épuisée -> génération de nouveaux sujets"
+              node scripts/generate-topics.mjs 20 || exit 1
+              node scripts/generate-article.mjs || exit 1
+            elif [ "$code" -ne 0 ]; then
+              echo "Échec de la génération (code $code)"
+              exit "$code"
+            fi
+            echo "::endgroup::"
+          done
+          set -e
+
+      - name: Commit & push
+        run: |
+          git config user.name "MuscuGuide Bot"
+          git config user.email "actions@github.com"
+          git add src/content/blog data/topics.json
+          if git diff --staged --quiet; then
+            echo "Aucun nouvel article à committer."
+          else
+            git commit -m "Nouvel article du $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build Astro
+        env:
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+          AMAZON_DOMAIN: ${{ vars.AMAZON_DOMAIN }}
+        run: npm run build
+
+      - name: Upload de l'artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

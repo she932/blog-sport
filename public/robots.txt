@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://she932.github.io/blog-sport/sitemap-index.xml
