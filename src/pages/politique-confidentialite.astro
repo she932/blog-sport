@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+
+const lastUpdate = new Date().toLocaleDateString('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout
+  title="Politique de confidentialité"
+  description={`Politique de confidentialité du site ${SITE.title} : données personnelles et cookies liés aux liens affiliés Amazon.`}
+>
+  <div class="container legal">
+    <h1>Politique de confidentialité</h1>
+    <p class="updated">Dernière mise à jour : {lastUpdate}</p>
+
+    <h2>Données personnelles</h2>
+    <p>
+      Le site <strong>{SITE.title}</strong> est un site statique et ne collecte
+      pas de données personnelles directement.
+    </p>
+
+    <h2>Cookies et affiliation</h2>
+    <p>
+      Les liens affiliés Amazon présents sur le site déposent des cookies gérés
+      par Amazon. Ces cookies permettent notamment à Amazon d'attribuer une
+      éventuelle commission d'affiliation. {SITE.title} n'a pas accès aux données
+      collectées par ces cookies.
+    </p>
+    <p>
+      Pour en savoir plus sur la gestion de vos données par Amazon, consultez la
+      <a
+        href="https://www.amazon.fr/gp/help/customer/display.html?nodeId=201909010"
+        target="_blank"
+        rel="noopener"
+        >politique de confidentialité d'Amazon</a
+      >.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    max-width: var(--content-w);
+    padding-top: 2.5rem;
+  }
+  .updated {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-top: -0.4rem;
+  }
+</style>

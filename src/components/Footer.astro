@@ -27,6 +27,13 @@ const year = new Date().getFullYear();
         <li><a href={`${base}/rss.xml`}>Flux RSS</a></li>
       </ul>
     </div>
+    <div>
+      <h4>Légal</h4>
+      <ul>
+        <li><a href={`${base}/mentions-legales`}>Mentions légales</a></li>
+        <li><a href={`${base}/politique-confidentialite`}>Politique de confidentialité</a></li>
+      </ul>
+    </div>
   </div>
   <div class="container disclosure">
     <p>{AFFILIATE_DISCLOSURE}</p>
@@ -43,7 +50,7 @@ const year = new Date().getFullYear();
   }
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
     gap: 2rem;
   }
   .footer-grid h4 {
@@ -83,7 +90,13 @@ const year = new Date().getFullYear();
   .disclosure p {
     margin: 0 0 0.5rem;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+    }
+  }
+  @media (max-width: 520px) {
     .footer-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
