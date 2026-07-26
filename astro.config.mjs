@@ -6,13 +6,12 @@ import remarkAffiliate from './scripts/remark-affiliate.mjs';
 // ------------------------------------------------------------------
 // Configuration du site.
 //
-// GitHub Pages sert le site depuis https://<user>.github.io/<repo>.
-// Si vous branchez un domaine personnalisé plus tard, remplacez
-// `site` par https://votredomaine.com et mettez `base` à '/'.
+// Le site est servi à la racine du domaine personnalisé muscuguide.fr
+// (fichier public/CNAME + configuration DNS / GitHub Pages).
 // ------------------------------------------------------------------
 export default defineConfig({
-  site: 'https://she932.github.io',
-  base: '/blog-sport',
+  site: 'https://muscuguide.fr',
+  base: '/',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
   markdown: {
