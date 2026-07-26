@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+
+const lastUpdate = new Date().toLocaleDateString('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout
+  title="Mentions légales"
+  description={`Mentions légales du site ${SITE.title} : éditeur, directeur de la publication, hébergeur et information sur l'affiliation Amazon.`}
+>
+  <div class="container legal">
+    <h1>Mentions légales</h1>
+    <p class="updated">Dernière mise à jour : {lastUpdate}</p>
+
+    <h2>Éditeur du site</h2>
+    <p>
+      Le site <strong>{SITE.title}</strong> est édité par <strong>Bedjaoui S.</strong><br />
+      Contact : <a href="mailto:sherazade.bedjaoui@gmail.com">sherazade.bedjaoui@gmail.com</a>
+    </p>
+
+    <h2>Directeur de la publication</h2>
+    <p>Sherazade Bedjaoui</p>
+
+    <h2>Hébergeur</h2>
+    <p>
+      GitHub, Inc.<br />
+      88 Colin P. Kelly Jr Street<br />
+      San Francisco, CA 94107, États-Unis
+    </p>
+
+    <h2>Affiliation</h2>
+    <p>
+      Ce site contient des liens d'affiliés Amazon. En tant que Partenaire Amazon,
+      {SITE.title} réalise un bénéfice sur les achats remplissant les conditions
+      requises.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    max-width: var(--content-w);
+    padding-top: 2.5rem;
+  }
+  .updated {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-top: -0.4rem;
+  }
+</style>
