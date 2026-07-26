@@ -2,7 +2,7 @@
 title: "Meilleures bandes élastiques de musculation : comparatif"
 description: "Quelles sont les meilleures bandes élastiques de musculation ? Types, niveaux de résistance, critères de choix et exercices pour progresser chez soi."
 pubDate: 2026-07-20
-category: comparatifs
+category: materiel
 keyword: "meilleures bandes élastiques musculation"
 author: "La rédaction MuscuGuide"
 readingTime: 12

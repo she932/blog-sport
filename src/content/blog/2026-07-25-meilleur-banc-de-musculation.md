@@ -2,7 +2,7 @@
 title: "Meilleur banc de musculation : comparatif et guide d'achat 2026"
 description: "Quel est le meilleur banc de musculation pour votre home gym ? Comparatif, critères de choix et conseils d'experts pour bien investir sans se tromper."
 pubDate: 2026-07-25
-category: comparatifs
+category: materiel
 keyword: "meilleur banc de musculation"
 author: "La rédaction MuscuGuide"
 readingTime: 12
