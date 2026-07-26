@@ -1,12 +1,12 @@
 ---
-title: "Meilleures haltères réglables : comparatif complet 2024"
+title: "Meilleures haltères réglables : comparatif complet 2026"
 description: "Découvrez les meilleures haltères réglables pour la maison : comparatif détaillé, critères de choix et conseils pour muscler efficacement chaque groupe musculaire."
 pubDate: 2026-07-25
 category: comparatifs
 keyword: "meilleures halteres reglables"
 author: "La rédaction MuscuGuide"
 readingTime: 10
-featured: false
+featured: true
 draft: false
 tags:
   - "halteres reglables"

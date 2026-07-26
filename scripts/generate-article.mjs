@@ -75,9 +75,11 @@ const userPrompt = `Rédige ${typeLabel} d'environ 2500 mots (minimum 2200) sur 
 TITRE INDICATIF : "${topic.title}"
 MOT-CLÉ PRINCIPAL À CIBLER : "${topic.keyword}"
 TYPE D'ARTICLE : ${topic.type}
+ANNÉE EN COURS : ${new Date().getFullYear()}
 
 CONTRAINTES SEO ET RÉDACTIONNELLES :
 - Longueur : environ 2500 mots (impérativement > 2200 mots).
+- Année : n'invente JAMAIS de millésime. Si tu mentionnes une année (dans le titre ou le corps), utilise UNIQUEMENT l'année en cours indiquée ci-dessus (${new Date().getFullYear()}).
 - Structure Markdown claire : une accroche d'introduction (sans titre), puis des sections en "## " et des sous-sections en "### ". N'utilise PAS de titre de niveau 1 (#) : le titre H1 est géré à part.
 - Intègre naturellement le mot-clé principal et des variantes sémantiques dans les titres et le corps.
 - Style concret : chiffres, critères de choix, cas d'usage, erreurs à éviter, conseils actionnables.

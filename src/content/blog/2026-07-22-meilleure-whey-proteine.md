@@ -89,9 +89,74 @@ La whey se marie bien avec la [[LINK:creatine|créatine monohydrate]], l'autre c
 
 [[BOX:creatine]]
 
+## Comment lire une étiquette de whey
+
+Savoir décrypter une étiquette permet d'éviter les pièges marketing. Voici les points à vérifier :
+
+- **La quantité de protéines par dose** : c'est l'information reine. Une bonne dose apporte 20 à 25 g de protéines. Méfiez-vous des doses gonflées artificiellement.
+- **Le pourcentage de protéines pour 100 g** : plus il est élevé, plus la whey est « pure ». Une concentrée titre 70-80 %, une isolate 85-90 %.
+- **La liste d'ingrédients** : plus elle est courte, mieux c'est. La protéine doit arriver en tête. Méfiez-vous des ajouts de sucres, de crème ou d'agents de charge bon marché.
+- **Les acides aminés** : certaines marques détaillent leur teneur en BCAA et en leucine, l'acide aminé clé de la synthèse musculaire.
+- **Le taux de sucres et de graisses** : intéressant surtout en sèche, où l'on privilégie une whey pauvre en sucres et lipides.
+
+Un bon réflexe est de comparer le **prix au kilo de protéines réelles**, et non le prix du paquet, pour évaluer objectivement le rapport qualité-prix.
+
+## Whey et objectifs : prise de masse ou sèche ?
+
+Le choix de la whey peut s'adapter à votre objectif :
+
+- **En prise de masse** : une whey concentrée, éventuellement mélangée au lait, apporte des protéines et quelques calories supplémentaires bienvenues. Elle se marie bien avec la [[LINK:creatine|créatine]] pour maximiser la progression.
+- **En sèche** : une isolate, plus pauvre en sucres et en graisses, aide à atteindre un apport protéique élevé (essentiel pour préserver le muscle) sans alourdir le bilan calorique. Mélangée à l'eau, elle constitue une collation rassasiante et peu calorique.
+
+Dans les deux cas, la whey reste un **outil au service de votre apport protéique total**, pas une solution miracle. C'est la cohérence globale de votre alimentation et de votre entraînement qui fait la différence.
+
+## Quand consommer sa whey ?
+
+Le moment de prise est moins crucial qu'on ne le croyait, mais certaines fenêtres sont pratiques :
+
+- **Autour de l'entraînement** : rapide à digérer, la whey est idéale en collation avant ou après la séance ;
+- **Au petit-déjeuner** : pour démarrer la journée avec un apport protéique, notamment si vous manquez de temps ;
+- **En collation** : entre deux repas, pour maintenir un apport régulier tout au long de la journée ;
+- **Le soir** : possible, même si une source à digestion plus lente (fromage blanc, caséine) peut être préférée avant le coucher.
+
+Retenez surtout que c'est l'**apport total sur la journée** qui compte le plus. La whey sert simplement à combler l'écart entre vos besoins et ce que votre alimentation solide apporte.
+
 ## Whey végétale : une alternative ?
 
 Pour les personnes véganes ou intolérantes au lait, les **protéines végétales** (pois, riz, ou mélanges) constituent une alternative valable. Le profil d'acides aminés est légèrement moins optimal, mais un mélange bien conçu (pois + riz) s'en approche. Le goût et la texture sont souvent différents, à tester selon vos préférences.
+
+## Whey et digestion : gérer la sensibilité au lactose
+
+Certaines personnes digèrent mal la whey, avec ballonnements ou inconfort. En cause, le plus souvent : le **lactose**, présent en quantité variable selon le type de whey.
+
+- La **whey concentrée** contient le plus de lactose : elle peut gêner les personnes sensibles.
+- La **whey isolate**, filtrée plus finement, en contient très peu et passe généralement mieux.
+- La **whey hydrolysée**, pré-digérée, est la plus digeste, mais aussi la plus chère.
+
+Si vous ressentez des inconforts, passez à une isolate et privilégiez une préparation à l'eau plutôt qu'au lait. Buvez lentement et évitez les doses trop importantes en une seule fois. Pour les intolérants sévères au lactose, une **protéine végétale** reste la solution la plus sûre.
+
+## Les erreurs à éviter avec la whey
+
+- **La considérer comme un produit magique** : la whey ne fait pas prendre de muscle à elle seule. C'est l'entraînement et l'apport protéique global qui comptent.
+- **En abuser** : plus de whey ne signifie pas plus de muscle. 1 à 2 doses par jour suffisent en complément de l'alimentation.
+- **Remplacer des repas** par de la whey : elle complète l'alimentation, elle ne la remplace pas. Les aliments entiers apportent fibres et micronutriments.
+- **Choisir uniquement sur le prix** : une whey très bon marché peut cacher un faible taux de protéines et beaucoup d'additifs. Comparez le prix au kilo de protéines.
+- **Négliger le goût** : une whey que vous n'aimez pas est une whey que vous ne prendrez pas. La régularité prime.
+
+## Whey, caséine et autres protéines : les différences
+
+La whey n'est pas la seule protéine en poudre. Il est utile de connaître les alternatives pour choisir selon le moment :
+
+- **La whey** : digestion rapide, idéale autour de l'entraînement et en journée.
+- **La caséine** : issue elle aussi du lait, elle se digère lentement, libérant les acides aminés sur plusieurs heures. Certains la prennent le soir, avant le coucher.
+- **Les protéines végétales** (pois, riz, chanvre) : pour les véganes et les intolérants au lactose. Un mélange pois + riz offre un bon profil d'acides aminés.
+- **Les gainers** : des mélanges de protéines et de glucides très caloriques, destinés aux personnes ayant du mal à prendre du poids. À utiliser avec discernement, car souvent riches en sucres.
+
+Pour la plupart des pratiquants, une bonne whey couvre l'essentiel des besoins. Les autres protéines répondent à des situations spécifiques.
+
+## Combien coûte une bonne whey ?
+
+Le budget d'une whey varie selon le type et la marque, mais le vrai critère est le **coût au kilo de protéines réelles**. Une whey concentrée de qualité offre généralement le meilleur rapport, tandis que l'isolate et l'hydrolysée coûtent plus cher pour un bénéfice marginal dans la plupart des cas. Les grands formats sont presque toujours plus économiques à l'usage. Rapporté au service rendu — atteindre facilement ses besoins en protéines — une whey de qualité reste un complément peu coûteux et rentable, surtout comparé au prix d'aliments protéinés frais.
 
 ## En résumé
 
