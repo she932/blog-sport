@@ -40,12 +40,13 @@ Dans le dépôt : **Settings → Pages → Build and deployment → Source : `Gi
 
 | Nom | Exemple | Rôle |
 | --- | --- | --- |
-| `AMAZON_AFFILIATE_TAG` | `monsite-21` | Votre identifiant Partenaire Amazon |
+| `AMAZON_AFFILIATE_TAG` | `muscuguide-21` | Votre identifiant Partenaire Amazon |
 | `AMAZON_DOMAIN` | `amazon.fr` | Domaine Amazon des liens |
 | `ANTHROPIC_MODEL` | `claude-sonnet-5` | Modèle de rédaction (optionnel) |
 
-> ⚠️ Sans `AMAZON_AFFILIATE_TAG`, les liens utilisent le tag de démonstration
-> `votretag-21` : pensez à le renseigner pour percevoir vos commissions.
+> ℹ️ Sans `AMAZON_AFFILIATE_TAG` défini, les liens utilisent par défaut le tag
+> `muscuguide-21` (défini dans le code). Renseignez la variable si vous souhaitez
+> forcer un autre tag sans modifier le code.
 
 ### 4. C'est tout !
 

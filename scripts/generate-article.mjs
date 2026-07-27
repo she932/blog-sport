@@ -6,7 +6,7 @@
 //
 //  Variables d'environnement requises :
 //    ANTHROPIC_API_KEY      (obligatoire)
-//    AMAZON_AFFILIATE_TAG   (recommandé, défaut: votretag-21)
+//    AMAZON_AFFILIATE_TAG   (recommandé, défaut: muscuguide-21)
 //    AMAZON_DOMAIN          (défaut: amazon.fr)
 //    ANTHROPIC_MODEL        (défaut: claude-sonnet-5)
 // ============================================================
@@ -25,7 +25,7 @@ import {
 } from './lib.mjs';
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
-const TAG = process.env.AMAZON_AFFILIATE_TAG || 'votretag-21';
+const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
 const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5';
 

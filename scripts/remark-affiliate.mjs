@@ -10,7 +10,7 @@
 import path from 'node:path';
 import { DATA_DIR, readJson, buildAffiliateUrl, escapeHtml } from './lib.mjs';
 
-const TAG = process.env.AMAZON_AFFILIATE_TAG || 'votretag-21';
+const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
 const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
 
 const { products } = readJson(path.join(DATA_DIR, 'products.json'));
