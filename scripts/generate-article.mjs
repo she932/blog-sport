@@ -89,7 +89,7 @@ CONTRAINTES SEO ET RÉDACTIONNELLES :
 
 LIENS AFFILIÉS AMAZON — TRÈS IMPORTANT :
 Tu disposes de la liste de produits ci-dessous. Insère leurs liens UNIQUEMENT via ces marqueurs (ne mets jamais d'URL en dur) :
-- Bloc encadré "call-to-action" : place \`[[BOX:id]]\` seul sur sa propre ligne, aux endroits pertinents (2 à 4 fois dans l'article, jamais deux à la suite).
+- Bloc encadré "call-to-action" : place \`[[BOX:id]]\` seul sur sa propre ligne, aux endroits pertinents (1 à 2 fois MAXIMUM dans l'article, jamais plus de 2, jamais deux à la suite).
 - Lien texte intégré : \`[[LINK:id|texte du lien]]\` à l'intérieur d'une phrase (3 à 6 fois).
 Utilise seulement des id présents dans la liste. Répartis les liens naturellement, là où ils apportent de la valeur au lecteur.
 
