@@ -13,7 +13,7 @@ const TAG =
   env.AMAZON_AFFILIATE_TAG ||
   import.meta.env.AMAZON_AFFILIATE_TAG ||
   import.meta.env.PUBLIC_AMAZON_AFFILIATE_TAG ||
-  'votretag-21';
+  'muscuguide-21';
 
 const DOMAIN =
   env.AMAZON_DOMAIN || import.meta.env.AMAZON_DOMAIN || 'amazon.fr';
