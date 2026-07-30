@@ -10,6 +10,18 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
+// Icônes de catégorie (trait 2px, style DA). Clé = slug.
+const CATEGORY_ICONS: Record<string, string> = {
+  comparatifs:
+    '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  guides:
+    '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+  conseils:
+    '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  materiel:
+    '<path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/>',
+};
+
 // Articles mis en avant (featured) affichés dans la sélection « à la une ».
 const featuredPosts = posts.filter((p) => p.data.featured).slice(0, 6);
 const heroPost = featuredPosts[0] ?? posts[0];
@@ -28,29 +40,38 @@ const websiteLd = {
 
 <BaseLayout title={SITE.title} description={SITE.description} jsonLd={[websiteLd]}>
   <section class="hero">
-    <div class="container">
-      <span class="badge">Nouveau guide chaque jour</span>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">Nouveau guide chaque jour</span>
       <h1>{SITE.tagline}</h1>
       <p class="hero-sub">{SITE.description}</p>
       <div class="hero-cta">
         <a class="btn" href={`${base}/blog`}>Explorer les guides</a>
-        <a class="btn btn--ghost" href={`${base}/categorie/comparatifs`}>Voir les comparatifs</a>
+        <a class="btn hero-ghost" href={`${base}/categorie/comparatifs`}>Voir les comparatifs</a>
       </div>
+      {posts.length > 0 && (
+        <p class="hero-meta">
+          <strong>{posts.length}</strong> guides déjà publiés · un nouveau chaque jour
+        </p>
+      )}
     </div>
   </section>
 
   <section class="container cats">
     {CATEGORIES.map((c) => (
-      <a href={`${base}/categorie/${c.slug}`} class="cat-chip">
+      <a href={`${base}/categorie/${c.slug}`} class="cat-card">
+        <span class="cat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={CATEGORY_ICONS[c.slug] ?? ''} />
+        </span>
         <strong>{c.name}</strong>
-        <span>{c.description}</span>
+        <span class="cat-desc">{c.description}</span>
+        <span class="cat-arrow" aria-hidden="true">Découvrir →</span>
       </a>
     ))}
   </section>
 
   {featuredPosts.length > 0 && (
     <section class="container section">
-      <span class="badge">Notre sélection</span>
+      <span class="eyebrow">Notre sélection</span>
       <h2 class="section-title">À la une</h2>
       {featuredPosts.length > 1 ? (
         <div class="grid grid--feature">
@@ -70,7 +91,10 @@ const websiteLd = {
   {recent.length > 0 && (
     <section class="container section">
       <div class="section-head">
-        <h2 class="section-title">Derniers articles</h2>
+        <div>
+          <span class="eyebrow">Frais du jour</span>
+          <h2 class="section-title">Derniers articles</h2>
+        </div>
         <a href={`${base}/blog`} class="see-all">Tout voir →</a>
       </div>
       <div class="grid grid--3">
@@ -89,24 +113,49 @@ const websiteLd = {
 </BaseLayout>
 
 <style>
+  /* ---------- Hero (bloc bleu nuit DA) ---------- */
   .hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(
-      180deg,
-      var(--color-accent-soft),
-      transparent
-    );
+    position: relative;
+    overflow: hidden;
+    background: var(--mg-navy);
+    color: var(--mg-white);
+    padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
     text-align: center;
   }
+  /* halo orange discret */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 50% 0%, rgba(255, 122, 41, 0.22), transparent 70%),
+      radial-gradient(40% 40% at 85% 20%, rgba(255, 122, 41, 0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mg-orange);
+    margin-bottom: 0.6rem;
+  }
   .hero h1 {
-    max-width: 14ch;
-    margin: 1rem auto 0.8rem;
+    max-width: 18ch;
+    margin: 0.4rem auto 0.9rem;
+    color: var(--mg-white);
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+    letter-spacing: -0.01em;
   }
   .hero-sub {
-    max-width: 56ch;
-    margin: 0 auto 1.6rem;
-    color: var(--color-muted);
-    font-size: 1.1rem;
+    max-width: 58ch;
+    margin: 0 auto 1.8rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.12rem;
   }
   .hero-cta {
     display: flex;
@@ -114,52 +163,125 @@ const websiteLd = {
     justify-content: center;
     flex-wrap: wrap;
   }
+  /* variante ghost adaptée au fond sombre */
+  .hero-ghost {
+    background: transparent;
+    color: var(--mg-white);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+  }
+  .hero-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--mg-white);
+  }
+  .hero-meta {
+    margin: 1.6rem 0 0;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .hero-meta strong {
+    color: var(--mg-orange);
+  }
+
+  /* ---------- Cartes catégories ---------- */
   .cats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
+    gap: var(--mg-space-grid);
+    margin-top: clamp(2rem, 4vw, 3rem);
   }
-  .cat-chip {
-    display: block;
-    padding: 1.1rem 1.2rem;
+  .cat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.4rem;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: var(--color-bg);
+    border-radius: var(--mg-radius-lg);
+    background: var(--color-surface);
     color: var(--color-text);
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    box-shadow: var(--mg-shadow);
+    transition: transform 0.18s ease, box-shadow 0.18s ease,
+      border-color 0.18s ease;
   }
-  .cat-chip:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
+  .cat-card:hover {
+    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+    transform: translateY(-4px);
+    box-shadow: var(--mg-shadow-hover);
     text-decoration: none;
   }
-  .cat-chip strong {
+  .cat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    margin-bottom: 0.9rem;
+  }
+  .cat-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .cat-card strong {
     display: block;
     color: var(--color-dark);
-    margin-bottom: 0.3rem;
+    font-size: 1.08rem;
+    margin-bottom: 0.35rem;
   }
-  .cat-chip span {
-    font-size: 0.85rem;
+  .cat-desc {
+    font-size: 0.9rem;
     color: var(--color-muted);
+    line-height: 1.55;
+  }
+  .cat-arrow {
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .cat-card:hover .cat-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ---------- Sections ---------- */
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-dark);
+    margin-bottom: 0.35rem;
   }
   .section {
-    margin-top: 3.5rem;
+    margin-top: clamp(3rem, 5vw, 4.5rem);
   }
   .section-head {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
+    gap: 1rem;
   }
   .section-title {
     margin: 0 0 1.3rem;
   }
+  .section-head .section-title {
+    margin-bottom: 0;
+  }
   .see-all {
-    font-weight: 600;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--color-accent-dark);
   }
   .grid {
     display: grid;
-    gap: 1.3rem;
+    gap: var(--mg-space-grid);
+    margin-top: 1.4rem;
   }
   .grid--3 {
     grid-template-columns: repeat(3, 1fr);
@@ -170,13 +292,19 @@ const websiteLd = {
   }
   .side-list {
     display: grid;
-    gap: 1rem;
+    gap: var(--mg-space-card);
     grid-template-columns: 1fr;
   }
   .empty {
     text-align: center;
     color: var(--color-muted);
     padding: 3rem 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cat-card,
+    .cat-arrow {
+      transition: none;
+    }
   }
   @media (max-width: 900px) {
     .cats {

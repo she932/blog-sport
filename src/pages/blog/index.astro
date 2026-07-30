@@ -2,30 +2,24 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import { CATEGORIES } from '../../consts';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import PageHero from '../../components/PageHero.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
+const lead = `${posts.length} guide${posts.length > 1 ? 's' : ''} publié${posts.length > 1 ? 's' : ''} pour vous aider à mieux vous équiper et à progresser.`;
 ---
 
 <BaseLayout
   title="Tous les articles"
   description="Retrouvez tous nos guides, comparatifs et conseils fitness & musculation, classés du plus récent au plus ancien."
 >
-  <div class="container page-head">
-    <h1>Tous les articles</h1>
-    <p class="lead">{posts.length} guide{posts.length > 1 ? 's' : ''} publié{posts.length > 1 ? 's' : ''} pour vous aider à mieux vous équiper et à progresser.</p>
-    <nav class="cat-nav" aria-label="Filtrer par catégorie">
-      {CATEGORIES.map((c) => (
-        <a href={`${base}/categorie/${c.slug}`} class="cat-pill">{c.name}</a>
-      ))}
-    </nav>
-  </div>
+  <PageHero eyebrow="Le blog" title="Tous les articles" lead={lead}>
+    <CategoryFilter />
+  </PageHero>
 
-  <div class="container">
+  <div class="container section">
     {posts.length > 0 ? (
       <div class="grid">
         {posts.map((p) => <ArticleCard post={p} />)}
@@ -37,39 +31,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 </BaseLayout>
 
 <style>
-  .page-head {
-    padding: 2.5rem 0 1.5rem;
-  }
-  .page-head h1 {
-    margin-bottom: 0.5rem;
-  }
-  .lead {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    margin: 0 0 1.4rem;
-  }
-  .cat-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-  .cat-pill {
-    padding: 0.4em 0.9em;
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-  .cat-pill:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent-dark);
-    text-decoration: none;
+  .section {
+    padding-top: clamp(2rem, 4vw, 2.8rem);
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.3rem;
+    gap: var(--mg-space-grid);
   }
   .empty {
     color: var(--color-muted);

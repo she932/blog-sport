@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import PageHero from '../../components/PageHero.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
 import { CATEGORIES } from '../../consts';
 
 export async function getStaticPaths() {
@@ -21,13 +23,11 @@ const posts = (
 ---
 
 <BaseLayout title={category.name} description={category.description}>
-  <div class="container page-head">
-    <span class="badge">Catégorie</span>
-    <h1>{category.name}</h1>
-    <p class="lead">{category.description}</p>
-  </div>
+  <PageHero eyebrow="Catégorie" title={category.name} lead={category.description}>
+    <CategoryFilter current={category.slug} />
+  </PageHero>
 
-  <div class="container">
+  <div class="container section">
     {posts.length > 0 ? (
       <div class="grid">
         {posts.map((p) => <ArticleCard post={p} />)}
@@ -39,21 +39,13 @@ const posts = (
 </BaseLayout>
 
 <style>
-  .page-head {
-    padding: 2.5rem 0 1.5rem;
-  }
-  .page-head h1 {
-    margin: 0.6rem 0 0.5rem;
-  }
-  .lead {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    max-width: 60ch;
+  .section {
+    padding-top: clamp(2rem, 4vw, 2.8rem);
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.3rem;
+    gap: var(--mg-space-grid);
   }
   .empty {
     color: var(--color-muted);

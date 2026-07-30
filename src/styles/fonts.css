@@ -1,0 +1,8 @@
+/* MuscuGuide 2.0 — Police principale (self-hostée, aucune requête externe) */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 800; /* fichier variable : couvre 400 → 800 */
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+}
