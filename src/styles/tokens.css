@@ -1,0 +1,44 @@
+/* ============================================================
+   MuscuGuide 2.0 — Design tokens (source : Claude Design)
+   Étape 1 : tokens globaux uniquement. Aucune structure de page modifiée.
+   ============================================================ */
+:root {
+  /* ---- Couleurs de marque ---- */
+  --mg-navy: #0e1b33;      /* bleu nuit principal */
+  --mg-orange: #ff7a29;    /* orange principal (CTA & accents) */
+  --mg-white: #ffffff;
+
+  /* ---- Couleurs secondaires ---- */
+  --mg-bg: #f6f7f9;        /* gris clair de fond */
+  --mg-text-2: #5b6b85;    /* texte secondaire */
+  --mg-border: #ebeef3;    /* bordures */
+  --mg-legal: #8a97ac;     /* mentions légales */
+
+  /* ---- Dérivés (accent) ---- */
+  --mg-orange-hover: #ff8f4d;  /* éclaircissement au hover */
+  --mg-orange-strong: #e86816; /* orange foncé (liens/texte) */
+  --mg-orange-soft: #fff1e8;   /* fond orange très clair */
+
+  /* ---- Typographie ---- */
+  --mg-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* ---- Rayons ---- */
+  --mg-radius-sm: 14px;
+  --mg-radius: 16px;
+  --mg-radius-lg: 20px;
+
+  /* ---- Espacements ---- */
+  --mg-space: 8px;
+  --mg-space-card: 16px;   /* espace interne de carte */
+  --mg-space-grid: 24px;   /* espace de grille */
+  --mg-gap-block: clamp(24px, 4vw, 40px);   /* entre les blocs */
+  --mg-section-pad: clamp(56px, 7vw, 92px); /* padding des sections */
+
+  /* ---- Ombres ---- */
+  --mg-shadow: 0 1px 2px rgba(14, 27, 51, 0.05), 0 8px 24px rgba(14, 27, 51, 0.06);
+  --mg-shadow-hover: 0 4px 10px rgba(14, 27, 51, 0.08), 0 16px 40px rgba(14, 27, 51, 0.12);
+
+  /* ---- Layout ---- */
+  --mg-breakpoint: 1040px; /* bascule desktop / mobile */
+}
