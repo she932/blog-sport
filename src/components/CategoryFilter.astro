@@ -1,0 +1,58 @@
+---
+// Barre de filtres par catégorie (pages listes). Marque la pastille active.
+// `current` = slug de la catégorie affichée, ou undefined sur /blog.
+import { CATEGORIES } from '../consts';
+interface Props {
+  current?: string;
+}
+const { current } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<nav class="cat-filter" aria-label="Filtrer par catégorie">
+  <a
+    href={`${base}/blog`}
+    class:list={['cat-pill', { active: current === undefined }]}
+    aria-current={current === undefined ? 'page' : undefined}
+  >
+    Tous
+  </a>
+  {CATEGORIES.map((c) => (
+    <a
+      href={`${base}/categorie/${c.slug}`}
+      class:list={['cat-pill', { active: current === c.slug }]}
+      aria-current={current === c.slug ? 'page' : undefined}
+    >
+      {c.name}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .cat-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.3rem;
+  }
+  .cat-pill {
+    padding: 0.45em 1em;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .cat-pill:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-dark);
+    text-decoration: none;
+  }
+  .cat-pill.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+</style>

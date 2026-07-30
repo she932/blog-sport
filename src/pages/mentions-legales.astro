@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE } from '../consts';
 
 const lastUpdate = new Date().toLocaleDateString('fr-FR', {
@@ -13,8 +14,9 @@ const lastUpdate = new Date().toLocaleDateString('fr-FR', {
   title="Mentions légales"
   description={`Mentions légales du site ${SITE.title} : éditeur, directeur de la publication, hébergeur et information sur l'affiliation Amazon.`}
 >
-  <div class="container legal">
-    <h1>Mentions légales</h1>
+  <PageHero eyebrow="Informations légales" title="Mentions légales" narrow />
+
+  <div class="container legal page-body">
     <p class="updated">Dernière mise à jour : {lastUpdate}</p>
 
     <h2>Éditeur du site</h2>
@@ -45,11 +47,16 @@ const lastUpdate = new Date().toLocaleDateString('fr-FR', {
 <style>
   .legal {
     max-width: var(--content-w);
-    padding-top: 2.5rem;
+  }
+  .page-body {
+    padding-top: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .page-body :global(h2) {
+    margin-top: 2rem;
   }
   .updated {
     color: var(--color-muted);
     font-size: 0.9rem;
-    margin-top: -0.4rem;
+    margin: 0 0 1.2rem;
   }
 </style>

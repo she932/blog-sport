@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE } from '../consts';
 import { AFFILIATE_DISCLOSURE } from '../lib/affiliate';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -9,10 +10,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   title="À propos"
   description={`Découvrez ${SITE.title}, le blog qui vous aide à choisir le meilleur matériel de fitness et de musculation.`}
 >
-  <div class="container narrow">
-    <h1>À propos de {SITE.title}</h1>
-    <p class="lead">{SITE.description}</p>
+  <PageHero
+    eyebrow="Qui sommes-nous"
+    title={`À propos de ${SITE.title}`}
+    lead={SITE.description}
+    narrow
+  />
 
+  <div class="container narrow page-body">
     <h2>Notre mission</h2>
     <p>
       Choisir le bon matériel de musculation n'est pas simple : les gammes sont
@@ -48,13 +53,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <style>
   .narrow {
     max-width: var(--content-w);
-    padding-top: 2.5rem;
   }
-  .lead {
-    font-size: 1.2rem;
-    color: var(--color-muted);
+  .page-body {
+    padding-top: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .page-body :global(h2) {
+    margin-top: 2rem;
   }
   .cta {
-    margin-top: 2rem;
+    margin-top: 2.4rem;
   }
 </style>
