@@ -100,15 +100,39 @@ export function isValidAsin(asin) {
 }
 
 /**
+ * Normalise un ASIN saisi de façon tolérante : extrait le code à 10
+ * caractères d'une URL Amazon collée (…/dp/ASIN, …/gp/product/ASIN),
+ * retire les espaces et met en majuscules. Renvoie '' si rien
+ * d'exploitable (l'appelant peut alors signaler l'erreur).
+ *
+ * Exemples :
+ *   "https://www.amazon.fr/dp/B08N5WRWNW/ref=x" -> "B08N5WRWNW"
+ *   " b08n5wrwnw "                              -> "B08N5WRWNW"
+ *   "/dp/B08N5WRWNW"                            -> "B08N5WRWNW"
+ *   "pas un asin"                               -> ""
+ */
+export function normalizeAsin(input) {
+  if (!input) return '';
+  const s = String(input).trim();
+  const m = s.match(/(?:\/dp\/|\/gp\/product\/)([A-Za-z0-9]{10})(?:[/?]|$)/);
+  if (m) return m[1].toUpperCase();
+  const bare = s.replace(/\s+/g, '');
+  if (/^[A-Za-z0-9]{10}$/.test(bare)) return bare.toUpperCase();
+  return '';
+}
+
+/**
  * Construit un lien affilié Amazon.
  *  - ASIN valide  -> fiche produit /dp/ASIN (bien meilleure conversion)
  *  - sinon        -> repli sur une recherche /s?k=mot-clé
  * Le tag d'affiliation est toujours conservé, dans les deux cas.
  */
 export function buildAffiliateUrl(product, tag, domain) {
-  const asin = product.asin ? String(product.asin).trim() : '';
-  if (isValidAsin(asin)) {
-    return `https://www.${domain}/dp/${asin.toUpperCase()}?tag=${tag}&linkCode=ogi&psc=1`;
+  // Normalisation tolérante : une URL collée ou un ASIN avec espaces
+  // produit tout de même un lien fiche produit correct.
+  const asin = normalizeAsin(product.asin);
+  if (asin) {
+    return `https://www.${domain}/dp/${asin}?tag=${tag}&linkCode=ogi&psc=1`;
   }
   const q = encodeURIComponent(product.keyword || product.name);
   return `https://www.${domain}/s?k=${q}&tag=${tag}`;

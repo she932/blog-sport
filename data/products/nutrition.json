@@ -1,0 +1,31 @@
+{
+  "_comment": "Catégorie NUTRITION — fichier de validation du pipeline. ⚠️ Les 'asin' et 'image' ci-dessous sont des PLACEHOLDERS de démonstration (produits fictifs, images génériques). À REMPLACER par tes ASIN validés et les vraies images/notes AVANT tout déploiement. Une fois remplis, aucune autre modification n'est nécessaire.",
+  "products": [
+    {
+      "id": "whey",
+      "name": "Whey protéine",
+      "keyword": "whey proteine musculation",
+      "asin": "B0NUTRWHEY",
+      "category": "nutrition",
+      "blurb": "Protéine en poudre pour soutenir la récupération et la prise de muscle.",
+      "image": "/img/produits/whey.svg",
+      "rating": 4.6,
+      "reviews": 3128,
+      "badge": "Notre choix",
+      "priceIndication": "Dès ~25 €"
+    },
+    {
+      "id": "creatine",
+      "name": "Créatine monohydrate",
+      "keyword": "creatine monohydrate",
+      "asin": "B0NUTRCREA",
+      "category": "nutrition",
+      "blurb": "Complément parmi les plus étudiés pour la force et la performance.",
+      "image": "/img/produits/creatine.svg",
+      "rating": 4.7,
+      "reviews": 5210,
+      "badge": "Meilleur rapport qualité/prix",
+      "priceIndication": "Dès ~18 €"
+    }
+  ]
+}
