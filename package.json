@@ -11,7 +11,9 @@
     "astro": "astro",
     "generate": "node scripts/generate-article.mjs",
     "generate:topics": "node scripts/generate-topics.mjs",
-    "report:asins": "node scripts/asins-report.mjs"
+    "report:asins": "node scripts/asins-report.mjs",
+    "enrich:paapi": "node scripts/paapi-enrich.mjs",
+    "paapi:selftest": "node scripts/paapi-selftest.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",

@@ -342,6 +342,27 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     font-size: 1.02rem;
     color: var(--color-dark);
   }
+  .aff-price-asof {
+    font-weight: 600;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+  }
+  .aff-prime {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #0a7ea4;
+    background: color-mix(in srgb, #0a7ea4 12%, transparent);
+    padding: 0.2em 0.6em;
+    border-radius: 999px;
+  }
+  .aff-prime::before {
+    content: "✓";
+    font-weight: 900;
+  }
 
   @media (max-width: 560px) {
     .affiliate-box .aff-cta {

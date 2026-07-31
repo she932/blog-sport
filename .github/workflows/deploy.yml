@@ -31,6 +31,17 @@ jobs:
       - name: Configurer Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Enrichir via PA-API (inerte sans clés)
+        # Best-effort : sans les secrets ci-dessous, le script ne fait rien
+        # et ne peut pas faire échouer le build. Voir data/PAAPI.md.
+        env:
+          AMAZON_PAAPI_ACCESS_KEY: ${{ secrets.AMAZON_PAAPI_ACCESS_KEY }}
+          AMAZON_PAAPI_SECRET_KEY: ${{ secrets.AMAZON_PAAPI_SECRET_KEY }}
+          AMAZON_PARTNER_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+          AMAZON_PAAPI_HOST: ${{ vars.AMAZON_PAAPI_HOST }}
+          AMAZON_PAAPI_REGION: ${{ vars.AMAZON_PAAPI_REGION }}
+          AMAZON_PAAPI_MARKETPLACE: ${{ vars.AMAZON_PAAPI_MARKETPLACE }}
+        run: npm run enrich:paapi
       - name: Build Astro
         env:
           AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}

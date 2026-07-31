@@ -21,7 +21,44 @@ const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
 const MAX_BOXES = 2;
 
 const { products } = readJson(path.join(DATA_DIR, 'products.json'));
-const byId = new Map(products.map((p) => [p.id, p]));
+
+// Cache PA-API (optionnel) : généré par scripts/paapi-enrich.mjs. Absent
+// tant que l'intégration n'est pas activée -> aucune incidence.
+let PAAPI_CACHE = { items: {}, updatedAt: null };
+try {
+  const c = readJson(path.join(DATA_DIR, 'products.cache.json'));
+  PAAPI_CACHE = { items: c.items || {}, updatedAt: c.updatedAt || null };
+} catch {
+  /* pas de cache : normal avant activation PA-API */
+}
+const cacheDate = PAAPI_CACHE.updatedAt
+  ? new Date(PAAPI_CACHE.updatedAt).toLocaleDateString('fr-FR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : null;
+
+/**
+ * Fusionne les données live PA-API (par ASIN) dans le produit, sous des
+ * clés préfixées `_` pour ne jamais écraser les valeurs manuelles.
+ * Précédence au rendu : valeur manuelle > donnée PA-API > rien.
+ */
+function withLiveData(p) {
+  if (!p) return p;
+  const asin = p.asin ? String(p.asin).trim().toUpperCase() : '';
+  const live = asin ? PAAPI_CACHE.items[asin] : null;
+  if (!live) return p;
+  return {
+    ...p,
+    _image: live.image,
+    _price: live.priceFormatted, // prix live horodaté
+    _priceAsOf: cacheDate,
+    _prime: live.prime,
+  };
+}
+
+const byId = new Map(products.map((p) => [p.id, withLiveData(p)]));
 
 const resolve = (id) =>
   byId.get(id) || { id, name: id.replace(/-/g, ' '), keyword: id.replace(/-/g, ' ') };
@@ -68,21 +105,41 @@ function ratingHtml(p) {
  *   - reviews          : nombre d'avis
  *   - badge            : remplace le libellé « Notre recommandation »
  *   - priceIndication  : mention de prix INDICATIVE, non-live (voir PRODUCTS.md)
+ *
+ * Champs LIVE PA-API (préfixe `_`, injectés par withLiveData au build,
+ * seulement si le cache existe) — priorité aux valeurs manuelles :
+ *   - _image  : image produit Amazon
+ *   - _price  : prix live formaté (+ _priceAsOf : date « à jour du »)
+ *   - _prime  : éligibilité Prime
  */
 function boxHtml(id) {
   const p = resolve(id);
   const url = buildAffiliateUrl(p, TAG, DOMAIN);
   const desc = p.blurb ? `<p class="aff-desc">${escapeHtml(p.blurb)}</p>` : '';
 
-  const media = p.image
-    ? `<div class="aff-media"><img src="${escapeHtml(String(p.image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"></div>`
+  // Précédence : valeur manuelle > donnée live PA-API > rien.
+  const image = p.image || p._image;
+  const media = image
+    ? `<div class="aff-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"></div>`
     : '';
   const label = p.badge ? escapeHtml(String(p.badge)) : 'Notre recommandation';
   const rating = ratingHtml(p);
-  const price = p.priceIndication
-    ? `<span class="aff-price">${escapeHtml(String(p.priceIndication))}</span>`
+
+  // Prix : le prix live PA-API (horodaté, conforme) prime sur la mention
+  // indicative manuelle. Sinon, repli sur priceIndication.
+  let price = '';
+  if (p._price) {
+    const asOf = p._priceAsOf
+      ? `<span class="aff-price-asof"> · au ${escapeHtml(String(p._priceAsOf))}</span>`
+      : '';
+    price = `<span class="aff-price">${escapeHtml(String(p._price))}${asOf}</span>`;
+  } else if (p.priceIndication) {
+    price = `<span class="aff-price">${escapeHtml(String(p.priceIndication))}</span>`;
+  }
+  const prime = p._prime
+    ? `<span class="aff-prime" aria-label="Éligible Prime">Prime</span>`
     : '';
-  const cls = p.image ? ' affiliate-box--media' : '';
+  const cls = image ? ' affiliate-box--media' : '';
 
   return (
     `<div class="affiliate-box${cls}">` +
@@ -95,6 +152,7 @@ function boxHtml(id) {
     `</div>` +
     `<div class="aff-cta">` +
     price +
+    prime +
     `<a class="aff-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
     `<span>Voir le prix sur Amazon</span>` +
     `<span class="aff-btn-arrow" aria-hidden="true">→</span>` +
