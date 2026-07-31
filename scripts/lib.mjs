@@ -39,10 +39,26 @@ export function existingBaseSlugs() {
   return slugs;
 }
 
-/** Construit un lien affilié Amazon (fiche produit si ASIN, sinon recherche). */
+/**
+ * Valide un ASIN Amazon : exactement 10 caractères alphanumériques
+ * (le plus souvent « B0… »). Sert de garde-fou : un ASIN mal saisi
+ * (trop court, avec espaces, collé depuis une URL) est rejeté plutôt
+ * que de produire un lien /dp/ cassé.
+ */
+export function isValidAsin(asin) {
+  return typeof asin === 'string' && /^[A-Z0-9]{10}$/i.test(asin.trim());
+}
+
+/**
+ * Construit un lien affilié Amazon.
+ *  - ASIN valide  -> fiche produit /dp/ASIN (bien meilleure conversion)
+ *  - sinon        -> repli sur une recherche /s?k=mot-clé
+ * Le tag d'affiliation est toujours conservé, dans les deux cas.
+ */
 export function buildAffiliateUrl(product, tag, domain) {
-  if (product.asin && product.asin.trim()) {
-    return `https://www.${domain}/dp/${product.asin.trim()}?tag=${tag}&linkCode=ogi&psc=1`;
+  const asin = product.asin ? String(product.asin).trim() : '';
+  if (isValidAsin(asin)) {
+    return `https://www.${domain}/dp/${asin.toUpperCase()}?tag=${tag}&linkCode=ogi&psc=1`;
   }
   const q = encodeURIComponent(product.keyword || product.name);
   return `https://www.${domain}/s?k=${q}&tag=${tag}`;
