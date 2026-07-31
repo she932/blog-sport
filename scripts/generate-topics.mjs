@@ -8,7 +8,7 @@
 // ============================================================
 import path from 'node:path';
 import Anthropic from '@anthropic-ai/sdk';
-import { DATA_DIR, readJson, writeJson, slugify } from './lib.mjs';
+import { DATA_DIR, readJson, writeJson, loadProducts, slugify } from './lib.mjs';
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5';
@@ -21,7 +21,7 @@ if (!API_KEY) {
 
 const topicsFile = path.join(DATA_DIR, 'topics.json');
 const topicsData = readJson(topicsFile);
-const { products } = readJson(path.join(DATA_DIR, 'products.json'));
+const { products } = loadProducts();
 
 const existingSlugs = new Set(topicsData.topics.map((t) => t.slug));
 const existingTitles = topicsData.topics.map((t) => t.title);

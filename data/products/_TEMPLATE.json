@@ -1,0 +1,18 @@
+{
+  "_comment": "MODÈLE — copie ce fichier sous data/products/<categorie>.json (ex. nutrition.json, cardio.json) et remplis 'products'. Les fichiers commençant par « _ » sont IGNORÉS (ce modèle n'est jamais chargé). Chaque produit : 'id' (unique, stable, minuscules-tirets), 'name', 'keyword' OBLIGATOIRES ; 'asin' pour un lien fiche produit ; 'blurb', 'category' recommandés ; 'image','rating','reviews','badge','priceIndication' optionnels (voir data/PRODUCTS.md). Aucun code à modifier : déposer le fichier suffit.",
+  "products": [
+    {
+      "id": "exemple-produit",
+      "name": "Nom du produit affiché",
+      "keyword": "mot cle recherche amazon",
+      "asin": "B0XXXXXXXX",
+      "category": "nutrition",
+      "blurb": "Courte description affichée sous le nom dans l'encadré.",
+      "image": "",
+      "rating": null,
+      "reviews": null,
+      "badge": "",
+      "priceIndication": ""
+    }
+  ]
+}

@@ -14,9 +14,9 @@
 // ============================================================
 import fs from 'node:fs';
 import path from 'node:path';
-import { DATA_DIR, BLOG_DIR, readJson, isValidAsin } from './lib.mjs';
+import { BLOG_DIR, loadProducts, isValidAsin } from './lib.mjs';
 
-const { products } = readJson(path.join(DATA_DIR, 'products.json'));
+const { products } = loadProducts();
 
 // Compte les occurrences [[BOX:id]] / [[LINK:id]] dans les articles.
 const usage = new Map();

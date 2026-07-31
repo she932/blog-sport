@@ -14,7 +14,7 @@
 //  (sauf --strict).
 // ============================================================
 import path from 'node:path';
-import { DATA_DIR, readJson, writeJson, isValidAsin } from './lib.mjs';
+import { DATA_DIR, writeJson, loadProducts, isValidAsin } from './lib.mjs';
 import {
   paapiConfig,
   hasCredentials,
@@ -58,7 +58,7 @@ function mockItem(asin, product) {
 }
 
 async function main() {
-  const { products } = readJson(path.join(DATA_DIR, 'products.json'));
+  const { products } = loadProducts();
   const withAsin = products.filter((p) => isValidAsin(p.asin));
 
   const cfg = paapiConfig();

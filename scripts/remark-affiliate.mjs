@@ -12,7 +12,7 @@
 //  ce qui garantit la règle pour les articles existants ET futurs.
 // ============================================================
 import path from 'node:path';
-import { DATA_DIR, readJson, buildAffiliateUrl, escapeHtml } from './lib.mjs';
+import { DATA_DIR, readJson, loadProducts, buildAffiliateUrl, escapeHtml } from './lib.mjs';
 
 const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
 const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
@@ -20,7 +20,7 @@ const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
 /** Nombre maximum d'encadrés produits par article. */
 const MAX_BOXES = 2;
 
-const { products } = readJson(path.join(DATA_DIR, 'products.json'));
+const { products } = loadProducts();
 
 // Cache PA-API (optionnel) : généré par scripts/paapi-enrich.mjs. Absent
 // tant que l'intégration n'est pas activée -> aucune incidence.

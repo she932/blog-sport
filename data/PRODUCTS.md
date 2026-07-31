@@ -1,8 +1,35 @@
-# Base produits (`data/products.json`) — guide de saisie
+# Base produits — guide de saisie
 
-Ce fichier alimente les **encadrés produits** et les **liens Amazon** des articles.
-Rien d'autre dans le système n'a besoin d'être modifié : dès qu'un champ est
-renseigné ici, le rendu s'adapte automatiquement au prochain build.
+Ce catalogue alimente les **encadrés produits** et les **liens Amazon** des
+articles. Rien d'autre dans le système n'a besoin d'être modifié : dès qu'un
+champ est renseigné, le rendu s'adapte automatiquement au prochain build.
+
+## Import modulaire — ajouter des produits sans toucher au code
+
+Le catalogue est chargé depuis **plusieurs sources fusionnées** :
+
+1. `data/products.json` — base historique (les 17 produits de départ).
+2. `data/products/<categorie>.json` — **un fichier par catégorie/lot**.
+
+**Pour ajouter un lot (3–5 catégories à la fois) :**
+1. Copie `data/products/_TEMPLATE.json` vers `data/products/<categorie>.json`
+   (ex. `nutrition.json`, `cardio.json`, `structure.json`).
+2. Remplis le tableau `products` (id, name, keyword, asin, blurb…).
+3. C'est tout : au prochain build, les produits sont pris en compte.
+   Aucune ligne de code à modifier.
+
+> Les fichiers dont le nom commence par `_` (comme `_TEMPLATE.json`) sont
+> **ignorés**. En cas de doublon d'`id`, la **dernière** définition l'emporte.
+
+**Vérifier un lot avant intégration :**
+```bash
+npm run products:check     # fichiers chargés, doublons, champs manquants, ASIN
+```
+
+Un `id` doit être **unique et stable** (il relie le produit aux articles via
+`[[BOX:id]]` / `[[LINK:id]]`). Ne le change jamais une fois publié.
+
+## Schéma d'un produit
 
 ## Schéma d'un produit
 

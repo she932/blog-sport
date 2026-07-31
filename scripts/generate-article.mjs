@@ -18,6 +18,7 @@ import {
   BLOG_DIR,
   DATA_DIR,
   readJson,
+  loadProducts,
   slugify,
   existingBaseSlugs,
   yamlString,
@@ -36,7 +37,7 @@ if (!API_KEY) {
 
 // --- 1. Choix du sujet ----------------------------------------
 const { topics } = readJson(path.join(DATA_DIR, 'topics.json'));
-const { products } = readJson(path.join(DATA_DIR, 'products.json'));
+const { products } = loadProducts();
 const done = existingBaseSlugs();
 
 const topic = topics.find((t) => !done.has(t.slug));

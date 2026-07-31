@@ -15,6 +15,56 @@ export function writeJson(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
 }
 
+/**
+ * Charge le catalogue produits depuis PLUSIEURS sources, fusionnées :
+ *   1. data/products.json            (base historique)
+ *   2. data/products/<categorie>.json (un fichier par lot/catégorie)
+ *
+ * Chaque fichier peut être soit un tableau de produits, soit un objet
+ * { "products": [...] }. Les fichiers dont le nom commence par « _ »
+ * (ex. _TEMPLATE.json) sont ignorés. Déduplication par `id` : en cas de
+ * doublon, la dernière définition l'emporte (et le doublon est signalé).
+ *
+ * => Ajouter des produits = déposer un fichier JSON dans data/products/,
+ *    sans toucher au code.
+ *
+ * Retourne { products, duplicates, files, invalid }.
+ */
+export function loadProducts() {
+  const sources = [];
+  const base = path.join(DATA_DIR, 'products.json');
+  if (fs.existsSync(base)) sources.push(base);
+
+  const dir = path.join(DATA_DIR, 'products');
+  if (fs.existsSync(dir)) {
+    for (const f of fs.readdirSync(dir).sort()) {
+      if (f.endsWith('.json') && !f.startsWith('_')) sources.push(path.join(dir, f));
+    }
+  }
+
+  const byId = new Map();
+  const duplicates = [];
+  const invalid = [];
+  for (const file of sources) {
+    let data;
+    try {
+      data = readJson(file);
+    } catch (e) {
+      throw new Error(`Catalogue produits : JSON invalide dans ${file} — ${e.message}`);
+    }
+    const list = Array.isArray(data) ? data : data.products || [];
+    for (const p of list) {
+      if (!p || typeof p !== 'object' || !p.id) continue; // ignore commentaires/entrées vides
+      if (!p.name || !p.keyword) {
+        invalid.push({ id: p.id, file, reason: 'champ requis manquant (name/keyword)' });
+      }
+      if (byId.has(p.id)) duplicates.push({ id: p.id, file });
+      byId.set(p.id, p); // dernière définition gagnante
+    }
+  }
+  return { products: [...byId.values()], duplicates, invalid, files: sources };
+}
+
 /** Slugifie une chaîne (accents retirés, minuscules, tirets). */
 export function slugify(str) {
   return str

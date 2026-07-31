@@ -12,6 +12,7 @@
     "generate": "node scripts/generate-article.mjs",
     "generate:topics": "node scripts/generate-topics.mjs",
     "report:asins": "node scripts/asins-report.mjs",
+    "products:check": "node scripts/products-check.mjs",
     "enrich:paapi": "node scripts/paapi-enrich.mjs",
     "paapi:selftest": "node scripts/paapi-selftest.mjs"
   },
