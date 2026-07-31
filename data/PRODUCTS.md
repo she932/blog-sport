@@ -4,6 +4,19 @@ Ce catalogue alimente les **encadrés produits** et les **liens Amazon** des
 articles. Rien d'autre dans le système n'a besoin d'être modifié : dès qu'un
 champ est renseigné, le rendu s'adapte automatiquement au prochain build.
 
+## Trois façons d'afficher un produit dans un article
+
+| Marqueur | Rendu |
+|---|---|
+| `[[LINK:id]]` ou `[[LINK:id\|ancre]]` | Lien affilié inline dans le texte. |
+| `[[BOX:id]]` | Encadré compact (image, note, prix, CTA). Max 2 par article. |
+| `[[FICHE:id]]` | **Fiche produit premium complète** : note MuscuGuide, verdict, avantages/inconvénients, fiche technique, FAQ repliable, produits liés, CTA. Non plafonnée. |
+
+La **fiche** (`[[FICHE:id]]`) est le **template officiel** pour présenter un
+produit : elle affiche automatiquement tous les champs enrichis renseignés
+(`mgScore`, `verdict`, `pros`, `cons`, `specs`, `faq`, `related`). Les champs
+absents sont simplement omis — aucune case vide.
+
 ## Import modulaire — ajouter des produits sans toucher au code
 
 Le catalogue est chargé depuis **plusieurs sources fusionnées** :

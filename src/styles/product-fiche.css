@@ -1,0 +1,532 @@
+/* ============================================================
+   Fiche produit premium — [[FICHE:id]]
+   Mobile-first, contraste élevé, tokens (clair/sombre), sans JS.
+   Objectif : confiance immédiate + clic vers le lien affilié.
+   ============================================================ */
+
+.pfiche {
+  --pf-green: #0f8a5f;
+  --pf-red: #c23a52;
+  --pf-gold: #f6a623;
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius-lg);
+  box-shadow: var(--mg-shadow);
+  padding: clamp(1.1rem, 3.5vw, 1.9rem);
+  margin: 2.4rem 0;
+  overflow: hidden;
+}
+.pfiche::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--mg-orange), var(--mg-orange-strong));
+}
+.pf-ico {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+}
+
+/* ---------- En-tête (image + infos) ---------- */
+.pf-top {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+.pf-media {
+  flex: 0 0 auto;
+  align-self: center;
+  width: min(220px, 60%);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius);
+}
+.pf-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.pf-head {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ---------- Badge fort (chip navy + orange) ---------- */
+.pf-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--mg-orange);
+  background: var(--mg-navy);
+  padding: 0.45em 0.85em;
+  border-radius: 999px;
+}
+.pf-badge .pf-ico {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.pf-name {
+  margin: 0;
+  font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+}
+.pf-verdict {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text);
+  border-left: 3px solid var(--mg-orange);
+  padding-left: 0.8rem;
+}
+.pf-summary {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ---------- Scores : Note MuscuGuide + avis clients ---------- */
+.pf-scores {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.4rem;
+  padding: 0.6rem 0;
+}
+.pf-mg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.pf-mg-ring {
+  --pct: 0;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--mg-orange) calc(var(--pct) * 1%),
+    color-mix(in srgb, var(--color-border) 80%, var(--color-muted)) 0
+  );
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.pf-mg-inner {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.pf-mg-num {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+.pf-mg-max {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+.pf-mg-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+.pf-mg-label .pf-ico {
+  color: var(--mg-orange);
+  width: 1.05em;
+  height: 1.05em;
+}
+.pf-mg-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.pf-community {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  color: var(--color-muted);
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--color-border);
+}
+.pf-community-num {
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+/* ---------- Étoiles (barre clippée) ---------- */
+.pf-stars {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--color-border) 55%, var(--color-muted));
+}
+.pf-stars .pf-stars-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--pct, 0%);
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--pf-gold);
+}
+
+/* ---------- CTA ---------- */
+.pf-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+.pf-cta-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pf-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+.pf-price-asof {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  width: 100%;
+  max-width: 340px;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--mg-orange-hover), var(--mg-orange) 55%, var(--mg-orange-strong));
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 0.95em 1.6em;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(232, 87, 31, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.pf-btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+  box-shadow: 0 10px 26px rgba(232, 87, 31, 0.42);
+}
+.pf-btn-arrow {
+  transition: transform 0.15s ease;
+}
+.pf-btn:hover .pf-btn-arrow {
+  transform: translateX(3px);
+}
+.pf-note {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+/* ---------- Blocs ---------- */
+.pf-block {
+  margin-top: 1.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--color-border);
+}
+.pf-h {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---------- Avantages / inconvénients ---------- */
+.pf-proscons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--color-border);
+}
+.pf-col {
+  border-radius: var(--mg-radius);
+  padding: 0.9rem 1.05rem;
+}
+.pf-col--pro {
+  background: color-mix(in srgb, var(--pf-green) 9%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--pf-green) 22%, var(--color-border));
+}
+.pf-col--con {
+  background: color-mix(in srgb, var(--pf-red) 8%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--pf-red) 20%, var(--color-border));
+}
+.pf-col--pro .pf-h {
+  color: var(--pf-green);
+}
+.pf-col--con .pf-h {
+  color: var(--pf-red);
+}
+.pf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.pf-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55em;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+.pf-list .pf-ico {
+  width: 1.15em;
+  height: 1.15em;
+  margin-top: 0.15em;
+  stroke-width: 2.4;
+}
+.pf-list--pro .pf-ico {
+  color: var(--pf-green);
+}
+.pf-list--con .pf-ico {
+  color: var(--pf-red);
+}
+
+/* ---------- Fiche technique ---------- */
+.pf-specs {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+}
+.pf-spec {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 1rem;
+}
+.pf-spec:nth-child(odd) {
+  background: color-mix(in srgb, var(--color-bg) 55%, var(--color-surface));
+}
+.pf-spec dt {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+.pf-spec dd {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-align: right;
+}
+
+/* ---------- FAQ (accordéon natif) ---------- */
+.pf-faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius-sm);
+  background: var(--color-surface);
+  margin-bottom: 0.6rem;
+  padding: 0 1.05rem;
+  transition: border-color 0.15s ease;
+}
+.pf-faq-item[open] {
+  border-color: color-mix(in srgb, var(--mg-orange) 40%, var(--color-border));
+}
+.pf-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.pf-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.pf-faq-plus {
+  position: relative;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+.pf-faq-plus::before,
+.pf-faq-plus::after {
+  content: "";
+  position: absolute;
+  background: var(--mg-orange);
+  border-radius: 2px;
+}
+.pf-faq-plus::before {
+  left: 0;
+  top: 7px;
+  width: 16px;
+  height: 2px;
+}
+.pf-faq-plus::after {
+  left: 7px;
+  top: 0;
+  width: 2px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+.pf-faq-item[open] .pf-faq-plus::after {
+  transform: rotate(90deg);
+}
+.pf-faq-item p {
+  margin: 0 0 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ---------- Produits liés ---------- */
+.pf-rel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+.pf-rel-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--mg-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.pf-rel-card:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--mg-orange) 40%, var(--color-border));
+  box-shadow: var(--mg-shadow-hover);
+}
+.pf-rel-media {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+.pf-rel-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.pf-rel-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.pf-rel-name {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.pf-rel-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mg-orange-strong);
+}
+.pf-rel-note .pf-ico {
+  width: 0.95em;
+  height: 0.95em;
+}
+.pf-rel-go {
+  flex: 0 0 auto;
+  color: var(--color-muted);
+  font-weight: 800;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.pf-rel-card:hover .pf-rel-go {
+  color: var(--mg-orange-strong);
+  transform: translateX(3px);
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 620px) {
+  .pf-top {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .pf-media {
+    align-self: flex-start;
+    width: 200px;
+  }
+  .pf-btn {
+    width: auto;
+  }
+  .pf-proscons {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pf-rel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-btn,
+  .pf-btn-arrow,
+  .pf-rel-card,
+  .pf-rel-go,
+  .pf-faq-plus::after,
+  .pf-faq-item {
+    transition: none;
+  }
+}

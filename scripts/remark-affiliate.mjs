@@ -171,6 +171,190 @@ function linkHtml(id, anchor) {
   return `<a class="aff-inline" href="${url}" target="_blank" rel="nofollow sponsored noopener">${escapeHtml(text)}</a>`;
 }
 
+// ============================================================
+//  Fiche produit premium — [[FICHE:id]]
+//  Rendu complet et orienté confiance : note MuscuGuide mise en avant,
+//  avantages/inconvénients, fiche technique, FAQ repliable, produits liés,
+//  CTA Amazon net mais non agressif. HTML pur (aucun JS : accordéon natif
+//  <details>) pour un score Lighthouse optimal.
+// ============================================================
+const svg = (p) =>
+  `<svg class="pf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const ICON_CHECK = svg('<path d="M20 6 9 17l-5-5"/>');
+const ICON_X = svg('<path d="M18 6 6 18M6 6l12 12"/>');
+const ICON_AWARD = svg('<circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/>');
+const ICON_SHIELD = svg('<path d="M12 2 4 5v6c0 5 3.4 8 8 11 4.6-3 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/>');
+const ICON_UP = svg('<path d="M7 10v11"/><path d="M18 21H7V10l5-8a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 1Z"/>');
+const ICON_DOWN = svg('<path d="M17 14V3"/><path d="M6 3h11v11l-5 8a2 2 0 0 1-2-2v-4H5a2 2 0 0 1-2-2l2-8a2 2 0 0 1 2-1Z"/>');
+
+const commaNum = (n) => String(n).replace('.', ',');
+
+function pfStars(value) {
+  const r = Number(value);
+  if (!r || r <= 0 || r > 5) return '';
+  const pct = Math.round((r / 5) * 100);
+  return `<span class="pf-stars" style="--pct:${pct}%" aria-hidden="true"><span class="pf-stars-fill">★★★★★</span>★★★★★</span>`;
+}
+
+function pfPrice(p) {
+  if (p._price) {
+    const asOf = p._priceAsOf
+      ? `<span class="pf-price-asof"> · au ${escapeHtml(String(p._priceAsOf))}</span>`
+      : '';
+    return `<span class="pf-price">${escapeHtml(String(p._price))}${asOf}</span>`;
+  }
+  return p.priceIndication
+    ? `<span class="pf-price">${escapeHtml(String(p.priceIndication))}</span>`
+    : '';
+}
+
+function pfList(items, kind) {
+  if (!Array.isArray(items) || !items.length) return '';
+  const icon = kind === 'pro' ? ICON_CHECK : ICON_X;
+  const lis = items
+    .map((t) => `<li>${icon}<span>${escapeHtml(String(t))}</span></li>`)
+    .join('');
+  return `<ul class="pf-list pf-list--${kind}">${lis}</ul>`;
+}
+
+function pfSpecs(specs) {
+  if (!Array.isArray(specs) || !specs.length) return '';
+  const rows = specs
+    .filter((s) => s && s.label != null && s.value != null)
+    .map(
+      (s) =>
+        `<div class="pf-spec"><dt>${escapeHtml(String(s.label))}</dt><dd>${escapeHtml(String(s.value))}</dd></div>`
+    )
+    .join('');
+  return rows
+    ? `<div class="pf-block"><h4 class="pf-h">Fiche technique</h4><dl class="pf-specs">${rows}</dl></div>`
+    : '';
+}
+
+function pfFaq(faq) {
+  if (!Array.isArray(faq) || !faq.length) return '';
+  const items = faq
+    .filter((f) => f && f.question != null && f.answer != null)
+    .map(
+      (f) =>
+        `<details class="pf-faq-item"><summary>${escapeHtml(String(f.question))}<span class="pf-faq-plus" aria-hidden="true"></span></summary><p>${escapeHtml(String(f.answer))}</p></details>`
+    )
+    .join('');
+  return items
+    ? `<div class="pf-block"><h4 class="pf-h">Questions fréquentes</h4>${items}</div>`
+    : '';
+}
+
+function pfRelated(related) {
+  if (!Array.isArray(related) || !related.length) return '';
+  const cards = related
+    .map((rid) => {
+      const rp = byId.get(rid);
+      if (!rp) return '';
+      const url = buildAffiliateUrl(rp, TAG, DOMAIN);
+      const img = rp.image || rp._image;
+      const media = img
+        ? `<span class="pf-rel-media"><img src="${escapeHtml(String(img))}" alt="${escapeHtml(rp.name)}" loading="lazy" decoding="async"></span>`
+        : '';
+      const note =
+        Number(rp.mgScore) > 0
+          ? `<span class="pf-rel-note">${ICON_SHIELD}${commaNum(rp.mgScore)}/5</span>`
+          : '';
+      return (
+        `<a class="pf-rel-card" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
+        media +
+        `<span class="pf-rel-info"><span class="pf-rel-name">${escapeHtml(rp.name)}</span>${note}</span>` +
+        `<span class="pf-rel-go" aria-hidden="true">→</span>` +
+        `</a>`
+      );
+    })
+    .join('');
+  return cards
+    ? `<div class="pf-block"><h4 class="pf-h">Produits liés</h4><div class="pf-rel">${cards}</div></div>`
+    : '';
+}
+
+function ficheHtml(id) {
+  const p = resolve(id);
+  const url = buildAffiliateUrl(p, TAG, DOMAIN);
+  const image = p.image || p._image;
+
+  const media = image
+    ? `<div class="pf-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async" width="220" height="220"></div>`
+    : '';
+  const badge = p.badge
+    ? `<span class="pf-badge">${ICON_AWARD}${escapeHtml(String(p.badge))}</span>`
+    : '';
+  const verdict = p.verdict
+    ? `<p class="pf-verdict">${escapeHtml(String(p.verdict))}</p>`
+    : '';
+  const summary = p.summary
+    ? `<p class="pf-summary">${escapeHtml(String(p.summary))}</p>`
+    : '';
+
+  // Note MuscuGuide (mise en avant) ; repli sur la note clients si absente.
+  const mg = Number(p.mgScore) || Number(p.rating);
+  const mgHtml =
+    mg > 0 && mg <= 5
+      ? `<div class="pf-mg"><div class="pf-mg-ring" style="--pct:${Math.round(
+          (mg / 5) * 100
+        )}"><div class="pf-mg-inner"><span class="pf-mg-num">${commaNum(
+          mg.toFixed(1)
+        )}</span><span class="pf-mg-max">/5</span></div></div><div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Note MuscuGuide</span>${pfStars(
+          mg
+        )}</div></div>`
+      : '';
+  const community =
+    Number(p.rating) > 0 && p.reviews
+      ? `<div class="pf-community">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(
+          p.rating
+        )}</span><span class="pf-community-reviews">${formatReviews(
+          p.reviews
+        )} avis clients</span></div>`
+      : '';
+  const prime = p._prime ? `<span class="aff-prime" aria-label="Éligible Prime">Prime</span>` : '';
+
+  const prosCons =
+    (Array.isArray(p.pros) && p.pros.length) ||
+    (Array.isArray(p.cons) && p.cons.length)
+      ? `<div class="pf-proscons">` +
+        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Avantages</h4>${pfList(
+          p.pros,
+          'pro'
+        )}</div>` +
+        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Inconvénients</h4>${pfList(
+          p.cons,
+          'con'
+        )}</div>` +
+        `</div>`
+      : '';
+
+  return (
+    `<section class="pfiche">` +
+    `<div class="pf-top">` +
+    media +
+    `<div class="pf-head">` +
+    badge +
+    `<h3 class="pf-name">${escapeHtml(p.name)}</h3>` +
+    verdict +
+    `<div class="pf-scores">${mgHtml}${community}</div>` +
+    summary +
+    `<div class="pf-cta">` +
+    `<div class="pf-cta-price">${pfPrice(p)}${prime}</div>` +
+    `<a class="pf-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
+    `<span>Voir le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>` +
+    `<span class="pf-note">Prix &amp; disponibilité sur Amazon · lien partenaire</span>` +
+    `</div>` +
+    `</div>` +
+    `</div>` +
+    prosCons +
+    pfSpecs(p.specs) +
+    pfFaq(p.faq) +
+    pfRelated(p.related) +
+    `</section>`
+  );
+}
+
 // Tolérant aux fautes de frappe du type de marqueur : seul « BOX » produit
 // un bloc CTA, tout autre mot-clé (LINK, mais aussi une variante mal
 // orthographiée comme « LINM ») est traité comme un lien inline. Ainsi, un
@@ -193,7 +377,10 @@ function splitText(value, state) {
     }
     const kind = m[1].toUpperCase();
     let html;
-    if (kind === 'BOX') {
+    if (kind === 'FICHE') {
+      // Fiche produit complète : non soumise au plafond des encadrés.
+      html = ficheHtml(m[2]);
+    } else if (kind === 'BOX') {
       if (state.boxes < MAX_BOXES) {
         html = boxHtml(m[2]);
         state.boxes += 1;
@@ -236,7 +423,8 @@ function unwrapBoxes(node) {
       child.type === 'paragraph' &&
       child.children.length === 1 &&
       child.children[0].type === 'html' &&
-      child.children[0].value.startsWith('<div class="affiliate-box"')
+      (child.children[0].value.startsWith('<div class="affiliate-box"') ||
+        child.children[0].value.startsWith('<section class="pfiche"'))
     ) {
       out.push(child.children[0]);
     } else {

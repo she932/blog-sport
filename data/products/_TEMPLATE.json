@@ -8,6 +8,8 @@
       "asin": "B0XXXXXXXX",
       "category": "nom-categorie",
       "badge": "Notre choix",
+      "mgScore": 4.5,
+      "verdict": "Notre verdict en une phrase : pourquoi ce produit est recommandé.",
       "rating": 4.6,
       "reviews": 1234,
       "priceIndication": "Dès ~XX €",
