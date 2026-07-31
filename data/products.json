@@ -1,5 +1,5 @@
 {
-  "_comment": "Base de produits affiliés. Renseignez le champ 'asin' avec l'ASIN Amazon réel de chaque produit pour générer un lien direct (meilleure conversion). Si 'asin' est vide, un lien de recherche Amazon est généré automatiquement à partir de 'keyword'. Ajoutez/modifiez librement des produits : le générateur les proposera à Claude.",
+  "_comment": "Base de produits affiliés. OBLIGATOIRE : id, name, keyword. Renseignez 'asin' avec l'ASIN Amazon reel (10 caracteres, ex. B08N5WRWNW) pour un lien fiche produit /dp/ (bien meilleure conversion) ; si 'asin' est vide ou invalide, un lien de recherche est genere automatiquement a partir de 'keyword'. OPTIONNEL (encadre enrichi, applique seulement si present) : 'image' (URL/chemin d'une image produit), 'rating' (note 0-5, ex. 4.6), 'reviews' (nombre d'avis), 'badge' (remplace 'Notre recommandation', ex. 'Notre choix'), 'priceIndication' (mention de prix INDICATIVE et non-live, ex. 'Des ~120 EUR' — pour un prix live, passer par l'API Amazon PA-API, voir data/PRODUCTS.md). Ajoutez/modifiez librement des produits : le generateur les proposera a Claude.",
   "products": [
     {
       "id": "banc-reglable",

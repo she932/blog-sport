@@ -279,6 +279,70 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     text-decoration: none;
     border-bottom-color: var(--color-accent);
   }
+
+  /* ---------- Chantier n°2 : encadré enrichi (optionnel) ----------
+     Ces règles ne s'appliquent que si le produit possède image / note /
+     prix dans data/products.json. Sans métadonnée, l'encadré minimal
+     n'est pas affecté. */
+  .affiliate-box--media {
+    align-items: stretch;
+  }
+  .aff-media {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    padding: 6px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+  }
+  .aff-media img {
+    width: 100%;
+    height: auto;
+    max-height: 104px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+  .aff-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    margin: 0.15rem 0;
+    font-size: 0.86rem;
+  }
+  .aff-stars {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: color-mix(in srgb, var(--color-border) 60%, var(--color-muted));
+  }
+  .aff-stars .aff-stars-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--pct, 0%);
+    overflow: hidden;
+    white-space: nowrap;
+    color: #f6a623;
+  }
+  .aff-rating-num {
+    font-weight: 800;
+    color: var(--color-dark);
+  }
+  .aff-reviews {
+    color: var(--color-muted);
+  }
+  .aff-price {
+    font-weight: 800;
+    font-size: 1.02rem;
+    color: var(--color-dark);
+  }
+
   @media (max-width: 560px) {
     .affiliate-box .aff-cta {
       align-items: stretch;
@@ -286,6 +350,12 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     }
     .aff-btn {
       justify-content: center;
+    }
+    .affiliate-box--media {
+      flex-wrap: wrap;
+    }
+    .aff-media {
+      width: 76px;
     }
   }
 </style>

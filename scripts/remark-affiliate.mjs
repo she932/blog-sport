@@ -26,18 +26,75 @@ const byId = new Map(products.map((p) => [p.id, p]));
 const resolve = (id) =>
   byId.get(id) || { id, name: id.replace(/-/g, ' '), keyword: id.replace(/-/g, ' ') };
 
+/** Formate un nombre d'avis : 1234 -> "1 234", 12500 -> "12 500". */
+function formatReviews(n) {
+  const v = Number(n);
+  if (!v || v < 0) return '';
+  return String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+/**
+ * Bloc note/avis (chantier n°2). Rendu uniquement si `rating` est un nombre
+ * valide entre 0 et 5. Les étoiles pleines sont clippées via --pct en CSS.
+ */
+function ratingHtml(p) {
+  const r = Number(p.rating);
+  if (!r || r <= 0 || r > 5) return '';
+  const pct = Math.round((r / 5) * 100);
+  const num = r.toFixed(1).replace('.', ',');
+  const reviews = formatReviews(p.reviews);
+  const reviewsHtml = reviews
+    ? `<span class="aff-reviews">${reviews}&nbsp;avis</span>`
+    : '';
+  return (
+    `<span class="aff-rating">` +
+    `<span class="aff-stars" style="--pct:${pct}%" role="img" aria-label="Note ${num} sur 5">` +
+    `<span class="aff-stars-fill">★★★★★</span>★★★★★</span>` +
+    `<span class="aff-rating-num">${num}</span>` +
+    reviewsHtml +
+    `</span>`
+  );
+}
+
+/**
+ * Encadré produit affilié.
+ *
+ * Champs OBLIGATOIRES : id, name (+ url calculée).
+ * Champs OPTIONNELS (chantier n°2) — n'apparaissent que s'ils sont
+ * renseignés dans data/products.json, sinon l'encadré reste identique
+ * à sa version minimale (aucune régression) :
+ *   - image           : URL/chemin d'une image produit
+ *   - rating (0-5)     : note moyenne, affichée en étoiles
+ *   - reviews          : nombre d'avis
+ *   - badge            : remplace le libellé « Notre recommandation »
+ *   - priceIndication  : mention de prix INDICATIVE, non-live (voir PRODUCTS.md)
+ */
 function boxHtml(id) {
   const p = resolve(id);
   const url = buildAffiliateUrl(p, TAG, DOMAIN);
   const desc = p.blurb ? `<p class="aff-desc">${escapeHtml(p.blurb)}</p>` : '';
+
+  const media = p.image
+    ? `<div class="aff-media"><img src="${escapeHtml(String(p.image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"></div>`
+    : '';
+  const label = p.badge ? escapeHtml(String(p.badge)) : 'Notre recommandation';
+  const rating = ratingHtml(p);
+  const price = p.priceIndication
+    ? `<span class="aff-price">${escapeHtml(String(p.priceIndication))}</span>`
+    : '';
+  const cls = p.image ? ' affiliate-box--media' : '';
+
   return (
-    `<div class="affiliate-box">` +
+    `<div class="affiliate-box${cls}">` +
+    media +
     `<div class="aff-info">` +
-    `<span class="aff-label">Notre recommandation</span>` +
+    `<span class="aff-label">${label}</span>` +
     `<span class="aff-name">${escapeHtml(p.name)}</span>` +
+    rating +
     desc +
     `</div>` +
     `<div class="aff-cta">` +
+    price +
     `<a class="aff-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
     `<span>Voir le prix sur Amazon</span>` +
     `<span class="aff-btn-arrow" aria-hidden="true">→</span>` +

@@ -40,6 +40,9 @@ const rows = products
     if (!asin) status = 'MANQUANT';
     else if (isValidAsin(asin)) status = 'valide';
     else status = 'INVALIDE';
+    const hasImage = !!(p.image && String(p.image).trim());
+    const ratingNum = Number(p.rating);
+    const hasRating = ratingNum > 0 && ratingNum <= 5;
     return {
       id: p.id,
       keyword: p.keyword || p.name || '',
@@ -47,6 +50,7 @@ const rows = products
       status,
       links: usage.get(p.id) || 0,
       linkType: status === 'valide' ? 'fiche produit' : 'recherche (repli)',
+      rich: (hasImage ? 'img' : '') + (hasImage && hasRating ? '+' : '') + (hasRating ? 'note' : '') || '—',
     };
   })
   .sort((a, b) => b.links - a.links);
@@ -67,8 +71,8 @@ console.log(
   '  ' +
     pad('produit', 22) +
     pad('liens', 7) +
-    pad('ASIN', 14) +
-    pad('état', 11) +
+    pad('état ASIN', 15) +
+    pad('enrichi', 10) +
     'type de lien'
 );
 console.log('  ' + '─'.repeat(72));
@@ -79,8 +83,8 @@ for (const r of rows) {
       pad(r.id, 22) +
       padL(r.links, 4) +
       '   ' +
-      pad(r.asin || '—', 14) +
-      pad(flag + ' ' + r.status, 11) +
+      pad(flag + ' ' + r.status, 15) +
+      pad(r.rich, 10) +
       r.linkType
   );
 }
