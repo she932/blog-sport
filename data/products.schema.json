@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://muscuguide.fr/schemas/products.schema.json",
+  "title": "Catégorie de produits MuscuGuide",
+  "description": "Format unique d'un fichier de catégorie (data/products/<categorie>.json). Un fichier = un tableau 'products', ou directement un tableau.",
+  "oneOf": [
+    { "type": "array", "items": { "$ref": "#/$defs/product" } },
+    {
+      "type": "object",
+      "properties": {
+        "_comment": { "type": "string" },
+        "products": { "type": "array", "items": { "$ref": "#/$defs/product" } }
+      },
+      "required": ["products"],
+      "additionalProperties": true
+    }
+  ],
+  "$defs": {
+    "product": {
+      "type": "object",
+      "required": ["id", "name", "keyword"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Identifiant unique et stable (minuscules, tirets). Lie le produit aux articles via [[BOX:id]] / [[LINK:id]]. Ne jamais changer."
+        },
+        "name": { "type": "string", "minLength": 1, "description": "Nom du produit affiché." },
+        "keyword": { "type": "string", "minLength": 1, "description": "Mot-clé de recherche Amazon (repli sans ASIN)." },
+        "asin": {
+          "type": "string",
+          "description": "ASIN Amazon (10 caractères alphanumériques). Une URL collée est auto-corrigée par products:fix. Vide = lien de recherche.",
+          "pattern": "^$|^[A-Za-z0-9]{10}$|/dp/|/gp/product/"
+        },
+        "category": { "type": "string", "description": "Regroupement de la catégorie (ex. nutrition, cardio)." },
+        "badge": { "type": "string", "description": "Ex. « Notre choix », « Meilleur rapport qualité/prix ». Remplace le libellé par défaut." },
+        "rating": { "type": ["number", "null"], "minimum": 0, "maximum": 5, "description": "Note moyenne /5." },
+        "reviews": { "type": ["integer", "null"], "minimum": 0, "description": "Nombre d'avis." },
+        "priceIndication": { "type": "string", "description": "Mention de prix INDICATIVE (non-live). Prix live = PA-API." },
+        "image": { "type": "string", "description": "Chemin local (/img/produits/...) ou URL d'image produit." },
+        "summary": { "type": "string", "description": "Résumé (1 à 3 phrases)." },
+        "blurb": { "type": "string", "description": "Ligne courte pour l'encadré (facultative si 'summary' présent)." },
+        "pros": { "type": "array", "items": { "type": "string" }, "description": "Avantages." },
+        "cons": { "type": "array", "items": { "type": "string" }, "description": "Inconvénients." },
+        "specs": {
+          "type": "array",
+          "description": "Fiche technique (ordre conservé).",
+          "items": {
+            "type": "object",
+            "required": ["label", "value"],
+            "properties": {
+              "label": { "type": "string" },
+              "value": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "faq": {
+          "type": "array",
+          "description": "Questions/réponses propres au produit.",
+          "items": {
+            "type": "object",
+            "required": ["question", "answer"],
+            "properties": {
+              "question": { "type": "string" },
+              "answer": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "related": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Identifiants d'autres produits liés (doivent exister dans le catalogue)."
+        }
+      }
+    }
+  }
+}

@@ -115,7 +115,8 @@ function ratingHtml(p) {
 function boxHtml(id) {
   const p = resolve(id);
   const url = buildAffiliateUrl(p, TAG, DOMAIN);
-  const desc = p.blurb ? `<p class="aff-desc">${escapeHtml(p.blurb)}</p>` : '';
+  const descText = p.blurb || p.summary; // blurb = ligne courte ; sinon résumé
+  const desc = descText ? `<p class="aff-desc">${escapeHtml(String(descText))}</p>` : '';
 
   // Précédence : valeur manuelle > donnée live PA-API > rien.
   const image = p.image || p._image;

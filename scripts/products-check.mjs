@@ -91,6 +91,44 @@ if (broken.length) {
   console.log('\n  ❌ ASIN illisibles (à corriger à la main) :');
   for (const p of broken) console.log(`    • ${p.id} : "${p.asin}"`);
 }
+// ---- Validation de la structure enrichie ----
+const ids = new Set(products.map((p) => p.id));
+const structIssues = [];
+const dangling = [];
+const isStrArray = (v) => Array.isArray(v) && v.every((x) => typeof x === 'string');
+for (const p of products) {
+  if (p.rating != null && (typeof p.rating !== 'number' || p.rating < 0 || p.rating > 5))
+    structIssues.push(`${p.id} : 'rating' doit être un nombre entre 0 et 5`);
+  if (p.reviews != null && (typeof p.reviews !== 'number' || p.reviews < 0))
+    structIssues.push(`${p.id} : 'reviews' doit être un entier positif`);
+  if (p.pros != null && !isStrArray(p.pros))
+    structIssues.push(`${p.id} : 'pros' doit être une liste de textes`);
+  if (p.cons != null && !isStrArray(p.cons))
+    structIssues.push(`${p.id} : 'cons' doit être une liste de textes`);
+  if (p.specs != null) {
+    if (!Array.isArray(p.specs) || !p.specs.every((s) => s && s.label != null && s.value != null))
+      structIssues.push(`${p.id} : 'specs' doit être une liste de { label, value }`);
+  }
+  if (p.faq != null) {
+    if (!Array.isArray(p.faq) || !p.faq.every((f) => f && f.question != null && f.answer != null))
+      structIssues.push(`${p.id} : 'faq' doit être une liste de { question, answer }`);
+  }
+  if (p.related != null) {
+    if (!isStrArray(p.related))
+      structIssues.push(`${p.id} : 'related' doit être une liste d'identifiants`);
+    else
+      for (const r of p.related)
+        if (!ids.has(r)) dangling.push(`${p.id} → produit lié introuvable : "${r}"`);
+  }
+}
+if (structIssues.length) {
+  console.log('\n  ❌ Structure invalide :');
+  for (const s of structIssues) console.log(`    • ${s}`);
+}
+if (dangling.length) {
+  console.log('\n  ⚠️  Produits liés non résolus (référence à corriger) :');
+  for (const d of dangling) console.log(`    • ${d}`);
+}
 if (duplicates.length) {
   console.log('\n  ⚠️  Doublons d\'id (dernière définition gardée) :');
   for (const d of duplicates) console.log(`    • ${d.id}  (${rel(d.file)})`);
@@ -100,7 +138,13 @@ if (invalid.length) {
   for (const i of invalid) console.log(`    • ${i.id} — ${i.reason}  (${rel(i.file)})`);
 }
 
-const clean = !fixable.length && !broken.length && !duplicates.length && !invalid.length;
+const clean =
+  !fixable.length &&
+  !broken.length &&
+  !duplicates.length &&
+  !invalid.length &&
+  !structIssues.length &&
+  !dangling.length;
 if (clean) console.log('\n  ✅ Catalogue sain.' + (corrections.length ? ' Corrections appliquées.' : ''));
 console.log('');
 

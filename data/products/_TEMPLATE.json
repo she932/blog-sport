@@ -1,18 +1,36 @@
 {
-  "_comment": "MODÈLE — copie ce fichier sous data/products/<categorie>.json (ex. nutrition.json, cardio.json) et remplis 'products'. Les fichiers commençant par « _ » sont IGNORÉS (ce modèle n'est jamais chargé). Chaque produit : 'id' (unique, stable, minuscules-tirets), 'name', 'keyword' OBLIGATOIRES ; 'asin' pour un lien fiche produit ; 'blurb', 'category' recommandés ; 'image','rating','reviews','badge','priceIndication' optionnels (voir data/PRODUCTS.md). Aucun code à modifier : déposer le fichier suffit.",
+  "_comment": "MODÈLE de catégorie — copie ce fichier sous data/products/<categorie>.json et remplis 'products'. Les fichiers commençant par « _ » sont IGNORÉS (ce modèle n'est jamais chargé). FORMAT UNIQUE pour toutes les catégories. Champs OBLIGATOIRES : id, name, keyword. RECOMMANDÉS : asin, category, badge, rating, reviews, summary, image. ENRICHIS (optionnels) : pros[], cons[], specs[{label,value}], faq[{question,answer}], related[ids]. Voir data/PRODUCTS.md et data/products.schema.json. Valide avec `npm run products:check`.",
   "products": [
     {
-      "id": "exemple-produit",
+      "id": "identifiant-unique-produit",
       "name": "Nom du produit affiché",
-      "keyword": "mot cle recherche amazon",
+      "keyword": "mots cles recherche amazon",
       "asin": "B0XXXXXXXX",
-      "category": "nutrition",
-      "blurb": "Courte description affichée sous le nom dans l'encadré.",
-      "image": "",
-      "rating": null,
-      "reviews": null,
-      "badge": "",
-      "priceIndication": ""
+      "category": "nom-categorie",
+      "badge": "Notre choix",
+      "rating": 4.6,
+      "reviews": 1234,
+      "priceIndication": "Dès ~XX €",
+      "image": "/img/produits/identifiant-unique-produit.jpg",
+      "summary": "Résumé en 1 à 3 phrases : à qui s'adresse le produit et pourquoi le recommander.",
+      "blurb": "Ligne courte affichée dans l'encadré (facultative si 'summary' est renseigné).",
+      "pros": [
+        "Avantage 1",
+        "Avantage 2",
+        "Avantage 3"
+      ],
+      "cons": [
+        "Inconvénient 1",
+        "Inconvénient 2"
+      ],
+      "specs": [
+        { "label": "Caractéristique", "value": "Valeur" },
+        { "label": "Poids", "value": "10 kg" }
+      ],
+      "faq": [
+        { "question": "Question fréquente ?", "answer": "Réponse claire et concise." }
+      ],
+      "related": ["autre-id-produit", "encore-un-id"]
     }
   ]
 }

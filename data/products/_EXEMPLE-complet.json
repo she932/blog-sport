@@ -1,0 +1,51 @@
+{
+  "_comment": "EXEMPLE COMPLET (référence, non chargé car préfixé « _ »). Montre un produit entièrement renseigné dans le format cible. Les valeurs sont réalistes mais fictives (ASIN placeholder). Sert de repère pour remplir tes vraies catégories.",
+  "products": [
+    {
+      "id": "whey-isolate-zero",
+      "name": "Whey Isolate Zéro — Vanille",
+      "keyword": "whey isolate proteine vanille",
+      "asin": "B0EXEMPLE01",
+      "category": "nutrition",
+      "badge": "Notre choix",
+      "rating": 4.6,
+      "reviews": 3128,
+      "priceIndication": "Dès ~29 €",
+      "image": "/img/produits/whey-isolate-zero.jpg",
+      "summary": "Un isolat de whey filtré à froid, très pauvre en lactose et en sucres, idéal pour la sèche comme pour la prise de muscle. Digestion facile et excellent profil d'acides aminés pour soutenir la récupération.",
+      "blurb": "Isolat de whey pauvre en lactose, digestion facile, riche en protéines.",
+      "pros": [
+        "27 g de protéines par portion",
+        "Très pauvre en sucres et en lactose",
+        "Se mélange sans grumeaux",
+        "Bon rapport qualité/prix au kilo"
+      ],
+      "cons": [
+        "Arôme vanille assez sucré",
+        "Pot un peu volumineux"
+      ],
+      "specs": [
+        { "label": "Protéines / portion", "value": "27 g" },
+        { "label": "Type", "value": "Isolate filtré à froid" },
+        { "label": "Lactose", "value": "< 0,5 g" },
+        { "label": "Portions", "value": "33 (1 kg)" },
+        { "label": "Arômes", "value": "Vanille, chocolat, fraise" }
+      ],
+      "faq": [
+        {
+          "question": "Isolate ou concentré : quelle différence ?",
+          "answer": "L'isolate est plus filtré : plus de protéines, moins de lactose et de sucres. Idéal si vous digérez mal le concentré ou si vous êtes en sèche."
+        },
+        {
+          "question": "Quand la consommer ?",
+          "answer": "Après l'entraînement ou à tout moment de la journée pour compléter vos apports en protéines. Le total quotidien prime sur le timing exact."
+        },
+        {
+          "question": "Convient-elle aux intolérants au lactose ?",
+          "answer": "Sa très faible teneur en lactose la rend généralement bien tolérée, mais en cas d'intolérance sévère, demandez l'avis d'un professionnel."
+        }
+      ],
+      "related": ["creatine", "shaker", "bcaa"]
+    }
+  ]
+}

@@ -46,6 +46,23 @@ Un `id` doit être **unique et stable** (il relie le produit aux articles via
 | `reviews` | ⬜ | `2413` | Nombre d'avis, affiché à côté des étoiles. |
 | `badge` | ⬜ | `"Notre choix"` | Remplace le libellé « Notre recommandation ». |
 | `priceIndication` | ⬜ | `"Dès ~120 €"` | Mention de prix **indicative** (voir avertissement ci-dessous). |
+| `summary` | ⬜ | `"Isolat pauvre en lactose…"` | Résumé (1–3 phrases). Sert de description si `blurb` absent. |
+| `pros` | ⬜ | `["Léger", "Solide"]` | Liste d'avantages (textes). |
+| `cons` | ⬜ | `["Prix élevé"]` | Liste d'inconvénients (textes). |
+| `specs` | ⬜ | `[{ "label": "Poids", "value": "10 kg" }]` | Fiche technique (ordre conservé). |
+| `faq` | ⬜ | `[{ "question": "…", "answer": "…" }]` | Questions/réponses propres au produit. |
+| `related` | ⬜ | `["creatine", "shaker"]` | Identifiants d'autres produits liés (doivent exister). |
+
+**Format unique, évolutif.** Toutes les catégories utilisent exactement ces
+champs. Références :
+- `data/products/_TEMPLATE.json` — modèle à copier.
+- `data/products/_EXEMPLE-complet.json` — exemple entièrement rempli.
+- `data/products.schema.json` — schéma formel (JSON Schema) qui définit le format.
+
+Les champs enrichis (`summary`, `pros`, `cons`, `specs`, `faq`, `related`) sont
+stockés dès maintenant ; leur affichage dans une présentation produit dédiée
+(colonnes avantages/inconvénients, tableau specs, FAQ, produits liés) est le
+prochain chantier — la donnée est déjà prête à être branchée.
 
 Tous les champs optionnels sont **indépendants** : on peut n'ajouter qu'une image,
 ou qu'une note, etc. Ce qui est absent n'apparaît tout simplement pas, et l'encadré
