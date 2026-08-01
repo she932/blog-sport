@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie CEINTURES DE MUSCULATION. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "ceinture-lombaire",
+      "name": "Ceinture de musculation",
+      "keyword": "ceinture de musculation force lombaire",
+      "asin": "",
+      "category": "ceintures-musculation",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.6,
+      "verdict": "Le soutien qui sécurise le bas du dos et augmente la stabilité sur les charges lourdes.",
+      "rating": 4.7,
+      "reviews": 4180,
+      "priceIndication": "Dès ~30 €",
+      "image": "/img/produits/ceinture-lombaire.svg",
+      "summary": "Une ceinture rigide qui augmente la pression intra-abdominale pour verrouiller le tronc sur le squat et le soulevé de terre. Plus de stabilité, plus de confiance sous la barre.",
+      "blurb": "Ceinture de soutien pour sécuriser le bas du dos sur les charges lourdes.",
+      "pros": [
+        "Renforce le gainage sur les charges lourdes",
+        "Sécurise le bas du dos en squat/soulevé",
+        "Cuir ou nylon robuste et durable",
+        "Réglage précis pour un maintien ferme"
+      ],
+      "cons": [
+        "Inutile sur les charges légères",
+        "Le cuir demande un temps de rodage"
+      ],
+      "specs": [
+        { "label": "Matière", "value": "Cuir ou nylon renforcé" },
+        { "label": "Largeur", "value": "≈ 10 cm" },
+        { "label": "Fermeture", "value": "Boucle ou levier" },
+        { "label": "Usage", "value": "Squat, soulevé de terre" }
+      ],
+      "faq": [
+        { "question": "À quoi sert une ceinture de musculation ?", "answer": "Elle donne un appui contre lequel pousser l'abdomen : la pression intra-abdominale augmente et stabilise la colonne sur les charges lourdes. Elle ne remplace pas un gainage solide." },
+        { "question": "Quand faut-il la porter ?", "answer": "Sur les séries lourdes de squat et de soulevé de terre, au-delà de ~80 % de votre maximum. Sur l'échauffement et les charges légères, entraînez-vous sans." },
+        { "question": "Cuir ou nylon ?", "answer": "Le cuir offre le maintien le plus rigide pour la force pure ; le nylon est plus souple et polyvalent. Choisissez selon votre pratique et votre confort." }
+      ],
+      "related": ["barre-olympique", "sangles-tractions"],
+      "audience": "Intermédiaires & confirmés",
+      "updated": "juillet 2026"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie BANDES ÉLASTIQUES. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "elastiques",
+      "name": "Bandes élastiques de résistance",
+      "keyword": "bande elastique musculation resistance",
+      "asin": "",
+      "category": "bandes-elastiques",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.5,
+      "verdict": "Le kit le plus polyvalent pour s'entraîner partout, de l'échauffement au renforcement lourd.",
+      "rating": 4.6,
+      "reviews": 6420,
+      "priceIndication": "Dès ~20 €",
+      "image": "/img/produits/elastiques.svg",
+      "summary": "Un set de résistances progressives pour muscler tout le corps, assister les tractions ou soigner sa mobilité. Compact, nomade et redoutablement efficace à petit prix.",
+      "blurb": "Set de résistances progressives pour l'échauffement, la muscu et le mobility work.",
+      "pros": [
+        "Résistances progressives combinables",
+        "Idéales pour assister les tractions",
+        "Ultra compactes, parfaites en voyage",
+        "Excellent rapport efficacité/prix"
+      ],
+      "cons": [
+        "Charge maximale limitée vs fonte",
+        "Les bandes premières prix s'usent plus vite"
+      ],
+      "specs": [
+        { "label": "Résistances", "value": "5 niveaux (≈ 2 à 50 kg)" },
+        { "label": "Type", "value": "Boucles + tubes" },
+        { "label": "Matière", "value": "Latex naturel" },
+        { "label": "Accessoires", "value": "Poignées, sangles de porte" }
+      ],
+      "faq": [
+        { "question": "Peut-on se muscler avec des élastiques ?", "answer": "Oui : la tension progressive recrute le muscle sur toute l'amplitude. En combinant les bandes, on couvre l'échauffement, le renforcement et l'assistance aux tractions." },
+        { "question": "Boucles ou tubes avec poignées ?", "answer": "Les boucles conviennent aux tractions et au bas du corps ; les tubes avec poignées imitent mieux les mouvements d'haltères. Un kit complet propose souvent les deux." },
+        { "question": "Comment choisir la résistance ?", "answer": "Prenez un set de plusieurs niveaux : vous combinez les bandes pour ajuster la charge exercice par exercice, comme des disques." }
+      ],
+      "related": ["barre-traction", "tapis-sol"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

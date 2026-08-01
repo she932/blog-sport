@@ -39,7 +39,7 @@ Les bandes élastiques offrent une **résistance variable** : plus vous les éti
 
 Elles conviennent aussi bien au débutant qu'au pratiquant confirmé, en complément des haltères.
 
-[[BOX:elastiques]]
+[[FICHE:elastiques]]
 
 ## Les différents types de bandes
 

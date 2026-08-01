@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie WHEY PROTEIN. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "whey",
+      "name": "Whey protéine",
+      "keyword": "whey proteine musculation",
+      "asin": "",
+      "category": "whey-protein",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.5,
+      "verdict": "La référence polyvalente pour la récupération et la prise de muscle, au meilleur rapport qualité/prix.",
+      "rating": 4.6,
+      "reviews": 3128,
+      "priceIndication": "Dès ~25 €",
+      "image": "/img/produits/whey.svg",
+      "summary": "Une whey complète, digeste et riche en protéines, idéale après l'entraînement comme pour compléter les apports de la journée. Un excellent point de départ pour progresser sereinement.",
+      "blurb": "Protéine en poudre pour soutenir la récupération et la prise de muscle.",
+      "pros": [
+        "Environ 24 g de protéines par portion",
+        "Assimilation rapide, idéale après la séance",
+        "Se mélange facilement, sans grumeaux",
+        "Excellent rapport qualité/prix au kilo"
+      ],
+      "cons": [
+        "Moins pure qu'un isolate (un peu de lactose)",
+        "Certains arômes sont assez sucrés"
+      ],
+      "specs": [
+        { "label": "Protéines / portion", "value": "≈ 24 g" },
+        { "label": "Type", "value": "Concentré de whey" },
+        { "label": "Portions", "value": "≈ 33 (1 kg)" },
+        { "label": "Assimilation", "value": "Rapide" }
+      ],
+      "faq": [
+        { "question": "Quand prendre sa whey ?", "answer": "Après l'entraînement ou à tout moment de la journée pour compléter vos apports. Le total quotidien de protéines prime sur le timing exact." },
+        { "question": "Whey ou isolate ?", "answer": "La whey concentrée offre le meilleur rapport qualité/prix. Passez à l'isolate si vous digérez mal le lactose ou visez une sèche stricte." },
+        { "question": "Combien par jour ?", "answer": "1 à 2 doses selon vos besoins, en complément d'une alimentation qui couvre 1,6 à 2 g de protéines par kg de poids de corps." }
+      ],
+      "related": ["creatine", "shaker"],
+      "audience": "Débutants & intermédiaires",
+      "updated": "juillet 2026"
+    }
+  ]
+}

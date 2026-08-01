@@ -91,7 +91,7 @@ Ce tableau montre bien qu'il n'existe pas de "meilleure ceinture de musculation"
 
 Pour les pratiquants qui recherchent avant tout une protection accrue du bas du dos, sans viser la compétition, une [[LINK:ceinture-lombaire|ceinture de force lombaire]] constitue une option pertinente. Ce type de modèle est pensé pour sécuriser la zone lombaire sur les charges lourdes, tout en restant accessible en termes de prix et de prise en main. C'est souvent le meilleur point d'entrée pour un pratiquant qui débute le squat ou le soulevé de terre à la maison et qui veut s'équiper sérieusement sans investir immédiatement dans un modèle de compétition.
 
-[[BOX:ceinture-lombaire]]
+[[FICHE:ceinture-lombaire]]
 
 ## Quelle ceinture choisir selon votre profil ?
 

@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie SHAKERS. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "shaker",
+      "name": "Shaker à protéines",
+      "keyword": "shaker proteine musculation",
+      "asin": "",
+      "category": "shakers",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.4,
+      "verdict": "L'accessoire indispensable pour un mélange sans grumeaux, à emporter partout.",
+      "rating": 4.6,
+      "reviews": 8740,
+      "priceIndication": "Dès ~9 €",
+      "image": "/img/produits/shaker.svg",
+      "summary": "Un shaker robuste avec grille ou boule anti-grumeaux pour une whey parfaitement lisse. Étanche, facile à nettoyer et pensé pour la salle comme pour le bureau.",
+      "blurb": "Gourde mélangeuse anti-grumeaux pour whey, BCAA et boissons de l'effort.",
+      "pros": [
+        "Mélange lisse, sans grumeaux",
+        "Étanche et sans fuite dans le sac",
+        "Graduation claire pour doser",
+        "Facile à nettoyer, passe au lave-vaisselle"
+      ],
+      "cons": [
+        "Peut retenir les odeurs avec le temps",
+        "Le plastique bas de gamme se raye vite"
+      ],
+      "specs": [
+        { "label": "Contenance", "value": "600 à 700 ml" },
+        { "label": "Mélange", "value": "Grille ou boule inox" },
+        { "label": "Matière", "value": "Sans BPA" },
+        { "label": "Entretien", "value": "Lave-vaisselle" }
+      ],
+      "faq": [
+        { "question": "Grille ou boule mélangeuse ?", "answer": "Les deux fonctionnent bien. La boule inox est plus simple à nettoyer, la grille limite un peu plus les grumeaux sur les whey épaisses." },
+        { "question": "Comment éviter les odeurs ?", "answer": "Rincez le shaker juste après usage et laissez-le ouvrir pour sécher. Un nettoyage régulier au lave-vaisselle prolonge sa durée de vie." },
+        { "question": "Quelle contenance choisir ?", "answer": "600–700 ml couvre une dose de whey avec de l'eau ou du lait. Optez pour 700 ml et plus si vous ajoutez des glucides ou de la glace." }
+      ],
+      "related": ["whey", "creatine"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

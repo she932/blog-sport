@@ -34,14 +34,6 @@
       "blurb": "Barre à fixer (porte ou mur) pour tractions et travail du dos au poids du corps."
     },
     {
-      "id": "elastiques",
-      "name": "Bandes élastiques de résistance",
-      "keyword": "bande elastique musculation resistance",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Set de résistances progressives pour l'échauffement, la muscu et le mobility work."
-    },
-    {
       "id": "tapis-sol",
       "name": "Tapis de sol / fitness",
       "keyword": "tapis de sol fitness epais",
@@ -88,14 +80,6 @@
       "asin": "",
       "category": "accessoire",
       "blurb": "Sangles pour améliorer la prise sur les tirages et soulevés de terre lourds."
-    },
-    {
-      "id": "ceinture-lombaire",
-      "name": "Ceinture de force lombaire",
-      "keyword": "ceinture de musculation force lombaire",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Ceinture de soutien pour sécuriser le bas du dos sur les charges lourdes."
     },
     {
       "id": "montre-cardio",

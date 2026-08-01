@@ -33,7 +33,7 @@ La créatine est une molécule naturellement présente dans le corps et dans cer
 
 En supplémentant, on **augmente les réserves musculaires** de créatine, ce qui améliore la capacité à produire des efforts intenses et répétés.
 
-[[BOX:creatine]]
+[[FICHE:creatine]]
 
 ## Les bienfaits prouvés de la créatine
 
@@ -96,8 +96,6 @@ C'est donc un effet **indirect mais puissant** : la créatine ne construit pas l
 La créatine est un allié de choix en période de prise de masse, pour deux raisons. D'abord, elle améliore la performance et donc le stimulus d'entraînement. Ensuite, elle favorise une légère **rétention d'eau intramusculaire** qui donne du volume aux muscles et crée un environnement favorable à la croissance.
 
 Associée à un apport suffisant en protéines — via l'alimentation et éventuellement une [[LINK:whey|whey protéine]] — et à une surcharge progressive, elle optimise les résultats. Elle se marie particulièrement bien avec un entraînement lourd sur les mouvements de base.
-
-[[BOX:creatine]]
 
 ## Créatine pour les femmes, les seniors et les végétariens
 

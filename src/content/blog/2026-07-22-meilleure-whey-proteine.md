@@ -38,7 +38,7 @@ La whey (« lactosérum ») est une protéine issue du lait, riche en acides ami
 
 Elle ne remplace pas une alimentation équilibrée : elle la **complète** quand vos besoins sont difficiles à couvrir.
 
-[[BOX:whey]]
+[[FICHE:whey]]
 
 ## Les trois grands types de whey
 
