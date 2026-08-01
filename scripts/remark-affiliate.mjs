@@ -16,6 +16,7 @@ import { DATA_DIR, readJson, loadProducts, buildAffiliateUrl, escapeHtml } from 
 
 const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
 const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
+const SITE_URL = (process.env.SITE_URL || 'https://muscuguide.fr').replace(/\/$/, '');
 
 /** Nombre maximum d'encadrés produits par article. */
 const MAX_BOXES = 2;
@@ -186,6 +187,10 @@ const ICON_AWARD = svg('<circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-
 const ICON_SHIELD = svg('<path d="M12 2 4 5v6c0 5 3.4 8 8 11 4.6-3 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/>');
 const ICON_UP = svg('<path d="M7 10v11"/><path d="M18 21H7V10l5-8a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 1Z"/>');
 const ICON_DOWN = svg('<path d="M17 14V3"/><path d="M6 3h11v11l-5 8a2 2 0 0 1-2-2v-4H5a2 2 0 0 1-2-2l2-8a2 2 0 0 1 2-1Z"/>');
+const ICON_USER = svg('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>');
+const ICON_CLOCK = svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>');
+const ICON_TAG = svg('<path d="M20 12 12 20l-8-8V4h8Z"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/>');
+const ICON_TRUCK = svg('<path d="M2 5h11v11H2Z"/><path d="M13 8h5l3 3v5h-8Z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/>');
 
 const commaNum = (n) => String(n).replace('.', ',');
 
@@ -274,6 +279,31 @@ function pfRelated(related) {
     : '';
 }
 
+/**
+ * Données structurées Product de la fiche : notre avis éditorial (Review)
+ * + note agrégée des avis clients (AggregateRating) -> éligible aux étoiles
+ * dans Google. N'émet rien sans note (aucun intérêt).
+ */
+function ficheJsonLd(p, image) {
+  const data = { '@context': 'https://schema.org', '@type': 'Product', name: p.name };
+  if (image) data.image = /^https?:/i.test(image) ? image : SITE_URL + image;
+  if (p.blurb || p.summary) data.description = String(p.blurb || p.summary);
+  const mg = Number(p.mgScore);
+  if (mg > 0 && mg <= 5) {
+    data.review = {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: mg, bestRating: 5, worstRating: 1 },
+      author: { '@type': 'Organization', name: 'MuscuGuide' },
+    };
+    if (p.verdict) data.review.reviewBody = String(p.verdict);
+  }
+  // Note : la note clients Amazon reste AFFICHÉE pour l'utilisateur mais
+  // n'est PAS balisée en aggregateRating (avis tiers non hébergés ici) —
+  // conforme aux consignes Google. Seul notre avis éditorial est structuré.
+  if (!data.review) return '';
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
 function ficheHtml(id) {
   const p = resolve(id);
   const url = buildAffiliateUrl(p, TAG, DOMAIN);
@@ -292,42 +322,67 @@ function ficheHtml(id) {
     ? `<p class="pf-summary">${escapeHtml(String(p.summary))}</p>`
     : '';
 
-  // Note MuscuGuide (mise en avant) ; repli sur la note clients si absente.
+  // --- Note MuscuGuide (héros) + avis clients (preuve sociale) ---
   const mg = Number(p.mgScore) || Number(p.rating);
-  const mgHtml =
+  const mgRing =
     mg > 0 && mg <= 5
-      ? `<div class="pf-mg"><div class="pf-mg-ring" style="--pct:${Math.round(
-          (mg / 5) * 100
-        )}"><div class="pf-mg-inner"><span class="pf-mg-num">${commaNum(
-          mg.toFixed(1)
-        )}</span><span class="pf-mg-max">/5</span></div></div><div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Note MuscuGuide</span>${pfStars(
-          mg
-        )}</div></div>`
+      ? `<div class="pf-mg" role="img" aria-label="Note MuscuGuide ${commaNum(mg.toFixed(1))} sur 5">` +
+        `<div class="pf-mg-ring" style="--pct:${Math.round((mg / 5) * 100)}"><div class="pf-mg-inner"><span class="pf-mg-num">${commaNum(mg.toFixed(1))}</span><span class="pf-mg-max">/5</span></div></div>` +
+        `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Note MuscuGuide</span>${pfStars(mg)}</div>` +
+        `</div>`
       : '';
   const community =
     Number(p.rating) > 0 && p.reviews
-      ? `<div class="pf-community">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(
-          p.rating
-        )}</span><span class="pf-community-reviews">${formatReviews(
-          p.reviews
-        )} avis clients</span></div>`
+      ? `<div class="pf-community"><span class="pf-community-top">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(p.rating)}</span></span><span class="pf-community-reviews">${formatReviews(p.reviews)} avis clients Amazon</span></div>`
       : '';
+  const verdictCard =
+    mgRing || community ? `<div class="pf-verdictcard">${mgRing}${community}</div>` : '';
+
+  // --- Repères de confiance (audience, dernière vérification) ---
+  const metaItems = [];
+  if (p.audience)
+    metaItems.push(
+      `<span class="pf-meta-item">${ICON_USER}Idéal pour <strong>${escapeHtml(String(p.audience))}</strong></span>`
+    );
+  if (p.updated)
+    metaItems.push(
+      `<span class="pf-meta-item">${ICON_CLOCK}Vérifié en ${escapeHtml(String(p.updated))}</span>`
+    );
+  const metaRow = metaItems.length ? `<div class="pf-meta">${metaItems.join('')}</div>` : '';
+
   const prime = p._prime ? `<span class="aff-prime" aria-label="Éligible Prime">Prime</span>` : '';
+  const price = pfPrice(p);
+  const priceRow = price || prime ? `<div class="pf-cta-price">${price}${prime}</div>` : '';
+
+  // Réassurance : lève l'objection « est-ce que ça me coûte plus cher ? »
+  const reassure =
+    `<ul class="pf-reassure">` +
+    `<li>${ICON_TAG}<span>Le prix reste identique pour vous</span></li>` +
+    `<li>${ICON_TRUCK}<span>Commande, livraison et retours gérés par Amazon</span></li>` +
+    `</ul>`;
+
+  const ctaBtn = (extra) =>
+    `<a class="pf-btn${extra || ''}" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
+    `<span>Voir le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>`;
 
   const prosCons =
-    (Array.isArray(p.pros) && p.pros.length) ||
-    (Array.isArray(p.cons) && p.cons.length)
+    (Array.isArray(p.pros) && p.pros.length) || (Array.isArray(p.cons) && p.cons.length)
       ? `<div class="pf-proscons">` +
-        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Avantages</h4>${pfList(
-          p.pros,
-          'pro'
-        )}</div>` +
-        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Inconvénients</h4>${pfList(
-          p.cons,
-          'con'
-        )}</div>` +
+        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Avantages</h4>${pfList(p.pros, 'pro')}</div>` +
+        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Inconvénients</h4>${pfList(p.cons, 'con')}</div>` +
         `</div>`
       : '';
+
+  // Rappel de conversion en bas de fiche (pour les lecteurs qui scrollent).
+  const finalScore =
+    mg > 0 && mg <= 5
+      ? `<span class="pf-final-score">${commaNum(mg.toFixed(1))}<span>/5</span></span>`
+      : '';
+  const finalBar =
+    `<div class="pf-final">` +
+    `<div class="pf-final-left">${finalScore}<span class="pf-final-txt">Notre verdict sur <strong>${escapeHtml(p.name)}</strong></span></div>` +
+    ctaBtn(' pf-btn--sm') +
+    `</div>`;
 
   return (
     `<section class="pfiche">` +
@@ -336,14 +391,15 @@ function ficheHtml(id) {
     `<div class="pf-head">` +
     badge +
     `<h3 class="pf-name">${escapeHtml(p.name)}</h3>` +
+    metaRow +
     verdict +
-    `<div class="pf-scores">${mgHtml}${community}</div>` +
+    verdictCard +
     summary +
     `<div class="pf-cta">` +
-    `<div class="pf-cta-price">${pfPrice(p)}${prime}</div>` +
-    `<a class="pf-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
-    `<span>Voir le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>` +
-    `<span class="pf-note">Prix &amp; disponibilité sur Amazon · lien partenaire</span>` +
+    priceRow +
+    ctaBtn('') +
+    reassure +
+    `<span class="pf-note">Lien partenaire — nous pouvons percevoir une commission, sans surcoût pour vous.</span>` +
     `</div>` +
     `</div>` +
     `</div>` +
@@ -351,7 +407,9 @@ function ficheHtml(id) {
     pfSpecs(p.specs) +
     pfFaq(p.faq) +
     pfRelated(p.related) +
-    `</section>`
+    finalBar +
+    `</section>` +
+    ficheJsonLd(p, image)
   );
 }
 

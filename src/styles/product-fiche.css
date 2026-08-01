@@ -107,13 +107,43 @@
   line-height: 1.6;
 }
 
-/* ---------- Scores : Note MuscuGuide + avis clients ---------- */
-.pf-scores {
+/* ---------- Repères de confiance (audience / mise à jour) ---------- */
+.pf-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  margin-top: -0.1rem;
+}
+.pf-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.84rem;
+  color: var(--color-muted);
+}
+.pf-meta-item strong {
+  color: var(--color-dark);
+}
+.pf-meta-item .pf-ico {
+  color: var(--mg-orange-strong);
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Carte verdict : Note MuscuGuide + avis clients ---------- */
+.pf-verdictcard {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.4rem;
-  padding: 0.6rem 0;
+  padding: 0.85rem 1.05rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--mg-radius);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--mg-orange) 6%, var(--color-surface)),
+    var(--color-surface)
+  );
 }
 .pf-mg {
   display: inline-flex;
@@ -171,17 +201,25 @@
   gap: 0.15rem;
 }
 .pf-community {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.86rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.85rem;
   color: var(--color-muted);
   padding-left: 1.4rem;
   border-left: 1px solid var(--color-border);
 }
+.pf-community-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
 .pf-community-num {
   font-weight: 800;
   color: var(--color-dark);
+}
+.pf-community-reviews {
+  font-size: 0.8rem;
 }
 
 /* ---------- Étoiles (barre clippée) ---------- */
@@ -258,6 +296,82 @@
 .pf-note {
   font-size: 0.72rem;
   color: var(--color-muted);
+}
+.pf-btn:focus-visible,
+.pf-rel-card:focus-visible {
+  outline: 3px solid var(--mg-orange);
+  outline-offset: 3px;
+}
+
+/* Réassurance (lève l'objection prix) */
+.pf-reassure {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+}
+.pf-reassure li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.pf-reassure .pf-ico {
+  color: var(--pf-green);
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* Rappel de conversion (bas de fiche) */
+.pf-final {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem 1.2rem;
+  margin-top: 1.6rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--mg-radius);
+  background: var(--mg-navy);
+}
+.pf-final-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.pf-final-score {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05em;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  background: color-mix(in srgb, var(--mg-orange) 30%, transparent);
+  padding: 0.15em 0.5em;
+  border-radius: 12px;
+}
+.pf-final-score span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+.pf-final-txt {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.98rem;
+}
+.pf-final-txt strong {
+  color: #fff;
+}
+.pf-btn--sm {
+  width: auto;
+  padding: 0.72em 1.3em;
+  font-size: 0.98rem;
+  flex: 0 0 auto;
 }
 
 /* ---------- Blocs ---------- */
@@ -426,7 +540,7 @@
 /* ---------- Produits liés ---------- */
 .pf-rel {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 0.7rem;
 }
 .pf-rel-card {
@@ -515,9 +629,20 @@
   .pf-proscons {
     grid-template-columns: 1fr 1fr;
   }
-  .pf-rel {
-    grid-template-columns: 1fr 1fr;
-  }
+}
+
+/* ---------- Garde-fous de cascade (la fiche vit dans .prose) ---------- */
+.pfiche .pf-list,
+.pfiche .pf-reassure {
+  padding-left: 0;
+}
+.pfiche .pf-list li,
+.pfiche .pf-reassure li {
+  margin-bottom: 0;
+}
+/* le nom doit rester blanc sur la barre navy (surcharge .prose strong) */
+.pfiche .pf-final .pf-final-txt strong {
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {
