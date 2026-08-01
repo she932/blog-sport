@@ -18,6 +18,46 @@ const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
 const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
 const SITE_URL = (process.env.SITE_URL || 'https://muscuguide.fr').replace(/\/$/, '');
 
+// Wording centralisé (data/brand.json) — modifiable sans toucher au code.
+// Les valeurs par défaut ci-dessous servent de repli si une clé manque.
+const LABELS = {
+  cta: 'Vérifier le prix sur Amazon',
+  defaultBadge: 'Choix MuscuGuide',
+  boxLabel: 'Notre recommandation',
+  scoreLabel: 'Score MuscuGuide',
+  prosLabel: 'Points forts',
+  consLabel: 'Points faibles',
+  specsLabel: 'Fiche technique',
+  faqLabel: 'Questions fréquentes',
+  relatedLabel: 'Produits liés',
+  communitySuffix: 'avis clients Amazon',
+  audiencePrefix: 'Idéal pour',
+  updatedPrefix: 'Vérifié en',
+  finalPrefix: 'Notre verdict sur',
+  boxNote: 'Prix & disponibilité sur Amazon',
+  reassure: [
+    'Le prix reste identique pour vous',
+    'Commande, livraison et retours gérés par Amazon',
+  ],
+  disclosure:
+    'Lien partenaire — nous pouvons percevoir une commission, sans surcoût pour vous.',
+  verdict: [
+    { min: 4.5, word: 'Excellent' },
+    { min: 4.0, word: 'Très bon' },
+    { min: 3.5, word: 'Bon' },
+    { min: 3.0, word: 'Correct' },
+    { min: 0, word: 'Moyen' },
+  ],
+};
+try {
+  const brand = readJson(path.join(DATA_DIR, 'brand.json'));
+  for (const [k, v] of Object.entries(brand)) {
+    if (k !== '_comment' && v != null) LABELS[k] = v;
+  }
+} catch {
+  /* brand.json absent : on garde les valeurs par défaut */
+}
+
 /** Nombre maximum d'encadrés produits par article. */
 const MAX_BOXES = 2;
 
@@ -124,7 +164,7 @@ function boxHtml(id) {
   const media = image
     ? `<div class="aff-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"></div>`
     : '';
-  const label = p.badge ? escapeHtml(String(p.badge)) : 'Notre recommandation';
+  const label = p.badge ? escapeHtml(String(p.badge)) : escapeHtml(LABELS.boxLabel);
   const rating = ratingHtml(p);
 
   // Prix : le prix live PA-API (horodaté, conforme) prime sur la mention
@@ -156,10 +196,10 @@ function boxHtml(id) {
     price +
     prime +
     `<a class="aff-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
-    `<span>Vérifier le prix sur Amazon</span>` +
+    `<span>${escapeHtml(LABELS.cta)}</span>` +
     `<span class="aff-btn-arrow" aria-hidden="true">→</span>` +
     `</a>` +
-    `<span class="aff-note">Prix &amp; disponibilité sur Amazon</span>` +
+    `<span class="aff-note">${escapeHtml(LABELS.boxNote)}</span>` +
     `</div>` +
     `</div>`
   );
@@ -201,14 +241,13 @@ function pfStars(value) {
   return `<span class="pf-stars" style="--pct:${pct}%" aria-hidden="true"><span class="pf-stars-fill">★★★★★</span>★★★★★</span>`;
 }
 
-/** Mot de verdict associé au Score MuscuGuide. */
+/** Mot de verdict associé au Score MuscuGuide (barème dans data/brand.json). */
 function mgVerdictWord(score) {
   const s = Number(score);
-  if (s >= 4.5) return 'Excellent';
-  if (s >= 4.0) return 'Très bon';
-  if (s >= 3.5) return 'Bon';
-  if (s >= 3.0) return 'Correct';
-  if (s > 0) return 'Moyen';
+  if (!(s > 0)) return '';
+  for (const step of LABELS.verdict) {
+    if (s >= Number(step.min)) return step.word;
+  }
   return '';
 }
 
@@ -243,7 +282,7 @@ function pfSpecs(specs) {
     )
     .join('');
   return rows
-    ? `<div class="pf-block"><h4 class="pf-h">Fiche technique</h4><dl class="pf-specs">${rows}</dl></div>`
+    ? `<div class="pf-block"><h4 class="pf-h">${escapeHtml(LABELS.specsLabel)}</h4><dl class="pf-specs">${rows}</dl></div>`
     : '';
 }
 
@@ -257,7 +296,7 @@ function pfFaq(faq) {
     )
     .join('');
   return items
-    ? `<div class="pf-block"><h4 class="pf-h">Questions fréquentes</h4>${items}</div>`
+    ? `<div class="pf-block"><h4 class="pf-h">${escapeHtml(LABELS.faqLabel)}</h4>${items}</div>`
     : '';
 }
 
@@ -286,7 +325,7 @@ function pfRelated(related) {
     })
     .join('');
   return cards
-    ? `<div class="pf-block"><h4 class="pf-h">Produits liés</h4><div class="pf-rel">${cards}</div></div>`
+    ? `<div class="pf-block"><h4 class="pf-h">${escapeHtml(LABELS.relatedLabel)}</h4><div class="pf-rel">${cards}</div></div>`
     : '';
 }
 
@@ -338,14 +377,14 @@ function ficheHtml(id) {
   const mgWord = mgVerdictWord(mg);
   const mgRing =
     mg > 0 && mg <= 5
-      ? `<div class="pf-mg" role="img" aria-label="Score MuscuGuide ${commaNum(mg.toFixed(1))} sur 5 — ${mgWord}">` +
+      ? `<div class="pf-mg" role="img" aria-label="${escapeHtml(LABELS.scoreLabel)} ${commaNum(mg.toFixed(1))} sur 5 — ${escapeHtml(mgWord)}">` +
         `<div class="pf-mg-ring" style="--pct:${Math.round((mg / 5) * 100)}"><div class="pf-mg-inner"><span class="pf-mg-num">${commaNum(mg.toFixed(1))}</span><span class="pf-mg-max">/5</span></div></div>` +
-        `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Score MuscuGuide</span><span class="pf-mg-verdict-row"><span class="pf-mg-verdict">${mgWord}</span>${pfStars(mg)}</span></div>` +
+        `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}${escapeHtml(LABELS.scoreLabel)}</span><span class="pf-mg-verdict-row"><span class="pf-mg-verdict">${escapeHtml(mgWord)}</span>${pfStars(mg)}</span></div>` +
         `</div>`
       : '';
   const community =
     Number(p.rating) > 0 && p.reviews
-      ? `<div class="pf-community"><span class="pf-community-top">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(p.rating)}</span></span><span class="pf-community-reviews">${formatReviews(p.reviews)} avis clients Amazon</span></div>`
+      ? `<div class="pf-community"><span class="pf-community-top">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(p.rating)}</span></span><span class="pf-community-reviews">${formatReviews(p.reviews)} ${escapeHtml(LABELS.communitySuffix)}</span></div>`
       : '';
   const verdictCard =
     mgRing || community ? `<div class="pf-verdictcard">${mgRing}${community}</div>` : '';
@@ -354,11 +393,11 @@ function ficheHtml(id) {
   const metaItems = [];
   if (p.audience)
     metaItems.push(
-      `<span class="pf-meta-item">${ICON_USER}Idéal pour <strong>${escapeHtml(String(p.audience))}</strong></span>`
+      `<span class="pf-meta-item">${ICON_USER}${escapeHtml(LABELS.audiencePrefix)} <strong>${escapeHtml(String(p.audience))}</strong></span>`
     );
   if (p.updated)
     metaItems.push(
-      `<span class="pf-meta-item">${ICON_CLOCK}Vérifié en ${escapeHtml(String(p.updated))}</span>`
+      `<span class="pf-meta-item">${ICON_CLOCK}${escapeHtml(LABELS.updatedPrefix)} ${escapeHtml(String(p.updated))}</span>`
     );
   const metaRow = metaItems.length ? `<div class="pf-meta">${metaItems.join('')}</div>` : '';
 
@@ -367,21 +406,20 @@ function ficheHtml(id) {
   const priceRow = price || prime ? `<div class="pf-cta-price">${price}${prime}</div>` : '';
 
   // Réassurance : lève l'objection « est-ce que ça me coûte plus cher ? »
-  const reassure =
-    `<ul class="pf-reassure">` +
-    `<li>${ICON_TAG}<span>Le prix reste identique pour vous</span></li>` +
-    `<li>${ICON_TRUCK}<span>Commande, livraison et retours gérés par Amazon</span></li>` +
-    `</ul>`;
+  const reassureItems = (Array.isArray(LABELS.reassure) ? LABELS.reassure : [])
+    .map((t, i) => `<li>${i === 0 ? ICON_TAG : ICON_TRUCK}<span>${escapeHtml(String(t))}</span></li>`)
+    .join('');
+  const reassure = reassureItems ? `<ul class="pf-reassure">${reassureItems}</ul>` : '';
 
   const ctaBtn = (extra) =>
     `<a class="pf-btn${extra || ''}" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
-    `<span>Vérifier le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>`;
+    `<span>${escapeHtml(LABELS.cta)}</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>`;
 
   const prosCons =
     (Array.isArray(p.pros) && p.pros.length) || (Array.isArray(p.cons) && p.cons.length)
       ? `<div class="pf-proscons">` +
-        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Points forts</h4>${pfList(p.pros, 'pro')}</div>` +
-        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Points faibles</h4>${pfList(p.cons, 'con')}</div>` +
+        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}${escapeHtml(LABELS.prosLabel)}</h4>${pfList(p.pros, 'pro')}</div>` +
+        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}${escapeHtml(LABELS.consLabel)}</h4>${pfList(p.cons, 'con')}</div>` +
         `</div>`
       : '';
 
@@ -392,7 +430,7 @@ function ficheHtml(id) {
       : '';
   const finalBar =
     `<div class="pf-final">` +
-    `<div class="pf-final-left">${finalScore}<span class="pf-final-txt">Notre verdict sur <strong>${escapeHtml(p.name)}</strong></span></div>` +
+    `<div class="pf-final-left">${finalScore}<span class="pf-final-txt">${escapeHtml(LABELS.finalPrefix)} <strong>${escapeHtml(p.name)}</strong></span></div>` +
     ctaBtn(' pf-btn--sm') +
     `</div>`;
 
@@ -411,7 +449,7 @@ function ficheHtml(id) {
     priceRow +
     ctaBtn('') +
     reassure +
-    `<span class="pf-note">Lien partenaire — nous pouvons percevoir une commission, sans surcoût pour vous.</span>` +
+    `<span class="pf-note">${escapeHtml(LABELS.disclosure)}</span>` +
     `</div>` +
     `</div>` +
     `</div>` +

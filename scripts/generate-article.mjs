@@ -62,6 +62,13 @@ const productList = productPool
   .map((p) => `- id: ${p.id} | ${p.name} — ${p.blurb} (catégorie: ${p.category})`)
   .join('\n');
 
+// Produit vedette (fiche complète) : le 1er produit lié, pour les comparatifs.
+const mainProduct = linked[0] || null;
+const ficheLine =
+  topic.type === 'comparatif' && mainProduct
+    ? `- FICHE PRODUIT VEDETTE : place une seule fois \`[[FICHE:${mainProduct.id}]]\` seul sur sa propre ligne, au tout début de la section qui présente ta recommandation n°1 (« ${mainProduct.name} »). C'est le bloc phare de la page : ne le répète jamais, et n'utilise PAS [[BOX]] ni [[LINK]] pour ce même produit.\n`
+    : '';
+
 // --- 2. Prompt ------------------------------------------------
 const typeLabel = {
   comparatif: 'un comparatif d\'achat détaillé',
@@ -90,7 +97,7 @@ CONTRAINTES SEO ET RÉDACTIONNELLES :
 
 LIENS AFFILIÉS AMAZON — TRÈS IMPORTANT :
 Tu disposes de la liste de produits ci-dessous. Insère leurs liens UNIQUEMENT via ces marqueurs (ne mets jamais d'URL en dur) :
-- Bloc encadré "call-to-action" : place \`[[BOX:id]]\` seul sur sa propre ligne, aux endroits pertinents (1 à 2 fois MAXIMUM dans l'article, jamais plus de 2, jamais deux à la suite).
+${ficheLine}- Bloc encadré "call-to-action" : place \`[[BOX:id]]\` seul sur sa propre ligne, aux endroits pertinents (1 à 2 fois MAXIMUM, jamais deux à la suite)${ficheLine ? ', pour des produits SECONDAIRES uniquement (jamais le produit vedette déjà présenté en fiche)' : ''}.
 - Lien texte intégré : \`[[LINK:id|texte du lien]]\` à l'intérieur d'une phrase (3 à 6 fois).
 Utilise seulement des id présents dans la liste. Répartis les liens naturellement, là où ils apportent de la valeur au lecteur.
 

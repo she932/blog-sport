@@ -4,6 +4,15 @@ Ce catalogue alimente les **encadrés produits** et les **liens Amazon** des
 articles. Rien d'autre dans le système n'a besoin d'être modifié : dès qu'un
 champ est renseigné, le rendu s'adapte automatiquement au prochain build.
 
+## Faire évoluer le wording et les couleurs (sans reconstruire le template)
+
+- **Wording** (CTA, badge par défaut, libellés « Points forts / Points faibles »,
+  « Score MuscuGuide », mots de verdict, réassurance, disclosure…) :
+  `data/brand.json`. Change une valeur, rebuild — c'est appliqué partout.
+- **Couleurs / rayons / ombres** : `src/styles/tokens.css`.
+- **Structure des composants** : `scripts/remark-affiliate.mjs` (fiche/encadré)
+  et `src/styles/product-fiche.css`.
+
 ## Trois façons d'afficher un produit dans un article
 
 | Marqueur | Rendu |

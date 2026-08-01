@@ -1,0 +1,29 @@
+{
+  "_comment": "Wording central de la marque (fiches, encadrés, CTA). MODIFIABLE sans toucher au code : change une valeur ici puis rebuild — le template n'a pas besoin d'être reconstruit. Les couleurs se règlent dans src/styles/tokens.css.",
+  "cta": "Vérifier le prix sur Amazon",
+  "defaultBadge": "Choix MuscuGuide",
+  "boxLabel": "Notre recommandation",
+  "scoreLabel": "Score MuscuGuide",
+  "prosLabel": "Points forts",
+  "consLabel": "Points faibles",
+  "specsLabel": "Fiche technique",
+  "faqLabel": "Questions fréquentes",
+  "relatedLabel": "Produits liés",
+  "communitySuffix": "avis clients Amazon",
+  "audiencePrefix": "Idéal pour",
+  "updatedPrefix": "Vérifié en",
+  "finalPrefix": "Notre verdict sur",
+  "boxNote": "Prix & disponibilité sur Amazon",
+  "reassure": [
+    "Le prix reste identique pour vous",
+    "Commande, livraison et retours gérés par Amazon"
+  ],
+  "disclosure": "Lien partenaire — nous pouvons percevoir une commission, sans surcoût pour vous.",
+  "verdict": [
+    { "min": 4.5, "word": "Excellent" },
+    { "min": 4.0, "word": "Très bon" },
+    { "min": 3.5, "word": "Bon" },
+    { "min": 3.0, "word": "Correct" },
+    { "min": 0, "word": "Moyen" }
+  ]
+}
