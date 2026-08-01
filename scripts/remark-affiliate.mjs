@@ -156,7 +156,7 @@ function boxHtml(id) {
     price +
     prime +
     `<a class="aff-btn" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
-    `<span>Voir le prix sur Amazon</span>` +
+    `<span>Vérifier le prix sur Amazon</span>` +
     `<span class="aff-btn-arrow" aria-hidden="true">→</span>` +
     `</a>` +
     `<span class="aff-note">Prix &amp; disponibilité sur Amazon</span>` +
@@ -199,6 +199,17 @@ function pfStars(value) {
   if (!r || r <= 0 || r > 5) return '';
   const pct = Math.round((r / 5) * 100);
   return `<span class="pf-stars" style="--pct:${pct}%" aria-hidden="true"><span class="pf-stars-fill">★★★★★</span>★★★★★</span>`;
+}
+
+/** Mot de verdict associé au Score MuscuGuide. */
+function mgVerdictWord(score) {
+  const s = Number(score);
+  if (s >= 4.5) return 'Excellent';
+  if (s >= 4.0) return 'Très bon';
+  if (s >= 3.5) return 'Bon';
+  if (s >= 3.0) return 'Correct';
+  if (s > 0) return 'Moyen';
+  return '';
 }
 
 function pfPrice(p) {
@@ -324,11 +335,12 @@ function ficheHtml(id) {
 
   // --- Note MuscuGuide (héros) + avis clients (preuve sociale) ---
   const mg = Number(p.mgScore) || Number(p.rating);
+  const mgWord = mgVerdictWord(mg);
   const mgRing =
     mg > 0 && mg <= 5
-      ? `<div class="pf-mg" role="img" aria-label="Note MuscuGuide ${commaNum(mg.toFixed(1))} sur 5">` +
+      ? `<div class="pf-mg" role="img" aria-label="Score MuscuGuide ${commaNum(mg.toFixed(1))} sur 5 — ${mgWord}">` +
         `<div class="pf-mg-ring" style="--pct:${Math.round((mg / 5) * 100)}"><div class="pf-mg-inner"><span class="pf-mg-num">${commaNum(mg.toFixed(1))}</span><span class="pf-mg-max">/5</span></div></div>` +
-        `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Note MuscuGuide</span>${pfStars(mg)}</div>` +
+        `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}Score MuscuGuide</span><span class="pf-mg-verdict-row"><span class="pf-mg-verdict">${mgWord}</span>${pfStars(mg)}</span></div>` +
         `</div>`
       : '';
   const community =
@@ -363,13 +375,13 @@ function ficheHtml(id) {
 
   const ctaBtn = (extra) =>
     `<a class="pf-btn${extra || ''}" href="${url}" target="_blank" rel="nofollow sponsored noopener">` +
-    `<span>Voir le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>`;
+    `<span>Vérifier le prix sur Amazon</span><span class="pf-btn-arrow" aria-hidden="true">→</span></a>`;
 
   const prosCons =
     (Array.isArray(p.pros) && p.pros.length) || (Array.isArray(p.cons) && p.cons.length)
       ? `<div class="pf-proscons">` +
-        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Avantages</h4>${pfList(p.pros, 'pro')}</div>` +
-        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Inconvénients</h4>${pfList(p.cons, 'con')}</div>` +
+        `<div class="pf-col pf-col--pro"><h4 class="pf-h">${ICON_UP}Points forts</h4>${pfList(p.pros, 'pro')}</div>` +
+        `<div class="pf-col pf-col--con"><h4 class="pf-h">${ICON_DOWN}Points faibles</h4>${pfList(p.cons, 'con')}</div>` +
         `</div>`
       : '';
 

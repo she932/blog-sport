@@ -200,6 +200,16 @@
   flex-direction: column;
   gap: 0.15rem;
 }
+.pf-mg-verdict-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pf-mg-verdict {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--mg-orange-strong);
+}
 .pf-community {
   display: flex;
   flex-direction: column;
