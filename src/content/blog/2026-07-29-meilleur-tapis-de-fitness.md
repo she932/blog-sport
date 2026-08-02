@@ -108,7 +108,7 @@ Le tapis de fitness n'est que le point de départ d'un espace d'entraînement à
 
 Pour le renforcement des abdominaux et du gainage profond, beaucoup de pratiquants associent leur tapis à une [[LINK:roue-abdos|roue à abdominaux]], un accessoire simple mais redoutablement efficace lorsqu'il est utilisé avec une bonne technique. De la même façon, les [[LINK:elastiques|bandes élastiques de résistance]] se posent facilement sur un tapis pour l'échauffement, le mobility work ou des circuits de renforcement musculaire complets.
 
-[[BOX:tapis-sol]]
+[[FICHE:tapis-sol]]
 
 Pour les entraînements de cardio complémentaires au travail au sol, une [[LINK:corde-sauter|corde à sauter]] reste l'un des outils les plus accessibles et efficaces pour développer l'endurance cardiovasculaire en un minimum de temps. Ceux qui souhaitent suivre précisément leurs progrès pourront également s'équiper d'une [[LINK:montre-cardio|montre connectée sport]], pratique pour mesurer la fréquence cardiaque et les calories dépensées pendant les séances.
 

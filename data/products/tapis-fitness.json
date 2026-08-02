@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie TAPIS DE SOL / FITNESS. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "tapis-sol",
+      "name": "Tapis de sol / fitness",
+      "keyword": "tapis de sol fitness epais",
+      "asin": "",
+      "category": "tapis-fitness",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.4,
+      "verdict": "Le confort et la protection indispensables pour tous les exercices au sol, du gainage aux étirements.",
+      "rating": 4.6,
+      "reviews": 9120,
+      "priceIndication": "Dès ~20 €",
+      "image": "/img/produits/tapis-sol.svg",
+      "summary": "Un tapis épais et antidérapant qui protège le dos et les articulations sur les exercices au sol, et le parquet sous les charges. Assez dense pour le gainage, assez souple pour les étirements.",
+      "blurb": "Tapis épais antidérapant pour les exercices au sol, le gainage et les étirements.",
+      "pros": [
+        "Amorti confortable pour le dos et les genoux",
+        "Surface antidérapante, stable pendant l'effort",
+        "Protège le sol sous les haltères",
+        "S'enroule et se transporte facilement"
+      ],
+      "cons": [
+        "Trop épais, il gêne les exercices d'équilibre",
+        "Les mousses premières prix se marquent vite"
+      ],
+      "specs": [
+        { "label": "Épaisseur", "value": "≈ 10 à 15 mm" },
+        { "label": "Surface", "value": "Antidérapante double face" },
+        { "label": "Matière", "value": "NBR / TPE sans odeur" },
+        { "label": "Transport", "value": "Enroulable + sangle" }
+      ],
+      "faq": [
+        { "question": "Quelle épaisseur choisir ?", "answer": "10 à 15 mm offrent le meilleur compromis : assez d'amorti pour le gainage et les genoux, sans nuire à la stabilité. Pour le yoga pur, un tapis plus fin (4–6 mm) est préférable." },
+        { "question": "Tapis de fitness ou tapis de yoga ?", "answer": "Le tapis de fitness, plus épais, protège mieux les articulations sur les exercices au sol et le sol sous les charges. Le tapis de yoga, plus fin, privilégie l'adhérence et l'équilibre." },
+        { "question": "Quelle matière privilégier ?", "answer": "Le NBR et le TPE offrent un bon amorti, peu d'odeur et une bonne durabilité. Vérifiez la mention sans phtalates et la facilité de nettoyage." }
+      ],
+      "related": ["roue-abdos", "elastiques"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

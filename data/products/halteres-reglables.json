@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie HALTÈRES RÉGLABLES. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "halteres-reglables",
+      "name": "Haltères réglables",
+      "keyword": "halteres reglables musculation",
+      "asin": "",
+      "category": "halteres-reglables",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.7,
+      "verdict": "Un home gym complet dans une seule paire : la solution la plus rentable et la plus compacte pour progresser chez soi.",
+      "rating": 4.6,
+      "reviews": 4870,
+      "priceIndication": "Dès ~150 €",
+      "image": "/img/produits/halteres-reglables.svg",
+      "summary": "Une paire d'haltères à charge ajustable qui remplace tout un rack de poids en un seul encombrement réduit. Idéale pour s'entraîner sérieusement à la maison sans y consacrer une pièce entière.",
+      "blurb": "Paire d'haltères à charge ajustable, idéale pour gagner de la place chez soi.",
+      "pros": [
+        "Remplace des dizaines d'haltères fixes",
+        "Réglage rapide de la charge en quelques secondes",
+        "Gain de place considérable",
+        "Progression fine, du débutant au confirmé"
+      ],
+      "cons": [
+        "Investissement initial plus élevé qu'une paire fixe",
+        "Encombrement en largeur aux charges maximales"
+      ],
+      "specs": [
+        { "label": "Plage de charge", "value": "≈ 2,5 à 24 kg / haltère" },
+        { "label": "Système", "value": "Molette ou sélecteur" },
+        { "label": "Incréments", "value": "≈ 2,5 kg" },
+        { "label": "Usage", "value": "Tout le haut du corps" }
+      ],
+      "faq": [
+        { "question": "Les haltères réglables valent-ils le coup ?", "answer": "Oui pour s'entraîner à la maison : une seule paire couvre la plage de charge de tout un rack, pour une fraction du prix et de la place. C'est l'achat le plus rentable d'un home gym." },
+        { "question": "Quelle charge maximale choisir ?", "answer": "24 kg par haltère suffisent à la grande majorité des pratiquants pour le haut du corps. Visez plus lourd seulement si vous êtes déjà confirmé sur le développé et le rowing." },
+        { "question": "Molette ou sélecteur à goupille ?", "answer": "Les deux fonctionnent. Le réglage à molette est très rapide ; vérifiez surtout la solidité du mécanisme et la stabilité des disques une fois verrouillés." }
+      ],
+      "related": ["banc-reglable", "barre-traction"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

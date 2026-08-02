@@ -2,52 +2,12 @@
   "_comment": "Base de produits affiliés. OBLIGATOIRE : id, name, keyword. Renseignez 'asin' avec l'ASIN Amazon reel (10 caracteres, ex. B08N5WRWNW) pour un lien fiche produit /dp/ (bien meilleure conversion) ; si 'asin' est vide ou invalide, un lien de recherche est genere automatiquement a partir de 'keyword'. OPTIONNEL (encadre enrichi, applique seulement si present) : 'image' (URL/chemin d'une image produit), 'rating' (note 0-5, ex. 4.6), 'reviews' (nombre d'avis), 'badge' (remplace 'Notre recommandation', ex. 'Notre choix'), 'priceIndication' (mention de prix INDICATIVE et non-live, ex. 'Des ~120 EUR' — pour un prix live, passer par l'API Amazon PA-API, voir data/PRODUCTS.md). Ajoutez/modifiez librement des produits : le generateur les proposera a Claude.",
   "products": [
     {
-      "id": "banc-reglable",
-      "name": "Banc de musculation réglable",
-      "keyword": "banc de musculation reglable inclinable",
-      "asin": "",
-      "category": "banc",
-      "blurb": "Banc inclinable/déclinable pour développé couché, curls et travail des épaules."
-    },
-    {
-      "id": "halteres-reglables",
-      "name": "Haltères réglables",
-      "keyword": "halteres reglables musculation",
-      "asin": "",
-      "category": "halteres",
-      "blurb": "Paire d'haltères à charge ajustable, idéale pour gagner de la place chez soi."
-    },
-    {
       "id": "kettlebell",
       "name": "Kettlebell",
       "keyword": "kettlebell fonte musculation",
       "asin": "",
       "category": "halteres",
       "blurb": "Poids polyvalent pour swings, goblet squats et renforcement complet."
-    },
-    {
-      "id": "barre-traction",
-      "name": "Barre de traction",
-      "keyword": "barre de traction porte murale",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Barre à fixer (porte ou mur) pour tractions et travail du dos au poids du corps."
-    },
-    {
-      "id": "tapis-sol",
-      "name": "Tapis de sol / fitness",
-      "keyword": "tapis de sol fitness epais",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Tapis épais antidérapant pour les exercices au sol, le gainage et les étirements."
-    },
-    {
-      "id": "rack-squat",
-      "name": "Rack à squat / cage",
-      "keyword": "rack squat cage musculation",
-      "asin": "",
-      "category": "structure",
-      "blurb": "Support de barre pour squats et développés lourds en toute sécurité à la maison."
     },
     {
       "id": "barre-olympique",

@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie BANCS DE MUSCULATION. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "banc-reglable",
+      "name": "Banc de musculation réglable",
+      "keyword": "banc de musculation reglable inclinable",
+      "asin": "",
+      "category": "bancs-musculation",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.6,
+      "verdict": "La pièce centrale d'un home gym : il débloque le développé, le travail incliné et des dizaines d'exercices avec haltères.",
+      "rating": 4.7,
+      "reviews": 3960,
+      "priceIndication": "Dès ~90 €",
+      "image": "/img/produits/banc-reglable.svg",
+      "summary": "Un banc inclinable et déclinable qui transforme une simple paire d'haltères en salle complète : développé couché, incliné, épaules, dos. Le meilleur point d'appui pour progresser en sécurité.",
+      "blurb": "Banc inclinable/déclinable pour développé couché, curls et travail des épaules.",
+      "pros": [
+        "Multiplie les exercices possibles avec des haltères",
+        "Dossier inclinable et déclinable réglable",
+        "Base stable pour les charges lourdes",
+        "Se replie pour se ranger facilement"
+      ],
+      "cons": [
+        "La stabilité dépend beaucoup de la qualité de fabrication",
+        "Les modèles pliables bas de gamme peuvent jouer avec le temps"
+      ],
+      "specs": [
+        { "label": "Inclinaison", "value": "Décliné à ~85°" },
+        { "label": "Charge max", "value": "≈ 250 à 300 kg" },
+        { "label": "Assise", "value": "Rembourrage haute densité" },
+        { "label": "Rangement", "value": "Pliable" }
+      ],
+      "faq": [
+        { "question": "Quel banc pour débuter à la maison ?", "answer": "Un banc réglable inclinable/déclinable avec une bonne charge maximale (≥ 250 kg) couvre tous les besoins. Évitez les bancs fixes plats, bien plus limités pour progresser." },
+        { "question": "Quelle charge maximale viser ?", "answer": "Additionnez votre poids de corps et la charge soulevée, puis gardez une marge de sécurité. 250–300 kg annoncés conviennent à la quasi-totalité des pratiquants." },
+        { "question": "Plat, réglable ou avec repose-barre ?", "answer": "Le réglable est le meilleur compromis polyvalence/prix. Un banc avec supports de barre n'a d'intérêt que couplé à un rack pour le développé couché lourd." }
+      ],
+      "related": ["halteres-reglables", "rack-squat"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

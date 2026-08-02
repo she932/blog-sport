@@ -38,7 +38,7 @@ Un rack sert à **supporter une barre chargée** à bonne hauteur, pour la saisi
 
 C'est l'équipement qui débloque le vrai travail de force à la maison.
 
-[[BOX:rack-squat]]
+[[FICHE:rack-squat]]
 
 ## Les différents types de racks
 

@@ -38,7 +38,7 @@ La traction est un exercice fondamental, souvent considéré comme le meilleur p
 
 Le tout au poids du corps, sans encombrement ni charge à ranger.
 
-[[BOX:barre-traction]]
+[[FICHE:barre-traction]]
 
 ## Les différents types de barres de traction
 

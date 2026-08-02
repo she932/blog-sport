@@ -62,7 +62,7 @@ Voici un comparatif synthétique des critères essentiels à examiner selon les 
 
 Ce tableau montre bien que le prix n'est pas le seul indicateur : la charge maximale supportée et la densité du rembourrage font souvent plus la différence sur le confort et la sécurité réelle à l'usage qu'un simple écart de gamme.
 
-[[BOX:banc-reglable]]
+[[FICHE:banc-reglable]]
 
 ## Les critères essentiels pour choisir le meilleur banc de musculation
 

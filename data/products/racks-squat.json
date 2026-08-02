@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie RACKS À SQUAT / CAGES. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "rack-squat",
+      "name": "Rack à squat / cage",
+      "keyword": "rack squat cage musculation",
+      "asin": "",
+      "category": "racks-squat",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.6,
+      "verdict": "L'élément qui permet de soulever lourd en sécurité, seul chez soi : la clé pour progresser en force sur les mouvements de base.",
+      "rating": 4.7,
+      "reviews": 2340,
+      "priceIndication": "Dès ~200 €",
+      "image": "/img/produits/rack-squat.svg",
+      "summary": "Un support de barre avec sécurités qui rend le squat et le développé couché lourds possibles sans partenaire. Avec des barres de sécurité bien réglées, on pousse à l'échec en toute confiance.",
+      "blurb": "Support de barre pour squats et développés lourds en toute sécurité à la maison.",
+      "pros": [
+        "Squat et développé lourds sans partenaire",
+        "Barres de sécurité qui rattrapent la charge",
+        "Base d'un home gym orienté force",
+        "Souvent évolutif (poulie, barre de traction)"
+      ],
+      "cons": [
+        "Encombrant : demande de la hauteur et de la place",
+        "Les demi-racks bas de gamme manquent parfois de stabilité"
+      ],
+      "specs": [
+        { "label": "Type", "value": "Demi-rack ou cage complète" },
+        { "label": "Sécurités", "value": "Barres / crochets réglables" },
+        { "label": "Charge max", "value": "≈ 250 à 450 kg" },
+        { "label": "Hauteur", "value": "≈ 2 à 2,2 m" }
+      ],
+      "faq": [
+        { "question": "Demi-rack ou cage complète ?", "answer": "La cage complète offre la meilleure sécurité (sécurités des deux côtés) et plus d'options d'évolution. Le demi-rack est plus compact et moins cher, suffisant si la place manque." },
+        { "question": "Faut-il fixer le rack au sol ?", "answer": "Pour un rack léger ou en poussée maximale, la fixation au sol augmente nettement la stabilité. Une cage lourde et large est souvent stable telle quelle." },
+        { "question": "Quelle hauteur de plafond prévoir ?", "answer": "Comptez la hauteur du rack plus la marge pour le développé militaire debout. La plupart des racks demandent au moins 2,2 à 2,3 m sous plafond." }
+      ],
+      "related": ["barre-olympique", "banc-reglable"],
+      "audience": "Intermédiaires & confirmés",
+      "updated": "juillet 2026"
+    }
+  ]
+}

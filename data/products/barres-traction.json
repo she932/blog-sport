@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie BARRES DE TRACTION. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "barre-traction",
+      "name": "Barre de traction",
+      "keyword": "barre de traction porte murale",
+      "asin": "",
+      "category": "barres-traction",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.5,
+      "verdict": "L'accessoire le plus efficace pour construire un dos large au poids du corps, à installer partout chez soi.",
+      "rating": 4.5,
+      "reviews": 5620,
+      "priceIndication": "Dès ~25 €",
+      "image": "/img/produits/barre-traction.svg",
+      "summary": "Une barre robuste pour travailler le dos, les bras et le grip au poids du corps. Multi-prises, elle couvre tractions pronation, supination et prise neutre — l'essentiel pour progresser sur l'exercice roi du haut du corps.",
+      "blurb": "Barre à fixer (porte ou mur) pour tractions et travail du dos au poids du corps.",
+      "pros": [
+        "Développe le dos et les bras sans machine",
+        "Plusieurs prises (pronation, supination, neutre)",
+        "Installation rapide sur cadre de porte ou au mur",
+        "Excellent rapport résultats/prix"
+      ],
+      "cons": [
+        "Les modèles sans vis dépendent d'un chambranle solide",
+        "La fixation murale demande de percer"
+      ],
+      "specs": [
+        { "label": "Fixation", "value": "Cadre de porte ou murale" },
+        { "label": "Prises", "value": "Pronation, supination, neutre" },
+        { "label": "Charge max", "value": "≈ 100 à 150 kg" },
+        { "label": "Confort", "value": "Poignées mousse antidérapantes" }
+      ],
+      "faq": [
+        { "question": "Barre à coincer ou à visser ?", "answer": "La barre à coincer (sans perçage) est pratique mais exige un chambranle solide et bien dimensionné. La fixation murale, plus sûre pour les charges lourdes, demande de percer." },
+        { "question": "Peut-on se muscler le dos avec une simple barre ?", "answer": "Oui : la traction est l'un des meilleurs exercices pour le dos et les bras. Une barre multi-prises permet de varier les angles et de progresser durablement." },
+        { "question": "Que faire si je ne fais pas encore de traction ?", "answer": "Utilisez une bande élastique en assistance ou travaillez les tractions négatives. En quelques semaines, la première traction stricte devient accessible." }
+      ],
+      "related": ["elastiques", "sangles-tractions"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}
