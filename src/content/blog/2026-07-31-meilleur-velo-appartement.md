@@ -80,8 +80,7 @@ Voici un tableau comparatif synthétique des grandes familles de vélos disponib
 | Vélo pliable compact | Moyen | Faible à modérée | Très faible | 100 – 300 € | Petits espaces, usage occasionnel |
 | Vélo connecté avec écran | Élevé | Modulable via programmes | Moyen | 400 – 1200 € | Motivation par le suivi, cours virtuels |
 
-Ce tableau montre bien qu'il n'existe pas un unique "meilleur vélo d'appartement" universel : le choix dépend de votre objectif principal, de votre budget et de la place disponible chez vous. Si vous cherchez une solution fiable et équilibrée pour démarrer, un modèle comme le [[BOX:velo-appartement]]
-reste une option solide pour intégrer le cardio dans une routine à domicile sans complexité excessive.
+Ce tableau montre bien qu'il n'existe pas un unique "meilleur vélo d'appartement" universel : le choix dépend de votre objectif principal, de votre budget et de la place disponible chez vous. Si vous cherchez une solution fiable et équilibrée pour démarrer, un [[LINK:velo-appartement|vélo d'appartement]] à résistance réglable reste une option solide pour intégrer le cardio dans une routine à domicile sans complexité excessive.
 
 ## Vélo droit, semi-allongé ou biking : lequel choisir selon votre profil
 
@@ -155,8 +154,8 @@ Pour les modèles à résistance magnétique, l'entretien est minimal puisqu'il 
 
 Le meilleur vélo d'appartement n'est pas nécessairement le plus cher ni le plus équipé technologiquement : c'est celui qui correspond réellement à votre gabarit, votre objectif et votre espace disponible, et que vous utiliserez régulièrement sur la durée. Un vélo simple mais confortable, utilisé 4 fois par semaine, apportera bien plus de bénéfices qu'un modèle sophistiqué qui prend la poussière après un mois.
 
-Pour démarrer sereinement une routine cardio à domicile sans complexité excessive, direction un modèle fiable comme le
-[[BOX:velo-appartement]]
-qui couvre les besoins essentiels sans superflu. Associez-le à un suivi régulier de votre fréquence cardiaque et à quelques séances complémentaires de renforcement, et vous disposerez d'une base solide et durable pour progresser sur le plan cardiovasculaire, sans avoir besoin de sortir de chez vous.
+[[FICHE:velo-appartement]]
+
+Pour démarrer sereinement une routine cardio à domicile sans complexité excessive, direction un modèle fiable qui couvre les besoins essentiels sans superflu. Associez-le à un suivi régulier de votre fréquence cardiaque et à quelques séances complémentaires de renforcement, et vous disposerez d'une base solide et durable pour progresser sur le plan cardiovasculaire, sans avoir besoin de sortir de chez vous.
 
 Enfin, gardez en tête qu'aucun équipement, même le meilleur vélo d'appartement du marché, ne remplace la régularité. Mieux vaut 20 minutes trois fois par semaine sur plusieurs mois qu'une séance intensive isolée suivie d'un abandon. C'est cette constance, plus que la performance de la machine elle-même, qui fera la différence sur votre condition physique à moyen et long terme.
