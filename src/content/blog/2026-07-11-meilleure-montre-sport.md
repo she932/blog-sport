@@ -39,7 +39,7 @@ Au-delà du gadget, une bonne montre apporte de vrais bénéfices :
 
 Elle aide à s'entraîner plus intelligemment, en musculation comme en cardio.
 
-[[BOX:montre-cardio]]
+[[FICHE:montre-cardio]]
 
 ## Les critères pour bien choisir
 
@@ -112,8 +112,6 @@ Le prix d'une montre de sport varie énormément. Voici ce que l'on trouve à ch
 - **Haut de gamme** : GPS multi-bandes très précis, cartographie, autonomie de plusieurs semaines, matériaux premium et métriques avancées. Réservé aux pratiquants exigeants ou aux disciplines d'endurance.
 
 Le bon réflexe : ne pas payer pour des fonctions que vous n'utiliserez jamais. Une montre milieu de gamme couvre les besoins de l'immense majorité des pratiquants de fitness et de musculation.
-
-[[BOX:montre-cardio]]
 
 ## L'écosystème et l'application : un critère décisif
 

@@ -1,29 +1,4 @@
 {
-  "_comment": "Base de produits affiliés. OBLIGATOIRE : id, name, keyword. Renseignez 'asin' avec l'ASIN Amazon reel (10 caracteres, ex. B08N5WRWNW) pour un lien fiche produit /dp/ (bien meilleure conversion) ; si 'asin' est vide ou invalide, un lien de recherche est genere automatiquement a partir de 'keyword'. OPTIONNEL (encadre enrichi, applique seulement si present) : 'image' (URL/chemin d'une image produit), 'rating' (note 0-5, ex. 4.6), 'reviews' (nombre d'avis), 'badge' (remplace 'Notre recommandation', ex. 'Notre choix'), 'priceIndication' (mention de prix INDICATIVE et non-live, ex. 'Des ~120 EUR' — pour un prix live, passer par l'API Amazon PA-API, voir data/PRODUCTS.md). Ajoutez/modifiez librement des produits : le generateur les proposera a Claude.",
-  "products": [
-    {
-      "id": "montre-cardio",
-      "name": "Montre connectée sport",
-      "keyword": "montre connectee sport cardio",
-      "asin": "",
-      "category": "cardio",
-      "blurb": "Suivi de la fréquence cardiaque, des calories et des séances d'entraînement."
-    },
-    {
-      "id": "velo-appartement",
-      "name": "Vélo d'appartement",
-      "keyword": "velo d'appartement fitness",
-      "asin": "",
-      "category": "cardio",
-      "blurb": "Cardio à faible impact pour la maison, idéal en complément de la muscu."
-    },
-    {
-      "id": "tapis-course-pliable",
-      "name": "Tapis de course pliable",
-      "keyword": "tapis de course pliable appartement",
-      "asin": "",
-      "category": "cardio",
-      "blurb": "Tapis de course compact et pliable, idéal pour courir ou marcher chez soi sans encombrer."
-    }
-  ]
+  "_comment": "Base historique VIDÉE : tous les produits ont migré vers data/products/<categorie>.json (un fichier par catégorie). Ce fichier reste chargé et fusionné par loadProducts ; ajoute ici un produit ponctuel si besoin, sinon crée un nouveau fichier de catégorie. Schéma et règles : data/PRODUCTS.md.",
+  "products": []
 }

@@ -38,7 +38,7 @@ Le tapis pliable répond à une contrainte majeure de l'entraînement à domicil
 
 C'est un excellent complément à la musculation, que ce soit pour l'échauffement, le cardio ou la perte de graisse.
 
-[[BOX:tapis-course-pliable]]
+[[FICHE:tapis-course-pliable]]
 
 ## Les critères essentiels pour bien choisir
 

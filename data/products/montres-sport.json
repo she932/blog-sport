@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie MONTRES CONNECTÉES SPORT. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "montre-cardio",
+      "name": "Montre connectée sport",
+      "keyword": "montre connectee sport cardio",
+      "asin": "",
+      "category": "montres-sport",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.4,
+      "verdict": "Le meilleur moyen de piloter ses séances par les chiffres : fréquence cardiaque, récupération et progression au poignet.",
+      "rating": 4.5,
+      "reviews": 8320,
+      "priceIndication": "Dès ~120 €",
+      "image": "/img/produits/montre-cardio.svg",
+      "summary": "Une montre connectée qui suit la fréquence cardiaque, les calories et la charge d'entraînement pour objectiver vos progrès. Un allié précieux pour doser l'effort et respecter la récupération.",
+      "blurb": "Suivi de la fréquence cardiaque, des calories et des séances d'entraînement.",
+      "pros": [
+        "Suivi précis de la fréquence cardiaque",
+        "Mesure de la charge et de la récupération",
+        "Autonomie de plusieurs jours",
+        "Motivation via objectifs et historique"
+      ],
+      "cons": [
+        "Le cardio au poignet est moins précis qu'une ceinture",
+        "Les fonctions avancées gonflent le prix"
+      ],
+      "specs": [
+        { "label": "Capteur", "value": "Cardio optique au poignet" },
+        { "label": "GPS", "value": "Intégré (selon modèle)" },
+        { "label": "Autonomie", "value": "≈ 5 à 14 jours" },
+        { "label": "Étanchéité", "value": "5 ATM (natation)" }
+      ],
+      "faq": [
+        { "question": "Le cardio au poignet est-il fiable ?", "answer": "Il est fiable pour l'endurance et le suivi quotidien. Pour les efforts très intenses ou fractionnés, une ceinture pectorale reste plus précise — beaucoup de montres s'y couplent en Bluetooth." },
+        { "question": "Faut-il le GPS pour la musculation ?", "answer": "Pas indispensable en salle : le cardio et le suivi des séances suffisent. Le GPS devient utile si vous courez, roulez ou marchez en extérieur." },
+        { "question": "Quelle autonomie viser ?", "answer": "Cinq jours minimum pour éviter la recharge quotidienne. Les modèles sans écran AMOLED tiennent souvent une à deux semaines." }
+      ],
+      "related": ["corde-sauter", "velo-appartement"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

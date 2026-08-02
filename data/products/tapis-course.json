@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie TAPIS DE COURSE PLIABLES. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "tapis-course-pliable",
+      "name": "Tapis de course pliable",
+      "keyword": "tapis de course pliable appartement",
+      "asin": "",
+      "category": "tapis-course",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.2,
+      "verdict": "Marcher ou courir chez soi sans sacrifier une pièce entière : le compromis idéal cardio/encombrement.",
+      "rating": 4.4,
+      "reviews": 4590,
+      "priceIndication": "Dès ~250 €",
+      "image": "/img/produits/tapis-course-pliable.svg",
+      "summary": "Un tapis de course pliable qui se range sous un lit ou contre un mur entre deux séances. Parfait pour la marche active et la course douce à la maison, quelle que soit la météo.",
+      "blurb": "Tapis de course compact et pliable, idéal pour courir ou marcher chez soi sans encombrer.",
+      "pros": [
+        "Se plie et se range facilement",
+        "Cardio à la maison en toute saison",
+        "Vitesse et parfois inclinaison réglables",
+        "Idéal pour la marche active et la course douce"
+      ],
+      "cons": [
+        "Surface de course plus courte que les modèles de salle",
+        "Les moteurs premières prix limitent la vitesse haute"
+      ],
+      "specs": [
+        { "label": "Vitesse", "value": "≈ 1 à 12 km/h" },
+        { "label": "Pliage", "value": "Vertical ou à plat" },
+        { "label": "Moteur", "value": "≈ 1 à 2,5 CV" },
+        { "label": "Poids max utilisateur", "value": "≈ 100 à 120 kg" }
+      ],
+      "faq": [
+        { "question": "Un tapis pliable est-il assez solide ?", "answer": "Pour la marche active et la course douce à la maison, oui. Pour de gros volumes de course rapide, un modèle non pliable de salle reste plus robuste et confortable." },
+        { "question": "Quelle puissance de moteur choisir ?", "answer": "Autour de 1,5 CV suffit pour la marche et le footing léger. Visez 2 CV et plus si vous courez régulièrement et rapidement." },
+        { "question": "Marche ou course : quel usage privilégier ?", "answer": "La marche active quotidienne (incline walking) est excellente pour la dépense et douce pour les articulations. La plupart des tapis pliables sont pensés d'abord pour cet usage." }
+      ],
+      "related": ["velo-appartement", "corde-sauter"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}
