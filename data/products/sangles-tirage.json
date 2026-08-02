@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie SANGLES DE TIRAGE / STRAPS. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "sangles-tractions",
+      "name": "Sangles de tirage / straps",
+      "keyword": "straps sangles de tirage musculation",
+      "asin": "",
+      "category": "sangles-tirage",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.4,
+      "verdict": "Le petit accessoire qui débloque les tirages lourds quand le grip lâche avant les muscles du dos.",
+      "rating": 4.6,
+      "reviews": 5240,
+      "priceIndication": "Dès ~10 €",
+      "image": "/img/produits/sangles-tractions.svg",
+      "summary": "Des sangles solides qui sécurisent la prise sur les tirages, soulevés de terre et rowings lourds. Idéales pour continuer à charger le dos quand les avant-bras deviennent le facteur limitant.",
+      "blurb": "Sangles pour améliorer la prise sur les tirages et soulevés de terre lourds.",
+      "pros": [
+        "Prolongent les séries lourdes de tirage",
+        "Soulagent le grip et les avant-bras",
+        "Solides, coton renforcé ou nylon",
+        "Très bon marché pour le gain apporté"
+      ],
+      "cons": [
+        "À doser : le grip doit aussi se travailler",
+        "Un temps d'adaptation pour bien les enrouler"
+      ],
+      "specs": [
+        { "label": "Matière", "value": "Coton renforcé ou nylon" },
+        { "label": "Type", "value": "Boucle passante (lasso)" },
+        { "label": "Longueur", "value": "≈ 50 à 60 cm" },
+        { "label": "Usage", "value": "Soulevé, rowing, tractions lestées" }
+      ],
+      "faq": [
+        { "question": "Quand utiliser des sangles de tirage ?", "answer": "Sur les séries lourdes de dos (soulevé, rowing, tirages) quand la prise lâche avant le muscle ciblé. Gardez des séries sans sangles pour continuer à développer le grip." },
+        { "question": "Les sangles empêchent-elles de travailler l'avant-bras ?", "answer": "Utilisées uniquement sur les charges lourdes, non : elles permettent au contraire de mieux stimuler le dos. Alternez avec du travail de grip pour un développement équilibré." },
+        { "question": "Straps ou crochets ?", "answer": "Les straps sont polyvalents et peu coûteux, avec un léger apprentissage. Les crochets sont plus rapides à mettre mais moins précis sur les mouvements techniques." }
+      ],
+      "related": ["barre-traction", "ceinture-lombaire"],
+      "audience": "Intermédiaires & confirmés",
+      "updated": "juillet 2026"
+    }
+  ]
+}

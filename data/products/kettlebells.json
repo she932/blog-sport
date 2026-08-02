@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie KETTLEBELLS. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "kettlebell",
+      "name": "Kettlebell",
+      "keyword": "kettlebell fonte musculation",
+      "asin": "",
+      "category": "kettlebells",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.6,
+      "verdict": "Un seul poids pour la force, le cardio et l'explosivité : l'outil le plus polyvalent pour s'entraîner dans peu d'espace.",
+      "rating": 4.7,
+      "reviews": 4310,
+      "priceIndication": "Dès ~30 €",
+      "image": "/img/produits/kettlebell.svg",
+      "summary": "Une kettlebell bien équilibrée permet de travailler tout le corps : swings, goblet squats, tirages et portés. Idéale pour mêler renforcement et cardio dans un format compact et quasi indestructible.",
+      "blurb": "Poids polyvalent pour swings, goblet squats et renforcement complet.",
+      "pros": [
+        "Mêle force, cardio et explosivité",
+        "Très compacte, s'entraîne partout",
+        "Fonte quasi indestructible",
+        "Idéale pour les mouvements balistiques (swing)"
+      ],
+      "cons": [
+        "Un poids fixe limite la progression fine",
+        "La technique du swing demande un temps d'apprentissage"
+      ],
+      "specs": [
+        { "label": "Poids courants", "value": "8 à 24 kg" },
+        { "label": "Matière", "value": "Fonte (parfois vinyle)" },
+        { "label": "Poignée", "value": "Large, prise à deux mains" },
+        { "label": "Usage", "value": "Corps entier + cardio" }
+      ],
+      "faq": [
+        { "question": "Quel poids de kettlebell pour débuter ?", "answer": "Pour un homme, 12 à 16 kg est un bon point de départ pour le swing ; 8 à 12 kg pour une femme. Prenez plutôt un peu lourd : le swing est un mouvement de hanche puissant." },
+        { "question": "Fonte ou vinyle ?", "answer": "La fonte brute est la référence : durable, poignée régulière et bon toucher. Le vinyle protège le sol mais s'abîme plus vite sur un usage intensif." },
+        { "question": "Une kettlebell peut-elle remplacer des haltères ?", "answer": "Elle les complète plus qu'elle ne les remplace : imbattable pour les mouvements balistiques et le cardio, un peu moins pratique que des haltères pour l'isolation." }
+      ],
+      "related": ["halteres-reglables", "corde-sauter"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

@@ -2,46 +2,6 @@
   "_comment": "Base de produits affiliés. OBLIGATOIRE : id, name, keyword. Renseignez 'asin' avec l'ASIN Amazon reel (10 caracteres, ex. B08N5WRWNW) pour un lien fiche produit /dp/ (bien meilleure conversion) ; si 'asin' est vide ou invalide, un lien de recherche est genere automatiquement a partir de 'keyword'. OPTIONNEL (encadre enrichi, applique seulement si present) : 'image' (URL/chemin d'une image produit), 'rating' (note 0-5, ex. 4.6), 'reviews' (nombre d'avis), 'badge' (remplace 'Notre recommandation', ex. 'Notre choix'), 'priceIndication' (mention de prix INDICATIVE et non-live, ex. 'Des ~120 EUR' — pour un prix live, passer par l'API Amazon PA-API, voir data/PRODUCTS.md). Ajoutez/modifiez librement des produits : le generateur les proposera a Claude.",
   "products": [
     {
-      "id": "kettlebell",
-      "name": "Kettlebell",
-      "keyword": "kettlebell fonte musculation",
-      "asin": "",
-      "category": "halteres",
-      "blurb": "Poids polyvalent pour swings, goblet squats et renforcement complet."
-    },
-    {
-      "id": "barre-olympique",
-      "name": "Barre olympique + disques",
-      "keyword": "barre olympique 20kg disques",
-      "asin": "",
-      "category": "structure",
-      "blurb": "Barre 20 kg et disques pour les mouvements de base : squat, soulevé de terre, développé."
-    },
-    {
-      "id": "corde-sauter",
-      "name": "Corde à sauter",
-      "keyword": "corde a sauter crossfit lestee",
-      "asin": "",
-      "category": "cardio",
-      "blurb": "Outil de cardio et d'endurance à haute intensité, parfait pour l'échauffement."
-    },
-    {
-      "id": "roue-abdos",
-      "name": "Roue à abdominaux (AB wheel)",
-      "keyword": "roue abdominaux ab wheel",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Accessoire redoutable pour renforcer les abdominaux et le gainage profond."
-    },
-    {
-      "id": "sangles-tractions",
-      "name": "Sangles de tirage / straps",
-      "keyword": "straps sangles de tirage musculation",
-      "asin": "",
-      "category": "accessoire",
-      "blurb": "Sangles pour améliorer la prise sur les tirages et soulevés de terre lourds."
-    },
-    {
       "id": "montre-cardio",
       "name": "Montre connectée sport",
       "keyword": "montre connectee sport cardio",

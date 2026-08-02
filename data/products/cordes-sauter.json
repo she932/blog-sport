@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie CORDES À SAUTER. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "corde-sauter",
+      "name": "Corde à sauter",
+      "keyword": "corde a sauter crossfit lestee",
+      "asin": "",
+      "category": "cordes-sauter",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.4,
+      "verdict": "Le cardio le plus efficace au mètre carré : intense, portable et redoutable pour l'échauffement comme pour brûler des calories.",
+      "rating": 4.5,
+      "reviews": 7650,
+      "priceIndication": "Dès ~12 €",
+      "image": "/img/produits/corde-sauter.svg",
+      "summary": "Une corde à sauter à roulements fluides, réglable en longueur, pour un cardio intense qui tient dans la poche. Parfaite en échauffement, en finisher ou en séance HIIT dédiée.",
+      "blurb": "Outil de cardio et d'endurance à haute intensité, parfait pour l'échauffement.",
+      "pros": [
+        "Cardio très efficace en peu de temps",
+        "Ultra portable, s'emporte partout",
+        "Réglable à votre taille",
+        "Excellent pour la coordination et l'échauffement"
+      ],
+      "cons": [
+        "Demande un minimum de hauteur sous plafond",
+        "Les câbles fins s'emmêlent si mal rangés"
+      ],
+      "specs": [
+        { "label": "Câble", "value": "Acier gainé, réglable" },
+        { "label": "Roulements", "value": "À billes, rotation fluide" },
+        { "label": "Poignées", "value": "Antidérapantes, lestables" },
+        { "label": "Usage", "value": "Échauffement, HIIT, cardio" }
+      ],
+      "faq": [
+        { "question": "Quelle longueur de corde choisir ?", "answer": "Debout au milieu de la corde, les poignées doivent arriver au niveau des aisselles. La plupart des modèles se règlent facilement à votre taille." },
+        { "question": "Corde lestée ou légère ?", "answer": "La corde lestée développe le rythme et le haut du corps, idéale pour progresser. La corde fine (speed rope) privilégie la vitesse et les double-unders." },
+        { "question": "Combien de temps pour un bon cardio ?", "answer": "10 à 15 minutes en intervalles suffisent à élever fortement la fréquence cardiaque. C'est un excellent finisher en fin de séance de musculation." }
+      ],
+      "related": ["kettlebell", "tapis-sol"],
+      "audience": "Tous niveaux",
+      "updated": "juillet 2026"
+    }
+  ]
+}

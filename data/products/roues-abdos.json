@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie ROUES À ABDOMINAUX (AB WHEEL). 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "roue-abdos",
+      "name": "Roue à abdominaux (AB wheel)",
+      "keyword": "roue abdominaux ab wheel",
+      "asin": "",
+      "category": "roues-abdos",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.3,
+      "verdict": "L'exercice de gainage le plus dur et le plus efficace, dans un accessoire minuscule et bon marché.",
+      "rating": 4.5,
+      "reviews": 6180,
+      "priceIndication": "Dès ~15 €",
+      "image": "/img/produits/roue-abdos.svg",
+      "summary": "Une roue abdominale stable qui sollicite intensément la sangle abdominale et le gainage profond. Redoutable d'efficacité, elle se range dans un tiroir et coûte le prix d'un repas.",
+      "blurb": "Accessoire redoutable pour renforcer les abdominaux et le gainage profond.",
+      "pros": [
+        "Gainage intense de toute la sangle abdominale",
+        "Minuscule et très bon marché",
+        "Renforce aussi les épaules et le dos",
+        "Progression via l'amplitude du mouvement"
+      ],
+      "cons": [
+        "Exigeante : difficile pour un vrai débutant",
+        "À maîtriser pour préserver le bas du dos"
+      ],
+      "specs": [
+        { "label": "Roue", "value": "Simple ou double, large" },
+        { "label": "Poignées", "value": "Antidérapantes" },
+        { "label": "Genouillère", "value": "Souvent fournie" },
+        { "label": "Usage", "value": "Gainage, abdominaux" }
+      ],
+      "faq": [
+        { "question": "La roue abdominale est-elle efficace ?", "answer": "Très : le mouvement de rollout est l'un des meilleurs exercices de gainage anti-extension, sollicitant abdominaux profonds, épaules et dos en une seule série." },
+        { "question": "Comment débuter sans se blesser ?", "answer": "Commencez à genoux, sur une petite amplitude, en gainant fort pour ne pas creuser le bas du dos. Augmentez l'amplitude au fil des semaines, puis passez debout." },
+        { "question": "Roue simple ou double ?", "answer": "La roue double est plus stable et pardonne mieux les écarts, idéale pour débuter. La roue simple ajoute un travail d'équilibre pour les plus avancés." }
+      ],
+      "related": ["tapis-sol", "elastiques"],
+      "audience": "Intermédiaires & confirmés",
+      "updated": "juillet 2026"
+    }
+  ]
+}

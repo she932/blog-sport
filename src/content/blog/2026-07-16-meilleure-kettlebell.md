@@ -38,7 +38,7 @@ La forme unique de la kettlebell — une boule lestée avec une anse — permet 
 
 Le mouvement emblématique, le **swing**, sollicite l'ensemble de la chaîne postérieure tout en faisant grimper le rythme cardiaque.
 
-[[BOX:kettlebell]]
+[[FICHE:kettlebell]]
 
 ## Quel poids choisir ?
 

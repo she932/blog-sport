@@ -39,7 +39,7 @@ Sauter à la corde sollicite tout le corps et fait rapidement grimper le rythme 
 
 C'est un complément idéal à la musculation, aussi bien pour l'échauffement que pour le travail cardio.
 
-[[BOX:corde-sauter]]
+[[FICHE:corde-sauter]]
 
 ## Les différents types de cordes
 
@@ -180,8 +180,6 @@ Pour maximiser la perte de graisse, la corde à sauter s'intègre idéalement da
 - **En cardio dédié** : des séances plus longues à intensité modérée les jours sans musculation.
 
 Rappelez-vous toutefois que la perte de graisse se joue avant tout dans l'**assiette** : la corde accélère la dépense, mais un déficit calorique alimentaire reste indispensable. Associée à une [[LINK:kettlebell|kettlebell]] pour des circuits fonctionnels, elle compose un entraînement métabolique redoutable.
-
-[[BOX:corde-sauter]]
 
 ## Bien débuter quand on n'a jamais sauté
 

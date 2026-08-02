@@ -1,0 +1,45 @@
+{
+  "_comment": "Catégorie BARRES OLYMPIQUES + DISQUES. 'asin' vide -> lien de recherche Amazon (fonctionnel). Renseigne l'ASIN réel pour un lien fiche produit /dp/. 'image' = placeholder à remplacer par une vraie photo. Contenu éditorial à valider/ajuster selon le produit réellement retenu.",
+  "products": [
+    {
+      "id": "barre-olympique",
+      "name": "Barre olympique + disques",
+      "keyword": "barre olympique 20kg disques",
+      "asin": "",
+      "category": "barres-olympiques",
+      "badge": "Choix MuscuGuide",
+      "mgScore": 4.7,
+      "verdict": "Le cœur d'un home gym orienté force : la barre et les disques qui rendent possibles squat, soulevé de terre et développé.",
+      "rating": 4.8,
+      "reviews": 1980,
+      "priceIndication": "Dès ~200 €",
+      "image": "/img/produits/barre-olympique.svg",
+      "summary": "Une barre olympique de 20 kg et ses disques, base indispensable des mouvements de force. Bien construite, elle encaisse des années de charges lourdes et permet une progression sans plafond.",
+      "blurb": "Barre 20 kg et disques pour les mouvements de base : squat, soulevé de terre, développé.",
+      "pros": [
+        "Indispensable pour squat, soulevé et développé",
+        "Progression quasi illimitée en charge",
+        "Barre durable, moletage et rotation de qualité",
+        "Standard Ø 50 mm compatible avec tout l'équipement"
+      ],
+      "cons": [
+        "Investissement conséquent avec les disques",
+        "Nécessite un rack et de l'espace pour être exploitée"
+      ],
+      "specs": [
+        { "label": "Poids barre", "value": "20 kg (Ø 50 mm)" },
+        { "label": "Longueur", "value": "≈ 2,20 m" },
+        { "label": "Capacité", "value": "≈ 300 à 680 kg" },
+        { "label": "Disques", "value": "Fonte ou caoutchouc" }
+      ],
+      "faq": [
+        { "question": "Barre olympique ou barre standard ?", "answer": "La barre olympique (20 kg, Ø 50 mm) est plus robuste, plus durable et compatible avec le matériel de salle. La barre standard (Ø 28 mm) est moins chère mais vite limitée pour progresser lourd." },
+        { "question": "Disques en fonte ou en caoutchouc ?", "answer": "Les disques caoutchoutés (bumper) protègent le sol et sont adaptés au soulevé de terre. La fonte est plus compacte et souvent moins chère au kilo." },
+        { "question": "Quel poids de disques prévoir au départ ?", "answer": "Un set d'environ 100 kg couvre les débuts et la progression sur les mouvements de base. On complète ensuite par paires selon les besoins." }
+      ],
+      "related": ["rack-squat", "banc-reglable"],
+      "audience": "Intermédiaires & confirmés",
+      "updated": "juillet 2026"
+    }
+  ]
+}
