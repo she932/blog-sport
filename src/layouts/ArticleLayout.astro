@@ -44,6 +44,7 @@ const articleLd = {
   '@type': 'Article',
   headline: data.title,
   description: data.description,
+  image: [new URL(data.heroImage ?? `${base}/og-default.svg`, Astro.site).toString()],
   datePublished: data.pubDate.toISOString(),
   dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
   author: { '@type': 'Organization', name: data.author },

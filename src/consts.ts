@@ -6,6 +6,8 @@
 export const SITE = {
   /** Nom du blog affiché dans le header et les métadonnées. */
   title: 'MuscuGuide',
+  /** Titre SEO de la page d'accueil (contient déjà la marque). */
+  homeTitle: 'MuscuGuide — Guides & comparatifs fitness et musculation',
   /** Accroche / description par défaut (SEO). */
   description:
     "Guides, comparatifs et conseils d'experts pour bien choisir votre matériel de fitness et de musculation. Nouveaux guides publiés chaque jour.",

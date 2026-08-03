@@ -1,5 +1,5 @@
 ---
-title: "Prise de masse pour débutant : le guide complet pour prendre du muscle"
+title: "Prise de masse pour débutant : le guide complet"
 description: "Comment réussir sa prise de masse quand on débute ? Nutrition, entraînement, matériel et erreurs à éviter : le guide complet pour prendre du muscle durablement."
 pubDate: 2026-07-24
 category: guides

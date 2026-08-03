@@ -1,5 +1,5 @@
 ---
-title: "Meilleure barre de traction : comparatif et guide d'installation"
+title: "Meilleure barre de traction : comparatif et guide"
 description: "Quelle est la meilleure barre de traction ? Types de fixation, critères de choix, sécurité et installation : le comparatif complet pour muscler votre dos."
 pubDate: 2026-07-17
 category: comparatifs

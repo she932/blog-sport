@@ -1,5 +1,5 @@
 ---
-title: "Débuter la musculation : le guide complet pour bien commencer"
+title: "Débuter la musculation : le guide complet"
 description: "Vous voulez débuter la musculation ? Programme, matériel, nutrition et erreurs à éviter : le guide complet pour progresser dès la première semaine."
 pubDate: 2026-07-25
 category: guides

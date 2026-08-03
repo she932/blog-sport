@@ -1,5 +1,5 @@
 ---
-title: "Programme prise de force : progresser sur les mouvements de base"
+title: "Programme prise de force : progresser sur les bases"
 description: "Un programme prise de force efficace : principes, exercices rois, séries et matériel pour gagner en force sur le squat, le développé et le soulevé de terre."
 pubDate: 2026-07-10
 category: guides

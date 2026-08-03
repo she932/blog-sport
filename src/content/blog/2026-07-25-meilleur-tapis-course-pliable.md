@@ -1,5 +1,5 @@
 ---
-title: "Meilleur tapis de course pliable d'appartement : comparatif 2026"
+title: "Meilleur tapis de course pliable : comparatif 2026"
 description: "Quel tapis de course pliable choisir pour l'appartement ? Puissance, encombrement, silence et comparatif complet pour bien courir chez soi en 2026."
 pubDate: 2026-07-25
 category: materiel

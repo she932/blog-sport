@@ -33,8 +33,15 @@ const socialImage = new URL(
   image ?? `${base}/og-default.svg`,
   Astro.site
 );
-const fullTitle =
-  title === SITE.title ? title : `${title} | ${SITE.title}`;
+// Titre SEO : on ajoute la marque en suffixe uniquement si le titre ne la
+// contient pas déjà (accueil) ET si l'ensemble reste sous ~60 caractères,
+// afin d'éviter la troncature dans les résultats de recherche.
+const withBrand = `${title} | ${SITE.title}`;
+const fullTitle = title.includes(SITE.title)
+  ? title
+  : withBrand.length <= 60
+    ? withBrand
+    : title;
 ---
 
 <!-- Global -->

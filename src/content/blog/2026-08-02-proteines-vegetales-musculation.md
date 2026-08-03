@@ -1,5 +1,5 @@
 ---
-title: "Protéines végétales et musculation : le guide pour prendre du muscle"
+title: "Protéines végétales et musculation : le guide complet"
 description: "Protéines végétales et musculation : sources, qualité des acides aminés, dosage et conseils pour prendre du muscle sans viande ni produits animaux."
 pubDate: 2026-08-02
 category: guides

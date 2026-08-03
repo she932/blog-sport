@@ -1,5 +1,5 @@
 ---
-title: "Récupération musculaire : sommeil, nutrition et bonnes pratiques"
+title: "Récupération musculaire : sommeil, nutrition, conseils"
 description: "Bien récupérer pour mieux progresser : sommeil, nutrition, repos et techniques de récupération musculaire. Le guide pour optimiser vos résultats."
 pubDate: 2026-07-09
 category: conseils

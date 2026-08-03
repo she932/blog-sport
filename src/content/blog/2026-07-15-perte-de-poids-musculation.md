@@ -1,5 +1,5 @@
 ---
-title: "Musculation et perte de poids : le guide pour sécher efficacement"
+title: "Musculation et perte de poids : le guide pour sécher"
 description: "Musculation et perte de poids : comment sécher sans perdre de muscle ? Déficit calorique, entraînement, cardio et matériel pour une sèche réussie."
 pubDate: 2026-07-15
 category: guides

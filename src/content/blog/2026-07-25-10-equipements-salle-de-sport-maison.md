@@ -1,5 +1,5 @@
 ---
-title: "Les 10 équipements indispensables pour une salle de sport maison"
+title: "10 équipements indispensables pour une salle de sport"
 description: "Quel matériel pour monter sa salle de sport à la maison ? Notre sélection des 10 équipements indispensables pour s'entraîner efficacement chez soi en 2026."
 pubDate: 2026-07-25
 category: materiel

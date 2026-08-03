@@ -1,5 +1,5 @@
 ---
-title: "HIIT à la maison : le programme pour brûler un maximum de graisse"
+title: "HIIT à la maison : le programme pour brûler la graisse"
 description: "Le HIIT à la maison pour brûler de la graisse : principes, séances prêtes à l'emploi, matériel utile et conseils pour progresser sans salle ni équipement lourd."
 pubDate: 2026-08-02
 category: guides

@@ -162,7 +162,7 @@ function boxHtml(id) {
   // Précédence : valeur manuelle > donnée live PA-API > rien.
   const image = p.image || p._image;
   const media = image
-    ? `<div class="aff-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"></div>`
+    ? `<div class="aff-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async" width="104" height="104"></div>`
     : '';
   const label = p.badge ? escapeHtml(String(p.badge)) : escapeHtml(LABELS.boxLabel);
   const rating = ratingHtml(p);
@@ -309,7 +309,7 @@ function pfRelated(related) {
       const url = buildAffiliateUrl(rp, TAG, DOMAIN);
       const img = rp.image || rp._image;
       const media = img
-        ? `<span class="pf-rel-media"><img src="${escapeHtml(String(img))}" alt="${escapeHtml(rp.name)}" loading="lazy" decoding="async"></span>`
+        ? `<span class="pf-rel-media"><img src="${escapeHtml(String(img))}" alt="${escapeHtml(rp.name)}" loading="lazy" decoding="async" width="46" height="46"></span>`
         : '';
       const note =
         Number(rp.mgScore) > 0

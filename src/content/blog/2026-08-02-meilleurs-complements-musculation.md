@@ -1,5 +1,5 @@
 ---
-title: "Meilleurs compléments alimentaires en musculation : le comparatif"
+title: "Meilleurs compléments en musculation : le comparatif"
 description: "Quels compléments alimentaires en musculation valent vraiment le coup ? Comparatif des références utiles, dosages et conseils pour ne pas gaspiller votre argent."
 pubDate: 2026-08-02
 category: comparatifs
