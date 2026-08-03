@@ -167,16 +167,15 @@ function boxHtml(id) {
   const label = p.badge ? escapeHtml(String(p.badge)) : escapeHtml(LABELS.boxLabel);
   const rating = ratingHtml(p);
 
-  // Prix : le prix live PA-API (horodaté, conforme) prime sur la mention
-  // indicative manuelle. Sinon, repli sur priceIndication.
+  // Prix : uniquement le prix live PA-API (horodaté « au … », conforme au
+  // contrat Partenaires Amazon). Aucune mention de prix manuelle/fixe n'est
+  // affichée — le CTA neutre invite à consulter le prix sur Amazon.
   let price = '';
   if (p._price) {
     const asOf = p._priceAsOf
       ? `<span class="aff-price-asof"> · au ${escapeHtml(String(p._priceAsOf))}</span>`
       : '';
     price = `<span class="aff-price">${escapeHtml(String(p._price))}${asOf}</span>`;
-  } else if (p.priceIndication) {
-    price = `<span class="aff-price">${escapeHtml(String(p.priceIndication))}</span>`;
   }
   const prime = p._prime
     ? `<span class="aff-prime" aria-label="Éligible Prime">Prime</span>`
@@ -251,6 +250,8 @@ function mgVerdictWord(score) {
   return '';
 }
 
+// Prix affiché sur la fiche : uniquement le prix live PA-API (horodaté
+// « au … », conforme). Aucune mention de prix fixe/manuelle n'est rendue.
 function pfPrice(p) {
   if (p._price) {
     const asOf = p._priceAsOf
@@ -258,9 +259,7 @@ function pfPrice(p) {
       : '';
     return `<span class="pf-price">${escapeHtml(String(p._price))}${asOf}</span>`;
   }
-  return p.priceIndication
-    ? `<span class="pf-price">${escapeHtml(String(p.priceIndication))}</span>`
-    : '';
+  return '';
 }
 
 function pfList(items, kind) {
