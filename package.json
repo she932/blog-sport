@@ -15,6 +15,7 @@
     "report:asins": "node scripts/asins-report.mjs",
     "products:check": "node scripts/products-check.mjs",
     "products:fix": "node scripts/products-check.mjs --fix",
+    "import:catalog": "node scripts/import-catalog.mjs",
     "enrich:paapi": "node scripts/paapi-enrich.mjs",
     "paapi:selftest": "node scripts/paapi-selftest.mjs"
   },

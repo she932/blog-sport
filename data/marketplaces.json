@@ -1,0 +1,34 @@
+{
+  "_comment": "Marketplaces Amazon (multi-pays). 'active' = pays servi actuellement. Pour ajouter un pays : passez son 'enabled' à true, renseignez son 'tag' d'affiliation, puis renseignez l'ASIN local des produits via 'asinByCountry' (ex. { \"UK\": \"B0...\" }) dans le catalogue. Aucune modification de code nécessaire. L'environnement peut surcharger : AMAZON_COUNTRY, AMAZON_DOMAIN, AMAZON_AFFILIATE_TAG.",
+  "active": "FR",
+  "marketplaces": {
+    "FR": {
+      "label": "France",
+      "domain": "amazon.fr",
+      "tag": "muscuguide-21",
+      "currency": "EUR",
+      "enabled": true
+    },
+    "UK": {
+      "label": "United Kingdom",
+      "domain": "amazon.co.uk",
+      "tag": "",
+      "currency": "GBP",
+      "enabled": false
+    },
+    "DE": {
+      "label": "Deutschland",
+      "domain": "amazon.de",
+      "tag": "",
+      "currency": "EUR",
+      "enabled": false
+    },
+    "ES": {
+      "label": "España",
+      "domain": "amazon.es",
+      "tag": "",
+      "currency": "EUR",
+      "enabled": false
+    }
+  }
+}

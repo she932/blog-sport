@@ -60,13 +60,17 @@ if (FIX) {
 }
 
 // ---- Rapport ----
-const { products, duplicates, invalid, files } = loadProducts();
+const { products, drafts, duplicates, invalid, files } = loadProducts({
+  includeDrafts: true,
+});
 
 console.log('\n  Catalogue produits — ' + (FIX ? 'correction' : 'validation'));
 console.log('  ' + '─'.repeat(56));
 console.log('  Fichiers chargés :');
 for (const f of files) console.log('    • ' + rel(f));
 console.log(`  Produits (uniques) : ${products.length}`);
+if (drafts.length)
+  console.log(`  Dont brouillons (exclus du site) : ${drafts.length}`);
 
 const valid = products.filter((p) => isValidAsin(p.asin));
 // ASIN non stricts mais récupérables (URL, espaces) — corrigeables.

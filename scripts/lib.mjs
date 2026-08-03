@@ -28,9 +28,21 @@ export function writeJson(file, data) {
  * => Ajouter des produits = déposer un fichier JSON dans data/products/,
  *    sans toucher au code.
  *
- * Retourne { products, duplicates, files, invalid }.
+ * Le champ `status` pilote la publication : un produit « brouillon » /
+ * « draft » est EXCLU du site (non rendu, non proposé), mais reste dans le
+ * catalogue. Par défaut, `products` ne contient que les produits publiés ;
+ * passez { includeDrafts: true } pour tout obtenir (audit, rapports).
+ *
+ * Retourne { products, drafts, duplicates, files, invalid }.
  */
-export function loadProducts() {
+export function isDraftStatus(status) {
+  return (
+    typeof status === 'string' &&
+    /^(draft|brouillon|inactif|masqu|hidden|archiv)/i.test(status.trim())
+  );
+}
+
+export function loadProducts({ includeDrafts = false } = {}) {
   const sources = [];
   const base = path.join(DATA_DIR, 'products.json');
   if (fs.existsSync(base)) sources.push(base);
@@ -62,7 +74,16 @@ export function loadProducts() {
       byId.set(p.id, p); // dernière définition gagnante
     }
   }
-  return { products: [...byId.values()], duplicates, invalid, files: sources };
+  const all = [...byId.values()];
+  const drafts = all.filter((p) => isDraftStatus(p.status));
+  const published = all.filter((p) => !isDraftStatus(p.status));
+  return {
+    products: includeDrafts ? all : published,
+    drafts,
+    duplicates,
+    invalid,
+    files: sources,
+  };
 }
 
 /** Slugifie une chaîne (accents retirés, minuscules, tirets). */
@@ -122,20 +143,64 @@ export function normalizeAsin(input) {
 }
 
 /**
+ * Résout l'ASIN d'un produit pour un pays donné, de façon tolérante.
+ * Ordre de priorité :
+ *   1. asinByCountry[country]  (multi-pays : ASIN spécifique à ce marché)
+ *   2. asin                    (ASIN principal du produit)
+ *   3. amazonUrl / url         (URL Amazon collée -> ASIN extrait)
+ * Renvoie un ASIN à 10 caractères en majuscules, ou '' si rien d'exploitable.
+ *
+ * => Pour mettre à jour un produit, il suffit de remplacer l'ASIN (ou de
+ *    coller une URL Amazon) : le lien /dp/ est recalculé au prochain build.
+ */
+export function resolveAsin(product, country) {
+  if (!product) return '';
+  const byCountry =
+    country && product.asinByCountry ? product.asinByCountry[country] : '';
+  return normalizeAsin(byCountry || product.asin || product.amazonUrl || product.url || '');
+}
+
+/**
  * Construit un lien affilié Amazon.
  *  - ASIN valide  -> fiche produit /dp/ASIN (bien meilleure conversion)
  *  - sinon        -> repli sur une recherche /s?k=mot-clé
  * Le tag d'affiliation est toujours conservé, dans les deux cas.
+ *
+ * `country` (optionnel) sélectionne l'ASIN spécifique au marché via
+ * `asinByCountry`, ce qui permet d'ajouter des pays (UK, DE, ES…) sans
+ * modifier cette fonction.
  */
-export function buildAffiliateUrl(product, tag, domain) {
+export function buildAffiliateUrl(product, tag, domain, country) {
   // Normalisation tolérante : une URL collée ou un ASIN avec espaces
   // produit tout de même un lien fiche produit correct.
-  const asin = normalizeAsin(product.asin);
+  const asin = resolveAsin(product, country);
   if (asin) {
     return `https://www.${domain}/dp/${asin}?tag=${tag}&linkCode=ogi&psc=1`;
   }
   const q = encodeURIComponent(product.keyword || product.name);
   return `https://www.${domain}/s?k=${q}&tag=${tag}`;
+}
+
+/**
+ * Charge la configuration des marketplaces (pays Amazon) depuis
+ * data/marketplaces.json, avec repli/surcharge par l'environnement.
+ * Retourne le marché ACTIF prêt à l'emploi : { country, domain, tag,
+ * marketplaces }. Ajouter un pays = ajouter une entrée dans le JSON.
+ */
+export function loadMarketplaces() {
+  let cfg = {};
+  const file = path.join(DATA_DIR, 'marketplaces.json');
+  try {
+    cfg = readJson(file);
+  } catch {
+    /* fichier absent : on retombe sur les valeurs par défaut FR */
+  }
+  const marketplaces = cfg.marketplaces || {};
+  const country = process.env.AMAZON_COUNTRY || cfg.active || 'FR';
+  const m = marketplaces[country] || {};
+  const domain = process.env.AMAZON_DOMAIN || m.domain || 'amazon.fr';
+  const tag = process.env.AMAZON_AFFILIATE_TAG || m.tag || 'muscuguide-21';
+  return { country, domain, tag, marketplaces };
 }
 
 /** Échappe les guillemets pour une valeur de frontmatter YAML entre quotes. */

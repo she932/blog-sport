@@ -27,14 +27,32 @@
           "description": "Identifiant unique et stable (minuscules, tirets). Lie le produit aux articles via [[BOX:id]] / [[LINK:id]]. Ne jamais changer."
         },
         "name": { "type": "string", "minLength": 1, "description": "Nom du produit affiché." },
+        "brand": { "type": "string", "description": "Marque du produit (ex. « Optimum Nutrition »). Affichée en ligne discrète sous le nom." },
         "keyword": { "type": "string", "minLength": 1, "description": "Mot-clé de recherche Amazon (repli sans ASIN)." },
         "asin": {
           "type": "string",
           "description": "ASIN Amazon (10 caractères alphanumériques). Une URL collée est auto-corrigée par products:fix. Vide = lien de recherche.",
           "pattern": "^$|^[A-Za-z0-9]{10}$|/dp/|/gp/product/"
         },
+        "amazonUrl": {
+          "type": "string",
+          "description": "URL Amazon complète (facultatif). Si 'asin' est vide, l'ASIN en est extrait automatiquement au build."
+        },
+        "asinByCountry": {
+          "type": "object",
+          "description": "ASIN par pays pour le multi-marketplace (ex. { \"UK\": \"B0...\", \"DE\": \"B0...\" }). Utilisé quand un pays autre que FR est actif.",
+          "additionalProperties": { "type": "string" }
+        },
+        "status": {
+          "type": "string",
+          "description": "Statut de publication. « publié » (défaut) = visible ; « brouillon »/« draft »/« masqué »/« archivé » = exclu du site."
+        },
         "category": { "type": "string", "description": "Regroupement de la catégorie (ex. nutrition, cardio)." },
-        "badge": { "type": "string", "description": "Ex. « Notre choix », « Meilleur rapport qualité/prix ». Remplace le libellé par défaut." },
+        "badge": {
+          "type": "string",
+          "description": "Badge affiché. Valeurs officielles : « Choix MuscuGuide », « Rapport qualité-prix », « Premium ». Texte libre accepté.",
+          "examples": ["Choix MuscuGuide", "Rapport qualité-prix", "Premium"]
+        },
         "rating": { "type": ["number", "null"], "minimum": 0, "maximum": 5, "description": "Note moyenne des avis clients Amazon /5." },
         "reviews": { "type": ["integer", "null"], "minimum": 0, "description": "Nombre d'avis clients." },
         "mgScore": { "type": ["number", "null"], "minimum": 0, "maximum": 5, "description": "Note MuscuGuide /5 — notre verdict éditorial, mis en avant sur la fiche." },

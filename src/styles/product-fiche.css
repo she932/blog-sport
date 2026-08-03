@@ -92,6 +92,15 @@
   letter-spacing: -0.01em;
   color: var(--color-dark);
 }
+/* Marque : ligne discrète sous le nom (affichée si le champ est renseigné). */
+.pf-brand {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
 .pf-verdict {
   margin: 0;
   font-size: 1.02rem;

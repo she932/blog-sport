@@ -12,10 +12,23 @@
 //  ce qui garantit la règle pour les articles existants ET futurs.
 // ============================================================
 import path from 'node:path';
-import { DATA_DIR, readJson, loadProducts, buildAffiliateUrl, escapeHtml } from './lib.mjs';
+import {
+  DATA_DIR,
+  readJson,
+  loadProducts,
+  loadMarketplaces,
+  buildAffiliateUrl,
+  escapeHtml,
+} from './lib.mjs';
 
-const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
-const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
+// Marketplace actif (pays) : lu dans data/marketplaces.json, surchargé par
+// l'environnement (AMAZON_COUNTRY / AMAZON_AFFILIATE_TAG / AMAZON_DOMAIN).
+// Ajouter un pays = ajouter une entrée dans marketplaces.json, sans toucher
+// au code de rendu.
+const MARKET = loadMarketplaces();
+const TAG = MARKET.tag;
+const DOMAIN = MARKET.domain;
+const COUNTRY = MARKET.country;
 const SITE_URL = (process.env.SITE_URL || 'https://muscuguide.fr').replace(/\/$/, '');
 
 // Wording centralisé (data/brand.json) — modifiable sans toucher au code.
@@ -155,7 +168,7 @@ function ratingHtml(p) {
  */
 function boxHtml(id) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN);
+  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
   const descText = p.blurb || p.summary; // blurb = ligne courte ; sinon résumé
   const desc = descText ? `<p class="aff-desc">${escapeHtml(String(descText))}</p>` : '';
 
@@ -206,7 +219,7 @@ function boxHtml(id) {
 
 function linkHtml(id, anchor) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN);
+  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
   const text = (anchor || p.name).trim();
   return `<a class="aff-inline" href="${url}" target="_blank" rel="nofollow sponsored noopener">${escapeHtml(text)}</a>`;
 }
@@ -305,7 +318,7 @@ function pfRelated(related) {
     .map((rid) => {
       const rp = byId.get(rid);
       if (!rp) return '';
-      const url = buildAffiliateUrl(rp, TAG, DOMAIN);
+      const url = buildAffiliateUrl(rp, TAG, DOMAIN, COUNTRY);
       const img = rp.image || rp._image;
       const media = img
         ? `<span class="pf-rel-media"><img src="${escapeHtml(String(img))}" alt="${escapeHtml(rp.name)}" loading="lazy" decoding="async" width="46" height="46"></span>`
@@ -355,7 +368,7 @@ function ficheJsonLd(p, image) {
 
 function ficheHtml(id) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN);
+  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
   const image = p.image || p._image;
 
   const media = image
@@ -363,6 +376,12 @@ function ficheHtml(id) {
     : '';
   const badge = p.badge
     ? `<span class="pf-badge">${ICON_AWARD}${escapeHtml(String(p.badge))}</span>`
+    : '';
+  // Marque (optionnelle) : ligne discrète sous le nom, dans le style existant.
+  // N'apparaît que si le champ `brand` est renseigné → aucun impact sur les
+  // produits sans marque.
+  const brand = p.brand
+    ? `<p class="pf-brand">${escapeHtml(String(p.brand))}</p>`
     : '';
   const verdict = p.verdict
     ? `<p class="pf-verdict">${escapeHtml(String(p.verdict))}</p>`
@@ -440,6 +459,7 @@ function ficheHtml(id) {
     `<div class="pf-head">` +
     badge +
     `<h3 class="pf-name">${escapeHtml(p.name)}</h3>` +
+    brand +
     metaRow +
     verdict +
     verdictCard +
