@@ -36,10 +36,23 @@ export function writeJson(file, data) {
  * Retourne { products, drafts, duplicates, files, invalid }.
  */
 export function isDraftStatus(status) {
-  return (
-    typeof status === 'string' &&
-    /^(draft|brouillon|inactif|masqu|hidden|archiv)/i.test(status.trim())
-  );
+  if (!status || typeof status !== 'string') return false; // vide => publié (compat)
+  const s = status
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim();
+  // Statuts explicitement VISIBLES (vocabulaire officiel).
+  if (/^(valid|a integr|integr|publi|en ligne|live|actif|ok)/.test(s)) return false;
+  // Statuts MASQUÉS : pipeline non prêt (à rechercher, à vérifier…) ou retiré
+  // (à remplacer, indisponible, archivé…).
+  if (
+    /(recherch|verifier|brouillon|draft|en attente|inactif|masqu|hidden|a remplacer|indisponible|archiv|retir|obsolet)/.test(
+      s
+    )
+  )
+    return true;
+  return false; // inconnu => visible (ne casse pas l'existant)
 }
 
 export function loadProducts({ includeDrafts = false } = {}) {

@@ -1,11 +1,24 @@
 # Base produits — import & maintenance
 
-Ce guide explique comment **importer un catalogue de produits** depuis un
-fichier Excel/CSV, comment les champs s'affichent automatiquement, et comment
+Ce guide explique comment **importer le catalogue de produits** depuis la base
+officielle, comment les champs s'affichent automatiquement, et comment
 **maintenir la base** dans le temps (mise à jour d'ASIN, multi-pays, statut).
 
-L'architecture est prévue pour **plusieurs centaines de produits** sans
-modification de code : on remplit un tableur, on lance une commande, on build.
+L'architecture est prévue pour **plusieurs milliers de produits** sans
+modification de code : on remplit la base, on lance une commande, on build.
+
+## Source officielle
+
+**`data/import/MuscuGuide_Base_Produits.xlsx`**, onglet **« Import Claude »**,
+est la **source unique** du catalogue. Workflow (voir l'onglet *Mode d'emploi*
+du classeur) : on remplit l'onglet *Produits* (produit, ASIN Amazon.fr, notes
+par critère → score /100, éditorial), on passe le statut à **Validé**, et
+l'onglet *Import Claude* se met à jour automatiquement pour l'import technique.
+
+> Règle d'or du classeur, respectée par l'import : **ne jamais inventer un
+> ASIN, un prix, une note ou un nombre d'avis.**
+
+Un export **CSV** reste accepté (même colonnes) comme format alternatif.
 
 ---
 
@@ -47,13 +60,15 @@ Colonnes **optionnelles** supplémentaires : `id`, `Mot-clé`, `Note`, `Avis`,
 ## 2. Importer
 
 ```bash
-npm run import:catalog                       # lit data/import/catalogue.csv
-npm run import:catalog -- --file=mon.csv     # fichier personnalisé
-npm run import:catalog -- --dry              # aperçu, sans rien écrire
+npm run import:catalog                        # auto : 1er .xlsx/.csv de data/import/
+npm run import:catalog -- --dry               # aperçu, sans rien écrire
+npm run import:catalog -- --file=chemin.xlsx  # fichier précis
+npm run import:catalog -- --sheet="Import Claude"   # onglet xlsx (défaut)
 ```
 
-L'import :
-1. lit le CSV,
+L'importeur lit nativement le **.xlsx** (onglet « Import Claude », sans
+dépendance) ou un **.csv**. L'import :
+1. lit la base,
 2. génère **un fichier par catégorie** dans `data/products/<catégorie>.json`
    (marqués `"_generated": true`),
 3. affiche un récapitulatif (produits, catégories, ASIN valides, brouillons)
@@ -72,6 +87,46 @@ npm run build              # régénère le site
 > **source de vérité**.
 
 ---
+
+## 2 bis. Règles métier officielles (MuscuGuide V2)
+
+Encodées dans **`scripts/catalog-rules.mjs`** (source unique de vérité,
+appliquée à l'import comme au rendu). Spécification validée :
+
+- **Notation.** Score interne **/100** (issu des critères pondérés du classeur).
+  Affichage public **/5** = score ÷ 20 (anneau existant). Les **étoiles**
+  affichent la **note clients Amazon** réelle (jamais notre score).
+  L'import accepte les deux échelles : une note > 5 est lue en /100, ≤ 5 en /5.
+- **Verdict** (paliers /100) : 90+ Excellent · 80–89 Très bon · 70–79 Bon ·
+  60–69 Correct · 50–59 Moyen · < 50 Déconseillé.
+- **Seuil de publication : 70/100.** En dessous (ou sans ASIN, ou statut non
+  validé), le produit reste en base mais **invisible**.
+- **Produit vedette** (par catégorie, par pays) : **rang manuel prioritaire**,
+  puis meilleur **score**, puis note Amazon → avis → prix → nom. Le 1ᵉʳ éligible
+  devient la fiche `[[FICHE]]` ; les suivants, des encadrés.
+- **Badges** : automatiques + **override manuel prioritaire**. La vedette reçoit
+  **« Choix MuscuGuide »** (un seul par catégorie) ; le meilleur rapport
+  score/prix, **« Meilleur rapport qualité/prix »**. Attributs secondaires
+  (Idéal débutant, Home Gym…) possibles en plus.
+- **Statuts → visibilité** : `À rechercher` / `ASIN à vérifier` → **masqué** ;
+  `Validé` / `À intégrer` / `Intégré` → **visible** (si éligible) ;
+  `À remplacer` / `Indisponible` → **retiré**. Un statut vide = visible.
+
+### État actuel & mise en ligne
+
+À ce jour, la base compte **24 produits en « À rechercher »** (sans ASIN, sans
+score) : importés, ils seraient **tous masqués** — le site n'afficherait donc
+rien de nouveau. C'est voulu : on ne publie rien tant qu'un produit n'est pas
+**Validé + ASIN + score ≥ 70**.
+
+**Procédure de mise en ligne**, catégorie par catégorie, quand les produits
+sont prêts dans le classeur :
+1. `npm run import:catalog` (génère les fichiers de catégorie) ;
+2. `npm run products:check` puis `npm run build` (aperçu local) ;
+3. repointer la fiche vedette de l'article vers l'`id` du produit `rang 1`
+   validé (ex. `[[FICHE:mg-whey-001]]`), l'ancien produit de démarrage
+   pouvant alors être retiré ;
+4. valider visuellement, puis — sur feu vert — déployer.
 
 ## 3. Affichage automatique
 
@@ -141,8 +196,11 @@ Le bon ASIN et le bon lien sont choisis automatiquement selon le pays actif.
 
 | Élément | Fichier |
 |---|---|
-| Modèle d'import | `data/import/catalogue-modele.csv` |
+| **Source officielle** | `data/import/MuscuGuide_Base_Produits.xlsx` (onglet « Import Claude ») |
+| Modèle CSV alternatif | `data/import/catalogue-modele.csv` |
 | Script d'import | `scripts/import-catalog.mjs` (`npm run import:catalog`) |
+| Lecteur XLSX (sans dépendance) | `scripts/lib-xlsx.mjs` |
+| **Règles métier officielles** | `scripts/catalog-rules.mjs` |
 | Catalogue généré | `data/products/<catégorie>.json` |
 | Schéma d'un produit | `data/products.schema.json` |
 | Marketplaces (pays) | `data/marketplaces.json` |

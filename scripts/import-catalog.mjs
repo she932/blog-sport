@@ -1,26 +1,31 @@
 #!/usr/bin/env node
 // ============================================================
-//  Importe un catalogue produits depuis un fichier CSV (export Excel)
-//  et génère les fichiers de catégorie data/products/<categorie>.json
-//  au format officiel MuscuGuide.
+//  Importe le catalogue produits depuis la base officielle MuscuGuide
+//  (fichier .xlsx, onglet « Import Claude ») ou un export .csv, et génère
+//  les fichiers de catégorie data/products/<categorie>.json.
+//
+//  Applique les RÈGLES MÉTIER officielles (scripts/catalog-rules.mjs) :
+//  score /100 -> /5, verdict par paliers, seuil de publication, statuts.
 //
 //  Usage :
-//    npm run import:catalog                       # data/import/catalogue.csv
-//    node scripts/import-catalog.mjs --file=x.csv # fichier personnalisé
-//    node scripts/import-catalog.mjs --dry        # aperçu, sans écrire
+//    npm run import:catalog                          # data/import/*.xlsx|csv
+//    node scripts/import-catalog.mjs --file=x.xlsx   # fichier précis
+//    node scripts/import-catalog.mjs --sheet="Import Claude"
+//    node scripts/import-catalog.mjs --dry           # aperçu, sans écrire
+//    node scripts/import-catalog.mjs --out=chemin    # dossier de sortie
 //
-//  Le CSV peut être séparé par « ; » (Excel FR) ou « , ». Les cellules
-//  multi-valeurs (Points forts / Points faibles) se séparent par « | ».
-//  Colonnes reconnues (ordre libre, en-têtes insensibles à la casse/accents) :
-//    Catégorie, Badge, Nom, Marque, ASIN, URL Amazon, Image,
-//    Score MuscuGuide, Description courte, Points forts, Points faibles,
-//    Profil utilisateur, Statut
-//  Colonnes optionnelles : id, Mot-clé, Note, Avis, Verdict, Résumé,
-//    ASIN UK, ASIN DE, ASIN ES (multi-pays).
+//  Feed reconnu (en-têtes FR ou EN, ordre libre, casse/accents ignorés) :
+//    Catégorie/category, Badge, Nom/name, Marque/brand, ASIN/asin,
+//    URL Amazon/amazonUrl, Image, Score MuscuGuide/score, Verdict,
+//    Description/summary, Points forts/pros, Points faibles/cons,
+//    Profil/profile, Statut/status, Rang/rank, Note Amazon, Nombre d'avis.
+//  Cellules « 0 » ou vides = champ absent. Multi-valeurs séparées par « | ».
 // ============================================================
 import fs from 'node:fs';
 import path from 'node:path';
 import { DATA_DIR, slugify, normalizeAsin, isValidAsin } from './lib.mjs';
+import { parseScore, verdictFromScore } from './catalog-rules.mjs';
+import { readXlsxSheet } from './lib-xlsx.mjs';
 
 const args = process.argv.slice(2);
 const getArg = (name, def) => {
@@ -28,8 +33,20 @@ const getArg = (name, def) => {
   return a ? a.slice(name.length + 3) : def;
 };
 const DRY = args.includes('--dry');
-const FILE = path.resolve(getArg('file', path.join(DATA_DIR, 'import', 'catalogue.csv')));
+const SHEET = getArg('sheet', 'Import Claude');
 const OUT_DIR = path.resolve(getArg('out', path.join(DATA_DIR, 'products')));
+
+// Fichier : --file, sinon 1er .xlsx/.csv dans data/import/.
+function defaultFile() {
+  const dir = path.join(DATA_DIR, 'import');
+  if (!fs.existsSync(dir)) return path.join(dir, 'catalogue.csv');
+  const cand = fs
+    .readdirSync(dir)
+    .filter((f) => /\.(xlsx|csv)$/i.test(f) && !f.startsWith('~'))
+    .sort((a, b) => (a.endsWith('.xlsx') ? -1 : 1)); // xlsx prioritaire
+  return path.join(dir, cand[0] || 'catalogue.csv');
+}
+const FILE = path.resolve(getArg('file', defaultFile()));
 
 // --- Parseur CSV tolérant (guillemets, retours ligne, ; ou ,) ----------
 function parseCsv(text) {
@@ -55,114 +72,112 @@ function parseCsv(text) {
     else field += c;
   }
   if (field.length || row.length) { row.push(field); rows.push(row); }
-  return rows.filter((r) => r.some((c) => c.trim() !== ''));
+  return rows.filter((r) => r.some((c) => String(c).trim() !== ''));
 }
 
-// Normalise un en-tête : minuscules, sans accents, espaces compactés.
 const normHeader = (h) =>
-  h
+  String(h)
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/\s+/g, ' ')
     .trim();
 
-// Table de correspondance en-tête -> champ produit.
 const HEADER_MAP = {
   id: 'id',
-  categorie: 'category',
+  categorie: 'category', category: 'category',
   badge: 'badge',
-  nom: 'name',
-  marque: 'brand',
-  asin: 'asin',
-  'url amazon': 'amazonUrl',
-  url: 'amazonUrl',
-  image: 'image',
-  'score muscuguide': 'mgScore',
-  score: 'mgScore',
-  'description courte': 'summary',
-  description: 'summary',
-  resume: 'summary',
-  summary: 'summary',
-  'points forts': 'pros',
-  avantages: 'pros',
-  'points faibles': 'cons',
-  inconvenients: 'cons',
-  'profil utilisateur': 'audience',
-  profil: 'audience',
-  public: 'audience',
-  audience: 'audience',
-  statut: 'status',
-  status: 'status',
-  'mot-cle': 'keyword',
-  'mot cle': 'keyword',
-  keyword: 'keyword',
-  note: 'rating',
-  rating: 'rating',
-  avis: 'reviews',
-  reviews: 'reviews',
+  nom: 'name', name: 'name', produit: 'name',
+  marque: 'brand', brand: 'brand',
+  asin: 'asin', 'asin fr': 'asin',
+  'url amazon': 'amazonUrl', 'url amazon fr': 'amazonUrl', amazonurl: 'amazonUrl', url: 'amazonUrl',
+  affiliateurl: '_ignore', 'lien affilie final': '_ignore', 'tag affilie': '_ignore',
+  image: 'image', 'image url / pa-api': 'image',
+  'score muscuguide': 'score', 'score muscuguide /100': 'score', score: 'score',
   verdict: 'verdict',
-  'asin uk': 'asin_UK',
-  'asin de': 'asin_DE',
-  'asin es': 'asin_ES',
+  'description courte': 'summary', description: 'summary', 'resume court': 'summary', resume: 'summary', summary: 'summary',
+  'points forts': 'pros', avantages: 'pros', pros: 'pros',
+  'points faibles': 'cons', inconvenients: 'cons', cons: 'cons',
+  'profil utilisateur': 'audience', 'profil ideal': 'audience', profil: 'audience', profile: 'audience', public: 'audience', audience: 'audience',
+  statut: 'status', status: 'status',
+  rang: 'rank', rank: 'rank',
+  'mot-cle': 'keyword', 'mot cle': 'keyword', keyword: 'keyword',
+  'note amazon': 'rating', note: 'rating', rating: 'rating',
+  "nombre d'avis": 'reviews', avis: 'reviews', reviews: 'reviews',
 };
 
 const splitMulti = (v) =>
-  String(v)
-    .split(/\s*\|\s*|\s*\n\s*/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  String(v).split(/\s*\|\s*|\s*\n\s*/).map((s) => s.trim()).filter(Boolean);
 
-const toNumber = (v) => {
+// Traite « 0 », « - », « n/a », vide comme ABSENT (placeholders du feed).
+const blank = (v) => {
+  const s = String(v ?? '').trim();
+  return s === '' || s === '0' || s === '0.0' || s === '-' || /^n\/?a$/i.test(s) ? '' : s;
+};
+const toInt = (v) => {
+  const n = parseInt(String(v).replace(/[^0-9]/g, ''), 10);
+  return Number.isFinite(n) ? n : undefined;
+};
+const toNum = (v) => {
   const n = parseFloat(String(v).replace(',', '.').replace(/[^0-9.]/g, ''));
   return Number.isFinite(n) ? n : undefined;
 };
 
-// --- Lecture + mapping --------------------------------------------------
+// --- Lecture ------------------------------------------------------------
 if (!fs.existsSync(FILE)) {
   console.error(`❌  Fichier introuvable : ${FILE}`);
-  console.error('    Placez votre export CSV ici, ou passez --file=chemin.csv');
+  console.error('    Placez la base dans data/import/ ou passez --file=chemin');
   process.exit(1);
 }
 
-const rows = parseCsv(fs.readFileSync(FILE, 'utf-8'));
-if (rows.length < 2) {
-  console.error('❌  CSV vide ou sans ligne de données.');
-  process.exit(1);
+let rows;
+if (/\.xlsx$/i.test(FILE)) {
+  try {
+    rows = readXlsxSheet(FILE, SHEET);
+  } catch (e) {
+    console.error(`❌  Lecture XLSX impossible : ${e.message}`);
+    process.exit(1);
+  }
+} else {
+  rows = parseCsv(fs.readFileSync(FILE, 'utf-8'));
 }
 
-const headers = rows[0].map((h) => HEADER_MAP[normHeader(h)] || null);
-const unknown = rows[0].filter((h) => !HEADER_MAP[normHeader(h)]);
+// Ligne d'en-tête = 1re ligne contenant un en-tête reconnu clé (id/nom/name).
+const isHeaderRow = (r) => {
+  const set = new Set(r.map((c) => HEADER_MAP[normHeader(c)]));
+  return set.has('id') || set.has('name');
+};
+const hi = rows.findIndex(isHeaderRow);
+if (hi < 0) {
+  console.error('❌  En-têtes introuvables (aucune colonne id/nom/name reconnue).');
+  process.exit(1);
+}
+const headers = rows[hi].map((h) => HEADER_MAP[normHeader(h)] || null);
+const unknown = rows[hi].filter((h) => String(h).trim() && !HEADER_MAP[normHeader(h)]);
 if (unknown.length) console.warn(`⚠️  Colonnes ignorées : ${unknown.join(', ')}`);
 
 const warnings = [];
 const seenIds = new Set();
 const products = [];
 
-for (let r = 1; r < rows.length; r++) {
+for (let r = hi + 1; r < rows.length; r++) {
+  if (!rows[r] || !rows[r].some((c) => String(c).trim() !== '')) continue;
   const raw = {};
   headers.forEach((field, c) => {
-    if (field) raw[field] = (rows[r][c] ?? '').trim();
+    if (field && field !== '_ignore') raw[field] = String(rows[r][c] ?? '').trim();
   });
-  if (!raw.name) {
-    warnings.push(`ligne ${r + 1} : « Nom » manquant → ignorée`);
-    continue;
-  }
+  // Nom vide ou placeholder « 0 » (lignes de gabarit du feed) → ignorée
+  // silencieusement (ce ne sont pas des produits).
+  const name = blank(raw.name);
+  if (!name) continue;
+  raw.name = name;
 
-  const id = slugify(raw.id || raw.name);
+  const id = slugify(blank(raw.id) || name);
   if (seenIds.has(id)) warnings.push(`ligne ${r + 1} : id en double « ${id} » (dernier gagne)`);
   seenIds.add(id);
 
-  // ASIN : colonne ASIN sinon extrait de l'URL Amazon.
-  const asin = normalizeAsin(raw.asin) || normalizeAsin(raw.amazonUrl);
-  if (raw.asin && !isValidAsin(normalizeAsin(raw.asin)) && !asin)
-    warnings.push(`ligne ${r + 1} : ASIN invalide « ${raw.asin} » → lien de recherche`);
-
-  const asinByCountry = {};
-  for (const cc of ['UK', 'DE', 'ES']) {
-    const a = normalizeAsin(raw[`asin_${cc}`]);
-    if (a) asinByCountry[cc] = a;
-  }
+  const asin = normalizeAsin(blank(raw.asin)) || normalizeAsin(blank(raw.amazonUrl));
+  const { internal, display } = parseScore(blank(raw.score));
 
   const p = {
     id,
@@ -173,23 +188,28 @@ for (let r = 1; r < rows.length; r++) {
   if (raw.brand) p.brand = raw.brand;
   if (raw.category) p.category = slugify(raw.category);
   if (raw.badge) p.badge = raw.badge;
-  if (raw.amazonUrl && !asin) p.amazonUrl = raw.amazonUrl;
-  if (Object.keys(asinByCountry).length) p.asinByCountry = asinByCountry;
-  if (raw.image) p.image = raw.image;
-  if (raw.mgScore !== undefined && raw.mgScore !== '') p.mgScore = toNumber(raw.mgScore);
-  if (raw.rating) p.rating = toNumber(raw.rating);
-  if (raw.reviews) p.reviews = Math.round(toNumber(raw.reviews) || 0) || undefined;
-  if (raw.verdict) p.verdict = raw.verdict;
+  const rank = toInt(blank(raw.rank));
+  if (rank !== undefined) p.rank = rank;
+  if (blank(raw.amazonUrl) && !asin) p.amazonUrl = raw.amazonUrl;
+  if (blank(raw.image)) p.image = raw.image;
+  if (internal !== undefined) {
+    p.scoreInternal = internal; // /100 (interne, classement)
+    p.mgScore = display; // /5 (affichage)
+  }
+  const rating = toNum(blank(raw.rating));
+  if (rating !== undefined && rating > 0 && rating <= 5) p.rating = rating;
+  const reviews = toInt(blank(raw.reviews));
+  if (reviews) p.reviews = reviews;
+  p.verdict = raw.verdict || (internal !== undefined ? verdictFromScore(internal) : undefined);
   if (raw.summary) p.summary = raw.summary;
   if (raw.pros) p.pros = splitMulti(raw.pros);
   if (raw.cons) p.cons = splitMulti(raw.cons);
   if (raw.audience) p.audience = raw.audience;
   if (raw.status) p.status = raw.status;
 
-  // Nettoie les clés indéfinies.
   for (const k of Object.keys(p)) if (p[k] === undefined) delete p[k];
-
-  products.push({ ...p, _category: p.category || slugify(raw.category || 'divers') });
+  p._category = p.category || slugify(raw.category || 'divers');
+  products.push(p);
 }
 
 // --- Regroupement par catégorie ----------------------------------------
@@ -201,29 +221,31 @@ for (const p of products) {
   byCategory.get(cat).push(p);
 }
 
-console.log(`\n  Import catalogue — ${path.relative(process.cwd(), FILE)}`);
-console.log('  ' + '─'.repeat(56));
-console.log(`  Produits lus       : ${products.length}`);
-console.log(`  Catégories         : ${byCategory.size}`);
-const withAsin = products.filter((p) => isValidAsin(p.asin)).length;
-console.log(`  ASIN valides       : ${withAsin}/${products.length}`);
-const drafts = products.filter((p) => /^(draft|brouillon|inactif|masqu|archiv)/i.test(p.status || '')).length;
-if (drafts) console.log(`  Brouillons (exclus): ${drafts}`);
+const isDraft = (p) => /^(a rechercher|a verifier|asin|brouillon|draft|inactif|masqu|a remplacer|indisponible|archiv|retir)/i.test(
+  (p.status || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+);
+
+console.log(`\n  Import catalogue — ${path.relative(process.cwd(), FILE)}${/\.xlsx$/i.test(FILE) ? ` (onglet « ${SHEET} »)` : ''}`);
+console.log('  ' + '─'.repeat(58));
+console.log(`  Produits lus        : ${products.length}`);
+console.log(`  Catégories          : ${byCategory.size}`);
+console.log(`  ASIN valides        : ${products.filter((p) => isValidAsin(p.asin)).length}/${products.length}`);
+console.log(`  Avec score          : ${products.filter((p) => p.scoreInternal !== undefined).length}`);
+console.log(`  Brouillons (masqués): ${products.filter(isDraft).length}`);
 
 if (!DRY) fs.mkdirSync(OUT_DIR, { recursive: true });
 for (const [cat, list] of [...byCategory].sort()) {
   const file = path.join(OUT_DIR, `${cat}.json`);
   const payload = {
-    _comment: `Catégorie « ${cat} » — GÉNÉRÉ par scripts/import-catalog.mjs depuis ${path.basename(FILE)}. Ne pas éditer à la main : modifiez le CSV puis relancez l'import.`,
+    _comment: `Catégorie « ${cat} » — GÉNÉRÉ par scripts/import-catalog.mjs depuis ${path.basename(FILE)}. Ne pas éditer à la main : modifier la base puis relancer l'import.`,
     _generated: true,
     products: list,
   };
   const rel = path.relative(process.cwd(), file);
-  if (DRY) {
-    console.log(`  · ${cat.padEnd(24)} ${String(list.length).padStart(3)} produits  → ${rel} (aperçu)`);
-  } else {
+  if (DRY) console.log(`  · ${cat.padEnd(26)} ${String(list.length).padStart(3)}  → ${rel} (aperçu)`);
+  else {
     fs.writeFileSync(file, JSON.stringify(payload, null, 2) + '\n');
-    console.log(`  ✅ ${cat.padEnd(24)} ${String(list.length).padStart(3)} produits  → ${rel}`);
+    console.log(`  ✅ ${cat.padEnd(26)} ${String(list.length).padStart(3)}  → ${rel}`);
   }
 }
 
