@@ -26,8 +26,8 @@ import {
 } from './lib.mjs';
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
-const TAG = process.env.AMAZON_AFFILIATE_TAG || 'muscuguide-21';
-const DOMAIN = process.env.AMAZON_DOMAIN || 'amazon.fr';
+// Le tag/domaine Amazon ne sont plus utilisés ici : l'injection des liens
+// affiliés se fait au build (plugin remark), à partir de data/marketplaces.json.
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5';
 
 if (!API_KEY) {

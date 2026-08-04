@@ -15,7 +15,9 @@
     "report:asins": "node scripts/asins-report.mjs",
     "products:check": "node scripts/products-check.mjs",
     "products:fix": "node scripts/products-check.mjs --fix",
+    "catalog:validate": "node scripts/catalog-validate.mjs",
     "import:catalog": "node scripts/import-catalog.mjs",
+    "typecheck": "astro check",
     "enrich:paapi": "node scripts/paapi-enrich.mjs",
     "paapi:selftest": "node scripts/paapi-selftest.mjs"
   },
@@ -25,6 +27,8 @@
     "astro": "^5.6.1"
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "^0.39.0"
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
   }
 }

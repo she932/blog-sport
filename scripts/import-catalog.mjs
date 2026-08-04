@@ -43,7 +43,7 @@ function defaultFile() {
   const cand = fs
     .readdirSync(dir)
     .filter((f) => /\.(xlsx|csv)$/i.test(f) && !f.startsWith('~'))
-    .sort((a, b) => (a.endsWith('.xlsx') ? -1 : 1)); // xlsx prioritaire
+    .sort((a, b) => Number(b.endsWith('.xlsx')) - Number(a.endsWith('.xlsx'))); // xlsx prioritaire
   return path.join(dir, cand[0] || 'catalogue.csv');
 }
 const FILE = path.resolve(getArg('file', defaultFile()));

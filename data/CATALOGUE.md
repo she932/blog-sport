@@ -128,6 +128,25 @@ sont prêts dans le classeur :
    pouvant alors être retiré ;
 4. valider visuellement, puis — sur feu vert — déployer.
 
+## 2 ter. Couche données typée (pour les pages)
+
+`src/lib/catalog.ts` expose une API **typée et validée (Zod)** que les pages
+Astro consomment, réutilisant le moteur de règles unique — **aucune règle
+dupliquée**, aucun accès disque fragile (chargement via `import.meta.glob`) :
+
+| Fonction | Renvoie |
+|---|---|
+| `getCatalog({ includeDrafts, country })` | tous les produits publiés (validés Zod) |
+| `getCategories()` | slugs de catégories présents |
+| `getProductsByCategory(cat, { country })` | produits **publiables**, **classés** |
+| `getFeatured(cat, { country })` | **produit vedette** de la catégorie (ou `null`) |
+| `getBadges(cat, { country })` | map `id → badge` (auto + override) |
+| `scoreOutOfFive(p)` / `scoreVerdict(p)` | note /5 et mot de verdict |
+
+Tout est **multi-pays** via `country` (défaut = marketplace actif) et testé
+jusqu'à **plusieurs milliers de produits** (classement + vedette + badges de
+3 000 produits ≈ 40 ms).
+
 ## 3. Affichage automatique
 
 Aucun composant à toucher : chaque champ renseigné apparaît sur la fiche
@@ -201,6 +220,9 @@ Le bon ASIN et le bon lien sont choisis automatiquement selon le pays actif.
 | Script d'import | `scripts/import-catalog.mjs` (`npm run import:catalog`) |
 | Lecteur XLSX (sans dépendance) | `scripts/lib-xlsx.mjs` |
 | **Règles métier officielles** | `scripts/catalog-rules.mjs` |
+| Validation métier | `scripts/catalog-validate.mjs` (`npm run catalog:validate`) |
+| **Couche données typée (Astro/TS)** | `src/lib/catalog.ts` (Zod + types + lecture) |
+| Vérification TypeScript | `npm run typecheck` (astro check) |
 | Catalogue généré | `data/products/<catégorie>.json` |
 | Schéma d'un produit | `data/products.schema.json` |
 | Marketplaces (pays) | `data/marketplaces.json` |
