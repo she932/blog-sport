@@ -35,6 +35,11 @@ const getArg = (name, def) => {
 const DRY = args.includes('--dry');
 const SHEET = getArg('sheet', 'Import Claude');
 const OUT_DIR = path.resolve(getArg('out', path.join(DATA_DIR, 'products')));
+// Filtre de statut optionnel : n'importe que les lignes dont le statut
+// commence par cette valeur (ex. --status=Validé). Vide = toutes les lignes.
+const STATUS_FILTER = getArg('status', '');
+const deaccent = (s) =>
+  String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
 
 // Fichier : --file, sinon 1er .xlsx/.csv dans data/import/.
 function defaultFile() {
@@ -171,6 +176,8 @@ for (let r = hi + 1; r < rows.length; r++) {
   const name = blank(raw.name);
   if (!name) continue;
   raw.name = name;
+  // Filtre de statut (ex. --status=Validé) : ignore les lignes non conformes.
+  if (STATUS_FILTER && !deaccent(raw.status).startsWith(deaccent(STATUS_FILTER))) continue;
 
   const id = slugify(blank(raw.id) || name);
   if (seenIds.has(id)) warnings.push(`ligne ${r + 1} : id en double « ${id} » (dernier gagne)`);
@@ -227,7 +234,8 @@ const isDraft = (p) => /^(a rechercher|a verifier|asin|brouillon|draft|inactif|m
 
 console.log(`\n  Import catalogue — ${path.relative(process.cwd(), FILE)}${/\.xlsx$/i.test(FILE) ? ` (onglet « ${SHEET} »)` : ''}`);
 console.log('  ' + '─'.repeat(58));
-console.log(`  Produits lus        : ${products.length}`);
+if (STATUS_FILTER) console.log(`  Filtre statut       : « ${STATUS_FILTER} » uniquement`);
+console.log(`  Produits importés   : ${products.length}`);
 console.log(`  Catégories          : ${byCategory.size}`);
 console.log(`  ASIN valides        : ${products.filter((p) => isValidAsin(p.asin)).length}/${products.length}`);
 console.log(`  Avec score          : ${products.filter((p) => p.scoreInternal !== undefined).length}`);

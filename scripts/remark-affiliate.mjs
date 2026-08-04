@@ -20,6 +20,7 @@ import {
   buildAffiliateUrl,
   escapeHtml,
 } from './lib.mjs';
+import { selectFeatured } from './catalog-rules.mjs';
 
 // Marketplace actif (pays) : lu dans data/marketplaces.json, surchargé par
 // l'environnement (AMAZON_COUNTRY / AMAZON_AFFILIATE_TAG / AMAZON_DOMAIN).
@@ -116,6 +117,19 @@ const byId = new Map(products.map((p) => [p.id, withLiveData(p)]));
 
 const resolve = (id) =>
   byId.get(id) || { id, name: id.replace(/-/g, ' '), keyword: id.replace(/-/g, ' ') };
+
+// Produit vedette d'une catégorie (marqueur [[VEDETTE:categorie]]) : résolu
+// dynamiquement par le moteur de règles (rang 1, puis score…), pour le
+// marketplace actif. Renvoie l'id du produit éligible, ou null.
+const _featuredCache = new Map();
+function featuredIdForCategory(category) {
+  if (_featuredCache.has(category)) return _featuredCache.get(category);
+  const list = products.filter((p) => p.category === category);
+  const f = selectFeatured(list, { country: COUNTRY });
+  const id = f ? f.id : null;
+  _featuredCache.set(category, id);
+  return id;
+}
 
 /** Formate un nombre d'avis : 1234 -> "1 234", 12500 -> "12 500". */
 function formatReviews(n) {
@@ -507,6 +521,11 @@ function splitText(value, state) {
     if (kind === 'FICHE') {
       // Fiche produit complète : non soumise au plafond des encadrés.
       html = ficheHtml(m[2]);
+    } else if (kind === 'VEDETTE') {
+      // Fiche du produit vedette de la catégorie (rang 1 via les règles).
+      // Aucun produit éligible (pas d'ASIN / score < seuil) -> rien affiché.
+      const fid = featuredIdForCategory(m[2]);
+      html = fid ? ficheHtml(fid) : '';
     } else if (kind === 'BOX') {
       if (state.boxes < MAX_BOXES) {
         html = boxHtml(m[2]);

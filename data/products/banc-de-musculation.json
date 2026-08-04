@@ -1,0 +1,84 @@
+{
+  "_comment": "Catégorie « banc-de-musculation » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-banc-001",
+      "name": "Banc de musculation réglable et pliable",
+      "keyword": "banc de musculation reglable et pliable",
+      "asin": "B09MQYP1BG",
+      "brand": "FLYBIRD",
+      "category": "banc-de-musculation",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 88,
+      "mgScore": 4.4,
+      "verdict": "Très bon",
+      "summary": "Banc réglable et pliable très polyvalent pour équiper un home gym sans prendre trop de place.",
+      "pros": [
+        "Pliable",
+        "Réglages polyvalents",
+        "Bon rapport qualité/prix",
+        "Adapté au home gym"
+      ],
+      "cons": [
+        "Moins adapté à un usage professionnel intensif",
+        "Stabilité dépendante du bon verrouillage"
+      ],
+      "audience": "Débutant à confirmé recherchant un banc compact",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-banc-002",
+      "name": "Banc de musculation réglable 375 kg",
+      "keyword": "banc de musculation reglable 375 kg",
+      "asin": "B08GLYDMSF",
+      "brand": "YOLEO",
+      "category": "banc-de-musculation",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 86,
+      "mgScore": 4.3,
+      "verdict": "Très bon",
+      "summary": "Banc pliable et accessible, particulièrement intéressant pour débuter et varier les angles à domicile.",
+      "pros": [
+        "Excellent rapport qualité/prix",
+        "Charge annoncée élevée",
+        "Pliable",
+        "Nombreux réglages"
+      ],
+      "cons": [
+        "Finitions moins premium",
+        "SAV et disponibilité à surveiller"
+      ],
+      "audience": "Débutant ou intermédiaire avec budget maîtrisé",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-banc-003",
+      "name": "Banc de musculation 5.1S",
+      "keyword": "banc de musculation 5.1s",
+      "asin": "B0BKW8ZBCT",
+      "brand": "Bowflex",
+      "category": "banc-de-musculation",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Banc premium robuste et confortable, conçu pour les pratiquants exigeants et le rangement vertical.",
+      "pros": [
+        "Construction premium",
+        "Très bonne stabilité",
+        "Plusieurs angles",
+        "Rangement vertical"
+      ],
+      "cons": [
+        "Prix élevé",
+        "Plus lourd et encombrant que les modèles pliables légers"
+      ],
+      "audience": "Intermédiaire ou confirmé recherchant un banc premium",
+      "status": "Validé"
+    }
+  ]
+}
