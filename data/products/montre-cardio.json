@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « montre-cardio » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-montre-001",
+      "name": "Garmin vívoactive 5",
+      "keyword": "garmin vivoactive 5",
+      "asin": "B0CG6NR413",
+      "brand": "Garmin",
+      "category": "montre-cardio",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une montre GPS très équilibrée pour le fitness, la santé et le cardio quotidien, simple à utiliser et compatible avec de nombreux sports.",
+      "pros": [
+        "Écran AMOLED",
+        "Autonomie jusqu’à 11 jours",
+        "Plus de 30 sports",
+        "Suivi santé complet",
+        "Garmin Pay et musique"
+      ],
+      "cons": [
+        "Pas de cartographie complète",
+        "Fonctions outdoor moins avancées",
+        "Design assez sobre"
+      ],
+      "audience": "Débutant à confirmé recherchant une montre polyvalente pour le fitness et la santé",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-montre-002",
+      "name": "Amazfit Balance 2",
+      "keyword": "amazfit balance 2",
+      "asin": "B0F8HNKK6Z",
+      "brand": "Amazfit",
+      "category": "montre-cardio",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une montre très riche en fonctions avec une excellente autonomie, un GPS double bande et un positionnement tarifaire compétitif.",
+      "pros": [
+        "Autonomie jusqu’à 21 jours",
+        "Plus de 170 sports",
+        "Verre saphir",
+        "GPS double bande",
+        "Étanchéité 10 ATM"
+      ],
+      "cons": [
+        "Écosystème d’applications moins riche que Garmin",
+        "Format imposant",
+        "Fonctions connectées plus limitées"
+      ],
+      "audience": "Débutant à intermédiaire voulant beaucoup de fonctions et une longue autonomie",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-montre-003",
+      "name": "Garmin fēnix 8 AMOLED 43 mm",
+      "keyword": "garmin fenix 8 amoled 43 mm",
+      "asin": "B0FSFDF2N8",
+      "brand": "Garmin",
+      "category": "montre-cardio",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une montre multisport premium très complète pour l’entraînement avancé, l’outdoor et la navigation, dans un format compact.",
+      "pros": [
+        "Cartographie et GPS multibande",
+        "Lampe LED",
+        "Étanchéité 10 ATM",
+        "Fonctions sport très avancées",
+        "Construction premium"
+      ],
+      "cons": [
+        "Prix très élevé",
+        "Complexe pour un usage basique",
+        "Autonomie inférieure aux grandes tailles de la gamme"
+      ],
+      "audience": "Sportif confirmé ou pratiquant outdoor recherchant une montre haut de gamme",
+      "status": "Validé"
+    }
+  ]
+}

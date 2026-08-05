@@ -39,7 +39,7 @@ Au-delà du gadget, une bonne montre apporte de vrais bénéfices :
 
 Elle aide à s'entraîner plus intelligemment, en musculation comme en cardio.
 
-[[FICHE:montre-cardio]]
+[[COMPARATIF:montre-cardio]]
 
 ## Les critères pour bien choisir
 
