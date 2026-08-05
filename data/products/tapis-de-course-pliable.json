@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « tapis-de-course-pliable » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-tapis-001",
+      "name": "CITYSPORTS Tapis de course pliable 12 km/h",
+      "keyword": "citysports tapis de course pliable 12 km/h",
+      "asin": "B0C6KTPFGB",
+      "brand": "CITYSPORTS",
+      "category": "tapis-de-course-pliable",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Un tapis de course pliable polyvalent et très populaire, adapté à la marche, au jogging et à la course légère à domicile.",
+      "pros": [
+        "Jusqu’à 12 km/h",
+        "4,4/5 sur plus de 4 700 évaluations",
+        "Bluetooth et application",
+        "Support tablette",
+        "Pliable et prêt à l’emploi"
+      ],
+      "cons": [
+        "Surface de course compacte",
+        "Moins adapté aux grandes foulées",
+        "Capacité limitée pour un entraînement intensif"
+      ],
+      "audience": "Débutant à intermédiaire recherchant un tapis compact et polyvalent",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-tapis-002",
+      "name": "FITFIU Fitness MC-160",
+      "keyword": "fitfiu fitness mc-160",
+      "asin": "B0846FFY27",
+      "brand": "FITFIU Fitness",
+      "category": "tapis-de-course-pliable",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 86,
+      "mgScore": 4.3,
+      "verdict": "Très bon",
+      "summary": "Un modèle accessible et complet pour commencer à courir chez soi, avec inclinaison, programmes et applications connectées.",
+      "pros": [
+        "Bon rapport qualité/prix",
+        "Jusqu’à 14 km/h",
+        "Inclinaison 9 %",
+        "12 programmes",
+        "Compatible Kinomap et Zwift"
+      ],
+      "cons": [
+        "Surface de course assez courte",
+        "Inclinaison manuelle",
+        "Moins confortable pour les grands gabarits"
+      ],
+      "audience": "Débutant ou intermédiaire souhaitant progresser avec un budget maîtrisé",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-tapis-003",
+      "name": "Sportstech F31s",
+      "keyword": "sportstech f31s",
+      "asin": "B0733BSRCV",
+      "brand": "Sportstech",
+      "category": "tapis-de-course-pliable",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Un tapis robuste et mieux équipé pour les séances régulières, avec une vitesse plus élevée, une forte inclinaison et de nombreux programmes.",
+      "pros": [
+        "Jusqu’à 16 km/h",
+        "Inclinaison jusqu’à 15 %",
+        "20 programmes",
+        "Construction robuste",
+        "Pliable et autolubrifié"
+      ],
+      "cons": [
+        "Plus lourd et encombrant",
+        "Prix supérieur",
+        "Surface encore limitée pour la course très rapide"
+      ],
+      "audience": "Intermédiaire à confirmé recherchant un appareil plus performant",
+      "status": "Validé"
+    }
+  ]
+}
