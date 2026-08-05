@@ -64,7 +64,7 @@ Allongé ou suspendu à une barre, montez les jambes tendues ou fléchies. Excel
 
 ### 3. La roue à abdominaux (AB wheel)
 
-Redoutablement efficace : à genoux, déroulez la roue vers l'avant en gardant le dos gainé, puis revenez. Un des meilleurs exercices pour un tronc puissant.
+Redoutablement efficace : à genoux, déroulez la roue vers l'avant en gardant le dos gainé, puis revenez. Un des meilleurs exercices pour un tronc puissant. Pour bien la choisir, consultez notre [comparatif des meilleures roues à abdos](/blog/meilleure-roue-abdominale/).
 
 [[BOX:roue-abdos]]
 

@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « roue-a-abdos » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-roue-001",
+      "name": "Vinsguir Ab Roller noir/rouge",
+      "keyword": "vinsguir ab roller noir/rouge",
+      "asin": "B07RKW5H68",
+      "brand": "Vinsguir",
+      "category": "roue-a-abdos",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une roue abdominale stable, silencieuse et très populaire, adaptée à la majorité des utilisateurs qui souhaitent renforcer leur sangle abdominale à domicile.",
+      "pros": [
+        "Roue ultra-large de 8 cm",
+        "Plus de 22 000 évaluations",
+        "Tapis pour genoux inclus",
+        "Fonctionnement silencieux",
+        "Charge annoncée jusqu’à 200 kg"
+      ],
+      "cons": [
+        "Poignées en mousse susceptibles de s’user",
+        "Pas de résistance assistée",
+        "Le mouvement reste exigeant pour un grand débutant"
+      ],
+      "audience": "Débutant à confirmé recherchant une roue stable et éprouvée",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-roue-002",
+      "name": "adidas Ab Wheel 18 cm",
+      "keyword": "adidas ab wheel 18 cm",
+      "asin": "B00EVNXN6K",
+      "brand": "adidas",
+      "category": "roue-a-abdos",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Une roue simple, solide et accessible, idéale pour s’équiper avec un produit de marque reconnu sans fonctionnalités superflues.",
+      "pros": [
+        "Excellent rapport qualité/prix",
+        "Diamètre de 18 cm",
+        "Surface caoutchoutée antidérapante",
+        "Poignées rembourrées",
+        "Près de 9 000 évaluations"
+      ],
+      "cons": [
+        "Montage des poignées parfois difficile",
+        "Roue unique moins rassurante au début",
+        "Aucun tapis pour genoux inclus"
+      ],
+      "audience": "Débutant à intermédiaire recherchant une roue simple et durable",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-roue-003",
+      "name": "Perfect Fitness Ab Carver Pro",
+      "keyword": "perfect fitness ab carver pro",
+      "asin": "B07NCBR97K",
+      "brand": "Perfect Fitness",
+      "category": "roue-a-abdos",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une roue abdominale premium avec résistance intégrée, conçue pour améliorer la stabilité, l’activation musculaire et le contrôle du retour.",
+      "pros": [
+        "Résistance à ressort intégrée",
+        "Assistance au retour",
+        "Roue ultra-large",
+        "Travail possible des obliques",
+        "Poignées ergonomiques et tapis inclus"
+      ],
+      "cons": [
+        "Prix nettement supérieur",
+        "Plus lourde et encombrante",
+        "Amplitude potentiellement limitée pour les utilisateurs très grands"
+      ],
+      "audience": "Intermédiaire à confirmé recherchant davantage de contrôle et de progression",
+      "status": "Validé"
+    }
+  ]
+}
