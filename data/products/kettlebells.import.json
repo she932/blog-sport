@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « kettlebells » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-kett-001",
+      "name": "PROIRON Kettlebell 12 kg en néoprène",
+      "keyword": "proiron kettlebell 12 kg en neoprene",
+      "asin": "B09T9MY8L3",
+      "brand": "PROIRON",
+      "category": "kettlebells",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une kettlebell polyvalente et bien finie pour progresser sur les swings, squats et exercices de renforcement à domicile.",
+      "pros": [
+        "Fonte monobloc",
+        "Revêtement néoprène protecteur",
+        "Poignée large",
+        "Note Amazon élevée",
+        "Format 12 kg polyvalent"
+      ],
+      "cons": [
+        "Poids fixe",
+        "Moins adaptée aux grands débutants",
+        "Le néoprène peut s’user avec un usage très intensif"
+      ],
+      "audience": "Débutant à intermédiaire recherchant une kettlebell polyvalente pour le home gym",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-kett-002",
+      "name": "Yes4All Kettlebell en fonte avec revêtement poudre",
+      "keyword": "yes4all kettlebell en fonte avec revetement poudre",
+      "asin": "B0DNK2V1WR",
+      "brand": "Yes4All",
+      "category": "kettlebells",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Une gamme populaire et accessible, avec de nombreux poids disponibles et une finition poudre adaptée aux entraînements réguliers.",
+      "pros": [
+        "Très bon rapport qualité/prix",
+        "Gamme 4 à 32 kg",
+        "4,7/5 sur plus de 4 500 évaluations",
+        "Poignée large",
+        "Fonte sans soudure"
+      ],
+      "cons": [
+        "L’ASIN correspond à une variante légère",
+        "Finition moins premium",
+        "Disponibilité variable selon le poids"
+      ],
+      "audience": "Débutant à confirmé souhaitant choisir précisément son poids",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-kett-003",
+      "name": "Kettlebell Kings Powder Coat 8 kg",
+      "keyword": "kettlebell kings powder coat 8 kg",
+      "asin": "B017WB2OHQ",
+      "brand": "Kettlebell Kings",
+      "category": "kettlebells",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une kettlebell premium en fonte monobloc, conçue pour une prise fiable et une grande durabilité lors des entraînements techniques.",
+      "pros": [
+        "Fonte moulée en une pièce",
+        "Finition poudre durable",
+        "Base plane usinée",
+        "Très bonne prise en main",
+        "Fabrication précise"
+      ],
+      "cons": [
+        "Prix plus élevé",
+        "Poids fixe de 8 kg sur cet ASIN",
+        "Disponibilité parfois limitée"
+      ],
+      "audience": "Intermédiaire à confirmé privilégiant la qualité de fabrication et la durabilité",
+      "status": "Validé"
+    }
+  ]
+}

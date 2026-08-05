@@ -38,7 +38,11 @@ La forme unique de la kettlebell — une boule lestée avec une anse — permet 
 
 Le mouvement emblématique, le **swing**, sollicite l'ensemble de la chaîne postérieure tout en faisant grimper le rythme cardiaque.
 
-[[FICHE:kettlebell]]
+## Notre comparatif des meilleures kettlebells
+
+Voici les kettlebells que nous recommandons, classées de la meilleure note à la suivante. La première est notre **Choix MuscuGuide** ; les suivantes restent d'excellentes options selon votre budget et votre pratique. Chaque modèle est noté selon notre méthode (score sur 100 converti en note sur 5), sans jamais inventer de prix ni de caractéristiques.
+
+[[COMPARATIF:kettlebells]]
 
 ## Quel poids choisir ?
 
