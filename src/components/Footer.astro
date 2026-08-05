@@ -6,108 +6,148 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="brand"><span aria-hidden="true">💪</span> {SITE.title}</div>
-      <p class="muted">{SITE.description}</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-bar" aria-hidden="true"></span>
+          <span class="brand-name">Muscu<span class="brand-name-accent">Guide</span></span>
+        </div>
+        <p class="brand-desc">{SITE.description}</p>
+      </div>
+
+      <div>
+        <h4>Catégories</h4>
+        <ul>
+          {CATEGORIES.map((c) => (
+            <li><a href={`${base}/categorie/${c.slug}`}>{c.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Le blog</h4>
+        <ul>
+          <li><a href={`${base}/blog`}>Tous les articles</a></li>
+          <li><a href={`${base}/a-propos`}>À propos</a></li>
+          <li><a href={`${base}/rss.xml`}>Flux RSS</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href={`${base}/mentions-legales`}>Mentions légales</a></li>
+          <li><a href={`${base}/politique-confidentialite`}>Politique de confidentialité</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Catégories</h4>
-      <ul>
-        {CATEGORIES.map((c) => (
-          <li><a href={`${base}/categorie/${c.slug}`}>{c.name}</a></li>
-        ))}
-      </ul>
+
+    <div class="footer-bottom">
+      <p class="disclosure">{AFFILIATE_DISCLOSURE}</p>
+      <p class="copyright">© {year} {SITE.title}.fr — Tous droits réservés.</p>
     </div>
-    <div>
-      <h4>Le blog</h4>
-      <ul>
-        <li><a href={`${base}/blog`}>Tous les articles</a></li>
-        <li><a href={`${base}/a-propos`}>À propos</a></li>
-        <li><a href={`${base}/rss.xml`}>Flux RSS</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Légal</h4>
-      <ul>
-        <li><a href={`${base}/mentions-legales`}>Mentions légales</a></li>
-        <li><a href={`${base}/politique-confidentialite`}>Politique de confidentialité</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container disclosure">
-    <p>{AFFILIATE_DISCLOSURE}</p>
-    <p class="muted">© {year} {SITE.title}. Tous droits réservés.</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    margin-top: 5rem;
-    background: var(--mg-navy);
+    background: var(--mg-navy-deep);
     color: var(--mg-white);
-    padding: 3.5rem 0 1.75rem;
+    padding: clamp(44px, 6vw, 64px) 0 26px;
   }
   .footer-grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 36px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--mg-navy-line);
+  }
+  .footer-brand {
+    max-width: 280px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 14px;
+  }
+  .brand-bar {
+    width: 8px;
+    height: 20px;
+    border-radius: 2px;
+    background: var(--mg-orange);
+  }
+  .brand-name {
+    font-size: 1.06rem;
+    font-weight: 800;
+    color: var(--mg-white);
+    line-height: 1;
+  }
+  .brand-name-accent {
+    color: var(--mg-orange);
+  }
+  .brand-desc {
+    font-size: 0.8rem;
+    color: var(--mg-on-navy-faint);
+    line-height: 1.6;
+    margin: 0;
   }
   .footer-grid h4 {
-    margin: 0 0 0.9rem;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--mg-orange);
+    margin: 0 0 15px;
+    font-size: 0.8rem;
     font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--mg-white);
   }
   .footer-grid ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
   }
   .footer-grid a {
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.95rem;
+    color: var(--mg-on-navy-soft);
+    font-size: 0.84rem;
     transition: color 0.15s ease;
   }
   .footer-grid a:hover {
-    color: var(--mg-orange);
+    color: var(--mg-white);
     text-decoration: none;
   }
-  .brand {
-    font-weight: 800;
-    font-size: 1.2rem;
-    margin-bottom: 0.7rem;
-    color: var(--mg-white);
-  }
-  .muted {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .footer-bottom {
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .disclosure {
-    margin-top: 2.75rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.72rem;
+    color: var(--mg-on-navy-faint);
+    line-height: 1.6;
+    margin: 0;
   }
-  .disclosure p {
-    margin: 0 0 0.5rem;
+  .copyright {
+    font-size: 0.75rem;
+    color: var(--mg-on-navy-faint);
+    margin: 0;
   }
   @media (max-width: 900px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 2rem;
+      gap: 28px 32px;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
     }
   }
   @media (max-width: 520px) {
     .footer-grid {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 26px;
     }
   }
 </style>

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { SITE, CATEGORIES } from '../consts';
+import { getCategories, getFeatured, getCatalog, productIsPublishable, scoreOutOfFive } from '../lib/catalog';
+import { amazonProductUrl, AFFILIATE_DISCLOSURE } from '../lib/affiliate';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -22,12 +24,28 @@ const CATEGORY_ICONS: Record<string, string> = {
     '<path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/>',
 };
 
-// Articles mis en avant (featured) affichés dans la sélection « à la une ».
-const featuredPosts = posts.filter((p) => p.data.featured).slice(0, 6);
-const heroPost = featuredPosts[0] ?? posts[0];
-// Derniers articles : les plus récents hors sélection à la une.
-const featuredIds = new Set(featuredPosts.map((p) => p.id));
-const recent = posts.filter((p) => !featuredIds.has(p.id)).slice(0, 9);
+// Comparatifs les plus consultés : vrais articles de la catégorie « comparatifs ».
+const comparatifPosts = posts.filter((p) => p.data.category === 'comparatifs').slice(0, 4);
+const shownIds = new Set(comparatifPosts.map((p) => p.id));
+// Derniers articles : les plus récents hors comparatifs déjà affichés.
+const recentPosts = posts.filter((p) => !shownIds.has(p.id)).slice(0, 6);
+
+// Produits recommandés : vraies vedettes du catalogue (une par catégorie), triées par score.
+const featuredProducts = getCategories()
+  .map((c) => getFeatured(c))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p))
+  .sort((a, b) => (b.scoreInternal ?? 0) - (a.scoreInternal ?? 0))
+  .slice(0, 6);
+
+const starsFor = (p: (typeof featuredProducts)[number]) =>
+  Math.round(scoreOutOfFive(p) ?? 0);
+
+// Chiffres de réassurance (données réelles). On ne compte que les produits
+// réellement publiables (ASIN valide + score ≥ 70), pas les fiches génériques.
+const publishableProducts = getCatalog().filter((p) => productIsPublishable(p));
+const guidesCount = posts.length;
+const categoriesCount = new Set(publishableProducts.map((p) => p.category)).size;
+const productsCount = publishableProducts.length;
 
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -39,288 +57,611 @@ const websiteLd = {
 ---
 
 <BaseLayout title={SITE.homeTitle} description={SITE.description} jsonLd={[websiteLd]}>
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-inner">
-      <span class="hero-eyebrow">Nouveau guide chaque jour</span>
-      <h1>{SITE.tagline}</h1>
-      <p class="hero-sub">{SITE.description}</p>
-      <div class="hero-cta">
-        <a class="btn" href={`${base}/blog`}>Explorer les guides</a>
-        <a class="btn hero-ghost" href={`${base}/categorie/comparatifs`}>Voir les comparatifs</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge">Comparatifs indépendants · Matériel fitness</span>
+        <h1>{SITE.tagline}</h1>
+        <p class="hero-sub">{SITE.description}</p>
+        <div class="hero-cta">
+          <a class="btn-cta" href={`${base}/categorie/comparatifs`}>Voir les meilleurs comparatifs</a>
+          <a class="btn-ghost" href={`${base}/blog`}>Consulter les guides</a>
+        </div>
+        <p class="hero-trust">Sélection indépendante · Guides mis à jour régulièrement · Liens Amazon transparents</p>
       </div>
-      {posts.length > 0 && (
-        <p class="hero-meta">
-          <strong>{posts.length}</strong> guides déjà publiés · un nouveau chaque jour
-        </p>
-      )}
+
+      <aside class="hero-panel" aria-label="MuscuGuide en chiffres">
+        <div class="hero-panel-head">
+          <span class="hero-panel-ico" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+          <div>
+            <strong>Sélection indépendante</strong>
+            <span>Critères vérifiés à chaque mise à jour</span>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">{guidesCount}</span>
+            <span class="hero-stat-label">guides publiés</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">{categoriesCount}</span>
+            <span class="hero-stat-label">catégories comparées</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">{productsCount}</span>
+            <span class="hero-stat-label">produits analysés</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="container cats">
-    {CATEGORIES.map((c) => (
-      <a href={`${base}/categorie/${c.slug}`} class="cat-card">
-        <span class="cat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={CATEGORY_ICONS[c.slug] ?? ''} />
-        </span>
-        <strong>{c.name}</strong>
-        <span class="cat-desc">{c.description}</span>
-        <span class="cat-arrow" aria-hidden="true">Découvrir →</span>
-      </a>
-    ))}
+  <!-- CATEGORIES -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2 class="section-title">Trouvez votre catégorie</h2>
+        <p class="section-sub">Des comparatifs classés pour aller droit au but</p>
+      </div>
+      <div class="cat-grid">
+        {CATEGORIES.map((c) => (
+          <a href={`${base}/categorie/${c.slug}`} class="cat-card">
+            <span class="cat-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={CATEGORY_ICONS[c.slug] ?? ''} />
+            </span>
+            <span class="cat-name">{c.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
   </section>
 
-  {featuredPosts.length > 0 && (
-    <section class="container section">
-      <span class="eyebrow">Notre sélection</span>
-      <h2 class="section-title">À la une</h2>
-      {featuredPosts.length > 1 ? (
-        <div class="grid grid--feature">
-          <ArticleCard post={heroPost} featured />
-          <div class="side-list">
-            {featuredPosts.slice(1, 5).map((p) => (
-              <ArticleCard post={p} />
-            ))}
+  <!-- COMPARATIFS LES PLUS CONSULTES -->
+  {comparatifPosts.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <h2 class="section-title">Nos comparatifs les plus consultés</h2>
+            <p class="section-sub">Les dossiers les plus utiles pour bien choisir</p>
           </div>
+          <a class="section-link" href={`${base}/categorie/comparatifs`}>Voir tous les comparatifs →</a>
         </div>
-      ) : (
-        <ArticleCard post={heroPost} featured />
-      )}
+        <div class="grid grid--cards">
+          {comparatifPosts.map((p) => (
+            <ArticleCard post={p} />
+          ))}
+        </div>
+      </div>
     </section>
   )}
 
-  {recent.length > 0 && (
-    <section class="container section">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Frais du jour</span>
-          <h2 class="section-title">Derniers articles</h2>
+  <!-- PRODUITS RECOMMANDES (vraies vedettes) -->
+  {featuredProducts.length > 0 && (
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Les produits recommandés du moment</h2>
+          <p class="section-sub">Nos « Choix MuscuGuide » par catégorie, sélectionnés selon notre méthode de notation</p>
         </div>
-        <a href={`${base}/blog`} class="see-all">Tout voir →</a>
+        <div class="prod-grid">
+          {featuredProducts.map((p) => (
+            <article class="prod-card">
+              <div class="prod-body">
+                {p.badge && <span class="prod-badge">{p.badge}</span>}
+                <h3 class="prod-title">{p.name}</h3>
+                <div class="prod-rating" aria-label={`Note MuscuGuide : ${starsFor(p)} sur 5`}>
+                  <span class="prod-stars" aria-hidden="true">
+                    {'★'.repeat(starsFor(p))}<span class="prod-stars-empty">{'★'.repeat(5 - starsFor(p))}</span>
+                  </span>
+                  <span class="prod-rating-label">Note MuscuGuide</span>
+                </div>
+                {p.summary && <p class="prod-desc">{p.summary}</p>}
+                <div class="prod-sep"></div>
+                <a
+                  class="prod-cta"
+                  href={amazonProductUrl(p.asin ?? '')}
+                  target="_blank"
+                  rel="nofollow sponsored noopener"
+                >Voir sur Amazon</a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p class="prod-disclosure">{AFFILIATE_DISCLOSURE}</p>
       </div>
-      <div class="grid grid--3">
-        {recent.map((p) => (
-          <ArticleCard post={p} />
-        ))}
+    </section>
+  )}
+
+  <!-- CONFIANCE -->
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2 class="section-title section-title--light">Pourquoi faire confiance à MuscuGuide ?</h2>
+        <p class="section-sub section-sub--light">Une méthode simple et transparente, à chaque comparatif</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <span class="trust-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+          <h3>Comparatifs détaillés</h3>
+          <p>Chaque produit est analysé selon des points concrets et utiles à l'achat.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+          </span>
+          <h3>Critères de sélection clairs</h3>
+          <p>Solidité, encombrement, budget, usage : nos critères sont toujours expliqués.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+          </span>
+          <h3>Guides mis à jour régulièrement</h3>
+          <p>Nos comparatifs évoluent avec le marché et les nouvelles références.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+          </span>
+          <h3>Recommandations simples</h3>
+          <p>Des conclusions claires, sans jargon, pour décider rapidement.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          </span>
+          <h3>Indépendance éditoriale</h3>
+          <p>Nos avis ne sont jamais influencés par une marque ou un vendeur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DERNIERS ARTICLES -->
+  {recentPosts.length > 0 && (
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <h2 class="section-title">Derniers guides et articles</h2>
+            <p class="section-sub">Pour approfondir avant d'acheter</p>
+          </div>
+          <a class="section-link" href={`${base}/blog`}>Voir tous les articles →</a>
+        </div>
+        <div class="grid grid--cards">
+          {recentPosts.map((p) => (
+            <ArticleCard post={p} />
+          ))}
+        </div>
       </div>
     </section>
   )}
 
   {posts.length === 0 && (
-    <section class="container section empty">
-      <p>Les premiers guides arrivent très bientôt. Revenez demain !</p>
+    <section class="section section--white">
+      <div class="container empty">
+        <p>Les premiers guides arrivent très bientôt. Revenez demain !</p>
+      </div>
     </section>
   )}
 </BaseLayout>
 
 <style>
-  /* ---------- Hero (bloc bleu nuit DA) ---------- */
+  /* ============ HERO ============ */
   .hero {
     position: relative;
     overflow: hidden;
-    background: var(--mg-navy);
-    color: var(--mg-white);
-    padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
-    text-align: center;
-  }
-  /* halo orange discret */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
     background:
-      radial-gradient(60% 55% at 50% 0%, rgba(255, 122, 41, 0.22), transparent 70%),
-      radial-gradient(40% 40% at 85% 20%, rgba(255, 122, 41, 0.1), transparent 70%);
-    pointer-events: none;
+      radial-gradient(circle at 12% 18%, rgba(255, 122, 41, 0.12), transparent 42%),
+      radial-gradient(circle at 88% 82%, rgba(255, 122, 41, 0.07), transparent 48%),
+      linear-gradient(160deg, #0e1b33 0%, #0b1830 55%, #101f3b 100%);
+    padding: clamp(48px, 8vw, 88px) 0 clamp(64px, 9vw, 104px);
   }
-  .hero-inner {
-    position: relative;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
   }
-  .hero-eyebrow {
+  .hero-badge {
     display: inline-block;
+    background: rgba(255, 122, 41, 0.12);
+    border: 1px solid rgba(255, 122, 41, 0.35);
+    color: var(--mg-orange-eyebrow);
     font-size: 0.78rem;
     font-weight: 700;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--mg-orange);
-    margin-bottom: 0.6rem;
+    padding: 7px 14px;
+    border-radius: 100px;
+    margin-bottom: 22px;
   }
   .hero h1 {
-    max-width: 18ch;
-    margin: 0.4rem auto 0.9rem;
+    font-size: clamp(31px, 4.3vw, 52px);
+    line-height: 1.1;
+    font-weight: 800;
     color: var(--mg-white);
-    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
   }
   .hero-sub {
-    max-width: 58ch;
-    margin: 0 auto 1.8rem;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 1.12rem;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.65;
+    color: var(--mg-on-navy);
+    max-width: 520px;
+    margin: 0 0 32px;
   }
   .hero-cta {
     display: flex;
-    gap: 0.8rem;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 26px;
   }
-  /* variante ghost adaptée au fond sombre */
-  .hero-ghost {
+  .btn-cta {
+    background: var(--mg-orange);
+    color: var(--mg-navy);
+    font-weight: 700;
+    font-size: 0.97rem;
+    padding: 16px 28px;
+    border-radius: 11px;
+    box-shadow: 0 10px 26px rgba(255, 122, 41, 0.3);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+  .btn-cta:hover {
+    background: var(--mg-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(255, 122, 41, 0.4);
+    text-decoration: none;
+  }
+  .btn-ghost {
     background: transparent;
     color: var(--mg-white);
-    border: 2px solid rgba(255, 255, 255, 0.45);
+    font-weight: 700;
+    font-size: 0.97rem;
+    padding: 16px 28px;
+    border-radius: 11px;
+    border: 1.5px solid rgba(255, 255, 255, 0.28);
+    transition: border-color 0.18s ease, background 0.18s ease;
   }
-  .hero-ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--mg-white);
+  .btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+    text-decoration: none;
   }
-  .hero-meta {
-    margin: 1.6rem 0 0;
-    font-size: 0.92rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .hero-meta strong {
-    color: var(--mg-orange);
+  .hero-trust {
+    font-size: 0.8rem;
+    color: var(--mg-on-navy-faint);
+    margin: 0;
   }
 
-  /* ---------- Cartes catégories ---------- */
-  .cats {
+  /* Panneau de réassurance (droite du hero) */
+  .hero-panel {
+    background: var(--mg-navy-2);
+    border: 1px solid var(--mg-navy-3);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 28px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  }
+  .hero-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--mg-navy-3);
+  }
+  .hero-panel-ico {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(255, 122, 41, 0.15);
+    color: var(--mg-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-panel-head strong {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--mg-white);
+  }
+  .hero-panel-head span {
+    font-size: 0.78rem;
+    color: var(--mg-on-navy-mute);
+  }
+  .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--mg-space-grid);
-    margin-top: clamp(2rem, 4vw, 3rem);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-num {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--mg-orange);
+    line-height: 1.1;
+  }
+  .hero-stat-label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--mg-on-navy-mute);
+    margin-top: 4px;
+  }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    padding: clamp(56px, 7vw, 92px) 0;
+  }
+  .section--white {
+    background: var(--mg-white);
+  }
+  .section--alt {
+    background: var(--mg-bg);
+  }
+  .section--navy {
+    background: var(--mg-navy);
+  }
+  .section-head {
+    margin-bottom: clamp(28px, 4vw, 44px);
+  }
+  .section-head--center {
+    text-align: center;
+  }
+  .section-head--row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    color: var(--mg-navy);
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+  .section-title--light {
+    color: var(--mg-white);
+  }
+  .section-sub {
+    font-size: 0.97rem;
+    color: var(--mg-text-2);
+    margin: 0;
+  }
+  .section-sub--light {
+    color: #b7c1d9;
+  }
+  .section-link {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--mg-orange);
+    white-space: nowrap;
+  }
+  .grid {
+    display: grid;
+    gap: 24px;
+  }
+  .grid--cards {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  /* ============ CATEGORIES ============ */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
   }
   .cat-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem 1.4rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--mg-radius-lg);
-    background: var(--color-surface);
-    color: var(--color-text);
-    box-shadow: var(--mg-shadow);
-    transition: transform 0.18s ease, box-shadow 0.18s ease,
-      border-color 0.18s ease;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    background: var(--mg-bg);
+    border: 1px solid var(--mg-border);
+    border-radius: 18px;
+    padding: 30px 14px;
+    box-shadow: 0 1px 2px rgba(14, 27, 51, 0.04);
+    color: var(--mg-text-strong);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
   .cat-card:hover {
-    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
-    transform: translateY(-4px);
-    box-shadow: var(--mg-shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(14, 27, 51, 0.1);
+    border-color: rgba(255, 122, 41, 0.35);
     text-decoration: none;
   }
-  .cat-icon {
-    display: inline-flex;
+  .cat-ico {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    background: var(--mg-navy);
+    color: var(--mg-orange);
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    background: var(--color-accent-soft);
-    color: var(--color-accent);
-    margin-bottom: 0.9rem;
   }
-  .cat-icon svg {
+  .cat-ico svg {
     width: 24px;
     height: 24px;
   }
-  .cat-card strong {
-    display: block;
-    color: var(--color-dark);
-    font-size: 1.08rem;
-    margin-bottom: 0.35rem;
-  }
-  .cat-desc {
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    line-height: 1.55;
-  }
-  .cat-arrow {
-    margin-top: 0.9rem;
-    font-size: 0.85rem;
+  .cat-name {
     font-weight: 700;
-    color: var(--color-accent-dark);
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
-  }
-  .cat-card:hover .cat-arrow {
-    opacity: 1;
-    transform: translateX(0);
+    font-size: 0.92rem;
+    color: var(--mg-text-strong);
   }
 
-  /* ---------- Sections ---------- */
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent-dark);
-    margin-bottom: 0.35rem;
+  /* ============ PRODUITS RECOMMANDES ============ */
+  .prod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
   }
-  .section {
-    margin-top: clamp(3rem, 5vw, 4.5rem);
-  }
-  .section-head {
+  .prod-card {
+    background: var(--mg-white);
+    border: 1px solid var(--mg-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(14, 27, 51, 0.04), 0 8px 20px rgba(14, 27, 51, 0.05);
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
+    flex-direction: column;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
   }
-  .section-title {
-    margin: 0 0 1.3rem;
+  .prod-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1px 2px rgba(14, 27, 51, 0.04), 0 22px 38px rgba(14, 27, 51, 0.12);
   }
-  .section-head .section-title {
-    margin-bottom: 0;
+  .prod-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
   }
-  .see-all {
+  .prod-badge {
+    align-self: flex-start;
+    background: var(--mg-navy);
+    color: var(--mg-white);
+    font-size: 0.7rem;
     font-weight: 700;
-    white-space: nowrap;
-    color: var(--color-accent-dark);
+    padding: 6px 11px;
+    border-radius: 100px;
   }
-  .grid {
+  .prod-title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--mg-text-strong);
+    line-height: 1.35;
+    margin: 0;
+  }
+  .prod-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .prod-stars {
+    color: var(--mg-orange);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+  .prod-stars-empty {
+    color: #d8dee8;
+  }
+  .prod-rating-label {
+    font-size: 0.72rem;
+    color: var(--mg-on-navy-mute);
+  }
+  .prod-desc {
+    font-size: 0.82rem;
+    color: var(--mg-text-2);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .prod-sep {
+    height: 1px;
+    background: #eef0f4;
+    margin: 4px 0;
+  }
+  .prod-cta {
+    margin-top: auto;
+    background: var(--mg-orange);
+    color: var(--mg-navy);
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.87rem;
+    padding: 12px;
+    border-radius: 10px;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .prod-cta:hover {
+    background: var(--mg-orange-hover);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  .prod-disclosure {
+    font-size: 0.72rem;
+    color: var(--mg-on-navy-mute);
+    text-align: center;
+    margin: 24px 0 0;
+  }
+
+  /* ============ CONFIANCE ============ */
+  .trust-grid {
     display: grid;
-    gap: var(--mg-space-grid);
-    margin-top: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
   }
-  .grid--3 {
-    grid-template-columns: repeat(3, 1fr);
+  .trust-card {
+    background: var(--mg-navy-2);
+    border: 1px solid var(--mg-navy-3);
+    border-radius: 16px;
+    padding: 26px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  .grid--feature {
-    grid-template-columns: 1.4fr 1fr;
-    align-items: stretch;
+  .trust-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 122, 41, 0.4);
   }
-  .side-list {
-    display: grid;
-    gap: var(--mg-space-card);
-    grid-template-columns: 1fr;
+  .trust-ico {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 122, 41, 0.15);
+    color: var(--mg-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
   }
+  .trust-card h3 {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--mg-white);
+    margin: 0 0 8px;
+  }
+  .trust-card p {
+    font-size: 0.85rem;
+    color: #aeb9cf;
+    line-height: 1.55;
+    margin: 0;
+  }
+
   .empty {
     text-align: center;
-    color: var(--color-muted);
-    padding: 3rem 0;
+    color: var(--mg-text-2);
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 1040px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-panel {
+      max-width: 460px;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .cat-card,
-    .cat-arrow {
+    .prod-card,
+    .trust-card,
+    .btn-cta,
+    .btn-ghost {
       transition: none;
-    }
-  }
-  @media (max-width: 900px) {
-    .cats {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .grid--3 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .grid--feature {
-      grid-template-columns: 1fr;
-    }
-  }
-  @media (max-width: 560px) {
-    .cats,
-    .grid--3 {
-      grid-template-columns: 1fr;
     }
   }
 </style>

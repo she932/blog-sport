@@ -8,9 +8,9 @@ const isActive = (href: string) =>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href={`${base}/`}>
-      <span class="brand-mark" aria-hidden="true">💪</span>
-      <span class="brand-name">{SITE.title}</span>
+    <a class="brand" href={`${base}/`} aria-label={SITE.title}>
+      <span class="brand-bar" aria-hidden="true"></span>
+      <span class="brand-name">Muscu<span class="brand-name-accent">Guide</span></span>
     </a>
 
     <button
@@ -46,35 +46,44 @@ const isActive = (href: string) =>
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--color-bg) 85%, transparent);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--mg-navy) 92%, transparent);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--mg-navy-line);
   }
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    min-height: 68px;
+    gap: 1.5rem;
+    min-height: 64px;
   }
 
-  /* ---------- Marque ---------- */
+  /* ---------- Marque (barre orange + texte bi-ton) ---------- */
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    font-weight: 800;
-    font-size: 1.3rem;
-    letter-spacing: -0.01em;
-    color: var(--color-dark);
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
   .brand:hover {
     text-decoration: none;
   }
-  .brand-mark {
-    font-size: 1.5rem;
+  .brand-bar {
+    width: 10px;
+    height: 26px;
+    border-radius: 3px;
+    background: var(--mg-orange);
+  }
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--mg-white);
     line-height: 1;
+  }
+  .brand-name-accent {
+    color: var(--mg-orange);
   }
 
   /* ---------- Navigation (desktop) ---------- */
@@ -84,34 +93,20 @@ const isActive = (href: string) =>
     align-items: center;
   }
   .nav-link {
-    position: relative;
-    color: var(--color-muted);
+    color: var(--mg-on-navy);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
     padding: 0.4em 0;
-    transition: color 0.15s ease;
+    transition: color 0.18s ease;
   }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -2px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.18s ease;
-  }
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--color-accent-dark);
+  .nav-link:hover {
+    color: var(--mg-white);
     text-decoration: none;
   }
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    transform: scaleX(1);
+  .nav-link.active {
+    color: var(--mg-orange);
+    text-decoration: none;
   }
 
   /* ---------- Bouton hamburger (mobile) ---------- */
@@ -133,7 +128,7 @@ const isActive = (href: string) =>
     height: 2.5px;
     margin: 0 auto;
     border-radius: 2px;
-    background: var(--color-dark);
+    background: var(--mg-white);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
   .nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(1) {
@@ -159,10 +154,9 @@ const isActive = (href: string) =>
       flex-direction: column;
       align-items: stretch;
       gap: 0;
-      padding: 0.5rem 0 0.75rem;
-      background: var(--color-surface);
-      border-bottom: 1px solid var(--color-border);
-      box-shadow: var(--mg-shadow);
+      padding: 0.4rem 0 0.85rem;
+      background: var(--mg-navy);
+      border-bottom: 1px solid var(--mg-navy-line);
       max-height: 0;
       overflow: hidden;
       opacity: 0;
@@ -170,26 +164,23 @@ const isActive = (href: string) =>
       transition: max-height 0.25s ease, opacity 0.2s ease;
     }
     .site-header.nav-open .nav {
-      max-height: 70vh;
+      max-height: 80vh;
       opacity: 1;
       pointer-events: auto;
     }
     .nav-link {
       padding: 0.85em 20px;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      color: var(--mg-white);
+      border-bottom: 1px solid var(--mg-navy-line);
     }
-    .nav-link::after {
-      display: none;
-    }
-    .nav-link:hover,
-    .nav-link.active {
-      background: var(--color-accent-soft);
+    .nav-link:last-child {
+      border-bottom: none;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .nav,
-    .nav-link::after,
     .nav-toggle-bar {
       transition: none;
     }
@@ -211,7 +202,6 @@ const isActive = (href: string) =>
       setOpen(!header.classList.contains('nav-open'));
     });
 
-    // Referme le menu après clic sur un lien ou passage en desktop
     header.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', () => setOpen(false));
     });

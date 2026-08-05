@@ -8,9 +8,22 @@
   --mg-orange: #ff7a29;    /* orange principal (CTA & accents) */
   --mg-white: #ffffff;
 
+  /* ---- Bleu nuit : nuances (surfaces & bordures sur fond sombre) ---- */
+  --mg-navy-2: #16294a;    /* cartes / champs sur fond navy */
+  --mg-navy-3: #26375c;    /* bordures sur fond navy */
+  --mg-navy-line: #1e2f52; /* filets / séparateurs sur navy */
+  --mg-navy-deep: #0a1428; /* fond du footer (navy profond) */
+
+  /* ---- Texte sur fond navy ---- */
+  --mg-on-navy: #c9d3e4;      /* texte courant sur navy (sous-titres, nav) */
+  --mg-on-navy-soft: #9aa8c2; /* liens footer */
+  --mg-on-navy-mute: #8a97ac; /* texte discret sur navy */
+  --mg-on-navy-faint: #7c8cab;/* mentions très discrètes sur navy */
+
   /* ---- Couleurs secondaires ---- */
   --mg-bg: #f6f7f9;        /* gris clair de fond */
   --mg-text-2: #5b6b85;    /* texte secondaire */
+  --mg-text-strong: #16294a; /* titres de cartes (navy légèrement adouci) */
   --mg-border: #ebeef3;    /* bordures */
   --mg-legal: #8a97ac;     /* mentions légales */
 
@@ -18,9 +31,10 @@
   --mg-gold: #f6a623;      /* étoiles de notation */
 
   /* ---- Dérivés (accent) ---- */
-  --mg-orange-hover: #ff8f4d;  /* éclaircissement au hover */
+  --mg-orange-hover: #ff8a42;  /* éclaircissement au hover (réf. Claude Design) */
   --mg-orange-strong: #e86816; /* orange foncé (liens/texte) */
   --mg-orange-soft: #fff1e8;   /* fond orange très clair */
+  --mg-orange-eyebrow: #ff9a54;/* orange clair (badges sur fond navy) */
 
   /* ---- Typographie ---- */
   --mg-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
