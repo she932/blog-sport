@@ -115,7 +115,7 @@ Les [[LINK:elastiques|bandes élastiques]] comblent les angles morts (rotations,
 
 ## Ce sur quoi il ne faut PAS dépenser
 
-Autant certains achats sont rentables, autant d'autres sont à éviter avec un petit budget. Les **appareils « tout-en-un »** bas de gamme sont souvent instables et vite limitants. Les **gadgets d'électrostimulation** ou ceintures « magiques » ne remplacent pas l'effort. Enfin, inutile de viser d'emblée une **cage et une barre olympique** si l'espace et le budget sont serrés : ce matériel de force est excellent, mais il vient plus tard, une fois les bases posées. Concentrez vos premiers euros sur le polyvalent.
+Autant certains achats sont rentables, autant d'autres sont à éviter avec un petit budget. Les **appareils « tout-en-un »** bas de gamme sont souvent instables et vite limitants — si vous visez une [station home gym](/blog/station-home-gym/), mieux vaut un modèle solide bien choisi que le premier prix. Les **gadgets d'électrostimulation** ou ceintures « magiques » ne remplacent pas l'effort. Enfin, inutile de viser d'emblée une **cage et une barre olympique** si l'espace et le budget sont serrés : ce matériel de force est excellent, mais il vient plus tard, une fois les bases posées. Concentrez vos premiers euros sur le polyvalent.
 
 ## En résumé
 

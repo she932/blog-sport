@@ -20,7 +20,7 @@ import {
   buildAffiliateUrl,
   escapeHtml,
 } from './lib.mjs';
-import { selectFeatured } from './catalog-rules.mjs';
+import { selectFeatured, rankProducts } from './catalog-rules.mjs';
 
 // Marketplace actif (pays) : lu dans data/marketplaces.json, surchargé par
 // l'environnement (AMAZON_COUNTRY / AMAZON_AFFILIATE_TAG / AMAZON_DOMAIN).
@@ -129,6 +129,35 @@ function featuredIdForCategory(category) {
   const id = f ? f.id : null;
   _featuredCache.set(category, id);
   return id;
+}
+
+// Comparatif complet d'une catégorie (marqueur [[COMPARATIF:categorie]]) :
+// tableau de synthèse + fiche de CHAQUE produit publiable, classés par les
+// règles (rang 1 en tête). Entièrement dynamique — même composant que les
+// comparatifs existants. Aucune donnée inventée : seuls les champs présents
+// sont affichés.
+function comparatifHtml(category) {
+  const list = rankProducts(
+    products.filter((p) => p.category === category),
+    { country: COUNTRY }
+  );
+  if (!list.length) return '';
+  const head =
+    `<thead><tr><th>#</th><th>Produit</th><th>${escapeHtml(LABELS.scoreLabel)}</th>` +
+    `<th>Verdict</th><th>Badge</th><th>Idéal pour</th></tr></thead>`;
+  const body = list
+    .map((p, i) => {
+      const score = Number(p.mgScore) ? `${commaNum(Number(p.mgScore).toFixed(1))}/5` : '—';
+      return (
+        `<tr><td>${i + 1}</td><td><strong>${escapeHtml(p.name)}</strong></td>` +
+        `<td>${score}</td><td>${escapeHtml(p.verdict || '')}</td>` +
+        `<td>${escapeHtml(p.badge || '')}</td><td>${escapeHtml(p.audience || '')}</td></tr>`
+      );
+    })
+    .join('');
+  const table = `<table class="mg-compare">${head}<tbody>${body}</tbody></table>`;
+  const fiches = list.map((p) => ficheHtml(p.id)).join('');
+  return `<div class="mg-comparatif">${table}${fiches}</div>`;
 }
 
 /** Formate un nombre d'avis : 1234 -> "1 234", 12500 -> "12 500". */
@@ -526,6 +555,9 @@ function splitText(value, state) {
       // Aucun produit éligible (pas d'ASIN / score < seuil) -> rien affiché.
       const fid = featuredIdForCategory(m[2]);
       html = fid ? ficheHtml(fid) : '';
+    } else if (kind === 'COMPARATIF') {
+      // Comparatif complet d'une catégorie (tableau + fiches), dynamique.
+      html = comparatifHtml(m[2]);
     } else if (kind === 'BOX') {
       if (state.boxes < MAX_BOXES) {
         html = boxHtml(m[2]);
@@ -570,7 +602,8 @@ function unwrapBoxes(node) {
       child.children.length === 1 &&
       child.children[0].type === 'html' &&
       (child.children[0].value.startsWith('<div class="affiliate-box"') ||
-        child.children[0].value.startsWith('<section class="pfiche"'))
+        child.children[0].value.startsWith('<section class="pfiche"') ||
+        child.children[0].value.startsWith('<div class="mg-comparatif"'))
     ) {
       out.push(child.children[0]);
     } else {
