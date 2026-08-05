@@ -84,7 +84,7 @@ Certains systèmes à molette peuvent cliqueter légèrement pendant les mouveme
 
 Ce tableau donne une vue d'ensemble, mais gardez à l'esprit que la qualité de fabrication varie fortement d'une marque à l'autre, y compris au sein d'un même système de réglage. Consultez toujours les avis vérifiés et les retours sur la durabilité avant de vous décider.
 
-[[FICHE:halteres-reglables]]
+[[VEDETTE:halteres-reglables]]
 
 ## Quel usage pour quel profil de pratiquant
 

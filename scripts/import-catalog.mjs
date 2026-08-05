@@ -243,7 +243,27 @@ console.log(`  Brouillons (masqués): ${products.filter(isDraft).length}`);
 
 if (!DRY) fs.mkdirSync(OUT_DIR, { recursive: true });
 for (const [cat, list] of [...byCategory].sort()) {
-  const file = path.join(OUT_DIR, `${cat}.json`);
+  let file = path.join(OUT_DIR, `${cat}.json`);
+  // Ne JAMAIS écraser un fichier fait main (non « _generated ») : on écrit
+  // l'import à côté (<cat>.import.json) pour que les deux coexistent. Les
+  // produits importés (ids distincts) fusionnent avec l'existant sans le
+  // détruire — les références des articles au produit historique restent
+  // valides. Un fichier déjà généré est, lui, remplacé normalement.
+  if (fs.existsSync(file)) {
+    let handmade = false;
+    try {
+      handmade = !JSON.parse(fs.readFileSync(file, 'utf8'))._generated;
+    } catch {
+      /* fichier illisible : on ne l'écrase pas */
+      handmade = true;
+    }
+    if (handmade) {
+      file = path.join(OUT_DIR, `${cat}.import.json`);
+      warnings.push(
+        `catégorie « ${cat} » : fichier fait main conservé → import écrit dans ${path.basename(file)}`
+      );
+    }
+  }
   const payload = {
     _comment: `Catégorie « ${cat} » — GÉNÉRÉ par scripts/import-catalog.mjs depuis ${path.basename(FILE)}. Ne pas éditer à la main : modifier la base puis relancer l'import.`,
     _generated: true,

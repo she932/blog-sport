@@ -1,0 +1,91 @@
+{
+  "_comment": "Catégorie « station-home-gym » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-home-001",
+      "name": "Sportstech HGX100",
+      "keyword": "sportstech hgx100",
+      "asin": "B07FCHL7TL",
+      "brand": "Sportstech",
+      "category": "station-home-gym",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Une station complète et robuste pour entraîner l’ensemble du corps à domicile, avec une large variété d’exercices guidés.",
+      "pros": [
+        "Plus de 30 exercices",
+        "Bloc de 70 kg",
+        "Construction stable",
+        "Nombreux accessoires",
+        "Bonne réputation client"
+      ],
+      "cons": [
+        "Montage long",
+        "Encombrement important",
+        "Charge limitée pour certains pratiquants très avancés"
+      ],
+      "audience": "Débutant à confirmé disposant d’un espace dédié au home gym",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-home-002",
+      "name": "ISE SY-4009 50-en-1",
+      "keyword": "ise sy-4009 50-en-1",
+      "asin": "B07B7QN69F",
+      "brand": "ISE",
+      "category": "station-home-gym",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 84,
+      "mgScore": 4.2,
+      "verdict": "Bon",
+      "summary": "Une station riche en fonctions et accessible, intéressante pour débuter ou équiper un home gym avec un budget maîtrisé.",
+      "pros": [
+        "Très nombreuses possibilités d’exercice",
+        "Bon rapport équipement/prix",
+        "Travail du haut et du bas du corps",
+        "Structure tout-en-un"
+      ],
+      "cons": [
+        "Note client plus moyenne",
+        "Montage exigeant",
+        "Prend beaucoup de place",
+        "Finitions moins premium"
+      ],
+      "audience": "Débutant ou intermédiaire recherchant un appareil complet à prix contenu",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-home-003",
+      "name": "Dione HG5 Multi-Gym",
+      "keyword": "dione hg5 multi-gym",
+      "asin": "B08CS1PRRJ",
+      "brand": "Dione",
+      "category": "station-home-gym",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 86,
+      "mgScore": 4.3,
+      "verdict": "Très bon",
+      "summary": "Une station très complète pour les foyers disposant d’une véritable pièce de sport, avec plusieurs postes et un sac de frappe.",
+      "pros": [
+        "Plus de 44 exercices",
+        "65 kg de poids inclus",
+        "Extensible à 100 kg",
+        "Sac de frappe inclus",
+        "Plusieurs utilisateurs possibles"
+      ],
+      "cons": [
+        "Très encombrante",
+        "Très lourde",
+        "Montage complexe",
+        "Investissement conséquent"
+      ],
+      "audience": "Intermédiaire ou confirmé souhaitant un home gym complet et permanent",
+      "status": "Validé"
+    }
+  ]
+}

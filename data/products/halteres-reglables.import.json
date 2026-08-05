@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « halteres-reglables » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-halt-001",
+      "name": "Bowflex SelectTech 552",
+      "keyword": "bowflex selecttech 552",
+      "asin": "B09MT5C8VB",
+      "brand": "Bowflex",
+      "category": "halteres-reglables",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 90,
+      "mgScore": 4.5,
+      "verdict": "Excellent",
+      "summary": "Une référence fiable et compacte pour s’entraîner à domicile, avec un réglage rapide et une large plage de charges.",
+      "pros": [
+        "15 niveaux de charge",
+        "Réglage rapide",
+        "Gain de place important",
+        "Marque reconnue",
+        "Polyvalent"
+      ],
+      "cons": [
+        "Format assez long aux faibles charges",
+        "Mécanisme à manipuler avec soin",
+        "Tarif supérieur aux modèles d’entrée de gamme"
+      ],
+      "audience": "Débutant à confirmé recherchant une solution polyvalente et éprouvée",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-halt-002",
+      "name": "Paire d’haltères réglables 2 × 12 kg",
+      "keyword": "paire d’halteres reglables 2 × 12 kg",
+      "asin": "B0D1HJLJLD",
+      "brand": "DH FitLife",
+      "category": "halteres-reglables",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 85,
+      "mgScore": 4.3,
+      "verdict": "Très bon",
+      "summary": "Une paire accessible et facile à utiliser, particulièrement adaptée aux débutants et aux entraînements légers à modérés.",
+      "pros": [
+        "Paire complète",
+        "Excellent rapport qualité/prix",
+        "Réglage rapide",
+        "Format compact",
+        "Poignée antidérapante"
+      ],
+      "cons": [
+        "Charge maximale limitée à 12 kg par haltère",
+        "Seulement 5 niveaux",
+        "Moins évolutif pour les pratiquants confirmés"
+      ],
+      "audience": "Débutant ou utilisateur fitness avec budget maîtrisé",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-halt-003",
+      "name": "NÜOBELL 232",
+      "keyword": "nuobell 232",
+      "asin": "B0FGSRYX7C",
+      "brand": "NÜO Athletics",
+      "category": "halteres-reglables",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une solution premium très fluide, proche de la sensation d’un haltère classique, destinée aux home gyms exigeants.",
+      "pros": [
+        "Plage 2 à 32 kg",
+        "Réglage par rotation",
+        "Poignée en aluminium",
+        "Équilibre proche d’un haltère fixe",
+        "Paire compacte"
+      ],
+      "cons": [
+        "Prix très élevé",
+        "Ne doit pas être lâché au sol",
+        "Encombrement et poids importants au réglage maximal"
+      ],
+      "audience": "Intermédiaire ou confirmé recherchant une solution premium et durable",
+      "status": "Validé"
+    }
+  ]
+}
