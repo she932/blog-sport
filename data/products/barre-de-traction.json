@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « barre-de-traction » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-trac-001",
+      "name": "Sportstech KS350",
+      "keyword": "sportstech ks350",
+      "asin": "B0843FTZ9T",
+      "brand": "Sportstech",
+      "category": "barre-de-traction",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une barre murale pliable, stable et polyvalente, particulièrement adaptée à un home gym compact.",
+      "pros": [
+        "Structure acier triangulaire",
+        "Pliable jusqu’à 26 cm",
+        "3 positions de prise",
+        "3 œillets d’entraînement",
+        "Kit de fixation inclus"
+      ],
+      "cons": [
+        "Perçage obligatoire",
+        "Mur solide indispensable",
+        "Moins mobile qu’un modèle de porte"
+      ],
+      "audience": "Débutant à confirmé recherchant une barre murale complète et peu encombrante",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-trac-002",
+      "name": "ONETWOFIT OT103",
+      "keyword": "onetwofit ot103",
+      "asin": "B08K3Q74DR",
+      "brand": "ONETWOFIT",
+      "category": "barre-de-traction",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 87,
+      "mgScore": 4.4,
+      "verdict": "Très bon",
+      "summary": "Une barre murale robuste et accessible, conçue pour offrir une fixation stable sans payer le prix d’un modèle premium.",
+      "pros": [
+        "Excellent rapport qualité/prix",
+        "Conception 6 trous",
+        "Multiprises",
+        "Utilisation intérieure ou extérieure",
+        "Structure acier"
+      ],
+      "cons": [
+        "Montage mural obligatoire",
+        "Qualité des chevilles à adapter au support",
+        "Finitions plus simples"
+      ],
+      "audience": "Débutant à intermédiaire souhaitant une solution murale économique",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-trac-003",
+      "name": "PULLUP & DIP Barre de traction porte + station de dips",
+      "keyword": "pullup & dip barre de traction porte + station de dips",
+      "asin": "B0CGDTN9VC",
+      "brand": "PULLUP & DIP",
+      "category": "barre-de-traction",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une solution premium sans perçage qui combine tractions et dips, idéale pour la calisthénie à domicile.",
+      "pros": [
+        "Aucun perçage",
+        "Barre de dips incluse",
+        "4 positions de prise",
+        "Garantie 5 ans",
+        "Montage et retrait rapides"
+      ],
+      "cons": [
+        "Prix élevé",
+        "Compatibilité du cadre de porte à vérifier",
+        "Charge limitée à 110 kg"
+      ],
+      "audience": "Intermédiaire à confirmé pratiquant la calisthénie ou vivant en location",
+      "status": "Validé"
+    }
+  ]
+}

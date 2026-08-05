@@ -38,7 +38,11 @@ La traction est un exercice fondamental, souvent considéré comme le meilleur p
 
 Le tout au poids du corps, sans encombrement ni charge à ranger.
 
-[[FICHE:barre-traction]]
+## Notre comparatif des meilleures barres de traction
+
+Voici les barres que nous recommandons, classées de la meilleure note à la suivante. La première est notre **Choix MuscuGuide** ; les suivantes restent d'excellentes options selon votre logement et votre pratique. Chaque modèle est noté selon notre méthode (score sur 100 converti en note sur 5), sans jamais inventer de prix ni de caractéristiques.
+
+[[COMPARATIF:barre-de-traction]]
 
 ## Les différents types de barres de traction
 
