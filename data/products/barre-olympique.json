@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « barre-olympique » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-barre-001",
+      "name": "Strength Shop Original 2029 Power Bar",
+      "keyword": "strength shop original 2029 power bar",
+      "asin": "B0CLT8NFSW",
+      "brand": "Strength Shop",
+      "category": "barre-olympique",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Une barre de force sérieuse et bien équilibrée pour le squat, le développé couché et le soulevé de terre dans un home gym exigeant.",
+      "pros": [
+        "Standard 20 kg et 220 cm",
+        "Axe 29 mm typé powerlifting",
+        "Moletage central",
+        "Bagues en bronze",
+        "Revêtement E-Coat résistant"
+      ],
+      "cons": [
+        "Charge conseillée de 260 kg",
+        "Moletage assez agressif",
+        "Moins adaptée à l’haltérophilie olympique dynamique"
+      ],
+      "audience": "Intermédiaire à confirmé orienté powerlifting et mouvements de force",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-barre-002",
+      "name": "DIAMOND Barre olympique Power Training 220 cm",
+      "keyword": "diamond barre olympique power training 220 cm",
+      "asin": "B0CWFD1FKH",
+      "brand": "DIAMOND",
+      "category": "barre-olympique",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 87,
+      "mgScore": 4.4,
+      "verdict": "Très bon",
+      "summary": "Une barre olympique accessible et polyvalente, intéressante pour équiper un premier home gym avec des disques de 50 mm.",
+      "pros": [
+        "Bon rapport qualité/prix",
+        "Longueur standard 220 cm",
+        "Compatible disques 50 mm",
+        "Charge annoncée 320 kg",
+        "Polyvalente"
+      ],
+      "cons": [
+        "Finitions plus simples",
+        "Informations techniques moins détaillées",
+        "Moins spécialisée qu’une vraie power bar"
+      ],
+      "audience": "Débutant à intermédiaire recherchant une barre olympique polyvalente",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-barre-003",
+      "name": "GORILLA SPORTS Barre olympique longue 220 cm",
+      "keyword": "gorilla sports barre olympique longue 220 cm",
+      "asin": "B07PYJKJFY",
+      "brand": "GORILLA SPORTS",
+      "category": "barre-olympique",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 88,
+      "mgScore": 4.4,
+      "verdict": "Très bon",
+      "summary": "Une barre très robuste destinée aux charges lourdes, avec un standard olympique de 50 mm et une capacité annoncée particulièrement élevée.",
+      "pros": [
+        "Poids standard 20 kg",
+        "Longueur 220 cm",
+        "Charge annoncée 680 kg",
+        "Manchons 50 mm",
+        "Roulement pivotant et poignées moletées"
+      ],
+      "cons": [
+        "Prix plus élevé",
+        "Données d’avis variables selon la déclinaison",
+        "Moletage et rigidité potentiellement excessifs pour un débutant"
+      ],
+      "audience": "Confirmé recherchant une barre robuste pour progresser sur les mouvements lourds",
+      "status": "Validé"
+    }
+  ]
+}

@@ -177,7 +177,7 @@ Ce entretien minimal garantit la sécurité et prolonge considérablement la dur
 - **Négliger la charge maximale** : elle doit largement dépasser vos objectifs de charge ;
 - **Choisir un acier trop fin** pour économiser : la stabilité en pâtit dès que la barre est chargée ;
 - **Oublier les accessoires** : vérifiez la compatibilité future (poulies, dips) pour ne pas être bloqué ;
-- **Négliger la barre et les disques** : un rack sans une bonne barre olympique ne sert à rien.
+- **Négliger la barre et les disques** : un rack sans une bonne [barre olympique](/blog/barre-olympique/) ne sert à rien.
 
 Un achat réfléchi sur ces critères vous évitera bien des déceptions et des dépenses inutiles.
 
