@@ -14,6 +14,9 @@
   --mg-border: #ebeef3;    /* bordures */
   --mg-legal: #8a97ac;     /* mentions légales */
 
+  /* ---- Couleurs sémantiques (notation / avis) ---- */
+  --mg-gold: #f6a623;      /* étoiles de notation */
+
   /* ---- Dérivés (accent) ---- */
   --mg-orange-hover: #ff8f4d;  /* éclaircissement au hover */
   --mg-orange-strong: #e86816; /* orange foncé (liens/texte) */
