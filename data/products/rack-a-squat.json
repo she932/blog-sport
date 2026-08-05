@@ -1,0 +1,91 @@
+{
+  "_comment": "Catégorie « rack-a-squat » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-rack-001",
+      "name": "PASYOU SR30",
+      "keyword": "pasyou sr30",
+      "asin": "B0C27XKJJN",
+      "brand": "PASYOU",
+      "category": "rack-a-squat",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 92,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Un rack lourd et stable, bien adapté à un home gym sérieux grâce à ses nombreux réglages et à ses sécurités robustes.",
+      "pros": [
+        "Structure de 29,9 kg",
+        "14 positions pour les J-cups",
+        "Sécurités réglables",
+        "Charge annoncée élevée",
+        "Très bon équilibre stabilité/prix"
+      ],
+      "cons": [
+        "Encombrement supérieur aux chandelles séparées",
+        "Montage nécessaire",
+        "SAV moins établi que les grandes marques"
+      ],
+      "audience": "Intermédiaire à confirmé recherchant un rack stable pour squat et développé couché",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-rack-002",
+      "name": "ISE SY-RK1001",
+      "keyword": "ise sy-rk1001",
+      "asin": "B07F63NLYG",
+      "brand": "ISE",
+      "category": "rack-a-squat",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 89,
+      "mgScore": 4.5,
+      "verdict": "Très bon",
+      "summary": "Une solution très populaire et accessible pour débuter la musculation avec barre à domicile sans investir dans une cage complète.",
+      "pros": [
+        "Excellent rapport qualité/prix",
+        "16 positions de hauteur",
+        "Capacité annoncée 200 kg",
+        "Large base d’avis clients",
+        "Compact"
+      ],
+      "cons": [
+        "Moins protecteur qu’une cage complète",
+        "Pas de barre de traction",
+        "Stabilité dépendante du réglage et du sol"
+      ],
+      "audience": "Débutant à intermédiaire disposant de peu d’espace",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-rack-003",
+      "name": "HOP-Sport HS-1014K",
+      "keyword": "hop-sport hs-1014k",
+      "asin": "B08VKPD44D",
+      "brand": "HS HOP-SPORT",
+      "category": "rack-a-squat",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 89,
+      "mgScore": 4.5,
+      "verdict": "Très bon",
+      "summary": "Une station premium très polyvalente qui combine rack à squat, chaise romaine, dips et barre de traction dans une structure unique.",
+      "pros": [
+        "Charge maximale annoncée 300 kg",
+        "Barre de traction",
+        "Station à dips",
+        "Double sécurité pour la barre",
+        "Structure acier 50 × 50 mm"
+      ],
+      "cons": [
+        "Plus encombrante et lourde",
+        "Prix supérieur",
+        "Montage plus long",
+        "Moins compacte qu’un rack simple"
+      ],
+      "audience": "Intermédiaire ou confirmé souhaitant une station multifonction durable",
+      "status": "Validé"
+    }
+  ]
+}
