@@ -38,7 +38,11 @@ La whey (« lactosérum ») est une protéine issue du lait, riche en acides ami
 
 Elle ne remplace pas une alimentation équilibrée : elle la **complète** quand vos besoins sont difficiles à couvrir.
 
-[[FICHE:whey]]
+## Notre comparatif des meilleures whey protéines
+
+Voici les whey que nous recommandons, classées de la meilleure note à la suivante. La première est notre **Choix MuscuGuide** ; les suivantes restent d'excellentes options selon votre budget et vos préférences. Chaque produit est noté selon notre méthode (score sur 100 converti en note sur 5), sans jamais inventer de prix ni de caractéristiques.
+
+[[COMPARATIF:whey-proteine]]
 
 ## Les trois grands types de whey
 

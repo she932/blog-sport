@@ -1,0 +1,90 @@
+{
+  "_comment": "Catégorie « whey-proteine » — GÉNÉRÉ par scripts/import-catalog.mjs depuis MuscuGuide_Base_Produits.xlsx. Ne pas éditer à la main : modifier la base puis relancer l'import.",
+  "_generated": true,
+  "products": [
+    {
+      "id": "mg-whey-001",
+      "name": "Optimum Nutrition Gold Standard 100% Whey",
+      "keyword": "optimum nutrition gold standard 100% whey",
+      "asin": "B000QSNYGI",
+      "brand": "Optimum Nutrition",
+      "category": "whey-proteine",
+      "badge": "Choix MuscuGuide",
+      "rank": 1,
+      "scoreInternal": 93,
+      "mgScore": 4.7,
+      "verdict": "Excellent",
+      "summary": "Une whey de référence, facile à intégrer au quotidien et adaptée à la majorité des pratiquants recherchant une formule éprouvée.",
+      "pros": [
+        "24 g de protéines par portion",
+        "5,5 g de BCAA",
+        "Très forte notoriété",
+        "Mélange facile",
+        "Large choix de saveurs"
+      ],
+      "cons": [
+        "Prix souvent supérieur aux alternatives",
+        "Goût et texture variables selon le parfum",
+        "Contient des édulcorants"
+      ],
+      "audience": "Débutant à confirmé recherchant une whey polyvalente et reconnue",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-whey-002",
+      "name": "Applied Nutrition Critical Whey 2 kg",
+      "keyword": "applied nutrition critical whey 2 kg",
+      "asin": "B0CN72SD7K",
+      "brand": "Applied Nutrition",
+      "category": "whey-proteine",
+      "badge": "Meilleur rapport qualité/prix",
+      "rank": 2,
+      "scoreInternal": 87,
+      "mgScore": 4.4,
+      "verdict": "Très bon",
+      "summary": "Une whey accessible et bien dosée, intéressante pour une consommation régulière avec un budget maîtrisé.",
+      "pros": [
+        "24 g de protéines",
+        "Bon rapport quantité/prix",
+        "61 portions",
+        "120 kcal par portion",
+        "BCAA et glutamine"
+      ],
+      "cons": [
+        "Note client plus basse que les références premium",
+        "Composition pouvant varier selon le parfum",
+        "Texture plus sucrée pour certains utilisateurs"
+      ],
+      "audience": "Débutant à intermédiaire recherchant une whey économique pour un usage régulier",
+      "status": "Validé"
+    },
+    {
+      "id": "mg-whey-003",
+      "name": "BioTechUSA Iso Whey Zero 908 g",
+      "keyword": "biotechusa iso whey zero 908 g",
+      "asin": "B08TWSPB1F",
+      "brand": "BioTechUSA",
+      "category": "whey-proteine",
+      "badge": "Premium",
+      "rank": 3,
+      "scoreInternal": 91,
+      "mgScore": 4.6,
+      "verdict": "Excellent",
+      "summary": "Un isolat premium destiné aux utilisateurs qui privilégient une formule riche en protéines, pauvre en sucres et à teneur réduite en lactose.",
+      "pros": [
+        "Isolat de whey",
+        "21 g de protéines par portion",
+        "Teneur réduite en lactose",
+        "Sans sucres et sans gluten",
+        "BCAA et glutamine ajoutés"
+      ],
+      "cons": [
+        "Prix élevé au kilogramme",
+        "Format de 908 g plus petit",
+        "Saveurs parfois très marquées"
+      ],
+      "audience": "Intermédiaire à confirmé recherchant un isolat premium et une formule allégée en sucres",
+      "status": "Validé"
+    }
+  ]
+}
