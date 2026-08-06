@@ -7,7 +7,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleur banc de musculation",
-      "products": ["banc-reglable", "halteres-reglables", "barre-olympique"]
+      "products": [
+        "banc-reglable",
+        "halteres-reglables",
+        "barre-olympique"
+      ]
     },
     {
       "slug": "meilleures-halteres-reglables",
@@ -15,7 +19,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleures halteres reglables",
-      "products": ["halteres-reglables", "banc-reglable", "kettlebell"]
+      "products": [
+        "halteres-reglables",
+        "banc-reglable",
+        "kettlebell"
+      ]
     },
     {
       "slug": "salle-de-sport-maison-materiel",
@@ -23,7 +31,13 @@
       "type": "guide",
       "category": "guides",
       "keyword": "materiel salle de sport maison",
-      "products": ["rack-squat", "barre-olympique", "banc-reglable", "halteres-reglables", "tapis-sol"]
+      "products": [
+        "rack-squat",
+        "barre-olympique",
+        "banc-reglable",
+        "halteres-reglables",
+        "tapis-sol"
+      ]
     },
     {
       "slug": "prise-de-masse-debutant",
@@ -31,7 +45,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "prise de masse debutant",
-      "products": ["whey", "creatine", "halteres-reglables", "banc-reglable"]
+      "products": [
+        "whey",
+        "creatine",
+        "halteres-reglables",
+        "banc-reglable"
+      ]
     },
     {
       "slug": "combien-de-proteines-par-jour",
@@ -39,7 +58,10 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "combien de proteines par jour muscle",
-      "products": ["whey", "creatine"]
+      "products": [
+        "whey",
+        "creatine"
+      ]
     },
     {
       "slug": "meilleure-whey-proteine",
@@ -47,7 +69,10 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure whey proteine",
-      "products": ["whey", "creatine"]
+      "products": [
+        "whey",
+        "creatine"
+      ]
     },
     {
       "slug": "programme-full-body-maison",
@@ -55,7 +80,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "programme full body maison",
-      "products": ["halteres-reglables", "elastiques", "tapis-sol", "barre-traction"]
+      "products": [
+        "halteres-reglables",
+        "elastiques",
+        "tapis-sol",
+        "barre-traction"
+      ]
     },
     {
       "slug": "meilleures-bandes-elastiques",
@@ -63,7 +93,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleures bandes elastiques musculation",
-      "products": ["elastiques", "tapis-sol", "barre-traction"]
+      "products": [
+        "elastiques",
+        "tapis-sol",
+        "barre-traction"
+      ]
     },
     {
       "slug": "creatine-guide-complet",
@@ -71,7 +105,10 @@
       "type": "guide",
       "category": "guides",
       "keyword": "creatine musculation guide",
-      "products": ["creatine", "whey"]
+      "products": [
+        "creatine",
+        "whey"
+      ]
     },
     {
       "slug": "muscler-le-dos-maison",
@@ -79,7 +116,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "muscler le dos a la maison",
-      "products": ["barre-traction", "elastiques", "halteres-reglables"]
+      "products": [
+        "barre-traction",
+        "elastiques",
+        "halteres-reglables"
+      ]
     },
     {
       "slug": "meilleure-barre-de-traction",
@@ -87,7 +128,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure barre de traction",
-      "products": ["barre-traction", "elastiques", "sangles-tractions"]
+      "products": [
+        "barre-traction",
+        "elastiques",
+        "sangles-tractions"
+      ]
     },
     {
       "slug": "meilleure-kettlebell",
@@ -95,7 +140,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure kettlebell",
-      "products": ["kettlebell", "tapis-sol", "corde-sauter"]
+      "products": [
+        "kettlebell",
+        "tapis-sol",
+        "corde-sauter"
+      ]
     },
     {
       "slug": "perte-de-poids-musculation",
@@ -103,7 +152,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "musculation perte de poids secher",
-      "products": ["corde-sauter", "kettlebell", "whey", "velo-appartement"]
+      "products": [
+        "corde-sauter",
+        "kettlebell",
+        "whey",
+        "velo-appartement"
+      ]
     },
     {
       "slug": "meilleure-corde-a-sauter",
@@ -111,7 +165,10 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure corde a sauter",
-      "products": ["corde-sauter", "tapis-sol"]
+      "products": [
+        "corde-sauter",
+        "tapis-sol"
+      ]
     },
     {
       "slug": "gainer-les-abdos",
@@ -119,7 +176,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "exercices gainage abdos",
-      "products": ["roue-abdos", "tapis-sol", "elastiques"]
+      "products": [
+        "roue-abdos",
+        "tapis-sol",
+        "elastiques"
+      ]
     },
     {
       "slug": "meilleur-rack-squat",
@@ -127,7 +188,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleur rack squat cage",
-      "products": ["rack-squat", "barre-olympique", "banc-reglable"]
+      "products": [
+        "rack-squat",
+        "barre-olympique",
+        "banc-reglable"
+      ]
     },
     {
       "slug": "meilleure-montre-sport",
@@ -135,7 +200,9 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure montre connectee sport",
-      "products": ["montre-cardio"]
+      "products": [
+        "montre-cardio"
+      ]
     },
     {
       "slug": "programme-prise-de-force",
@@ -143,7 +210,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "programme prise de force",
-      "products": ["barre-olympique", "rack-squat", "ceinture-lombaire", "sangles-tractions"]
+      "products": [
+        "barre-olympique",
+        "rack-squat",
+        "ceinture-lombaire",
+        "sangles-tractions"
+      ]
     },
     {
       "slug": "recuperation-musculaire",
@@ -151,7 +223,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "recuperation musculaire musculation",
-      "products": ["whey", "creatine", "tapis-sol"]
+      "products": [
+        "whey",
+        "creatine",
+        "tapis-sol"
+      ]
     },
     {
       "slug": "debuter-la-musculation",
@@ -159,7 +235,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "debuter la musculation",
-      "products": ["halteres-reglables", "banc-reglable", "elastiques", "whey"]
+      "products": [
+        "halteres-reglables",
+        "banc-reglable",
+        "elastiques",
+        "whey"
+      ]
     },
     {
       "slug": "muscler-les-pectoraux-maison",
@@ -167,7 +248,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "muscler les pectoraux a la maison",
-      "products": ["halteres-reglables", "banc-reglable", "elastiques"]
+      "products": [
+        "halteres-reglables",
+        "banc-reglable",
+        "elastiques"
+      ]
     },
     {
       "slug": "muscler-les-jambes-maison",
@@ -175,7 +260,12 @@
       "type": "guide",
       "category": "guides",
       "keyword": "muscler les jambes a la maison",
-      "products": ["halteres-reglables", "kettlebell", "elastiques", "barre-olympique"]
+      "products": [
+        "halteres-reglables",
+        "kettlebell",
+        "elastiques",
+        "barre-olympique"
+      ]
     },
     {
       "slug": "muscler-les-bras-maison",
@@ -183,7 +273,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "muscler les bras a la maison",
-      "products": ["halteres-reglables", "elastiques", "barre-traction"]
+      "products": [
+        "halteres-reglables",
+        "elastiques",
+        "barre-traction"
+      ]
     },
     {
       "slug": "meilleur-tapis-de-fitness",
@@ -191,7 +285,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleur tapis de fitness",
-      "products": ["tapis-sol", "roue-abdos", "elastiques"]
+      "products": [
+        "tapis-sol",
+        "roue-abdos",
+        "elastiques"
+      ]
     },
     {
       "slug": "meilleure-ceinture-de-force",
@@ -199,7 +297,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleure ceinture de musculation",
-      "products": ["ceinture-lombaire", "sangles-tractions", "barre-olympique"]
+      "products": [
+        "ceinture-lombaire",
+        "sangles-tractions",
+        "barre-olympique"
+      ]
     },
     {
       "slug": "meilleur-velo-appartement",
@@ -207,7 +309,11 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleur velo d'appartement",
-      "products": ["velo-appartement", "montre-cardio", "corde-sauter"]
+      "products": [
+        "velo-appartement",
+        "montre-cardio",
+        "corde-sauter"
+      ]
     },
     {
       "slug": "echauffement-avant-musculation",
@@ -215,7 +321,11 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "echauffement avant musculation",
-      "products": ["elastiques", "corde-sauter", "tapis-sol"]
+      "products": [
+        "elastiques",
+        "corde-sauter",
+        "tapis-sol"
+      ]
     },
     {
       "slug": "etirements-recuperation",
@@ -223,7 +333,10 @@
       "type": "conseil",
       "category": "conseils",
       "keyword": "etirements musculation mobilite",
-      "products": ["tapis-sol", "elastiques"]
+      "products": [
+        "tapis-sol",
+        "elastiques"
+      ]
     },
     {
       "slug": "proteines-vegetales-musculation",
@@ -231,7 +344,10 @@
       "type": "guide",
       "category": "guides",
       "keyword": "proteines vegetales musculation",
-      "products": ["whey", "creatine"]
+      "products": [
+        "whey",
+        "creatine"
+      ]
     },
     {
       "slug": "meilleurs-complements-musculation",
@@ -239,7 +355,10 @@
       "type": "comparatif",
       "category": "comparatifs",
       "keyword": "meilleurs complements musculation",
-      "products": ["whey", "creatine"]
+      "products": [
+        "whey",
+        "creatine"
+      ]
     },
     {
       "slug": "hiit-maison-bruler-graisse",
@@ -247,7 +366,11 @@
       "type": "guide",
       "category": "guides",
       "keyword": "hiit maison bruler graisse",
-      "products": ["corde-sauter", "kettlebell", "tapis-sol"]
+      "products": [
+        "corde-sauter",
+        "kettlebell",
+        "tapis-sol"
+      ]
     },
     {
       "slug": "home-gym-petit-budget",
@@ -255,7 +378,259 @@
       "type": "guide",
       "category": "guides",
       "keyword": "home gym pas cher petit budget",
-      "products": ["elastiques", "halteres-reglables", "barre-traction", "tapis-sol", "corde-sauter"]
+      "products": [
+        "elastiques",
+        "halteres-reglables",
+        "barre-traction",
+        "tapis-sol",
+        "corde-sauter"
+      ]
+    },
+    {
+      "slug": "meilleur-tapis-de-course-pliable-comparatif-pour-la-maison",
+      "title": "Meilleur tapis de course pliable : comparatif pour la maison",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "tapis de course pliable",
+      "products": [
+        "tapis-course-pliable",
+        "montre-cardio",
+        "velo-appartement"
+      ]
+    },
+    {
+      "slug": "meilleure-roue-abdominale-comparatif-et-guide-d-utilisation",
+      "title": "Meilleure roue abdominale : comparatif et guide d'utilisation",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "roue abdominale",
+      "products": [
+        "mg-roue-001",
+        "mg-roue-002",
+        "mg-roue-003",
+        "roue-abdos",
+        "tapis-sol"
+      ]
+    },
+    {
+      "slug": "meilleures-sangles-de-suspension-pour-tractions-comparatif",
+      "title": "Meilleures sangles de suspension pour tractions : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "sangles de suspension",
+      "products": [
+        "sangles-tractions",
+        "barre-traction",
+        "mg-trac-001"
+      ]
+    },
+    {
+      "slug": "meilleure-barre-olympique-comparatif-pour-la-musculation-a-domicile",
+      "title": "Meilleure barre olympique : comparatif pour la musculation à domicile",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "barre olympique",
+      "products": [
+        "barre-olympique",
+        "mg-barre-001",
+        "mg-barre-002",
+        "mg-rack-001"
+      ]
+    },
+    {
+      "slug": "meilleur-shaker-de-proteine-comparatif-pratique-et-durable",
+      "title": "Meilleur shaker de protéine : comparatif pratique et durable",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "shaker proteine",
+      "products": [
+        "shaker",
+        "whey",
+        "mg-whey-001"
+      ]
+    },
+    {
+      "slug": "banc-de-musculation-reglable-vs-banc-fixe-lequel-choisir",
+      "title": "Banc de musculation réglable vs banc fixe : lequel choisir ?",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "banc reglable musculation",
+      "products": [
+        "banc-reglable",
+        "mg-banc-001",
+        "mg-banc-002"
+      ]
+    },
+    {
+      "slug": "tapis-de-sol-de-fitness-comparatif-pour-yoga-gainage-et-pilates",
+      "title": "Tapis de sol de fitness : comparatif pour yoga, gainage et pilates",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "tapis de sol fitness",
+      "products": [
+        "tapis-sol",
+        "mg-tapis-001",
+        "mg-tapis-002"
+      ]
+    },
+    {
+      "slug": "programme-de-musculation-pour-femme-guide-complet-pour-se-sculpter",
+      "title": "Programme de musculation pour femme : guide complet pour se sculpter",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "programme musculation femme",
+      "products": [
+        "halteres-reglables",
+        "elastiques",
+        "tapis-sol",
+        "kettlebell"
+      ]
+    },
+    {
+      "slug": "comment-muscler-ses-fessiers-efficacement-guide-et-exercices",
+      "title": "Comment muscler ses fessiers efficacement : guide et exercices",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "muscler fessiers",
+      "products": [
+        "elastiques",
+        "halteres-reglables",
+        "kettlebell",
+        "tapis-sol"
+      ]
+    },
+    {
+      "slug": "musculation-apres-40-ans-le-guide-pour-progresser-sans-se-blesser",
+      "title": "Musculation après 40 ans : le guide pour progresser sans se blesser",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "musculation apres 40 ans",
+      "products": [
+        "halteres-reglables",
+        "banc-reglable",
+        "ceinture-lombaire"
+      ]
+    },
+    {
+      "slug": "comment-installer-une-cage-de-squat-a-la-maison-guide-pratique",
+      "title": "Comment installer une cage de squat à la maison : guide pratique",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "installer rack squat",
+      "products": [
+        "rack-squat",
+        "mg-rack-001",
+        "mg-rack-002",
+        "barre-olympique"
+      ]
+    },
+    {
+      "slug": "prise-de-masse-seche-le-guide-pour-gagner-du-muscle-sans-grossir",
+      "title": "Prise de masse sèche : le guide pour gagner du muscle sans grossir",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "prise de masse seche",
+      "products": [
+        "whey",
+        "creatine",
+        "mg-whey-002"
+      ]
+    },
+    {
+      "slug": "musculation-et-cardio-comment-bien-les-associer-pour-progresser",
+      "title": "Musculation et cardio : comment bien les associer pour progresser",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "associer musculation et cardio",
+      "products": [
+        "velo-appartement",
+        "corde-sauter",
+        "montre-cardio"
+      ]
+    },
+    {
+      "slug": "le-guide-complet-du-kettlebell-training-pour-tout-le-corps",
+      "title": "Le guide complet du kettlebell training pour tout le corps",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "kettlebell training",
+      "products": [
+        "kettlebell",
+        "mg-kett-001",
+        "mg-kett-002",
+        "mg-kett-003"
+      ]
+    },
+    {
+      "slug": "comment-progresser-aux-tractions-guide-du-debutant-a-l-expert",
+      "title": "Comment progresser aux tractions : guide du débutant à l'expert",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "progresser aux tractions",
+      "products": [
+        "barre-traction",
+        "elastiques",
+        "sangles-tractions",
+        "mg-trac-002"
+      ]
+    },
+    {
+      "slug": "combien-de-temps-de-repos-entre-les-series-en-musculation",
+      "title": "Combien de temps de repos entre les séries en musculation ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "temps de repos musculation",
+      "products": [
+        "montre-cardio",
+        "mg-montre-001"
+      ]
+    },
+    {
+      "slug": "quelle-frequence-d-entrainement-pour-progresser-en-musculation",
+      "title": "Quelle fréquence d'entraînement pour progresser en musculation ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "frequence entrainement musculation",
+      "products": [
+        "halteres-reglables",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "whey-avant-ou-apres-l-entrainement-que-dit-la-science",
+      "title": "Whey avant ou après l'entraînement : que dit la science ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "whey avant ou apres entrainement",
+      "products": [
+        "whey",
+        "mg-whey-001",
+        "shaker"
+      ]
+    },
+    {
+      "slug": "comment-eviter-les-douleurs-lombaires-en-musculation-conseils-pratiques",
+      "title": "Comment éviter les douleurs lombaires en musculation : conseils pratiques",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "douleurs lombaires musculation",
+      "products": [
+        "ceinture-lombaire",
+        "mg-banc-001",
+        "tapis-sol"
+      ]
+    },
+    {
+      "slug": "quel-poids-d-halteres-choisir-pour-debuter-la-musculation",
+      "title": "Quel poids d'haltères choisir pour débuter la musculation ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "quel poids halteres debuter",
+      "products": [
+        "halteres-reglables",
+        "mg-halt-001",
+        "mg-halt-002"
+      ]
     }
   ]
 }
