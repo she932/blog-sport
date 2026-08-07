@@ -6,6 +6,7 @@ import BaseLayout from './BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { SITE, CATEGORIES } from '../consts';
 import { AFFILIATE_DISCLOSURE } from '../lib/affiliate';
+import { slugifyTag } from '../lib/slug';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -17,19 +18,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const cat = CATEGORIES.find((c) => c.slug === data.category);
 
 // --- Articles liés (maillage interne) --------------------------
-// Même catégorie en priorité, complété par les plus récents. On exclut
-// l'article courant et on limite à 3. Purement build-time, aucune
-// dépendance à l'automatisation.
+// Pertinence par tags : score = nombre de tags en commun avec l'article
+// courant, tri par score décroissant puis date décroissante. Si moins de
+// 3 articles pertinents (score > 0), on complète avec les plus récents de
+// la même catégorie. Purement build-time, aucune dépendance à l'automatisation.
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
-const sameCat = allPosts.filter(
-  (p) => p.id !== post.id && p.data.category === data.category
-);
-const others = allPosts.filter(
-  (p) => p.id !== post.id && p.data.category !== data.category
-);
-const related = [...sameCat, ...others].slice(0, 3);
+const currentTags = new Set(data.tags);
+const candidates = allPosts.filter((p) => p.id !== post.id);
+const scored = candidates
+  .map((p) => ({
+    post: p,
+    score: p.data.tags.reduce((n, t) => n + (currentTags.has(t) ? 1 : 0), 0),
+  }))
+  .filter((s) => s.score > 0)
+  .sort(
+    (a, b) =>
+      b.score - a.score ||
+      b.post.data.pubDate.getTime() - a.post.data.pubDate.getTime()
+  );
+let related = scored.slice(0, 3).map((s) => s.post);
+// Complément : plus récents de la même catégorie si moins de 3 résultats.
+if (related.length < 3) {
+  const already = new Set([post.id, ...related.map((p) => p.id)]);
+  const fillers = candidates.filter(
+    (p) => !already.has(p.id) && p.data.category === data.category
+  );
+  related = [...related, ...fillers].slice(0, 3);
+}
+
+// Nombre d'articles par slug de tag : un tag n'est cliquable que si sa page
+// d'archive existe (seuil ≥ 2 dans src/pages/tag/[tag].astro), sinon on
+// afficherait un lien cassé. Les autres tags restent visibles, non cliquables.
+const tagCounts = new Map<string, number>();
+for (const p of allPosts) {
+  const seen = new Set<string>();
+  for (const t of p.data.tags) {
+    const slug = slugifyTag(t);
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    tagCounts.set(slug, (tagCounts.get(slug) ?? 0) + 1);
+  }
+}
+const hasTagPage = (t: string) => (tagCounts.get(slugifyTag(t)) ?? 0) >= 2;
 
 const canonical = new URL(`${base}/blog/${post.id}`, Astro.site).toString();
 const dateStr = data.pubDate.toLocaleDateString('fr-FR', {
@@ -44,7 +76,7 @@ const articleLd = {
   '@type': 'Article',
   headline: data.title,
   description: data.description,
-  image: [new URL(data.heroImage ?? `${base}/og-default.svg`, Astro.site).toString()],
+  image: [new URL(data.heroImage ?? `${base}/og-default.png`, Astro.site).toString()],
   datePublished: data.pubDate.toISOString(),
   dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
   author: { '@type': 'Organization', name: data.author },
@@ -140,7 +172,13 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
 
       {data.tags.length > 0 && (
         <div class="tags">
-          {data.tags.map((t) => <span class="tag">#{t}</span>)}
+          {data.tags.map((t) =>
+            hasTagPage(t) ? (
+              <a class="tag" href={`${base}/tag/${slugifyTag(t)}`}>#{t}</a>
+            ) : (
+              <span class="tag tag--static">#{t}</span>
+            )
+          )}
         </div>
       )}
     </div>
@@ -546,6 +584,14 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     padding: 0.32em 0.75em;
     border-radius: 999px;
     transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  a.tag:hover {
+    color: var(--color-accent-dark);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+    text-decoration: none;
+  }
+  .tag--static {
+    cursor: default;
   }
 
   /* ---------- Articles liés (maillage interne) ---------- */

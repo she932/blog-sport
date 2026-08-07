@@ -40,10 +40,52 @@ const { topics } = readJson(path.join(DATA_DIR, 'topics.json'));
 const { products } = loadProducts();
 const done = existingBaseSlugs();
 
-const topic = topics.find((t) => !done.has(t.slug));
+// --- Garde-fou anti-doublon -----------------------------------
+// Refuse un sujet dont le slug/thème est TROP PROCHE d'un article déjà
+// publié (pas seulement le slug de base exact). On compare les ensembles
+// de mots significatifs du slug candidat à ceux des articles existants
+// (similarité de Jaccard + règle d'inclusion), afin d'éviter les
+// quasi-doublons (ex. deux « HIIT maison brûler graisse »).
+const STOP = new Set(['les', 'des', 'une', 'pour', 'avec', 'sur', 'aux', 'par', 'the']);
+const tokenize = (slug) =>
+  new Set(slug.split('-').filter((w) => w.length > 2 && !STOP.has(w)));
+const existingTokens = [...done].map(tokenize);
+
+function nearDuplicateOf(topic) {
+  const slug = topic.slug || slugify(topic.title);
+  if (done.has(slug)) return slug; // doublon exact de slug de base
+  const cand = tokenize(`${slug}-${slugify(topic.keyword || '')}`);
+  if (cand.size === 0) return null;
+  for (let i = 0; i < existingTokens.length; i++) {
+    const ex = existingTokens[i];
+    if (ex.size === 0) continue;
+    let inter = 0;
+    for (const w of cand) if (ex.has(w)) inter++;
+    if (inter === 0) continue;
+    const union = new Set([...cand, ...ex]).size;
+    const jaccard = inter / union;
+    // Quasi-doublon : fort recouvrement, ou l'un des thèmes est inclus
+    // dans l'autre en partageant au moins 2 mots significatifs.
+    if (jaccard >= 0.6 || (inter >= 2 && (inter === cand.size || inter === ex.size))) {
+      return [...done][i];
+    }
+  }
+  return null;
+}
+
+let topic = null;
+for (const t of topics) {
+  const clash = nearDuplicateOf(t);
+  if (clash) {
+    console.log(`⏭️  Sujet ignoré (quasi-doublon de « ${clash} ») : ${t.title}`);
+    continue;
+  }
+  topic = t;
+  break;
+}
 if (!topic) {
   console.error(
-    '⚠️  Plus aucun sujet disponible dans data/topics.json.\n' +
+    '⚠️  Aucun sujet disponible sans risque de doublon dans data/topics.json.\n' +
       '    Lancez `npm run generate:topics` pour en générer de nouveaux, puis relancez.'
   );
   process.exit(2);
