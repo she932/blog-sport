@@ -30,7 +30,7 @@ const {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(
-  image ?? `${base}/og-default.svg`,
+  image ?? `${base}/og-default.png`,
   Astro.site
 );
 // Titre SEO : on ajoute la marque en suffixe uniquement si le titre ne la

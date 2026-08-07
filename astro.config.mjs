@@ -13,6 +13,17 @@ export default defineConfig({
   site: 'https://muscuguide.fr',
   base: '/',
   trailingSlash: 'ignore',
+  // Redirections des doublons supprimés vers l'article de référence conservé.
+  // En sortie statique, Astro génère une page de redirection (meta refresh +
+  // canonical) à l'ancienne URL, ce qui consolide le SEO vers l'article gardé.
+  redirects: {
+    '/blog/2026-08-02-hiit-maison-bruler-graisse':
+      '/blog/2026-08-05-hiit-maison-bruler-graisse',
+    '/blog/2026-08-02-proteines-vegetales-musculation':
+      '/blog/2026-08-03-proteines-vegetales-musculation',
+    '/blog/2026-08-02-meilleurs-complements-musculation':
+      '/blog/2026-08-04-meilleurs-complements-musculation',
+  },
   integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkAffiliate],

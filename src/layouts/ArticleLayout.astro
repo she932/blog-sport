@@ -48,6 +48,21 @@ if (related.length < 3) {
   related = [...related, ...fillers].slice(0, 3);
 }
 
+// Nombre d'articles par slug de tag : un tag n'est cliquable que si sa page
+// d'archive existe (seuil ≥ 2 dans src/pages/tag/[tag].astro), sinon on
+// afficherait un lien cassé. Les autres tags restent visibles, non cliquables.
+const tagCounts = new Map<string, number>();
+for (const p of allPosts) {
+  const seen = new Set<string>();
+  for (const t of p.data.tags) {
+    const slug = slugifyTag(t);
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    tagCounts.set(slug, (tagCounts.get(slug) ?? 0) + 1);
+  }
+}
+const hasTagPage = (t: string) => (tagCounts.get(slugifyTag(t)) ?? 0) >= 2;
+
 const canonical = new URL(`${base}/blog/${post.id}`, Astro.site).toString();
 const dateStr = data.pubDate.toLocaleDateString('fr-FR', {
   day: 'numeric',
@@ -61,7 +76,7 @@ const articleLd = {
   '@type': 'Article',
   headline: data.title,
   description: data.description,
-  image: [new URL(data.heroImage ?? `${base}/og-default.svg`, Astro.site).toString()],
+  image: [new URL(data.heroImage ?? `${base}/og-default.png`, Astro.site).toString()],
   datePublished: data.pubDate.toISOString(),
   dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
   author: { '@type': 'Organization', name: data.author },
@@ -157,9 +172,13 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
 
       {data.tags.length > 0 && (
         <div class="tags">
-          {data.tags.map((t) => (
-            <a class="tag" href={`${base}/tag/${slugifyTag(t)}`}>#{t}</a>
-          ))}
+          {data.tags.map((t) =>
+            hasTagPage(t) ? (
+              <a class="tag" href={`${base}/tag/${slugifyTag(t)}`}>#{t}</a>
+            ) : (
+              <span class="tag tag--static">#{t}</span>
+            )
+          )}
         </div>
       )}
     </div>
@@ -566,10 +585,13 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     border-radius: 999px;
     transition: color 0.15s ease, border-color 0.15s ease;
   }
-  .tag:hover {
+  a.tag:hover {
     color: var(--color-accent-dark);
     border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
     text-decoration: none;
+  }
+  .tag--static {
+    cursor: default;
   }
 
   /* ---------- Articles liés (maillage interne) ---------- */

@@ -32,15 +32,20 @@ export async function getStaticPaths() {
     }
   }
 
-  return [...groups.entries()].map(([slug, { label, posts: tagged }]) => ({
-    params: { tag: slug },
-    props: {
-      label,
-      posts: tagged.sort(
-        (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
-      ),
-    },
-  }));
+  // Seuil ≥ 2 : on ne génère pas de page pour un tag à un seul article
+  // (évite les pages d'archive « minces », mal valorisées en SEO). La page
+  // apparaîtra automatiquement dès qu'un 2ᵉ article portera ce tag.
+  return [...groups.entries()]
+    .filter(([, { posts: tagged }]) => tagged.length >= 2)
+    .map(([slug, { label, posts: tagged }]) => ({
+      params: { tag: slug },
+      props: {
+        label,
+        posts: tagged.sort(
+          (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+        ),
+      },
+    }));
 }
 
 interface Props {
