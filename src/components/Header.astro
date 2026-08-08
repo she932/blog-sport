@@ -28,13 +28,13 @@ const isActive = (href: string) =>
     <nav class="nav" id="primary-nav" aria-label="Navigation principale">
       {CATEGORIES.map((c) => (
         <a
-          href={`${base}/categorie/${c.slug}`}
-          class:list={['nav-link', { active: isActive(`${base}/categorie/${c.slug}`) }]}
+          href={`${base}/categorie/${c.slug}/`}
+          class:list={['nav-link', { active: isActive(`${base}/categorie/${c.slug}/`) }]}
         >
           {c.name}
         </a>
       ))}
-      <a href={`${base}/blog`} class:list={['nav-link', { active: isActive(`${base}/blog`) }]}>
+      <a href={`${base}/blog/`} class:list={['nav-link', { active: isActive(`${base}/blog/`) }]}>
         Tous les articles
       </a>
     </nav>

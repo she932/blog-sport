@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <nav class="cat-filter" aria-label="Filtrer par catégorie">
   <a
-    href={`${base}/blog`}
+    href={`${base}/blog/`}
     class:list={['cat-pill', { active: current === undefined }]}
     aria-current={current === undefined ? 'page' : undefined}
   >
@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </a>
   {CATEGORIES.map((c) => (
     <a
-      href={`${base}/categorie/${c.slug}`}
+      href={`${base}/categorie/${c.slug}/`}
       class:list={['cat-pill', { active: current === c.slug }]}
       aria-current={current === c.slug ? 'page' : undefined}
     >
