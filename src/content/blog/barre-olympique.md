@@ -65,7 +65,7 @@ Dans tous les cas, vérifiez la **capacité annoncée** (visez au moins 300 kg) 
 
 ## Barre, rack et disques : le trio de la force
 
-Une barre olympique donne sa pleine mesure associée à deux compléments. Un [rack à squat](/blog/2026-07-12-meilleur-rack-squat/) sécurise les squats et développés lourds en réceptionnant la barre en cas d'échec. Un [banc de musculation réglable](/blog/2026-07-25-meilleur-banc-de-musculation/) débloque le développé couché et incliné. Avec des disques Ø 50 mm, vous disposez alors d'un home gym de force complet, évolutif pendant des années.
+Une barre olympique donne sa pleine mesure associée à deux compléments. Un [rack à squat](/blog/meilleur-rack-squat/) sécurise les squats et développés lourds en réceptionnant la barre en cas d'échec. Un [banc de musculation réglable](/blog/meilleur-banc-de-musculation/) débloque le développé couché et incliné. Avec des disques Ø 50 mm, vous disposez alors d'un home gym de force complet, évolutif pendant des années.
 
 ## Entretien et durée de vie
 

@@ -70,7 +70,7 @@ Un débutant commence par une **amplitude réduite** (déroulé partiel), évent
 
 ## Roue à abdos et entraînement du tronc
 
-La roue à abdominaux s'intègre parfaitement dans un programme complet de renforcement. Pour aller plus loin sur le travail des abdominaux et du gainage, consultez notre [guide du gainage et des abdos](/blog/2026-07-13-gainer-les-abdos/), qui détaille les exercices, la vérité sur le ventre plat et un programme structuré. Associée au poids du corps et à quelques accessoires simples, la roue permet de bâtir un tronc solide sans matériel encombrant.
+La roue à abdominaux s'intègre parfaitement dans un programme complet de renforcement. Pour aller plus loin sur le travail des abdominaux et du gainage, consultez notre [guide du gainage et des abdos](/blog/gainer-les-abdos/), qui détaille les exercices, la vérité sur le ventre plat et un programme structuré. Associée au poids du corps et à quelques accessoires simples, la roue permet de bâtir un tronc solide sans matériel encombrant.
 
 ## En résumé
 

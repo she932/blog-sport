@@ -220,7 +220,11 @@ if (words < 2000) {
 const now = new Date();
 const dateISO = now.toISOString().slice(0, 10);
 const slug = topic.slug || slugify(article.title);
-const filename = `${dateISO}-${slug}.md`;
+// Slug propre, sans préfixe de date : URLs evergreen cohérentes
+// (/blog/<slug>/). La date de publication reste portée par `pubDate`
+// dans le frontmatter, qui sert au tri — le nom de fichier n'a plus
+// besoin de la date.
+const filename = `${slug}.md`;
 
 // Frontmatter
 const faqYaml =
