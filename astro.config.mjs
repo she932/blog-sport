@@ -21,6 +21,10 @@ export default defineConfig({
   redirects: {
     '/blog/2026-07-09-recuperation-musculaire/':
       '/blog/recuperation-musculaire/',
+    '/blog/2026-08-07-meilleures-sangles-de-suspension-pour-tractions-comparatif/':
+      '/blog/meilleures-sangles-de-suspension-pour-tractions-comparatif/',
+    '/blog/2026-08-08-meilleur-shaker-de-proteine-comparatif-pratique-et-durable/':
+      '/blog/meilleur-shaker-de-proteine-comparatif-pratique-et-durable/',
     '/blog/2026-07-10-programme-prise-de-force/':
       '/blog/programme-prise-de-force/',
     '/blog/2026-07-11-meilleure-montre-sport/':
