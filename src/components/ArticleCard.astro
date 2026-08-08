@@ -10,7 +10,7 @@ interface Props {
 const { post, featured = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const cat = CATEGORIES.find((c) => c.slug === post.data.category);
-const url = `${base}/blog/${post.id}`;
+const url = `${base}/blog/${post.id}/`;
 const dateStr = post.data.pubDate.toLocaleDateString('fr-FR', {
   day: 'numeric',
   month: 'long',

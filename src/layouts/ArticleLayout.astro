@@ -63,7 +63,7 @@ for (const p of allPosts) {
 }
 const hasTagPage = (t: string) => (tagCounts.get(slugifyTag(t)) ?? 0) >= 2;
 
-const canonical = new URL(`${base}/blog/${post.id}`, Astro.site).toString();
+const canonical = new URL(`${base}/blog/${post.id}/`, Astro.site).toString();
 const dateStr = data.pubDate.toLocaleDateString('fr-FR', {
   day: 'numeric',
   month: 'long',
@@ -101,7 +101,7 @@ const breadcrumbLd = {
       '@type': 'ListItem',
       position: 2,
       name: cat.name,
-      item: new URL(`${base}/categorie/${cat.slug}`, Astro.site).toString(),
+      item: new URL(`${base}/categorie/${cat.slug}/`, Astro.site).toString(),
     },
     { '@type': 'ListItem', position: 3, name: data.title, item: canonical },
   ].filter(Boolean),
@@ -139,7 +139,7 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
     <div class="container post-head">
       <nav class="breadcrumb" aria-label="Fil d'Ariane">
         <a href={`${base}/`}>Accueil</a>
-        {cat && (<><span>/</span><a href={`${base}/categorie/${cat.slug}`}>{cat.name}</a></>)}
+        {cat && (<><span>/</span><a href={`${base}/categorie/${cat.slug}/`}>{cat.name}</a></>)}
       </nav>
       {cat && <span class="badge">{cat.name}</span>}
       <h1>{data.title}</h1>
@@ -174,7 +174,7 @@ const jsonLd = [articleLd, breadcrumbLd, faqLd].filter(Boolean) as Record<
         <div class="tags">
           {data.tags.map((t) =>
             hasTagPage(t) ? (
-              <a class="tag" href={`${base}/tag/${slugifyTag(t)}`}>#{t}</a>
+              <a class="tag" href={`${base}/tag/${slugifyTag(t)}/`}>#{t}</a>
             ) : (
               <span class="tag tag--static">#{t}</span>
             )

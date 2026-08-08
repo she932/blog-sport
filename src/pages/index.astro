@@ -65,8 +65,8 @@ const websiteLd = {
         <h1>{SITE.tagline}</h1>
         <p class="hero-sub">{SITE.description}</p>
         <div class="hero-cta">
-          <a class="btn-cta" href={`${base}/categorie/comparatifs`}>Voir les meilleurs comparatifs</a>
-          <a class="btn-ghost" href={`${base}/blog`}>Consulter les guides</a>
+          <a class="btn-cta" href={`${base}/categorie/comparatifs/`}>Voir les meilleurs comparatifs</a>
+          <a class="btn-ghost" href={`${base}/blog/`}>Consulter les guides</a>
         </div>
         <p class="hero-trust">Sélection indépendante · Guides mis à jour régulièrement · Liens Amazon transparents</p>
       </div>
@@ -108,7 +108,7 @@ const websiteLd = {
       </div>
       <div class="cat-grid">
         {CATEGORIES.map((c) => (
-          <a href={`${base}/categorie/${c.slug}`} class="cat-card">
+          <a href={`${base}/categorie/${c.slug}/`} class="cat-card">
             <span class="cat-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={CATEGORY_ICONS[c.slug] ?? ''} />
             </span>
@@ -128,7 +128,7 @@ const websiteLd = {
             <h2 class="section-title">Nos comparatifs les plus consultés</h2>
             <p class="section-sub">Les dossiers les plus utiles pour bien choisir</p>
           </div>
-          <a class="section-link" href={`${base}/categorie/comparatifs`}>Voir tous les comparatifs →</a>
+          <a class="section-link" href={`${base}/categorie/comparatifs/`}>Voir tous les comparatifs →</a>
         </div>
         <div class="grid grid--cards">
           {comparatifPosts.map((p) => (
@@ -232,7 +232,7 @@ const websiteLd = {
             <h2 class="section-title">Derniers guides et articles</h2>
             <p class="section-sub">Pour approfondir avant d'acheter</p>
           </div>
-          <a class="section-link" href={`${base}/blog`}>Voir tous les articles →</a>
+          <a class="section-link" href={`${base}/blog/`}>Voir tous les articles →</a>
         </div>
         <div class="grid grid--cards">
           {recentPosts.map((p) => (

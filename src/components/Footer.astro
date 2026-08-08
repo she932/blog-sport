@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
         <h4>Catégories</h4>
         <ul>
           {CATEGORIES.map((c) => (
-            <li><a href={`${base}/categorie/${c.slug}`}>{c.name}</a></li>
+            <li><a href={`${base}/categorie/${c.slug}/`}>{c.name}</a></li>
           ))}
         </ul>
       </div>
@@ -28,8 +28,8 @@ const year = new Date().getFullYear();
       <div>
         <h4>Le blog</h4>
         <ul>
-          <li><a href={`${base}/blog`}>Tous les articles</a></li>
-          <li><a href={`${base}/a-propos`}>À propos</a></li>
+          <li><a href={`${base}/blog/`}>Tous les articles</a></li>
+          <li><a href={`${base}/a-propos/`}>À propos</a></li>
           <li><a href={`${base}/rss.xml`}>Flux RSS</a></li>
         </ul>
       </div>
@@ -37,8 +37,8 @@ const year = new Date().getFullYear();
       <div>
         <h4>Légal</h4>
         <ul>
-          <li><a href={`${base}/mentions-legales`}>Mentions légales</a></li>
-          <li><a href={`${base}/politique-confidentialite`}>Politique de confidentialité</a></li>
+          <li><a href={`${base}/mentions-legales/`}>Mentions légales</a></li>
+          <li><a href={`${base}/politique-confidentialite/`}>Politique de confidentialité</a></li>
         </ul>
       </div>
     </div>

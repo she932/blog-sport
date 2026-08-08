@@ -65,9 +65,9 @@ Pensez aussi à votre **espace** : mesurez la surface au sol disponible et la ha
 
 ## Station home gym ou équipement modulaire ?
 
-La station n'est pas la seule voie pour se muscler chez soi. Un ensemble modulaire — un [banc de musculation réglable](/blog/2026-07-25-meilleur-banc-de-musculation/) associé à une paire d'[haltères réglables](/blog/2026-07-25-meilleures-halteres-reglables/) — offre plus de liberté de mouvement et coûte parfois moins cher, au prix d'un peu moins de sécurité sur les charges lourdes.
+La station n'est pas la seule voie pour se muscler chez soi. Un ensemble modulaire — un [banc de musculation réglable](/blog/meilleur-banc-de-musculation/) associé à une paire d'[haltères réglables](/blog/meilleures-halteres-reglables/) — offre plus de liberté de mouvement et coûte parfois moins cher, au prix d'un peu moins de sécurité sur les charges lourdes.
 
-Le bon choix dépend de vos priorités : la station mise sur la **sécurité et la polyvalence guidée** ; le matériel modulaire, sur la **liberté et l'évolutivité**. Si vous débutez avec un budget serré, notre guide pour [se monter un home gym pas cher](/blog/2026-08-02-home-gym-petit-budget/) complète utilement cette réflexion.
+Le bon choix dépend de vos priorités : la station mise sur la **sécurité et la polyvalence guidée** ; le matériel modulaire, sur la **liberté et l'évolutivité**. Si vous débutez avec un budget serré, notre guide pour [se monter un home gym pas cher](/blog/home-gym-petit-budget/) complète utilement cette réflexion.
 
 ## Installation et entretien
 
