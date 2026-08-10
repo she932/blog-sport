@@ -18,6 +18,8 @@ import {
   loadProducts,
   loadMarketplaces,
   buildAffiliateUrl,
+  resolveAsin,
+  isValidAsin,
   escapeHtml,
 } from './lib.mjs';
 import { selectFeatured, rankProducts } from './catalog-rules.mjs';
@@ -118,6 +120,34 @@ const byId = new Map(products.map((p) => [p.id, withLiveData(p)]));
 const resolve = (id) =>
   byId.get(id) || { id, name: id.replace(/-/g, ' '), keyword: id.replace(/-/g, ' ') };
 
+// Alias de LIEN (data/product-aliases.json) : un id « court » historique sans
+// ASIN hérite de l'ASIN de son produit vedette catalogué (mg-xxx) pour la
+// construction du lien /dp/. N'affecte QUE le lien (nom/score/publiabilité
+// inchangés). L'ASIN reste défini à un seul endroit (le produit mg-xxx).
+let ASIN_ALIASES = {};
+try {
+  ASIN_ALIASES = readJson(path.join(DATA_DIR, 'product-aliases.json')).aliases || {};
+} catch {
+  /* pas de fichier d'alias : comportement historique (repli recherche) */
+}
+
+/**
+ * Produit « effectif » pour le calcul de l'URL : si le produit n'a pas d'ASIN
+ * valide mais possède un alias, on lui prête l'ASIN du produit cible (sans
+ * modifier ses autres champs). Sinon, produit inchangé.
+ */
+function withAliasAsin(p) {
+  if (p && !isValidAsin(resolveAsin(p, COUNTRY)) && ASIN_ALIASES[p.id]) {
+    const target = byId.get(ASIN_ALIASES[p.id]);
+    const asin = target ? resolveAsin(target, COUNTRY) : '';
+    if (asin) return { ...p, asin };
+  }
+  return p;
+}
+
+/** URL affiliée d'un produit, alias de lien appliqué. */
+const affiliateUrl = (p) => buildAffiliateUrl(withAliasAsin(p), TAG, DOMAIN, COUNTRY);
+
 // Produit vedette d'une catégorie (marqueur [[VEDETTE:categorie]]) : résolu
 // dynamiquement par le moteur de règles (rang 1, puis score…), pour le
 // marketplace actif. Renvoie l'id du produit éligible, ou null.
@@ -160,36 +190,6 @@ function comparatifHtml(category) {
   return `<div class="mg-comparatif">${table}${fiches}</div>`;
 }
 
-/** Formate un nombre d'avis : 1234 -> "1 234", 12500 -> "12 500". */
-function formatReviews(n) {
-  const v = Number(n);
-  if (!v || v < 0) return '';
-  return String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-}
-
-/**
- * Bloc note/avis (chantier n°2). Rendu uniquement si `rating` est un nombre
- * valide entre 0 et 5. Les étoiles pleines sont clippées via --pct en CSS.
- */
-function ratingHtml(p) {
-  const r = Number(p.rating);
-  if (!r || r <= 0 || r > 5) return '';
-  const pct = Math.round((r / 5) * 100);
-  const num = r.toFixed(1).replace('.', ',');
-  const reviews = formatReviews(p.reviews);
-  const reviewsHtml = reviews
-    ? `<span class="aff-reviews">${reviews}&nbsp;avis</span>`
-    : '';
-  return (
-    `<span class="aff-rating">` +
-    `<span class="aff-stars" style="--pct:${pct}%" role="img" aria-label="Note ${num} sur 5">` +
-    `<span class="aff-stars-fill">★★★★★</span>★★★★★</span>` +
-    `<span class="aff-rating-num">${num}</span>` +
-    reviewsHtml +
-    `</span>`
-  );
-}
-
 /**
  * Encadré produit affilié.
  *
@@ -211,7 +211,7 @@ function ratingHtml(p) {
  */
 function boxHtml(id) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
+  const url = affiliateUrl(p);
   const descText = p.blurb || p.summary; // blurb = ligne courte ; sinon résumé
   const desc = descText ? `<p class="aff-desc">${escapeHtml(String(descText))}</p>` : '';
 
@@ -221,7 +221,6 @@ function boxHtml(id) {
     ? `<div class="aff-media"><img src="${escapeHtml(String(image))}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async" width="104" height="104"></div>`
     : '';
   const label = p.badge ? escapeHtml(String(p.badge)) : escapeHtml(LABELS.boxLabel);
-  const rating = ratingHtml(p);
 
   // Prix : uniquement le prix live PA-API (horodaté « au … », conforme au
   // contrat Partenaires Amazon). Aucune mention de prix manuelle/fixe n'est
@@ -244,7 +243,6 @@ function boxHtml(id) {
     `<div class="aff-info">` +
     `<span class="aff-label">${label}</span>` +
     `<span class="aff-name">${escapeHtml(p.name)}</span>` +
-    rating +
     desc +
     `</div>` +
     `<div class="aff-cta">` +
@@ -262,7 +260,7 @@ function boxHtml(id) {
 
 function linkHtml(id, anchor) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
+  const url = affiliateUrl(p);
   const text = (anchor || p.name).trim();
   return `<a class="aff-inline" href="${url}" target="_blank" rel="nofollow sponsored noopener">${escapeHtml(text)}</a>`;
 }
@@ -361,7 +359,7 @@ function pfRelated(related) {
     .map((rid) => {
       const rp = byId.get(rid);
       if (!rp) return '';
-      const url = buildAffiliateUrl(rp, TAG, DOMAIN, COUNTRY);
+      const url = affiliateUrl(rp);
       const img = rp.image || rp._image;
       const media = img
         ? `<span class="pf-rel-media"><img src="${escapeHtml(String(img))}" alt="${escapeHtml(rp.name)}" loading="lazy" decoding="async" width="46" height="46"></span>`
@@ -411,7 +409,7 @@ function ficheJsonLd(p, image) {
 
 function ficheHtml(id) {
   const p = resolve(id);
-  const url = buildAffiliateUrl(p, TAG, DOMAIN, COUNTRY);
+  const url = affiliateUrl(p);
   const image = p.image || p._image;
 
   const media = image
@@ -433,8 +431,10 @@ function ficheHtml(id) {
     ? `<p class="pf-summary">${escapeHtml(String(p.summary))}</p>`
     : '';
 
-  // --- Note MuscuGuide (héros) + avis clients (preuve sociale) ---
-  const mg = Number(p.mgScore) || Number(p.rating);
+  // --- Note MuscuGuide (héros) : score ÉDITORIAL uniquement. La note clients
+  // Amazon (étoiles + nombre d'avis) n'est plus affichée (non vérifiable /
+  // non live) : seul le Score MuscuGuide est présenté, comme sur l'accueil.
+  const mg = Number(p.mgScore);
   const mgWord = mgVerdictWord(mg);
   const mgRing =
     mg > 0 && mg <= 5
@@ -443,12 +443,7 @@ function ficheHtml(id) {
         `<div class="pf-mg-meta"><span class="pf-mg-label">${ICON_SHIELD}${escapeHtml(LABELS.scoreLabel)}</span><span class="pf-mg-verdict-row"><span class="pf-mg-verdict">${escapeHtml(mgWord)}</span>${pfStars(mg)}</span></div>` +
         `</div>`
       : '';
-  const community =
-    Number(p.rating) > 0 && p.reviews
-      ? `<div class="pf-community"><span class="pf-community-top">${pfStars(p.rating)}<span class="pf-community-num">${commaNum(p.rating)}</span></span><span class="pf-community-reviews">${formatReviews(p.reviews)} ${escapeHtml(LABELS.communitySuffix)}</span></div>`
-      : '';
-  const verdictCard =
-    mgRing || community ? `<div class="pf-verdictcard">${mgRing}${community}</div>` : '';
+  const verdictCard = mgRing ? `<div class="pf-verdictcard">${mgRing}</div>` : '';
 
   // --- Repères de confiance (audience, dernière vérification) ---
   const metaItems = [];

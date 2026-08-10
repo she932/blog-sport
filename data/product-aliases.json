@@ -1,0 +1,15 @@
+{
+  "_comment": "Alias de LIEN uniquement. Un id 'court' historique (sans ASIN) hérite, pour la construction du lien affilié, de l'ASIN de son produit vedette catalogué (mg-xxx-001) de la même catégorie. But : les liens des articles (existants ET futurs) pointent vers une fiche produit /dp/ au lieu d'une recherche Amazon. Ceci N'AFFECTE QUE le lien : l'id court garde son nom/score/encadré et ne devient PAS publiable (classement, vedette, comparatif, badges inchangés). L'ASIN reste défini à un seul endroit (le produit mg-xxx). Ajouter un alias = ajouter une entrée ici, sans toucher au code.",
+  "aliases": {
+    "halteres-reglables": "mg-halt-001",
+    "whey": "mg-whey-001",
+    "banc-reglable": "mg-banc-001",
+    "barre-traction": "mg-trac-001",
+    "barre-olympique": "mg-barre-001",
+    "rack-squat": "mg-rack-001",
+    "kettlebell": "mg-kett-001",
+    "montre-cardio": "mg-montre-001",
+    "roue-abdos": "mg-roue-001",
+    "tapis-course-pliable": "mg-tapis-001"
+  }
+}
