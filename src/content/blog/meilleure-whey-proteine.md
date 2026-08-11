@@ -52,6 +52,10 @@ Elle ne remplace pas une alimentation équilibrée : elle la **complète** quand
 
 Voici les whey que nous recommandons, classées de la meilleure note à la suivante. La première est notre **Choix MuscuGuide** ; les suivantes restent d'excellentes options selon votre budget et vos préférences. Chaque produit est noté selon notre méthode (score sur 100 converti en note sur 5), sans jamais inventer de prix ni de caractéristiques.
 
+### Le comparatif détaillé
+
+Vous retrouvez ci-dessous notre Choix MuscuGuide déjà présenté en haut de page, cette fois replacé dans le classement complet et suivi de ses deux alternatives — chacune avec sa note, son verdict et son meilleur cas d'usage.
+
 [[COMPARATIF:whey-proteine]]
 
 ## Les trois grands types de whey
