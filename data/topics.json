@@ -631,6 +631,250 @@
         "mg-halt-001",
         "mg-halt-002"
       ]
+    },
+    {
+      "slug": "meilleur-elastique-de-traction-pour-progresser-aux-tractions-comparatif",
+      "title": "Meilleur élastique de traction pour progresser aux tractions : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "elastique de traction",
+      "products": [
+        "elastiques",
+        "barre-traction",
+        "sangles-tractions"
+      ]
+    },
+    {
+      "slug": "meilleur-banc-a-charge-guidee-comparatif-pour-la-musculation-a-domicile",
+      "title": "Meilleur banc à charge guidée : comparatif pour la musculation à domicile",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "banc a charge guidee",
+      "products": [
+        "mg-banc-001",
+        "mg-banc-002",
+        "mg-banc-003",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "quelle-whey-choisir-selon-son-objectif-prise-de-masse-ou-seche",
+      "title": "Quelle whey choisir selon son objectif : prise de masse ou sèche ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "quelle whey choisir",
+      "products": [
+        "whey",
+        "mg-whey-001",
+        "mg-whey-002",
+        "mg-whey-003"
+      ]
+    },
+    {
+      "slug": "comment-choisir-sa-premiere-paire-d-halteres-guide-d-achat-complet",
+      "title": "Comment choisir sa première paire d'haltères : guide d'achat complet",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "choisir haltere",
+      "products": [
+        "mg-halt-001",
+        "mg-halt-002",
+        "mg-halt-003",
+        "halteres-reglables"
+      ]
+    },
+    {
+      "slug": "meilleur-combo-rack-et-barre-olympique-pour-equiper-son-garage-gym",
+      "title": "Meilleur combo rack et barre olympique pour équiper son garage gym",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "rack barre olympique",
+      "products": [
+        "mg-rack-001",
+        "mg-rack-002",
+        "mg-rack-003",
+        "barre-olympique",
+        "rack-squat"
+      ]
+    },
+    {
+      "slug": "programme-de-musculation-en-split-organiser-sa-semaine-d-entrainement",
+      "title": "Programme de musculation en split : organiser sa semaine d'entraînement",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "programme split musculation",
+      "products": [
+        "mg-halt-001",
+        "barre-olympique",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "comment-nettoyer-et-entretenir-son-materiel-de-musculation-a-la-maison",
+      "title": "Comment nettoyer et entretenir son matériel de musculation à la maison",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "entretien materiel musculation",
+      "products": [
+        "tapis-sol",
+        "kettlebell",
+        "halteres-reglables"
+      ]
+    },
+    {
+      "slug": "meilleure-application-de-suivi-fitness-a-coupler-avec-sa-montre-connectee",
+      "title": "Meilleure application de suivi fitness à coupler avec sa montre connectée",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "application suivi fitness",
+      "products": [
+        "mg-montre-001",
+        "mg-montre-002",
+        "mg-montre-003",
+        "montre-cardio"
+      ]
+    },
+    {
+      "slug": "musculation-pour-ectomorphe-comment-prendre-du-muscle-quand-on-est-maigre",
+      "title": "Musculation pour ectomorphe : comment prendre du muscle quand on est maigre",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "musculation ectomorphe",
+      "products": [
+        "whey",
+        "creatine",
+        "mg-banc-001"
+      ]
+    },
+    {
+      "slug": "comment-calculer-son-1rm-en-musculation-methode-et-calculateur",
+      "title": "Comment calculer son 1RM en musculation : méthode et calculateur",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "calculer 1rm",
+      "products": [
+        "barre-olympique",
+        "rack-squat",
+        "ceinture-lombaire"
+      ]
+    },
+    {
+      "slug": "meilleur-velo-elliptique-pour-le-cardio-a-la-maison-comparatif",
+      "title": "Meilleur vélo elliptique pour le cardio à la maison : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "velo elliptique",
+      "products": [
+        "velo-appartement",
+        "tapis-course-pliable",
+        "montre-cardio"
+      ]
+    },
+    {
+      "slug": "musculation-au-poids-du-corps-le-guide-complet-sans-materiel",
+      "title": "Musculation au poids du corps : le guide complet sans matériel",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "musculation poids du corps",
+      "products": [
+        "tapis-sol",
+        "barre-traction",
+        "elastiques"
+      ]
+    },
+    {
+      "slug": "comment-choisir-sa-ceinture-lombaire-guide-d-achat-et-conseils-d-utilisation",
+      "title": "Comment choisir sa ceinture lombaire : guide d'achat et conseils d'utilisation",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "choisir ceinture lombaire",
+      "products": [
+        "ceinture-lombaire"
+      ]
+    },
+    {
+      "slug": "quelle-quantite-de-creatine-prendre-selon-son-poids-conseils-pratiques",
+      "title": "Quelle quantité de créatine prendre selon son poids : conseils pratiques",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "dosage creatine poids",
+      "products": [
+        "creatine"
+      ]
+    },
+    {
+      "slug": "meilleur-tapis-de-course-pour-appartement-comparatif-compact-et-silencieux",
+      "title": "Meilleur tapis de course pour appartement : comparatif compact et silencieux",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "tapis de course appartement",
+      "products": [
+        "tapis-course-pliable",
+        "mg-tapis-001",
+        "mg-tapis-002",
+        "mg-tapis-003"
+      ]
+    },
+    {
+      "slug": "comment-muscler-ses-epaules-efficacement-exercices-et-materiel",
+      "title": "Comment muscler ses épaules efficacement : exercices et matériel",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "muscler epaules",
+      "products": [
+        "mg-halt-001",
+        "halteres-reglables",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "musculation-et-jeune-intermittent-comment-concilier-les-deux",
+      "title": "Musculation et jeûne intermittent : comment concilier les deux",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "musculation jeune intermittent",
+      "products": [
+        "whey",
+        "shaker",
+        "creatine"
+      ]
+    },
+    {
+      "slug": "meilleure-barre-de-traction-murale-ou-de-porte-lequel-choisir",
+      "title": "Meilleure barre de traction murale ou de porte : lequel choisir ?",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "barre de traction murale",
+      "products": [
+        "mg-trac-001",
+        "mg-trac-002",
+        "mg-trac-003",
+        "barre-traction"
+      ]
+    },
+    {
+      "slug": "comment-perdre-du-gras-sans-perdre-de-muscle-le-guide-de-la-recomposition-corpor",
+      "title": "Comment perdre du gras sans perdre de muscle : le guide de la recomposition corporelle",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "recomposition corporelle",
+      "products": [
+        "whey",
+        "creatine",
+        "velo-appartement"
+      ]
+    },
+    {
+      "slug": "douleurs-au-poignet-en-musculation-causes-et-solutions-pratiques",
+      "title": "Douleurs au poignet en musculation : causes et solutions pratiques",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "douleur poignet musculation",
+      "products": [
+        "ceinture-lombaire",
+        "mg-halt-001",
+        "elastiques"
+      ]
     }
   ]
 }
