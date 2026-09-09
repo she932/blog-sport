@@ -875,6 +875,244 @@
         "mg-halt-001",
         "elastiques"
       ]
+    },
+    {
+      "slug": "meilleur-gilet-leste-pour-la-musculation-et-le-cardio-comparatif",
+      "title": "Meilleur gilet lesté pour la musculation et le cardio : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "gilet lesté musculation",
+      "products": [
+        "elastiques",
+        "kettlebell",
+        "corde-sauter"
+      ]
+    },
+    {
+      "slug": "meilleures-chaussures-de-musculation-comparatif-pour-la-salle-et-le-home-gym",
+      "title": "Meilleures chaussures de musculation : comparatif pour la salle et le home gym",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "chaussures musculation",
+      "products": [
+        "mg-halt-001",
+        "rack-squat",
+        "barre-olympique"
+      ]
+    },
+    {
+      "slug": "meilleur-bcaa-en-musculation-comparatif-pour-la-recuperation",
+      "title": "Meilleur BCAA en musculation : comparatif pour la récupération",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "bcaa musculation",
+      "products": [
+        "whey",
+        "creatine",
+        "shaker"
+      ]
+    },
+    {
+      "slug": "meilleure-barre-ez-barre-curl-comparatif-pour-biceps-et-triceps",
+      "title": "Meilleure barre EZ (barre curl) : comparatif pour biceps et triceps",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "barre ez musculation",
+      "products": [
+        "mg-barre-001",
+        "mg-barre-002",
+        "mg-barre-003"
+      ]
+    },
+    {
+      "slug": "meilleur-sac-de-frappe-pour-s-entrainer-a-la-maison-comparatif",
+      "title": "Meilleur sac de frappe pour s'entraîner à la maison : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "sac de frappe",
+      "products": [
+        "mg-home-001",
+        "mg-home-002",
+        "mg-home-003"
+      ]
+    },
+    {
+      "slug": "meilleures-poignees-de-tirage-et-accessoires-de-traction-comparatif",
+      "title": "Meilleures poignées de tirage et accessoires de traction : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "poignees tirage musculation",
+      "products": [
+        "mg-trac-001",
+        "mg-trac-002",
+        "mg-trac-003",
+        "sangles-tractions"
+      ]
+    },
+    {
+      "slug": "meilleur-casque-ou-ecouteurs-sport-pour-s-entrainer-comparatif",
+      "title": "Meilleur casque ou écouteurs sport pour s'entraîner : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "ecouteurs sport musculation",
+      "products": [
+        "montre-cardio",
+        "tapis-course-pliable",
+        "velo-appartement"
+      ]
+    },
+    {
+      "slug": "meilleur-gainer-mass-gainer-pour-la-prise-de-masse-comparatif",
+      "title": "Meilleur gainer (mass gainer) pour la prise de masse : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "gainer prise de masse",
+      "products": [
+        "whey",
+        "mg-whey-001",
+        "mg-whey-002",
+        "shaker"
+      ]
+    },
+    {
+      "slug": "meilleurs-disques-de-fonte-et-poids-olympiques-comparatif",
+      "title": "Meilleurs disques de fonte et poids olympiques : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "disques fonte musculation",
+      "products": [
+        "barre-olympique",
+        "rack-squat",
+        "mg-rack-001"
+      ]
+    },
+    {
+      "slug": "meilleure-planche-abdominale-ab-wheel-vs-planche-inclinee-comparatif",
+      "title": "Meilleure planche abdominale (ab wheel vs planche inclinée) : comparatif",
+      "type": "comparatif",
+      "category": "comparatifs",
+      "keyword": "planche abdominale musculation",
+      "products": [
+        "roue-abdos",
+        "mg-roue-001",
+        "mg-roue-002",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "comment-prendre-ses-mensurations-pour-suivre-sa-progression-musculaire",
+      "title": "Comment prendre ses mensurations pour suivre sa progression musculaire",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "prendre mensurations musculation",
+      "products": [
+        "montre-cardio",
+        "mg-montre-001"
+      ]
+    },
+    {
+      "slug": "le-guide-complet-de-la-periodisation-en-musculation-pour-progresser-sur-le-long-",
+      "title": "Le guide complet de la périodisation en musculation pour progresser sur le long terme",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "periodisation musculation",
+      "products": [
+        "rack-squat",
+        "barre-olympique",
+        "montre-cardio"
+      ]
+    },
+    {
+      "slug": "musculation-et-testosterone-comprendre-le-lien-et-l-optimiser-naturellement",
+      "title": "Musculation et testostérone : comprendre le lien et l'optimiser naturellement",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "testosterone musculation",
+      "products": [
+        "creatine",
+        "whey"
+      ]
+    },
+    {
+      "slug": "le-guide-du-deload-en-musculation-pourquoi-et-comment-planifier-une-semaine-de-d",
+      "title": "Le guide du deload en musculation : pourquoi et comment planifier une semaine de décharge",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "deload musculation",
+      "products": [
+        "rack-squat",
+        "barre-olympique"
+      ]
+    },
+    {
+      "slug": "comment-muscler-ses-mollets-efficacement-guide-complet-et-exercices",
+      "title": "Comment muscler ses mollets efficacement : guide complet et exercices",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "muscler mollets",
+      "products": [
+        "mg-halt-001",
+        "halteres-reglables",
+        "banc-reglable"
+      ]
+    },
+    {
+      "slug": "musculation-pour-endomorphe-le-guide-pour-se-sculpter-et-secher-efficacement",
+      "title": "Musculation pour endomorphe : le guide pour se sculpter et sécher efficacement",
+      "type": "guide",
+      "category": "guides",
+      "keyword": "musculation endomorphe",
+      "products": [
+        "velo-appartement",
+        "tapis-course-pliable",
+        "whey"
+      ]
+    },
+    {
+      "slug": "comment-bien-respirer-en-musculation-technique-et-impact-sur-la-performance",
+      "title": "Comment bien respirer en musculation : technique et impact sur la performance",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "respiration musculation",
+      "products": [
+        "ceinture-lombaire",
+        "barre-olympique"
+      ]
+    },
+    {
+      "slug": "musculation-le-soir-vs-le-matin-quel-est-le-meilleur-moment-pour-s-entrainer",
+      "title": "Musculation le soir vs le matin : quel est le meilleur moment pour s'entraîner ?",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "meilleur moment musculation",
+      "products": [
+        "montre-cardio",
+        "whey"
+      ]
+    },
+    {
+      "slug": "comment-eviter-la-stagnation-plateau-en-musculation-conseils-pour-relancer-sa-pr",
+      "title": "Comment éviter la stagnation (plateau) en musculation : conseils pour relancer sa progression",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "plateau musculation",
+      "products": [
+        "rack-squat",
+        "halteres-reglables",
+        "creatine"
+      ]
+    },
+    {
+      "slug": "faut-il-s-entrainer-a-jeun-pour-la-musculation-avantages-et-inconvenients",
+      "title": "Faut-il s'entraîner à jeun pour la musculation : avantages et inconvénients",
+      "type": "conseil",
+      "category": "conseils",
+      "keyword": "entrainement a jeun musculation",
+      "products": [
+        "whey",
+        "creatine",
+        "shaker"
+      ]
     }
   ]
 }
